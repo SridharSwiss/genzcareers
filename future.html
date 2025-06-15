@@ -832,32 +832,59 @@
         </div>
     </section>
 
-    <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, observerOptions);
 
-        // Animate progress bars when they come into view
-        const progressObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progressFills = entry.target.querySelectorAll('.progress-fill');
-                    progressFills.forEach(fill => {
-                        const width = fill.style.width;
-                        fill.style.width = '0%';
-                        setTimeout(() => {
-                            fill
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Animate progress bars when they come into view
+    const progressObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressFills = entry.target.querySelectorAll('.progress-fill');
+                progressFills.forEach(fill => {
+                    const finalWidth = fill.getAttribute('data-width') || fill.style.width;
+                    fill.style.width = '0%';
+                    setTimeout(() => {
+                        fill.style.transition = "width 2s cubic-bezier(0.4, 0, 0.2, 1)";
+                        fill.style.width = finalWidth;
+                    }, 100);
+                });
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.progress-item').forEach(item => {
+        // Store the current width in a data attribute, then set width to 0 for animation
+        item.querySelectorAll('.progress-fill').forEach(fill => {
+            fill.setAttribute('data-width', fill.style.width);
+            fill.style.width = "0%";
+        });
+        progressObserver.observe(item);
+    });
+
+    // Remove empty/white sections if any (defensive: in case of accidental empty sections)
+    document.querySelectorAll('section').forEach(section => {
+        if (
+            !section.textContent.trim() ||
+            section.offsetHeight < 50 // adjust as necessary
+        ) {
+            section.style.display = 'none';
+        }
+    });
+</script>
