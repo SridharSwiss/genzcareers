@@ -3,304 +3,2217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Graduate & PhD Programs in Switzerland | Your Guide to Swiss Higher Education</title>
-    <meta name="description" content="Explore the best Master's and PhD programs in Switzerland. Find details on curriculum, admission, fees, and application links for top universities like ETH Zurich, EPFL, and more.">
-    <link rel="stylesheet" href="styles.css"> <style>
-        /* Basic inline styles for demonstration. Replace with comprehensive styles.css */
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f7f6; }
-        .container { max-width: 1200px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #0056b3; text-align: center; margin-bottom: 30px; }
-        h2 { color: #0056b3; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
-        h3 { color: #007bff; margin-top: 25px; }
-        .university-section { margin-bottom: 50px; padding: 20px; background-color: #e9f5ff; border-left: 5px solid #0056b3; border-radius: 5px; }
-        .program-type { margin-bottom: 30px; }
-        .program-card { background: #ffffff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .program-card h4 { color: #333; margin-top: 0; }
-        .program-card ul { list-style-type: none; padding: 0; }
-        .program-card ul li { margin-bottom: 8px; }
-        .program-card ul li strong { color: #555; }
-        .apply-button { display: inline-block; background-color: #28a745; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background-color 0.3s ease; }
-        .apply-button:hover { background-color: #218838; }
-        .contact-info { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #eee; font-size: 0.9em; color: #666; }
-        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #777; }
-
-        /* Responsive Design (Example) */
+    <title>Swiss Uni Programs That Actually Slap 🇨🇭✨</title>
+    <meta name="description" content="Your no-BS guide to fire Master's and PhD programs in Switzerland. ETH, EPFL, and more - with all the tea you need 🍵">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-accent: #00f2fe;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+        @keyframes backgroundShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            33% { transform: translateX(-20px) translateY(20px); }
+            66% { transform: translateX(20px) translateY(-20px); }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--accent-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4);
+        }
+        /* University Cards */
+        .university-section {
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .university-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .university-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+        }
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px var(--shadow-color);
+        }
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .university-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+        }
+        .university-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .university-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        /* Program Type Headers */
+        .program-type-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 40px 0 30px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+        .program-type-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--secondary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .program-type-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        /* Program Cards */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .program-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .program-card:hover::before {
+            transform: scaleX(1);
+        }
+        .program-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .program-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .program-emoji {
+            font-size: 1.5rem;
+        }
+        .program-details {
+            list-style: none;
+        }
+        .program-details li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .detail-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-accent);
+            min-width: 120px;
+        }
+        .detail-content {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        /* Apply Button */
+        .apply-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--success-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(67, 233, 123, 0.3);
+        }
+        .apply-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(67, 233, 123, 0.4);
+        }
+        /* Contact Info */
+        .contact-info {
+            margin-top: 20px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .contact-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-accent);
+            margin-bottom: 8px;
+        }
+        .contact-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        /* More Programs Link */
+        .more-programs {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--glass-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+        .more-programs-link {
+            color: var(--text-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .more-programs-link:hover {
+            color: var(--text-primary);
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            background: var(--glass-bg);
+        }
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .footer-disclaimer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container { padding: 15px; }
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.5em; }
-            h3 { font-size: 1.2em; }
-            .program-card { padding: 15px; }
+            .container {
+                padding: 0 16px;
+            }
+
+            .university-card {
+                padding: 24px;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-card {
+                padding: 20px;
+            }
+
+            .university-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .program-type-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+        }
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Discover Your Future: Top Graduate & PhD Programs in Switzerland</h1>
-            <p style="text-align: center; font-size: 1.1em; color: #666;">A curated guide to leading Master's and PhD courses across Switzerland's prestigious universities, designed to help you navigate your academic journey.</p>
+            <h1 class="hero-title">Swiss Uni Programs That Actually Slap 🇨🇭✨</h1>
+            <p class="hero-subtitle">Your no-BS guide to fire Master's and PhD programs in Switzerland. We've got all the tea on ETH, EPFL, and more top-tier unis, so you can find your perfect fit and level up your education game.</p>
+            <a href="#explore" class="hero-cta">
+                Dive In
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </header>
 
-        <section class="university-section">
-            <h2>1. ETH Zurich (Swiss Federal Institute of Technology Zurich)</h2>
-            <p>One of the world's leading universities in science and technology, consistently ranked among the top global institutions. Known for its cutting-edge research and innovation.</p>
+        <main id="explore">
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">E</div>
+                        <div>
+                            <h2 class="university-title">ETH Zurich (Swiss Federal Institute of Technology Zurich)</h2>
+                            <p class="university-subtitle">The global powerhouse for science & tech, consistently dropping cutting-edge research.</p>
+                        </div>
+                    </div>
 
-            <div class="program-type">
-                <h3>Top Master's Programs at ETH Zurich (Examples)</h3>
-                <div class="program-card">
-                    <h4>MSc in Robotics, Systems and Control</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Focus on autonomous systems, machine learning, control theory, and mechatronics. Interdisciplinary approach with strong research opportunities.</li>
-                        <li><strong>Admission Criteria:</strong> Excellent Bachelor's degree in Electrical Engineering, Mechanical Engineering, Computer Science, or related field. Strong academic record (e.g., minimum 5.0 GPA on a 6.0 scale, or equivalent). English language proficiency (TOEFL iBT 100 / IELTS 7.0). GRE recommended.</li>
-                        <li><strong>Estimated Fees:</strong> Approx. CHF 730 per semester (for Swiss/EU/EFTA students and potentially others, but check for international student fee changes from Fall 2025). Additional semester fees apply.</li>
-                        <li><strong>Next Start Date:</strong> Typically Autumn Semester (September). Application deadline usually Dec 1 - Mar 15 for non-EU/EFTA citizens.</li>
-                        <li><strong>Application Link:</strong> <a href="https://ethz.ch/en/studies/master/application.html" target="_blank" class="apply-button">Apply to ETH Zurich Master's</a></li>
-                        <li><strong>Contact Details (General Admissions):</strong> master@ethz.ch / +41 44 632 81 00</li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>MSc in Computer Science</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Advanced topics in algorithms, artificial intelligence, software engineering, machine learning, and theoretical computer science. Strong emphasis on research and practical application.</li>
-                        <li><strong>Admission Criteria:</strong> Excellent Bachelor's degree in Computer Science or a closely related field. Strong academic performance. English language proficiency (TOEFL iBT 100 / IELTS 7.0).</li>
-                        <li><strong>Estimated Fees:</strong> Approx. CHF 730 per semester (check for international student fee changes). Additional semester fees.</li>
-                        <li><strong>Next Start Date:</strong> Typically Autumn Semester (September). Application deadline usually Dec 1 - Mar 15.</li>
-                        <li><strong>Application Link:</strong> <a href="https://ethz.ch/en/studies/master/application.html" target="_blank" class="apply-button">Apply to ETH Zurich Master's</a></li>
-                        <li><strong>Contact Details (General Admissions):</strong> master@ethz.ch / +41 44 632 81 00</li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>[Master's Program Title - Placeholder]</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> [Summarize key areas/courses. Find on specific program page.]</li>
-                        <li><strong>Admission Criteria:</strong> [General requirements for Master's at ETH Zurich apply. Check program-specific prerequisites.]</li>
-                        <li><strong>Estimated Fees:</strong> [Refer to general ETH Zurich fees. Check for program-specific variations.]</li>
-                        <li><strong>Next Start Date:</strong> [Check program page for exact dates. Most often Autumn Semester.]</li>
-                        <li><strong>Application Link:</strong> <a href="https://ethz.ch/en/studies/master/application.html" target="_blank" class="apply-button">Apply to ETH Zurich Master's</a> (Navigate to specific program once on site)</li>
-                        <li><strong>Contact Details:</strong> [Refer to general admissions or find program-specific contact on the ETH site.]</li>
-                    </ul>
-                </div>
-                <p><em>For a full list and detailed information on all Master's programs at ETH Zurich, please visit the official <a href="https://ethz.ch/en/studies/master/degree-programmes.html" target="_blank">ETH Zurich Master's Degree Programmes page</a>.</em></p>
-            </div>
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🤖</span> MSc in Robotics, Systems and Control</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Autonomous systems, machine learning, control theory, mechatronics. Super interdisciplinary with tons of research vibes.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Solid Bachelor's in EE, ME, CS, or similar. High GPA (5.0/6.0 scale). English proficiency (TOEFL 100 / IELTS 7.0). GRE boosts your app.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 730/semester (for Swiss/EU/EFTA and some others, but watch for international fee changes from Fall 2025).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Usually Autumn Semester (Sept). App deadline: Dec 1 - Mar 15 for non-EU/EFTA.</span>
+                                </li>
+                            </ul>
+                            <a href="https://ethz.ch/en/studies/master/application.html" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:master@ethz.ch" class="more-programs-link">master@ethz.ch</a></p>
+                                <p>Phone: +41 44 632 81 00</p>
+                            </div>
+                        </div>
 
-            <div class="program-type">
-                <h3>Top PhD Programs at ETH Zurich (Examples)</h3>
-                <div class="program-card">
-                    <h4>PhD in Physics</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Doctoral research in theoretical, experimental, or applied physics. Strong integration with research groups and state-of-the-art facilities. Doctoral students are typically employed as scientific assistants.</li>
-                        <li><strong>Admission Criteria:</strong> Excellent Master's degree in Physics or a related field. Crucially, acceptance by a professor as a supervisor is required before formal application. Strong research potential. English language proficiency.</li>
-                        <li><strong>Estimated Fees:</strong> Generally low semester fees (e.g., CHF 730 per semester) as PhD students are often employed.</li>
-                        <li><strong>Next Start Date:</strong> Flexible, usually dependent on the agreement with the supervisor and funding availability.</li>
-                        <li><strong>Application Link:</strong> <a href="https://ethz.ch/en/doctorate/registration-admission.html" target="_blank" class="apply-button">Apply to ETH Zurich Doctorate</a></li>
-                        <li><strong>Contact Details (Doctoral Administration):</strong> doktorat@ethz.ch</li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>PhD in Computer Science</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Independent research in various areas of computer science, including AI, machine learning, systems, networking, and theoretical CS. Close collaboration with faculty and industry partners.</li>
-                        <li><strong>Admission Criteria:</strong> Excellent Master's degree in Computer Science. Identification of a willing supervisor at ETH Zurich. Demonstrated research aptitude. English proficiency.</li>
-                        <li><strong>Estimated Fees:</strong> Generally low semester fees.</li>
-                        <li><strong>Next Start Date:</strong> Flexible, upon agreement with supervisor.</li>
-                        <li><strong>Application Link:</strong> <a href="https://ethz.ch/en/doctorate/registration-admission.html" target="_blank" class="apply-button">Apply to ETH Zurich Doctorate</a></li>
-                        <li><strong>Contact Details (Doctoral Administration):</strong> doktorat@ethz.ch</li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>[PhD Program Title - Placeholder]</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> [Focus on research areas. Find on specific department/research group pages.]</li>
-                        <li><strong>Admission Criteria:</strong> [General PhD requirements for ETH Zurich. Emphasis on finding a supervisor.]</li>
-                        <li><strong>Estimated Fees:</strong> [Refer to general ETH Zurich PhD fees.]</li>
-                        <li><strong>Next Start Date:</strong> [Highly flexible, dependent on supervisor and project.]</li>
-                        <li><strong>Application Link:</strong> <a href="https://ethz.ch/en/doctorate/registration-admission.html" target="_blank" class="apply-button">Apply to ETH Zurich Doctorate</a> (Explore departmental pages for specific PhD positions)</li>
-                        <li><strong>Contact Details:</strong> [Doctoral Administration or relevant departmental contact.]</li>
-                    </ul>
-                </div>
-                <p><em>For a complete list of doctoral study programs and admission details, visit the official <a href="https://ethz.ch/en/doctorate.html" target="_blank">ETH Zurich Doctorate page</a>.</em></p>
-            </div>
-        </section>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💻</span> MSc in Computer Science</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Deep dive into algorithms, AI, software engineering, machine learning, and theoretical CS. Heavy on research and real-world application.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Top-tier Bachelor's in CS or closely related. Strong academic game. English proficiency (TOEFL 100 / IELTS 7.0).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 730/semester (check for international fee changes).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Mostly Autumn Semester (Sept). App deadline: Dec 1 - Mar 15.</span>
+                                </li>
+                            </ul>
+                            <a href="https://ethz.ch/en/studies/master/application.html" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:master@ethz.ch" class="more-programs-link">master@ethz.ch</a></p>
+                                <p>Phone: +41 44 632 81 00</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧪</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses. Find on specific program page.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General requirements for Master's at ETH Zurich. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general ETH Zurich fees. Check for program-specific variations.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates. Most often Autumn Semester.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://ethz.ch/en/studies/master/degree-programmes.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Check program page or general admissions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more ETH Zurich Master's programs? <a href="https://ethz.ch/en/studies/master/degree-programmes.html" target="_blank" class="more-programs-link">Peep the full list here!</a></p>
+                    </div>
 
-        <section class="university-section">
-            <h2>2. EPFL (École Polytechnique Fédérale de Lausanne)</h2>
-            <p>A leading research institution specializing in natural sciences and engineering, known for its strong international outlook and innovation.</p>
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🔭</span> PhD in Physics</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Doctoral research in theoretical, experimental, or applied physics. Work with top-tier research groups and labs. You'll likely be a scientific assistant.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Slayed your Master's in Physics or related. **Crucially, find a prof who agrees to supervise you first!** Strong research game, English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees (around CHF 730) 'cause you're usually employed.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Super flexible, depends on your supervisor and funding.</span>
+                                </li>
+                            </ul>
+                            <a href="https://ethz.ch/en/doctorate/registration-admission.html" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:doktorat@ethz.ch" class="more-programs-link">doktorat@ethz.ch</a></p>
+                            </div>
+                        </div>
 
-            <div class="program-type">
-                <h3>Top Master's Programs at EPFL (Examples)</h3>
-                <div class="program-card">
-                    <h4>MSc in Data Science</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Covers foundations of data science, machine learning, statistics, data management, and big data technologies. Strong links to research labs and industry.</li>
-                        <li><strong>Admission Criteria:</strong> Bachelor's degree in Computer Science, Mathematics, Statistics, or related field with excellent grades. English language proficiency (TOEFL iBT 90 / IELTS 6.5 minimum). GRE not generally required but can strengthen application.</li>
-                        <li><strong>Estimated Fees:</strong> Approx. CHF 730 per semester (for Swiss/EU/EFTA students). Note: For non-resident international students, fees may triple to CHF 2,190 from Fall 2025. Verify current rates.</li>
-                        <li><strong>Next Start Date:</strong> Typically September (Autumn Semester). Application period usually mid-November to April 30.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.epfl.ch/education/master/admission/admission-criteria-and-application/" target="_blank" class="apply-button">Apply to EPFL Master's</a></li>
-                        <li><strong>Contact Details (Admissions):</strong> <a href="mailto:admission.master@epfl.ch">admission.master@epfl.ch</a></li>
-                    </ul>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧠</span> PhD in Computer Science</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Independent research in AI, machine learning, systems, networking, theoretical CS. Close-knit with faculty and industry.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Fire Master's in CS. Gotta secure a supervisor at ETH. Show off that research potential! English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible, once you link up with a supervisor.</span>
+                                </li>
+                            </ul>
+                            <a href="https://ethz.ch/en/doctorate/registration-admission.html" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:doktorat@ethz.ch" class="more-programs-link">doktorat@ethz.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💡</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas. Find on specific department/research group pages.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General PhD requirements for ETH Zurich. Emphasis on finding a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general ETH Zurich PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible, dependent on supervisor and project.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://ethz.ch/en/doctorate/registration-admission.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Administration or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more ETH Zurich PhD programs? <a href="https://ethz.ch/en/doctorate.html" target="_blank" class="more-programs-link">Hit up their doctorate page!</a></p>
+                    </div>
                 </div>
-                <div class="program-card">
-                    <h4>MSc in Bioengineering</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Interdisciplinary program combining engineering principles with biological systems. Specializations in biomedical imaging, neuroengineering, biomaterials, etc.</li>
-                        <li><strong>Admission Criteria:</strong> Bachelor's degree in a relevant engineering or science discipline. Strong academic record. English language proficiency (TOEFL iBT 90 / IELTS 6.5 minimum).</li>
-                        <li><strong>Estimated Fees:</strong> Approx. CHF 730 per semester (check for international fee changes from Fall 2025).</li>
-                        <li><strong>Next Start Date:</strong> Typically September (Autumn Semester). Application period mid-November to April 30.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.epfl.ch/education/master/admission/admission-criteria-and-application/" target="_blank" class="apply-button">Apply to EPFL Master's</a></li>
-                        <li><strong>Contact Details (Admissions):</strong> <a href="mailto:admission.master@epfl.ch">admission.master@epfl.ch</a></li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>[Master's Program Title - Placeholder]</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> [Summarize key areas/courses. Find on specific program page.]</li>
-                        <li><strong>Admission Criteria:</strong> [General requirements for Master's at EPFL apply. Check program-specific prerequisites.]</li>
-                        <li><strong>Estimated Fees:</strong> [Refer to general EPFL fees. Check for program-specific variations and latest international student fees.]</li>
-                        <li><strong>Next Start Date:</strong> [Check program page for exact dates. Most often Autumn Semester.]</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.epfl.ch/education/master/admission/admission-criteria-and-application/" target="_blank" class="apply-button">Apply to EPFL Master's</a> (Navigate to specific program once on site)</li>
-                        <li><strong>Contact Details:</strong> [Refer to general admissions or find program-specific contact on the EPFL site.]</li>
-                    </ul>
-                </div>
-                <p><em>For a full list and detailed information on all Master's programs at EPFL, please visit the official <a href="https://www.epfl.ch/education/master/programs/" target="_blank">EPFL Master's Programs page</a>.</em></p>
-            </div>
+            </section>
 
-            <div class="program-type">
-                <h3>Top PhD Programs at EPFL (Examples)</h3>
-                <div class="program-card">
-                    <h4>PhD in Computer and Communication Sciences (EDIC)</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Cutting-edge research in areas like artificial intelligence, machine learning, computer vision, networking, security, and computational science. Doctoral students work on independent research projects.</li>
-                        <li><strong>Admission Criteria:</strong> Excellent Master's degree in a relevant field. Successful identification of an EPFL professor willing to supervise the thesis. Strong research proposal. English language proficiency.</li>
-                        <li><strong>Estimated Fees:</strong> Generally low semester fees, as PhD students are typically employed by EPFL labs.</li>
-                        <li><strong>Next Start Date:</strong> Flexible, decided with the supervising professor.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.epfl.ch/education/phd/admission/" target="_blank" class="apply-button">Apply to EPFL Doctorate</a></li>
-                        <li><strong>Contact Details (Doctoral School):</strong> <a href="mailto:sac-doctorants@epfl.ch">sac-doctorants@epfl.ch</a></li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>PhD in Materials Science and Engineering (EDMX)</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Research in advanced materials, nanotechnology, biomaterials, and energy materials. Access to interdisciplinary research centers and high-tech facilities.</li>
-                        <li><strong>Admission Criteria:</strong> Excellent Master's degree in Materials Science, Engineering, Physics, Chemistry, or a related field. Secure a supervisor at EPFL. Demonstrated research potential. English proficiency.</li>
-                        <li><strong>Estimated Fees:</strong> Low semester fees, employment by EPFL is common.</li>
-                        <li><strong>Next Start Date:</strong> Flexible, depends on supervisor and project.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.epfl.ch/education/phd/admission/" target="_blank" class="apply-button">Apply to EPFL Doctorate</a></li>
-                        <li><strong>Contact Details (Doctoral School):</strong> <a href="mailto:sac-doctorants@epfl.ch">sac-doctorants@epfl.ch</a></li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>[PhD Program Title - Placeholder]</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> [Focus on research areas. Find on specific department/research group pages.]</li>
-                        <li><strong>Admission Criteria:</strong> [General PhD requirements for EPFL. Emphasis on finding a supervisor.]</li>
-                        <li><strong>Estimated Fees:</strong> [Refer to general EPFL PhD fees.]</li>
-                        <li><strong>Next Start Date:</strong> [Highly flexible, dependent on supervisor and project.]</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.epfl.ch/education/phd/admission/" target="_blank" class="apply-button">Apply to EPFL Doctorate</a> (Explore specific doctoral program pages)</li>
-                        <li><strong>Contact Details:</strong> [Doctoral School or relevant departmental contact.]</li>
-                    </ul>
-                </div>
-                <p><em>For a complete list of doctoral programs and admission details, visit the official <a href="https://www.epfl.ch/education/phd/programs/" target="_blank">EPFL Doctoral Programs page</a>.</em></p>
-            </div>
-        </section>
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">P</div>
+                        <div>
+                            <h2 class="university-title">EPFL (École Polytechnique Fédérale de Lausanne)</h2>
+                            <p class="university-subtitle">A leading research powerhouse in natural sciences & engineering, serving up innovation and global vibes.</p>
+                        </div>
+                    </div>
 
-        <section class="university-section">
-            <h2>3. University of Zurich (UZH)</h2>
-            <p>The largest university in Switzerland, offering a wide range of Master's and PhD programs across various disciplines, including humanities, social sciences, natural sciences, law, and medicine.</p>
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📊</span> MSc in Data Science</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Covers data science fundamentals, ML, stats, data management, and big data tech. Tight links with research labs and industry.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's in CS, Math, Stats, or related with fire grades. English proficiency (TOEFL 90 / IELTS 6.5). GRE isn't a must but can flex.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 730/semester (for Swiss/EU/EFTA). Heads up: non-resident intl. student fees might triple to CHF 2,190 from Fall 2025. Verify current rates!</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Usually Sept (Autumn Semester). App period: mid-Nov to Apr 30.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.epfl.ch/education/master/admission/admission-criteria-and-application/" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:admission.master@epfl.ch" class="more-programs-link">admission.master@epfl.ch</a></p>
+                            </div>
+                        </div>
 
-            <div class="program-type">
-                <h3>Top Master's Programs at University of Zurich (Examples)</h3>
-                <div class="program-card">
-                    <h4>MSc in Quantitative Economics and Finance</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Advanced training in economic theory, econometrics, and finance. Prepares students for careers in finance, central banking, and academia.</li>
-                        <li><strong>Admission Criteria:</strong> Strong Bachelor's degree in Economics, Finance, or a related quantitative field. Strong mathematical and statistical background. English proficiency. GRE may be recommended.</li>
-                        <li><strong>Estimated Fees:</strong> Approx. CHF 720 per semester (check for current international student fees).</li>
-                        <li><strong>Next Start Date:</strong> Typically Autumn Semester (September). Application deadlines vary by program but generally early in the year.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.uzh.ch/en/studies/application/masters.html" target="_blank" class="apply-button">Apply to UZH Master's</a></li>
-                        <li><strong>Contact Details:</strong> <a href="mailto:admissions@uzh.ch">admissions@uzh.ch</a></li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>[Master's Program Title - Placeholder]</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> [Summarize key areas/courses.]</li>
-                        <li><strong>Admission Criteria:</strong> [General UZH Master's requirements. Check program-specific prerequisites.]</li>
-                        <li><strong>Estimated Fees:</strong> [Refer to general UZH fees.]</li>
-                        <li><strong>Next Start Date:</strong> [Check program page for exact dates.]</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.uzh.ch/en/studies/application/masters.html" target="_blank" class="apply-button">Apply to UZH Master's</a></li>
-                        <li><strong>Contact Details:</strong> [General admissions or program-specific contact.]</li>
-                    </ul>
-                </div>
-                <p><em>For a comprehensive list of Master's programs, visit the official <a href="https://www.uzh.ch/en/studies/degree-programmes/masters-degrees.html" target="_blank">University of Zurich Master's Degree Programmes page</a>.</em></p>
-            </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧬</span> MSc in Bioengineering</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Interdisciplinary blend of engineering principles with biological systems. Specializations in biomedical imaging, neuroengineering, biomaterials, etc.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's in relevant engineering or science. Strong academic record. English proficiency (TOEFL 90 / IELTS 6.5).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 730/semester (check for international fee changes from Fall 2025).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Usually Sept (Autumn Semester). App period: mid-Nov to Apr 30.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.epfl.ch/education/master/admission/admission-criteria-and-application/" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:admission.master@epfl.ch" class="more-programs-link">admission.master@epfl.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🚀</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses. Find on specific program page.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General requirements for Master's at EPFL apply. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general EPFL fees. Check for program-specific variations and latest international student fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates. Most often Autumn Semester.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.epfl.ch/education/master/programs/" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Check program page or general admissions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more EPFL Master's programs? <a href="https://www.epfl.ch/education/master/programs/" target="_blank" class="more-programs-link">Flex on their program list!</a></p>
+                    </div>
 
-            <div class="program-type">
-                <h3>Top PhD Programs at University of Zurich (Examples)</h3>
-                <div class="program-card">
-                    <h4>PhD in Informatics</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Research in areas such as data science, machine learning, software engineering, cybersecurity, and human-computer interaction. Close collaboration with research groups.</li>
-                        <li><strong>Admission Criteria:</strong> Excellent Master's degree in Informatics/Computer Science. Secure a supervising professor at UZH. Strong research proposal. English proficiency.</li>
-                        <li><strong>Estimated Fees:</strong> Low semester fees (approx. CHF 250-300 per semester). PhD students often employed.</li>
-                        <li><strong>Next Start Date:</strong> Flexible, depends on supervisor and funding.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.uzh.ch/en/studies/application/doctoralstudies.html" target="_blank" class="apply-button">Apply to UZH Doctoral Studies</a></li>
-                        <li><strong>Contact Details:</strong> <a href="mailto:doctoralstudies@uzh.ch">doctoralstudies@uzh.ch</a> or relevant department.</li>
-                    </ul>
-                </div>
-                <div class="program-card">
-                    <h4>[PhD Program Title - Placeholder]</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> [Focus on research areas.]</li>
-                        <li><strong>Admission Criteria:</strong> [General UZH PhD requirements, including securing a supervisor.]</li>
-                        <li><strong>Estimated Fees:</strong> [Refer to general UZH PhD fees.]</li>
-                        <li><strong>Next Start Date:</strong> [Highly flexible.]</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.uzh.ch/en/studies/application/doctoralstudies.html" target="_blank" class="apply-button">Apply to UZH Doctoral Studies</a></li>
-                        <li><strong>Contact Details:</strong> [Doctoral Studies Office or relevant departmental contact.]</li>
-                    </ul>
-                </div>
-                <p><em>For detailed information on PhD programs, visit the official <a href="https://www.uzh.ch/en/studies/degree-programmes/doctoral-degrees.html" target="_blank">University of Zurich Doctoral Degrees page</a>.</em></p>
-            </div>
-        </section>
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💬</span> PhD in Computer and Communication Sciences (EDIC)</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Next-level research in AI, ML, computer vision, networking, security, and computational science. Independent research projects are the core.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Master's in relevant field. Score an EPFL professor to supervise your thesis. Solid research proposal. English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees, you'll likely be employed by EPFL labs.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible, decided with your future supervisor.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.epfl.ch/education/phd/admission/" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:sac-doctorants@epfl.ch" class="more-programs-link">sac-doctorants@epfl.ch</a></p>
+                            </div>
+                        </div>
 
-        <section class="university-section">
-            <h2>4. University of Geneva (UNIGE)</h2>
-            <p>A prominent university with a strong international focus, particularly in social sciences, humanities, and international relations.</p>
-            <div class="program-type">
-                <h3>Top Master's Programs at University of Geneva (Examples)</h3>
-                <div class="program-card">
-                    <h4>Master in International Affairs</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Interdisciplinary program covering international law, economics, political science, and history. Prepares for careers in international organizations, diplomacy, and NGOs.</li>
-                        <li><strong>Admission Criteria:</strong> Bachelor's degree in a relevant discipline. Strong academic record. English proficiency.</li>
-                        <li><strong>Estimated Fees:</strong> Approx. CHF 500 per semester.</li>
-                        <li><strong>Next Start Date:</strong> Typically September. Application deadlines vary.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.unige.ch/admissions/masters/masteradmissions/" target="_blank" class="apply-button">Apply to UNIGE Master's</a></li>
-                        <li><strong>Contact Details:</strong> <a href="mailto:admissions@unige.ch">admissions@unige.ch</a></li>
-                    </ul>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">⚙️</span> PhD in Materials Science and Engineering (EDMX)</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research into advanced materials, nanotech, biomaterials, and energy materials. Access to lit interdisciplinary research hubs.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Master's in Materials Science, Eng, Physics, Chem, or related. Gotta find an EPFL supervisor. Proven research potential. English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees; often employed by EPFL.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible, depends on supervisor and project.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.epfl.ch/education/phd/admission/" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:sac-doctorants@epfl.ch" class="more-programs-link">sac-doctorants@epfl.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧪</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas. Find on specific department/research group pages.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General PhD requirements for EPFL. Emphasis on finding a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general EPFL PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible, dependent on supervisor and project.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.epfl.ch/education/phd/programs/" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral School or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more EPFL PhD programs? <a href="https://www.epfl.ch/education/phd/programs/" target="_blank" class="more-programs-link">Check out their doctoral vibe!</a></p>
+                    </div>
                 </div>
-                <p><em>For a complete list of Master's programs, visit the official <a href="https://www.unige.ch/studies/master/" target="_blank">University of Geneva Master's Programs page</a>.</em></p>
-            </div>
-            <div class="program-type">
-                <h3>Top PhD Programs at University of Geneva (Examples)</h3>
-                <div class="program-card">
-                    <h4>PhD in Genomics and Digital Health</h4>
-                    <ul>
-                        <li><strong>Curriculum Highlights:</strong> Research at the intersection of genomics, bioinformatics, and digital health applications. Strong focus on interdisciplinary research.</li>
-                        <li><strong>Admission Criteria:</strong> Master's degree in a relevant scientific field. Secure a supervisor. Research proposal. English proficiency.</li>
-                        <li><strong>Estimated Fees:</strong> Low semester fees.</li>
-                        <li><strong>Next Start Date:</strong> Flexible.</li>
-                        <li><strong>Application Link:</strong> <a href="https://www.unige.ch/phd/" target="_blank" class="apply-button">Apply to UNIGE PhD</a></li>
-                        <li><strong>Contact Details:</strong> Doctoral Schools or relevant departmental contact.</li>
-                    </ul>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">U</div>
+                        <div>
+                            <h2 class="university-title">University of Zurich (UZH)</h2>
+                            <p class="university-subtitle">Switzerland's biggest uni, dropping a huge range of Master's and PhD programs across everything from humanities to hardcore science.</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📈</span> MSc in Quantitative Economics and Finance</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Advanced training in economic theory, econometrics, and finance. Preps you for careers in finance, central banking, and academia.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Strong Bachelor's in Economics, Finance, or a related quantitative field. You need solid math and stats. English proficiency. GRE might be a good move.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 720/semester (check current international student fees).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Usually Autumn Semester (Sept). Application deadlines vary, often early in the year.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.uzh.ch/en/studies/application/masters.html" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:admissions@uzh.ch" class="more-programs-link">admissions@uzh.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🌐</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UZH Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UZH fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.uzh.ch/en/studies/application/masters.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UZH Master's programs? <a href="https://www.uzh.ch/en/studies/degree-programmes/masters-degrees.html" target="_blank" class="more-programs-link">Catch the full list here!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💻</span> PhD in Informatics</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research in data science, ML, software engineering, cybersecurity, and human-computer interaction. Tight with research groups.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Slayed your Master's in Informatics/CS. Secure a prof at UZH to supervise you. Strong research proposal. English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees (around CHF 250-300). PhD students are often employed.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible, depends on supervisor and funding.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.uzh.ch/en/studies/application/doctoralstudies.html" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:doctoralstudies@uzh.ch" class="more-programs-link">doctoralstudies@uzh.ch</a> or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🔬</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UZH PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UZH PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.uzh.ch/en/studies/application/doctoralstudies.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UZH PhD programs? <a href="https://www.uzh.ch/en/studies/degree-programmes/doctoral-degrees.html" target="_blank" class="more-programs-link">Dive into their doctoral degrees!</a></p>
+                    </div>
                 </div>
-                <p><em>For detailed information on PhD programs, visit the official <a href="https://www.unige.ch/phd/" target="_blank">University of Geneva Doctoral Studies page</a>.</em></p>
-            </div>
-        </section>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">G</div>
+                        <div>
+                            <h2 class="university-title">University of Geneva (UNIGE)</h2>
+                            <p class="university-subtitle">A prominent international university, especially strong in social sciences, humanities, and global relations. Get ready for some major world-changing vibes.</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🌍</span> Master in International Affairs</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Interdisciplinary program covering international law, economics, political science, and history. Preps you for careers in international orgs, diplomacy, and NGOs.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's in a relevant field. Strong academic record. English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 500/semester.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Typically September. Application deadlines vary, so check early!</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unige.ch/admissions/masters/masteradmissions/" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:admissions@unige.ch" class="more-programs-link">admissions@unige.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🎨</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIGE Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIGE fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unige.ch/admissions/masters/masteradmissions/" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIGE Master's programs? <a href="https://www.unige.ch/studies/master/" target="_blank" class="more-programs-link">Master the options here!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧬</span> PhD in Genomics and Digital Health</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research where genomics, bioinformatics, and digital health collide. Heavy on interdisciplinary research.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Master's degree in a relevant scientific field. Lock in a supervisor. Research proposal. English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unige.ch/phd/" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Contact Doctoral Schools or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📚</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIGE PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIGE PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unige.ch/phd/" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIGE PhD programs? <a href="https://www.unige.ch/phd/" target="_blank" class="more-programs-link">Check out their doctoral vibe!</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">B</div>
+                        <div>
+                            <h2 class="university-title">University of Bern (UNIBE)</h2>
+                            <p class="university-subtitle">A classic Swiss university with a chill vibe, known for strong programs in natural sciences, humanities, and medicine.</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🪐</span> MSc in Space Sciences</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Focus on astrophysics, planetary sciences, and space instrumentation. Get hands-on with real space missions and data.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's in Physics, Astrophysics, or a closely related field. Strong academic record. English proficiency (B2 level usually expected).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 750/semester.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Typically Autumn Semester (September). Application deadlines usually March 31st for Fall intake.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibe.ch/studies/master/index_eng.html" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:master@unibe.ch" class="more-programs-link">master@unibe.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🌿</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIBE Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIBE fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibe.ch/studies/master/index_eng.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIBE Master's programs? <a href="https://www.unibe.ch/studies/master/index_eng.html" target="_blank" class="more-programs-link">Check out their Master's vibes!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🦠</span> PhD in Biomedical Sciences</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research in areas like immunology, neuroscience, microbiology, and clinical research. Strong focus on translational research.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Excellent Master's in a relevant field. Secure a supervising professor. Research proposal. English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible, often depends on supervisor and project.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibe.ch/studies/phd/index_eng.html" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Administration or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🏞️</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIBE PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIBE PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibe.ch/studies/phd/index_eng.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIBE PhD programs? <a href="https://www.unibe.ch/studies/phd/index_eng.html" target="_blank" class="more-programs-link">Peep their doctoral programs!</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">BL</div>
+                        <div>
+                            <h2 class="university-title">University of Basel (UNIBAS)</h2>
+                            <p class="university-subtitle">Switzerland's oldest university, a hub for research in life sciences, humanities, and more, with a rich history and forward-thinking spirit.</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💊</span> MSc in Drug Sciences</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Comprehensive program covering drug discovery, development, and regulatory aspects. Strong ties to the Basel pharmaceutical industry.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's in Pharmacy, Chemistry, Biology, or related. Strong academic record. English proficiency is usually required.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 850/semester.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Typically Autumn Semester (September). Application deadlines vary, often by end of April.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibas.ch/en/Studies/Master-s-Degrees.html" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:zulassung@unibas.ch" class="more-programs-link">zulassung@unibas.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📜</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIBAS Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIBAS fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibas.ch/en/Studies/Master-s-Degrees.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIBAS Master's programs? <a href="https://www.unibas.ch/en/Studies/Master-s-Degrees.html" target="_blank" class="more-programs-link">Unlock their Master's options!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧪</span> PhD in Nanosciences</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Cutting-edge research in nanoscience, materials, and quantum physics. Part of the renowned Swiss Nanoscience Institute.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Excellent Master's degree in Nanoscience, Physics, Chemistry, or related. Secure a supervisor. Research proposal. English proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibas.ch/en/Studies/Doctorate.html" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Office or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🏛️</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIBAS PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIBAS PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unibas.ch/en/Studies/Doctorate.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIBAS PhD programs? <a href="https://www.unibas.ch/en/Studies/Doctorate.html" target="_blank" class="more-programs-link">Deep dive into their doctorates!</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">LS</div>
+                        <div>
+                            <h2 class="university-title">University of Lausanne (UNIL)</h2>
+                            <p class="university-subtitle">A dynamic university by Lake Geneva, famous for its social sciences, humanities, and strong focus on interdisciplinary studies.</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">⚖️</span> MSc in Legal Issues, Crime and Security of Information Technologies</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Explores the legal, ethical, and security challenges of information technology. Perfect for future cyber-lawyers and tech policy pros.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's in Law, Computer Science, or related. Strong academic record. French and/or English proficiency (check program for specific language).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 580/semester.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Typically Autumn Semester (September). Application deadlines vary.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unil.ch/etudes/en/home/menuinst/master-s-degrees.html" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:master@unil.ch" class="more-programs-link">master@unil.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🔬</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIL Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIL fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unil.ch/etudes/en/home/menuinst/master-s-degrees.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIL Master's programs? <a href="https://www.unil.ch/etudes/en/home/menuinst/master-s-degrees.html" target="_blank" class="more-programs-link">Discover their Master's degrees!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧠</span> PhD in Psychology</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research across various sub-fields of psychology, including cognitive, developmental, social, and clinical psychology.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Excellent Master's degree in Psychology. Secure a supervisor. Research proposal. Proficiency in French or English depending on thesis topic.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unil.ch/etudes/en/home/menuinst/doctorate.html" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral School or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🌍</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIL PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIL PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unil.ch/etudes/en/home/menuinst/doctorate.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIL PhD programs? <a href="https://www.unil.ch/etudes/en/home/menuinst/doctorate.html" target="_blank" class="more-programs-link">Level up with their doctorates!</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">HSG</div>
+                        <div>
+                            <h2 class="university-title">University of St. Gallen (HSG)</h2>
+                            <p class="university-subtitle">A top-tier business university, slaying in management, economics, law, and international affairs. If you're into the business world, this is your spot.</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💼</span> Master in Strategy and International Management (SIM)</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Highly competitive program focusing on strategic management, international business, and leadership. Ranked among the best globally.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Outstanding Bachelor's degree in Business Administration, Economics, or related. Strong GMAT/GRE score. English proficiency (C1 level). Interview may be required.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 1,229/semester (Swiss/Liechtenstein residents) and CHF 3,329/semester (international students).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Typically Autumn Semester (September). Application period usually October to March.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unisg.ch/en/studies/masters/" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:admissions@unisg.ch" class="more-programs-link">admissions@unisg.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📊</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General HSG Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general HSG fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unisg.ch/en/studies/masters/" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more HSG Master's programs? <a href="https://www.unisg.ch/en/studies/masters/" target="_blank" class="more-programs-link">Check out their Master's swag!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💡</span> PhD in Management</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research across various management disciplines like marketing, finance, accounting, and organizational behavior. Highly research-intensive.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Excellent Master's degree in a related field. Strong research proposal. English proficiency. May require GMAT/GRE.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees, often with funding opportunities.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unisg.ch/en/studies/doctorate/" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Administration or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📈</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General HSG PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general HSG PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unisg.ch/en/studies/doctorate/" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more HSG PhD programs? <a href="https://www.unisg.ch/en/studies/doctorate/" target="_blank" class="more-programs-link">Deep dive into their doctorates!</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">USI</div>
+                        <div>
+                            <h2 class="university-title">Università della Svizzera italiana (USI)</h2>
+                            <p class="university-subtitle">A young, dynamic, and international university with campuses in Lugano and Mendrisio, known for architecture, communication, and economics. Get ready for an Italian-speaking Swiss adventure!</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🤖</span> MSc in Artificial Intelligence</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Cutting-edge topics in machine learning, deep learning, natural language processing, and computer vision. Strong theoretical and practical focus.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's degree in Computer Science, Applied Mathematics, Engineering, or related. Strong academic record. English proficiency (TOEFL 90 / IELTS 6.5).</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">CHF 4,000/semester. For Swiss/Liechtenstein residents: CHF 2,000/semester.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Typically Autumn Semester (September). Application deadlines vary (e.g., April 30th for non-EU/EFTA).</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.usi.ch/en/study/master" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:master@usi.ch" class="more-programs-link">master@usi.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🏛️</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General USI Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general USI fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.usi.ch/en/study/master" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more USI Master's programs? <a href="https://www.usi.ch/en/study/master" target="_blank" class="more-programs-link">Check out their Master's programs!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">💬</span> PhD in Communication Sciences</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research areas include media studies, public relations, new media, and communication management. Strong interdisciplinary approach.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Excellent Master's degree in Communication Sciences or related. Secure a supervisor. Research proposal. English/Italian proficiency.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.usi.ch/en/study/phd" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral School or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📊</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General USI PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general USI PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.usi.ch/en/study/phd" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more USI PhD programs? <a href="https://www.usi.ch/en/study/phd" target="_blank" class="more-programs-link">Dive deep into their doctorates!</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="university-section reveal">
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="university-logo">FRI</div>
+                        <div>
+                            <h2 class="university-title">University of Fribourg (UNIFR)</h2>
+                            <p class="university-subtitle">A bilingual university (French/German) known for its personalized approach, strong research, and a wide array of programs in a beautiful medieval city.</p>
+                        </div>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🎓</div>
+                        <h3 class="program-type-title">Top Master's Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🧪</span> MSc in Chemistry</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Advanced studies in organic, inorganic, physical, and theoretical chemistry. Strong emphasis on research projects and lab work.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Bachelor's degree in Chemistry or a related scientific field. Strong academic record. Proficiency in French or German, depending on program language.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Around CHF 740/semester.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Typically Autumn Semester (September). Application deadlines usually April 30th.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unifr.ch/studies/en/masters/index.html" target="_blank" class="apply-button">
+                                Apply Now
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Email: <a href="mailto:master.sciences@unifr.ch" class="more-programs-link">master.sciences@unifr.ch</a></p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">📚</span> [Master's Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Summarize key areas/courses.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIFR Master's requirements. Check program-specific prerequisites.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIFR fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Check program page for exact dates.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unifr.ch/studies/en/masters/index.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>General admissions or program-specific contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIFR Master's programs? <a href="https://www.unifr.ch/studies/en/masters/index.html" target="_blank" class="more-programs-link">Level up with their Master's degrees!</a></p>
+                    </div>
+
+                    <div class="program-type-header">
+                        <div class="program-type-icon">🔬</div>
+                        <h3 class="program-type-title">Top PhD Programs</h3>
+                    </div>
+                    <div class="program-grid">
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">⚛️</span> PhD in Physics</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">Research in experimental and theoretical physics, including quantum physics, condensed matter, and materials science.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">Excellent Master's degree in Physics. Secure a supervisor. Research proposal. Proficiency in French or German.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">Low semester fees.</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">Flexible.</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unifr.ch/studies/en/doctorate/index.html" target="_blank" class="apply-button">
+                                Apply for Doctorate
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral School or relevant department.</p>
+                            </div>
+                        </div>
+                        <div class="program-card reveal">
+                            <h4 class="program-title"><span class="program-emoji">🎨</span> [PhD Program Title - Placeholder]</h4>
+                            <ul class="program-details">
+                                <li>
+                                    <span class="detail-icon">📄</span>
+                                    <span class="detail-label">Curriculum:</span>
+                                    <span class="detail-content">[Focus on research areas.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">✅</span>
+                                    <span class="detail-label">Admission:</span>
+                                    <span class="detail-content">[General UNIFR PhD requirements, including securing a supervisor.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">💰</span>
+                                    <span class="detail-label">Fees:</span>
+                                    <span class="detail-content">[Refer to general UNIFR PhD fees.]</span>
+                                </li>
+                                <li>
+                                    <span class="detail-icon">📅</span>
+                                    <span class="detail-label">Start Date:</span>
+                                    <span class="detail-content">[Highly flexible.]</span>
+                                </li>
+                            </ul>
+                            <a href="https://www.unifr.ch/studies/en/doctorate/index.html" target="_blank" class="apply-button">
+                                Explore & Apply
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <div class="contact-info">
+                                <h4>Got Qs?</h4>
+                                <p>Doctoral Studies Office or relevant departmental contact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-programs">
+                        <p>Wanna see more UNIFR PhD programs? <a href="https://www.unifr.ch/studies/en/doctorate/index.html" target="_blank" class="more-programs-link">Check out their doctoral programs!</a></p>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <footer>
-            <p><strong>Disclaimer:</strong> All information provided is for general guidance only and is subject to change. Please always refer to the official university websites and contact their admissions offices directly for the most current and accurate details regarding programs, admission criteria, fees, deadlines, and contact information.</p>
-            <p>&copy; 2025 Swiss Study Guide. All rights reserved.</p>
+            <div class="footer-content">
+                <p class="footer-disclaimer">
+                    <strong>Real talk:</strong> All info here is just for general guidance and can totally change. Always hit up the official university websites and their admissions offices directly for the most current and accurate deets on programs, admission rules, fees, deadlines, and how to get in touch. Don't ghost your research!
+                </p>
+                <p class="footer-copy">&copy; 2025 Swiss Study Guide. All rights reserved. Made with 💖 for future grads.</p>
+            </div>
         </footer>
     </div>
+    <script>
+        // Scroll reveal animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            document.querySelectorAll('.reveal').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
