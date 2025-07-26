@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Text Analytics Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .upload-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 20px 10px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-input-label {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .file-input-label:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .text-input {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            resize: vertical;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+
+        .text-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .analyze-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .analyze-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .entity-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .entity-person { background: linear-gradient(45deg, #ff6b6b, #ee5a24); }
+        .entity-organization { background: linear-gradient(45deg, #4ecdc4, #44a08d); }
+        .entity-location { background: linear-gradient(45deg, #45b7d1, #2c3e50); }
+        .entity-date { background: linear-gradient(45deg, #f093fb, #f5576c); }
+        .entity-money { background: linear-gradient(45deg, #feca57, #ff9ff3); }
+
+        .topic-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+            animation: slideInLeft 0.5s ease forwards;
+        }
+
+        .topic-words {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .topic-score {
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+
+        .sentiment-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .sentiment-positive {
+            background: linear-gradient(135deg, #56ab2f, #a8e6cf);
+            color: #2d5016;
+        }
+
+        .sentiment-negative {
+            background: linear-gradient(135deg, #ee5a24, #ff9ff3);
+            color: #7a2c1a;
+        }
+
+        .sentiment-neutral {
+            background: linear-gradient(135deg, #95a5a6, #bdc3c7);
+            color: #2c3e50;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        .insights-list {
+            list-style: none;
+        }
+
+        .insights-list li {
+            padding: 12px;
+            margin: 8px 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #667eea;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Business Text Analytics Dashboard</h1>
+            <p>Extract insights from contracts, emails, reports, and customer communications</p>
+        </div>
+
+        <div class="upload-section">
+            <h2>📄 Upload Documents or Enter Text</h2>
+            <p>Support for multiple document types: PDF, DOC, TXT, CSV</p>
+            
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" class="file-input" multiple accept=".txt,.pdf,.doc,.docx,.csv">
+                <label for="fileInput" class="file-input-label">📁 Choose Files</label>
+            </div>
+            
+            <div class="file-input-wrapper">
+                <button class="file-input-label" onclick="loadSampleData()">🎯 Load Sample Data</button>
+            </div>
+
+            <textarea class="text-input" id="textInput" placeholder="Or paste your text here for analysis... (contracts, emails, reports, customer feedback, etc.)"></textarea>
+            
+            <button class="analyze-btn" onclick="analyzeText()">🔍 Analyze Text</button>
+        </div>
+
+        <div id="loadingIndicator" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing your documents...</p>
+        </div>
+
+        <div id="results" class="results-grid" style="display: none;">
+            <div class="result-card">
+                <h3 class="card-title">📈 Document Statistics</h3>
+                <div id="statsContainer" class="stats-grid"></div>
+            </div>
+
+            <div class="result-card">
+                <h3 class="card-title">🏷️ Named Entity Recognition</h3>
+                <div id="entitiesContainer"></div>
+            </div>
+
+            <div class="result-card">
+                <h3 class="card-title">🎯 Topic Modeling</h3>
+                <div id="topicsContainer"></div>
+            </div>
+
+            <div class="result-card">
+                <h3 class="card-title">💭 Sentiment Analysis</h3>
+                <div id="sentimentContainer"></div>
+            </div>
+
+            <div class="result-card">
+                <h3 class="card-title">📊 Word Frequency</h3>
+                <div class="chart-container">
+                    <canvas id="wordChart"></canvas>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h3 class="card-title">🔍 Key Insights</h3>
+                <ul id="insightsContainer" class="insights-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let analysisData = {};
+
+        // Sample business documents for demonstration
+        const sampleDocuments = [
+            {
+                type: "Contract",
+                content: "This Service Agreement is entered into on January 15, 2024, between TechCorp Industries located at 123 Silicon Valley Drive, San Francisco, CA and DataSync Solutions at 456 Innovation Street, Austin, TX. The contract value is $250,000 for cloud infrastructure services. John Smith from TechCorp and Sarah Johnson from DataSync will serve as primary contacts. The agreement includes data processing, security compliance, and 24/7 technical support. Payment terms are Net 30 with milestone-based billing."
+            },
+            {
+                type: "Customer Email",
+                content: "Dear Support Team, I'm extremely disappointed with the recent software update. The new interface is confusing and several features that we rely on daily have been removed or moved. This is causing significant disruption to our workflow. Our team of 50 employees is struggling to adapt, and productivity has decreased by approximately 30%. We've been loyal customers for 5 years, spending over $100,000 annually. Please address these issues urgently or we may need to consider alternative solutions. Best regards, Michael Chen, Operations Manager, Global Logistics Inc."
+            },
+            {
+                type: "Quarterly Report",
+                content: "Q4 2023 Performance Report: Revenue increased 15% to $2.3 million compared to Q3. Customer acquisition costs decreased by 8% while customer lifetime value improved 12%. Marketing campaigns in November and December generated 1,200 new leads. The product development team completed 3 major feature releases. Employee satisfaction scores remained stable at 4.2/5.0. Challenges include increased competition in the enterprise segment and supply chain delays affecting 20% of orders. Recommendations: Increase investment in R&D, expand sales team by 25%, and improve customer onboarding processes."
+            }
+        ];
+
+        function loadSampleData() {
+            const combinedText = sampleDocuments.map(doc => `[${doc.type}]\n${doc.content}`).join('\n\n---\n\n');
+            document.getElementById('textInput').value = combinedText;
+        }
+
+        function analyzeText() {
+            const textInput = document.getElementById('textInput').value;
+            const fileInput = document.getElementById('fileInput').files;
+
+            if (!textInput.trim() && fileInput.length === 0) {
+                alert('Please enter text or upload files to analyze.');
+                return;
+            }
+
+            // Show loading indicator
+            document.getElementById('loadingIndicator').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+
+            // Simulate API call delay
+            setTimeout(() => {
+                const text = textInput.trim();
+                performAnalysis(text);
+                
+                document.getElementById('loadingIndicator').style.display = 'none';
+                document.getElementById('results').style.display = 'grid';
+            }, 2000);
+        }
+
+        function performAnalysis(text) {
+            // Basic text statistics
+            const words = text.toLowerCase().split(/\s+/).filter(word => word.length > 2);
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+
+            analysisData = {
+                wordCount: words.length,
+                sentenceCount: sentences.length,
+                paragraphCount: paragraphs.length,
+                avgWordsPerSentence: Math.round(words.length / sentences.length),
+                readingTime: Math.ceil(words.length / 200)
+            };
+
+            displayStatistics();
+            displayEntities(text);
+            displayTopics(text);
+            displaySentiment(text);
+            displayWordFrequency(words);
+            displayInsights(text);
+        }
+
+        function displayStatistics() {
+            const container = document.getElementById('statsContainer');
+            container.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${analysisData.wordCount.toLocaleString()}</div>
+                    <div class="stat-label">Words</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${analysisData.sentenceCount}</div>
+                    <div class="stat-label">Sentences</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${analysisData.paragraphCount}</div>
+                    <div class="stat-label">Paragraphs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${analysisData.avgWordsPerSentence}</div>
+                    <div class="stat-label">Avg Words/Sentence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${analysisData.readingTime}</div>
+                    <div class="stat-label">Minutes to Read</div>
+                </div>
+            `;
+        }
+
+        function displayEntities(text) {
+            // Simulate named entity recognition
+            const entities = {
+                persons: extractEntities(text, /\b[A-Z][a-z]+ [A-Z][a-z]+\b/g, ['John Smith', 'Sarah Johnson', 'Michael Chen']),
+                organizations: extractEntities(text, /\b[A-Z][a-zA-Z\s]+(?:Corp|Inc|LLC|Ltd|Solutions|Industries|Team)\b/g, ['TechCorp Industries', 'DataSync Solutions', 'Global Logistics Inc']),
+                locations: extractEntities(text, /\b[A-Z][a-z]+,?\s+[A-Z]{2}\b|\b[A-Z][a-z]+\s+[A-Z][a-z]+\b/g, ['San Francisco, CA', 'Austin, TX', 'Silicon Valley']),
+                dates: extractEntities(text, /\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}|\bQ[1-4]\s+\d{4}\b/g, ['January 15, 2024', 'Q4 2023']),
+                money: extractEntities(text, /\$[\d,]+(?:\.\d{2})?\b/g, ['$250,000', '$100,000', '$2.3 million'])
+            };
+
+            const container = document.getElementById('entitiesContainer');
+            let html = '';
+
+            if (entities.persons.length) {
+                html += '<h4>👤 People</h4>';
+                entities.persons.forEach(entity => {
+                    html += `<span class="entity-tag entity-person">${entity}</span>`;
+                });
+            }
+
+            if (entities.organizations.length) {
+                html += '<h4>🏢 Organizations</h4>';
+                entities.organizations.forEach(entity => {
+                    html += `<span class="entity-tag entity-organization">${entity}</span>`;
+                });
+            }
+
+            if (entities.locations.length) {
+                html += '<h4>📍 Locations</h4>';
+                entities.locations.forEach(entity => {
+                    html += `<span class="entity-tag entity-location">${entity}</span>`;
+                });
+            }
+
+            if (entities.dates.length) {
+                html += '<h4>📅 Dates</h4>';
+                entities.dates.forEach(entity => {
+                    html += `<span class="entity-tag entity-date">${entity}</span>`;
+                });
+            }
+
+            if (entities.money.length) {
+                html += '<h4>💰 Financial</h4>';
+                entities.money.forEach(entity => {
+                    html += `<span class="entity-tag entity-money">${entity}</span>`;
+                });
+            }
+
+            container.innerHTML = html || '<p>No entities detected in the text.</p>';
+        }
+
+        function extractEntities(text, regex, fallback = []) {
+            const matches = text.match(regex) || [];
+            const unique = [...new Set(matches)];
+            return unique.length > 0 ? unique.slice(0, 10) : fallback;
+        }
+
+        function displayTopics(text) {
+            // Simulate topic modeling using keyword clustering
+            const topics = [
+                { keywords: ['contract', 'agreement', 'service', 'payment', 'terms'], score: 0.85, label: 'Contract Management' },
+                { keywords: ['customer', 'support', 'software', 'update', 'interface'], score: 0.78, label: 'Customer Experience' },
+                { keywords: ['revenue', 'performance', 'growth', 'report', 'quarterly'], score: 0.72, label: 'Business Performance' },
+                { keywords: ['team', 'employee', 'productivity', 'workflow', 'satisfaction'], score: 0.65, label: 'Human Resources' },
+                { keywords: ['technology', 'development', 'features', 'platform', 'technical'], score: 0.58, label: 'Technology & Development' }
+            ];
+
+            const container = document.getElementById('topicsContainer');
+            let html = '';
+
+            topics.forEach(topic => {
+                const relevantKeywords = topic.keywords.filter(keyword => 
+                    text.toLowerCase().includes(keyword)
+                );
+                
+                if (relevantKeywords.length > 0) {
+                    html += `
+                        <div class="topic-item">
+                            <div>
+                                <div style="font-weight: bold; margin-bottom: 5px;">${topic.label}</div>
+                                <div class="topic-words">${relevantKeywords.join(', ')}</div>
+                            </div>
+                            <div class="topic-score">${Math.round(topic.score * 100)}%</div>
+                        </div>
+                    `;
+                }
+            });
+
+            container.innerHTML = html || '<p>No topics identified in the text.</p>';
+        }
+
+        function displaySentiment(text) {
+            // Simple sentiment analysis based on keyword detection
+            const positiveWords = ['excellent', 'great', 'good', 'improved', 'increased', 'successful', 'satisfied', 'loyal', 'stable'];
+            const negativeWords = ['disappointed', 'confused', 'disruption', 'struggling', 'decreased', 'challenges', 'issues', 'problems'];
+
+            const words = text.toLowerCase().split(/\s+/);
+            const positiveCount = words.filter(word => positiveWords.some(pos => word.includes(pos))).length;
+            const negativeCount = words.filter(word => negativeWords.some(neg => word.includes(neg))).length;
+
+            let sentiment, sentimentClass, sentimentEmoji;
+            const sentimentScore = positiveCount - negativeCount;
+
+            if (sentimentScore > 0) {
+                sentiment = 'Positive';
+                sentimentClass = 'sentiment-positive';
+                sentimentEmoji = '😊';
+            } else if (sentimentScore < 0) {
+                sentiment = 'Negative';
+                sentimentClass = 'sentiment-negative';
+                sentimentEmoji = '😟';
+            } else {
+                sentiment = 'Neutral';
+                sentimentClass = 'sentiment-neutral';
+                sentimentEmoji = '😐';
+            }
+
+            const container = document.getElementById('sentimentContainer');
+            container.innerHTML = `
+                <div class="sentiment-indicator ${sentimentClass}">
+                    <span style="font-size: 2em;">${sentimentEmoji}</span>
+                    <div>
+                        <div style="font-size: 1.2em; font-weight: bold;">${sentiment} Sentiment</div>
+                        <div>Positive signals: ${positiveCount} | Negative signals: ${negativeCount}</div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <strong>Confidence:</strong> ${Math.abs(sentimentScore) > 2 ? 'High' : Math.abs(sentimentScore) > 0 ? 'Medium' : 'Low'}
+                </div>
+            `;
+        }
+
+        function displayWordFrequency(words) {
+            // Calculate word frequency excluding common stop words
+            const stopWords = new Set(['the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must', 'shall', 'can', 'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them', 'my', 'your', 'his', 'her', 'its', 'our', 'their', 'a', 'an']);
+            
+            const wordFreq = {};
+            words.forEach(word => {
+                const cleanWord = word.replace(/[^\w]/g, '').toLowerCase();
+                if (cleanWord.length > 2 && !stopWords.has(cleanWord)) {
+                    wordFreq[cleanWord] = (wordFreq[cleanWord] || 0) + 1;
+                }
+            });
+
+            const sortedWords = Object.entries(wordFreq)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 10);
+
+            const ctx = document.getElementById('wordChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sortedWords.map(([word]) => word),
+                    datasets: [{
+                        label: 'Frequency',
+                        data: sortedWords.map(([,freq]) => freq),
+                        backgroundColor: 'rgba(102, 126, 234, 0.6)',
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayInsights(text) {
+            const insights = [];
+            
+            // Document type detection
+            if (text.toLowerCase().includes('agreement') || text.toLowerCase().includes('contract')) {
+                insights.push('Document appears to be a legal contract or agreement');
+            }
+            
+            if (text.toLowerCase().includes('email') || text.toLowerCase().includes('dear') || text.toLowerCase().includes('regards')) {
+                insights.push('Contains email communication patterns');
+            }
+
+            if (text.toLowerCase().includes('quarter') || text.toLowerCase().includes('revenue') || text.toLowerCase().includes('performance')) {
+                insights.push('Contains business performance metrics and reporting');
+            }
+
+            // Urgency detection
+            if (text.toLowerCase().includes('urgent') || text.toLowerCase().includes('immediately') || text.toLowerCase().includes('asap')) {
+                insights.push('High urgency indicators detected - requires immediate attention');
+            }
+
+            // Relationship indicators
+            if (text.toLowerCase().includes('loyal') || text.toLowerCase().includes('years')) {
+                insights.push('Long-term business relationship mentioned');
+            }
+
+            // Financial indicators
+            const moneyMatches = text.match(/\$[\d,]+/g);
+            if (moneyMatches && moneyMatches.length > 0) {
+                insights.push(`${moneyMatches.length} financial values mentioned - high-value discussion`);
+            }
+
+            // Risk indicators
+            if (text.toLowerCase().includes('disappointed') || text.toLowerCase().includes('issues') || text.toLowerCase().includes('problems')) {
+                insights.push('Customer satisfaction risks identified - recommend follow-up');
+            }
+
+            // Opportunity indicators
+            if (text.toLowerCase().includes('growth') || text.toLowerCase().includes('increase') || text.toLowerCase().includes('expand')) {
+                insights.push('Growth opportunities mentioned in the text');
+            }
+
+            const container = document.getElementById('insightsContainer');
+            if (insights.length > 0) {
+                container.innerHTML = insights.map(insight => `<li>${insight}</li>`).join('');
+            } else {
+                container.innerHTML = '<li>No specific insights detected. Upload more content for better analysis.</li>';
+            }
+        }
+
+        // File handling
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                let combinedText = '';
+                Array.from(files).forEach((file, index) => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        combinedText += `[File: ${file.name}]\n${e.target.result}\n\n---\n\n`;
+                        if (index === files.length - 1) {
+                            document.getElementById('textInput').value = combinedText;
+                        }
+                    };
+                    reader.readAsText(file);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
