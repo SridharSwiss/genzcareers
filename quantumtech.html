@@ -25,16 +25,29 @@
       text-align: center;
       color: white;
     }
-    nav {
+    .nav-container {
       position: sticky;
       top: 0;
       background: #1a1a1a;
+      z-index: 1000;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 0.5rem;
       padding: 0.5rem;
-      z-index: 1000;
+      transition: max-height 0.3s ease-in-out;
+      overflow: hidden;
     }
     nav a {
       color: var(--primary);
@@ -85,12 +98,16 @@
     }
 
     /* Responsive tweaks */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.4rem;
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
       }
-      h2 {
-        font-size: 1.3rem;
+      nav.collapsed {
+        max-height: 0;
+        padding: 0;
+      }
+      nav.expanded {
+        max-height: 500px;
       }
       nav {
         flex-direction: column;
@@ -110,13 +127,16 @@
   <p>For Gen Z Innovators, Diaspora Leaders & Visionary Entrepreneurs</p>
 </header>
 
-<nav>
-  <a href="#overview">Overview</a>
-  <a href="#startups">Startups</a>
-  <a href="#jobs">Jobs</a>
-  <a href="#skills">Skills</a>
-  <a href="#insights">Insights</a>
-</nav>
+<div class="nav-container">
+  <button class="nav-toggle" onclick="toggleNav()">☰ Menu</button>
+  <nav id="mainNav" class="expanded">
+    <a href="#overview">Overview</a>
+    <a href="#startups">Startups</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#skills">Skills</a>
+    <a href="#insights">Insights</a>
+  </nav>
+</div>
 
 <section id="overview">
   <h2>📘 Quantum Economy Overview</h2>
@@ -201,6 +221,14 @@
 <footer>
   🚀 Built for the future. Inspired by the WEF Quantum Economy Report 2025. Powered by visionaries like you.
 </footer>
+
+<script>
+  function toggleNav() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('collapsed');
+    nav.classList.toggle('expanded');
+  }
+</script>
 
 </body>
 </html>
