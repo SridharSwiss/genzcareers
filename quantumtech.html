@@ -1,234 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quantum Economy: Swiss Startups & Future Skills</title>
-  <style>
-    :root {
-      --primary: #00d4ff;
-      --accent: #ff0077;
-      --bg: #0d0d0d;
-      --text: #f0f0f0;
-      --card: #222;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      scroll-behavior: smooth;
-    }
-    header {
-      background: linear-gradient(135deg, var(--accent), var(--primary));
-      padding: 2rem 1rem;
-      text-align: center;
-      color: white;
-    }
-    .nav-container {
-      position: sticky;
-      top: 0;
-      background: #1a1a1a;
-      z-index: 1000;
-    }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--primary);
-      font-size: 1.5rem;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      padding: 0.5rem;
-      transition: max-height 0.3s ease-in-out;
-      overflow: hidden;
-    }
-    nav a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    nav a:hover {
-      background: #333;
-    }
-    section {
-      padding: 2rem 1rem;
-      border-bottom: 1px solid #333;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: var(--primary);
-      margin-top: 0;
-      font-size: 1.5rem;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li::before {
-      content: "✨ ";
-    }
-    .highlight, .cta {
-      background: var(--card);
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    .cta {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      text-align: center;
-    }
-    footer {
-      background: #1a1a1a;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quantum Leap: Your Playbook for the Next Economy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-      nav.collapsed {
-        max-height: 0;
-        padding: 0;
-      }
-      nav.expanded {
-        max-height: 500px;
-      }
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav a {
-        width: 90%;
-        text-align: center;
-      }
-    }
-  </style>
+        :root {
+            --bg-color: #121212;
+            --primary-text: #E0E0E0;
+            --secondary-text: #BDBDBD;
+            --card-bg: #1E1E1E;
+            --border-color: #333333;
+            --accent-color: #00AFFF;
+            --accent-glow: rgba(0, 175, 255, 0.3);
+            --success-color: #4CAF50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Navigation Toolbar --- */
+        .toolbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .toolbar nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .toolbar .logo {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: var(--accent-color);
+        }
+
+        .toolbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .toolbar .nav-links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .toolbar .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-color), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: var(--secondary-text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero .source-note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            font-style: italic;
+            color: #888;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            border-bottom: 1px dotted var(--accent-color);
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: var(--card-bg);
+            color: var(--primary-text);
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-text);
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .card h3 {
+            font-size: 1.4em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .card p, .card ul {
+            color: var(--secondary-text);
+        }
+        
+        .card ul {
+            padding-left: 20px;
+        }
+        
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        .pitch-card .problem { color: #FF6B6B; font-weight: 600; }
+        .pitch-card .solution { color: var(--success-color); font-weight: 600; }
+        .pitch-card .why-now { color: #FFA500; font-weight: 600; }
+        
+        /* --- Futurist Corner --- */
+        .insight-card {
+            background-color: var(--card-bg);
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .insight-card h3 {
+            color: var(--primary-text);
+            font-size: 1.5em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            color: var(--secondary-text);
+            font-size: 0.9em;
+        }
+        
+        cite {
+            font-style: normal;
+            font-size: 0.7em;
+            color: #666;
+            vertical-align: super;
+            margin-left: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .toolbar .nav-links { display: none; } /* Simplified for example */
+        }
+
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Quantum Economy: Swiss Startups & Future Skills</h1>
-  <p>For Gen Z Innovators, Diaspora Leaders & Visionary Entrepreneurs</p>
-</header>
+    <header class="toolbar">
+        <nav class="container">
+            <div class="logo">QuantumLeap</div>
+            <ul class="nav-links">
+                <li><a href="#attention">⚠️ Attention Points</a></li>
+                <li><a href="#incubator">💡 Startup Incubator</a></li>
+                <li><a href="#future-of-work">💼 Future of Work</a></li>
+                <li><a href="#insights">🔮 Key Insights</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="nav-container">
-  <button class="nav-toggle" onclick="toggleNav()">☰ Menu</button>
-  <nav id="mainNav" class="expanded">
-    <a href="#overview">Overview</a>
-    <a href="#startups">Startups</a>
-    <a href="#jobs">Jobs</a>
-    <a href="#skills">Skills</a>
-    <a href="#insights">Insights</a>
-  </nav>
-</div>
+    <main class="container">
 
-<section id="overview">
-  <h2>📘 Quantum Economy Overview</h2>
-  <p>Quantum technologies are reshaping the global economy through three pillars:</p>
-  <ul>
-    <li><strong>Quantum Computing:</strong> Solves problems classical computers can't—like molecular simulation, portfolio optimization, and logistics routing.</li>
-    <li><strong>Quantum Sensing:</strong> Enables ultra-precise measurements in medicine, climate science, and navigation.</li>
-    <li><strong>Quantum Communication:</strong> Uses quantum physics for secure data transmission—immune to hacking.</li>
-  </ul>
-  <div class="highlight">
-    <strong>Swiss Advantage:</strong> Zurich’s ETH, EPFL, and EU Horizon programs make Switzerland a quantum innovation hotspot.
-  </div>
-</section>
+        <section class="hero" id="home">
+            <h1>Decoding the Quantum Leap</h1>
+            <p>Your Strategic Playbook for the Next Economy. We've distilled the World Economic Forum's quantum report into actionable intelligence for the founders, leaders, and pioneers of tomorrow.</p>
+            [span_0](start_span)<p class="source-note">Based on insights from the WEF Insight Report: "Embracing the Quantum Economy: A Pathway for Business Leaders" (Jan 2025)[span_0](end_span)</p>
+        </section>
 
-<section id="startups">
-  <h2>💡 Startup Ideas</h2>
-  <p>Quantum tech opens doors for bold, future-ready ventures. Here are high-potential ideas:</p>
-  <ul>
-    <li>Quantum-powered ESG analytics for sustainable investing</li>
-    <li>Quantum-safe cloud storage for Swiss SMEs</li>
-    <li>Portable quantum sensors for alpine climate tracking</li>
-    <li>Quantum-AI hybrid tools for multilingual legal compliance</li>
-    <li>Quantum ethics consultancy for EU regulators</li>
-    <li>Quantum career bootcamps for Gen Z in Zurich</li>
-    <li>Telugu-language quantum literacy platform for diaspora youth</li>
-  </ul>
-  <div class="cta">
-    🌍 Launch diaspora-led quantum ventures that blend tradition, tech, and transformation.
-  </div>
-</section>
+        <section id="attention">
+            <h2>⚠️ The CEO's Briefing: What Demands Your Attention NOW</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>The Security Emergency 🚨</h3>
+                    [span_1](start_span)<p>The gap between quantum potential and quantum security is "dangerously wide"<cite>[span_1](end_span)</cite>. Data stolen today can be decrypted by a future quantum computer. The time to implement <span class="tooltip">Post-Quantum Cryptography (PQC)<span class="tooltiptext">Cryptographic algorithms, running on classical computers, believed to be secure against attacks from both quantum and classical computers.</span></span> and explore <span class="tooltip">Quantum Key Distribution (QKD)<span class="tooltiptext">A secure communication method which implements a cryptographic protocol involving components of quantum mechanics.</span></span> is not in a decade—it's now. This is a board-level risk.</p>
+                </div>
+                <div class="card">
+                    <h3>The First-Mover Paradox 🤔</h3>
+                    <p>Early adoption provides a massive competitive edge, but it's a high-stakes game. [span_2](start_span)Leaders face:<cite>[span_2](end_span)</cite></p>
+                    <ul>
+                        [span_3](start_span)<li>High R&D costs with no guaranteed immediate ROI.<cite>[span_3](end_span)</cite></li>
+                        [span_4](start_span)<li>A severe shortage of a skilled quantum-ready workforce.<cite>[span_4](end_span)</cite></li>
+                        [span_5](start_span)<li>Technological unpredictability and maturity challenges.<cite>[span_5](end_span)</cite></li>
+                    </ul>
+                    [span_6](start_span)<p>The report's message is clear: start experimenting now, despite hurdles, to build a competitive edge.<cite>[span_6](end_span)</cite></p>
+                </div>
+                <div class="card">
+                    <h3>The AI <> Quantum Symbiosis 🤝</h3>
+                    <p>This isn't a "one or the other" future. [span_7](start_span)AI and Quantum are in a powerful feedback loop.<cite>[span_7](end_span)</cite></p>
+                    <ul>
+                        [span_8](start_span)<li><strong>AI for Quantum:</strong> AI is already being used to optimize quantum algorithms, de-noise sensor data, and improve hardware performance.<cite>[span_8](end_span)</cite></li>
+                        [span_9](start_span)<li><strong>Quantum for AI:</strong> In the future, quantum computing will revolutionize AI by massively speeding up model training and enabling new types of algorithms.<cite>[span_9](end_span)</cite></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>The Coming 'Quantum Divide' 🌍</h3>
+                    [span_10](start_span)<p>There's a significant risk of a "quantum divide," where quantum advancements are concentrated in a few dominant countries and large players.<cite>[span_10](end_span)[span_11](start_span)[span_12](start_span)</cite> This could worsen existing global inequalities.<cite>[span_11](end_span)[span_12](end_span)</cite> For businesses, this means potential supply chain disruptions and geopolitical complexities.</p>
+                </div>
+            </div>
+        </section>
 
-<section id="jobs">
-  <h2>🧠 Future Jobs</h2>
-  <p>Quantum will create new roles across industries. Prepare for:</p>
-  <ul>
-    <li>Quantum Algorithm Developer</li>
-    <li>Quantum Hardware Engineer</li>
-    <li>Quantum Cryptography Analyst</li>
-    <li>Quantum UX Designer (for multilingual interfaces)</li>
-    <li>Quantum Ethics & Policy Advisor (EU/UN)</li>
-    <li>Quantum Venture Analyst (Zurich-based funds)</li>
-    <li>Quantum Curriculum Designer (diaspora education)</li>
-  </ul>
-  <div class="highlight">
-    <strong>Tip:</strong> These roles will require interdisciplinary fluency—physics, coding, ethics, and global collaboration.
-  </div>
-</section>
+        <section id="incubator">
+            <h2>💡 The Quantum Incubator: Your Next Unicorn Idea</h2>
+            <div class="grid-container">
+                <div class="card pitch-card">
+                    <h3>Quantum Talent-as-a-Service</h3>
+                    [span_13](start_span)[span_14](start_span)<p><span class="problem">Problem:</span> There's a critical shortage of a quantum-skilled workforce.<cite>[span_13](end_span)[span_14](end_span)</cite> Companies need expertise but can't hire full-time teams.</p>
+                    <p><span class="solution">Solution:</span> An EdTech platform offering certified, industry-specific quantum upskilling modules and a marketplace for freelance quantum consultants.</p>
+                    [span_15](start_span)<p><span class="why-now">Why Now?</span> The report emphasizes building dedicated teams,<cite>[span_15](end_span)</cite> but the talent pool is tiny. A scalable training and staffing solution is a massive, untapped market.</p>
+                </div>
+                <div class="card pitch-card">
+                    <h3>Hybrid Systems Integrator</h3>
+                    [span_16](start_span)<p><span class="problem">Problem:</span> Integrating fragile quantum computers with existing classical IT infrastructure is a major technical challenge.<cite>[span_16](end_span)</cite></p>
+                    <p><span class="solution">Solution:</span> A middleware software company that builds the "operating system" for the hybrid quantum-classical era, making it seamless for businesses to leverage both.</p>
+                    [span_17](start_span)<p><span class="why-now">Why Now?</span> As more companies run pilot programs,<cite>[span_17](end_span)</cite> the need for practical, easy-to-use integration tools will explode.</p>
+                </div>
+                <div class="card pitch-card">
+                    <h3>AI-Powered Quantum Sensor Suite</h3>
+                    [span_18](start_span)<p><span class="problem">Problem:</span> Quantum sensors offer insane precision but are affected by environmental "noise."<cite>[span_18](end_span)</cite> Raw data is hard to interpret.</p>
+                    [span_19](start_span)[span_20](start_span)<p><span class="solution">Solution:</span> A startup that packages quantum sensors with sophisticated AI/ML algorithms that de-noise and translate raw data into actionable business intelligence for specific sectors (e.g., medical diagnostics, infrastructure monitoring).<cite>[span_19](end_span)[span_20](end_span)</cite></p>
+                    [span_21](start_span)<p><span class="why-now">Why Now?</span> Quantum sensing is one of the more mature technologies, with applications ready for pilot deployment.<cite>[span_21](end_span)</cite> The value is in making the data usable.</p>
+                </div>
+                 <div class="card pitch-card">
+                    <h3>Crypto-Agility & Security Platform</h3>
+                    [span_22](start_span)<p><span class="problem">Problem:</span> Companies are "woefully unprepared" for quantum cybersecurity threats and need to upgrade their entire security posture.<cite>[span_22](end_span)</cite></p>
+                    [span_23](start_span)<p><span class="solution">Solution:</span> A SaaS platform that helps companies assess their cryptographic vulnerabilities, manage the transition to PQC, and implement QKD for critical data channels.<cite>[span_23](end_span)</cite></p>
+                    <p><span class="why-now">Why Now?</span> This is not a future problem; it's an immediate threat. The market for quantum-safe security solutions is set to grow exponentially.</p>
+                </div>
+            </div>
+        </section>
 
-<section id="skills">
-  <h2>🎯 Niche Skills to Build</h2>
-  <p>Quantum careers demand unique capabilities. Start building:</p>
-  <ul>
-    <li>Quantum programming (Qiskit, Cirq, QuTiP)</li>
-    <li>Quantum-safe cryptography (PQC, QKD)</li>
-    <li>Quantum UX for multilingual interfaces</li>
-    <li>Quantum ethics frameworks (privacy, equity)</li>
-    <li>IP law for quantum patents (EU/Swiss context)</li>
-    <li>Quantum sensor calibration & miniaturization</li>
-    <li>Quantum-AI hybrid modeling</li>
-  </ul>
-  <div class="cta">
-    🧪 Mentor Gen Z learners in quantum literacy and ethics—build the next generation of pioneers.
-  </div>
-</section>
+        <section id="future-of-work">
+            <h2>💼 The Future of Work: New Gigs & Niche Skills</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>New Roles Emerging</h3>
+                    [span_24](start_span)<p>The report outlines many new specialized roles across industries.<cite>[span_24](end_span)</cite> Key examples include:</p>
+                    <ul>
+                        [span_25](start_span)<li><strong>Financial Services:</strong> Quantitative Analyst (Quantum), Risk Manager (Quantum), Secure Transaction Specialist.<cite>[span_25](end_span)</cite></li>
+                        [span_26](start_span)<li><strong>Healthcare:</strong> Drug Discovery Scientist (Quantum), Medical Device Engineer (Quantum Sensors), Patient Data Security Officer.<cite>[span_26](end_span)</cite></li>
+                        [span_27](start_span)<li><strong>Energy & Utilities:</strong> Grid Efficiency Expert (Quantum), Renewable Energy Optimizer, Infrastructure Security Analyst.<cite>[span_27](end_span)</cite></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Niche Skills to Master Now</h3>
+                    <p>Beyond specific job titles, these are the high-value, cross-industry skills that will define the next generation of tech talent:</p>
+                    <ul>
+                        <li><strong>Quantum Algorithm Development:</strong> The ability to translate complex business problems (e.g., optimization, simulation) into quantum-ready algorithms.</li>
+                        [span_28](start_span)<li><strong>Quantum-Classical System Architecture:</strong> Designing and managing hybrid systems that leverage the best of both worlds.<cite>[span_28](end_span)</cite></li>
+                        <li><strong>Quantum Sensor Data Interpretation:</strong> Using AI/ML to clean, analyze, and derive insights from the unique data produced by quantum sensors.</li>
+                        [span_29](start_span)<li><strong>Quantum Ethics & Governance:</strong> Navigating the ethical implications of quantum tech, from privacy to the "quantum divide."<cite>[span_29](end_span)</cite></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-<section id="insights">
-  <h2>🔍 Strategic Insights</h2>
-  <p>To lead in the quantum economy, consider these moves:</p>
-  <ul>
-    <li>Launch diaspora-led quantum literacy campaigns</li>
-    <li>Form Swiss-Telugu quantum innovation circles</li>
-    <li>Engage with ETH Zurich, EPFL, and EU Horizon programs</li>
-    <li>Mentor Gen Z quantum learners via community hubs</li>
-    <li>Build bridges between classical tech and quantum startups</li>
-    <li>Shape policy dialogues on quantum ethics and equity</li>
-  </ul>
-  <div class="highlight">
-    <strong>SRIDHAR’s Edge:</strong> Your leadership in diaspora unity and mentoring can pioneer quantum inclusion—bridging tradition, tech, and transformation.
-  </div>
-</section>
+        <section id="insights">
+            <h2>🔮 The Futurist's Corner: Key Insights to Know</h2>
+            <div class="insight-card">
+                <h3>Get Ready for a "Cambrian Explosion" of Tech</h3>
+                [span_30](start_span)<p>The report uses this powerful analogy to describe the coming era.<cite>[span_30](end_span)</cite> Just as the Cambrian period saw a rapid diversification of life, the quantum revolution will trigger a surge of unpredictable and game-changing applications. The key takeaway: the most impactful uses of quantum probably haven't even been thought of yet.</p>
+            </div>
+            <div class="insight-card">
+                <h3>The Bridge to Quantum: Large Quantitative Models (LQMs)</h3>
+                <p>You don't have to wait for a perfect quantum computer. [span_31](start_span)The report highlights the immediate value of LQMs—advanced models running on *classical* computers that simulate quantum mechanical behaviors.<cite>[span_31](end_span)[span_32](start_span)</cite> Companies like SandboxAQ are already delivering value with this approach today, years before quantum computers become mainstream.<cite>[span_32](end_span)</cite> This is your on-ramp to quantum thinking.</p>
+            </div>
+            <div class="insight-card">
+                <h3>The Future is a Hybrid Medley</h3>
+                <p>Forget the idea of a single "quantum computer" solving everything. [span_33](start_span)The future is a revolutionary toolkit combining AI, classical High-Performance Computing (HPC), and quantum computing.<cite>[span_33](end_span)[span_34](start_span)</cite> The real breakthroughs will happen at the intersection of these fields, creating a new era of insight and achievement.<cite>[span_34](end_span)</cite></p>
+            </div>
+        </section>
 
-<footer>
-  🚀 Built for the future. Inspired by the WEF Quantum Economy Report 2025. Powered by visionaries like you.
-</footer>
+    </main>
 
-<script>
-  function toggleNav() {
-    const nav = document.getElementById('mainNav');
-    nav.classList.toggle('collapsed');
-    nav.classList.toggle('expanded');
-  }
-</script>
+    <footer>
+        <div class="container">
+            <p>This strategic analysis was synthesized from the World Economic Forum and Accenture Insight Report: "Embracing the Quantum Economy: A Pathway for Business Leaders," January 2025.</p>
+            <p>All citations refer to the provided source document. This page is intended as an interpretive guide for strategic planning.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
