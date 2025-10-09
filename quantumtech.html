@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Quantum Leap: Your Definitive Playbook for the Next Economy</title>
+    <title>The Quantum Leap: Your Playbook for the Next Economy</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -72,14 +72,13 @@
         .header .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
 
         .header .nav-links a {
             color: var(--primary-text);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95em;
             transition: color 0.3s ease;
         }
 
@@ -98,40 +97,125 @@
             height: 3px;
             background-color: var(--primary-text);
             border-radius: 5px;
+            transition: all 0.3s ease-in-out;
         }
 
         /* --- Hero Section --- */
-        .hero { text-align: center; padding: 80px 20px 60px; }
-        .hero h1 { font-size: 3.5em; margin-bottom: 20px; background: linear-gradient(45deg, var(--accent-color), #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.2em; color: var(--secondary-text); max-width: 800px; margin: 0 auto; }
-        .hero .source-note { margin-top: 20px; font-size: 0.9em; font-style: italic; color: #888; }
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-color), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: var(--secondary-text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero .source-note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            font-style: italic;
+            color: #888;
+        }
 
         /* --- Section Styling --- */
-        section { padding: 60px 0; border-bottom: 1px solid var(--border-color); }
-        section:last-of-type { border-bottom: none; }
-        h2 { font-size: 2.5em; text-align: center; margin-bottom: 50px; color: var(--primary-text); }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background-color: var(--card-bg); border-radius: 12px; padding: 25px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
-        .card h3 { font-size: 1.4em; color: var(--accent-color); margin-bottom: 15px; }
-        .card h4 { font-size: 1.1em; color: var(--primary-text); margin-top: 15px; margin-bottom: 10px; }
-        .card p, .card ul { color: var(--secondary-text); font-size: 0.95em; }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-text);
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card h3 {
+            font-size: 1.4em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .card h4 {
+            font-size: 1.1em;
+            color: var(--primary-text);
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .card p, .card ul {
+            color: var(--secondary-text);
+            font-size: 0.95em;
+        }
+        
         .card ul { padding-left: 20px; flex-grow: 1; }
         .card li { margin-bottom: 10px; }
+
         .stat-card { text-align: center; padding: 30px 20px; justify-content: center; }
         .stat-value { font-size: 2.5em; font-weight: 700; color: var(--accent-color); line-height: 1.2; }
         .stat-label { font-size: 1em; color: var(--secondary-text); }
         
         /* --- Footer --- */
-        footer { text-align: center; padding: 40px 20px; margin-top: 40px; color: var(--secondary-text); font-size: 0.9em; }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            color: var(--secondary-text);
+            font-size: 0.9em;
+        }
 
         /* --- Responsive Design --- */
-        @media (max-width: 820px) {
-            .header .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--header-bg); padding: 20px 0; text-align: center; }
-            .header .nav-links.active { display: flex; }
-            .header .menu-toggle { display: flex; }
+        @media (max-width: 768px) {
+            .header .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--header-bg);
+                padding: 20px 0;
+                text-align: center;
+            }
+            .header .nav-links.active {
+                display: flex;
+            }
+            .header .menu-toggle {
+                display: flex;
+            }
             .hero h1 { font-size: 2.5em; }
             h2 { font-size: 2em; }
         }
+
     </style>
 </head>
 <body>
@@ -141,13 +225,15 @@
             <div class="logo">QuantumLeap</div>
             <ul class="nav-links">
                 <li><a href="#briefing">Briefing</a></li>
-                <li><a href="#landscape">Landscape</a></li>
-                <li><a href="#use-cases">Use Cases</a></li>
-                <li><a href="#ai-flywheel">AI Flywheel</a></li>
+                <li><a href="#numbers">Stats</a></li>
                 <li><a href="#playbook">Playbook</a></li>
+                <li><a href="#incubator">Ideas</a></li>
+                <li><a href="#workforce">Workforce</a></li>
             </ul>
             <div class="menu-toggle">
-                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
         </nav>
     </header>
@@ -155,7 +241,7 @@
     <main class="container">
         <section class="hero">
             <h1>Decoding the Quantum Leap</h1>
-            <p>Your Strategic Playbook for the Next Economy. A definitive, interactive briefing based on the World Economic Forum's quantum report, designed for the founders, leaders, and pioneers of tomorrow.</p>
+            <p>Your Strategic Playbook for the Next Economy. An interactive briefing based on the World Economic Forum's quantum report, designed for the founders, leaders, and pioneers of tomorrow.</p>
             <p class="source-note">Source: WEF Insight Report, "Embracing the Quantum Economy," Jan 2025</p>
         </section>
 
@@ -164,119 +250,81 @@
             <div class="grid-container">
                 <div class="card">
                     <h3>The Security Emergency 🚨</h3>
-                    [span_0](start_span)<p>Most organizations are "woefully unprepared" for the quantum security threat[span_0](end_span). [span_1](start_span)The gap between quantum potential and security is "dangerously wide"[span_1](end_span).</p>
-                    <h4>Key Detail:</h4>
-                    <p>The immediate risk is "harvest now, decrypt later," where encrypted data stolen today can be broken by a future quantum computer. [span_2](start_span)[span_3](start_span)Implementing Post-Quantum Cryptography (PQC) is an urgent priority[span_2](end_span)[span_3](end_span).</p>
+                    <p>Most organizations are "woefully unprepared" for the quantum security threat. The gap between quantum potential and security is "dangerously wide."</p>
+                    <h4>Key Action:</h4>
+                    <p>Implement a strategy for cryptographic agility now. Data stolen today can be decrypted by future quantum computers, making this an immediate board-level risk.</p>
                 </div>
                 <div class="card">
                     <h3>The First-Mover Paradox 🤔</h3>
-                    [span_4](start_span)<p>Early adoption offers a huge competitive edge but is fraught with high R&D costs and unpredictability[span_4](end_span).</p>
-                    <h4>Key Detail:</h4>
-                    [span_5](start_span)<p>The report's timelines suggest fully fault-tolerant quantum computers are still over 10 years away[span_5](end_span). [span_6](start_span)However, businesses can gain advantages in just 1-2 years by developing hybrid quantum-classical algorithms and deploying early quantum sensors[span_6](end_span).</p>
+                    <p>Early adoption offers a huge competitive edge but is fraught with high R&D costs, technology unpredictability, and a severe skilled workforce shortage.</p>
+                    <h4>Key Action:</h4>
+                    <p>Start with small-scale pilot programs to build internal knowledge and gain hands-on experience without committing massive resources upfront.</p>
                 </div>
                 <div class="card">
                     <h3>Intellectual Property Minefield 📜</h3>
-                    [span_7](start_span)[span_8](start_span)<p>The race to secure quantum patents is intense, but evolving IP law makes it hard to sustain advantages[span_7](end_span)[span_8](end_span). Key risks include:</p>
+                    <p>The race to secure quantum patents is intense, but evolving IP law makes it hard to sustain advantages. Key risks include:</p>
                     <ul>
-                        [span_9](start_span)<li>**Global Complexity:** IP law enforcement varies significantly across different jurisdictions, complicating international R&D collaborations[span_9](end_span).</li>
-                        [span_10](start_span)<li>**Open vs. Closed:** Businesses must balance contributing to open scientific research, which accelerates innovation, with the need to protect proprietary technologies and investments[span_10](end_span).</li>
+                        <li>Protecting IP during international collaborations.</li>
+                        <li>Balancing open scientific research with proprietary needs.</li>
                     </ul>
                 </div>
                 <div class="card">
                      <h3>Detailed Tech Challenges ⚙️</h3>
-                    [span_11](start_span)<p>The report highlights core hurdles for each technology type[span_11](end_span):</p>
+                    <p>The report highlights core hurdles for each technology type:</p>
                     <ul>
-                        [span_12](start_span)<li><strong>Computing:</strong> Qubits are "fragile, and prone to errors from environmental interfererice and decoherence," making robust error correction and scalability the primary technical challenges[span_12](end_span).</li>
-                        [span_13](start_span)<li><strong>Sensing:</strong> Real-world factors like "temperature fluctuations and electromagnetic interference can affect sensor accuracy"[span_13](end_span). [span_14](start_span)Developing compact, practical, and standardized sensors remains a hurdle[span_14](end_span).</li>
-                        [span_15](start_span)<li><strong>Communications:</strong> Over long distances, "signal loss and noise can compromise the integrity of keys" generated by QKD protocols, and building infrastructure like quantum repeaters requires breakthroughs[span_15](end_span).</li>
+                        <li><strong>Computing:</strong> Qubits are fragile and prone to errors from environmental interference and decoherence, making scalability a major technical challenge.</li>
+                        <li><strong>Sensing:</strong> Real-world factors like temperature fluctuations can affect sensor accuracy, and developing compact, practical sensors remains a hurdle.</li>
+                        <li><strong>Communications:</strong> Signal loss and noise over long distances can compromise the integrity of encryption keys generated by Quantum Key Distribution protocols.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="landscape">
-            <h2>📊 Global Landscape: Investment & Policy</h2>
+        <section id="numbers">
+            <h2>📊 The Quantum Economy by the Numbers</h2>
              <div class="grid-container">
                 <div class="card stat-card">
                     <div class="stat-value">>$40B</div>
-                    [span_16](start_span)<div class="stat-label">In Public Sector Investment Worldwide[span_16](end_span)</div>
+                    <div class="stat-label">In Public Sector Investment Worldwide</div>
                 </div>
                 <div class="card stat-card">
                    <div class="stat-value">$600B - $1.15T</div>
-                    [span_17](start_span)<div class="stat-label">Projected Annual Value by 2035[span_17](end_span)</div>
+                    <div class="stat-label">Projected Annual Value by 2035</div>
                 </div>
                  <div class="card">
+                    <h3>Market Value Breakdown (by 2035)</h3>
+                    <p>The projected annual economic impact is spread across the three main quantum domains:</p>
+                    <ul>
+                       <li><strong>Computing:</strong> $450B - $850B</li>
+                       <li><strong>Sensing:</strong> $100B - $200B</li>
+                       <li><strong>Communications:</strong> $50B - $100B</li>
+                    </ul>
+                </div>
+                <div class="card">
                     <h3>Ecosystem Snapshot</h3>
-                    [span_18](start_span)[span_19](start_span)<p>The quantum industry is heavily composed of small startups, with investments spiking after 2020[span_18](end_span)[span_19](end_span).</p>
+                    <p>The quantum industry is heavily composed of small, agile startups, with investments spiking significantly after 2020.</p>
                     <ul>
-                       [span_20](start_span)<li>**36.5%** of quantum companies have only 1-10 employees[span_20](end_span).</li>
-                       [span_21](start_span)<li>**33%** have 11-50 employees[span_21](end_span).</li>
-                       [span_22](start_span)[span_23](start_span)<li>This indicates an early-stage, high-growth environment but also highlights challenges in scaling and commercializing solutions[span_22](end_span)[span_23](end_span).</li>
+                       <li><strong>36.5%</strong> of companies have 1-10 employees.</li>
+                       <li><strong>33%</strong> of companies have 11-50 employees.</li>
+                       <li>This indicates challenges in scaling and commercializing solutions.</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3>Global Focus & Collaboration</h3>
-                    [span_24](start_span)[span_25](start_span)<p>Nations are launching major initiatives to avoid a "quantum divide"[span_24](end_span)[span_25](end_span).</p>
-                     <ul>
-                       [span_26](start_span)<li>The **United Nations** has proclaimed 2025 as the International Year of Quantum Science and Technology[span_26](end_span).</li>
-                       [span_27](start_span)<li>Governments are establishing major research hubs, such as the Jülich Research Centre in Germany and a quantum center in Barcelona[span_27](end_span).</li>
-                       [span_28](start_span)[span_29](start_span)<li>The **US National Quantum Initiative Act** and the **European Quantum Industry Consortium (QuIC)** are driving public funding and collaboration[span_28](end_span)[span_29](end_span).</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="use-cases">
-            <h2>A Closer Look: Real-World Use Cases</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <h3>Finance & Insurance</h3>
-                    [span_30](start_span)<p>Financial services are a primary early adopter, with an 86% focus on quantum computing[span_30](end_span).</p>
+                 <div class="card">
+                    <h3>Industry Adoption Focus</h3>
+                    <p>Early adopters are prioritizing different quantum technologies based on their sector's needs:</p>
                     <ul>
-                        [span_31](start_span)[span_32](start_span)<li>**Reinsurance Optimization:** AXA is exploring quantum computing to optimize reinsurance coverage and accelerate risk analysis, aiming for better capital allocation[span_31](end_span)[span_32](end_span).</li>
-                        [span_33](start_span)<li>**Fraud Detection:** HSBC and Rigetti are developing quantum machine learning methods for enhanced credit card fraud detection[span_33](end_span).</li>
-                        [span_34](start_span)[span_35](start_span)<li>**Secure Transactions:** HSBC and JPMorgan Chase are piloting quantum-safe technologies (QKD/PQC) to protect financial data and transactions[span_34](end_span)[span_35](end_span).</li>
+                       <li><strong>Financial Services:</strong> 86% focus on Quantum Computing.</li>
+                       <li><strong>Tech & Telecoms:</strong> 39% focus on Quantum Communications & Security.</li>
+                       <li><strong>Pharma & Healthcare:</strong> A split between Computing (58%) and Sensing (42%).</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3>Pharma & Healthcare</h3>
-                    [span_36](start_span)<p>This sector has a balanced focus on computing for R&D (58%) and sensing for diagnostics (42%)[span_36](end_span).</p>
-                     <ul>
-                        [span_37](start_span)[span_38](start_span)<li>**Drug Discovery:** Moderna and IBM are using quantum computers to predict mRNA secondary structures, which is critical for designing RNA-based therapeutics[span_37](end_span)[span_38](end_span).</li>
-                        [span_39](start_span)[span_40](start_span)<li>**Medical Imaging:** Quantum sensors are being developed for non-invasive, radiation-free cardiac assessments (magnetocardiography) and for early diagnosis of neurodegenerative diseases[span_39](end_span)[span_40](end_span). [span_41](start_span)SandboxAQ is a key player in this area[span_41](end_span).</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Automotive & Aerospace</h3>
-                    <p>This industry is investing in quantum for complex simulations and next-generation navigation.</p>
-                     <ul>
-                        [span_42](start_span)<li>**Aerodynamics Simulation:** Airbus is using quantum computing to solve intricate aerodynamic problems that are too intensive for classical computers, aiming for more fuel-efficient aircraft designs[span_42](end_span).</li>
-                        [span_43](start_span)<li>**Traffic Optimization:** Volkswagen has partnered with D-Wave to use quantum annealing for optimizing urban traffic flow, reducing congestion and emissions[span_43](end_span).</li>
-                        [span_44](start_span)<li>**GPS-Free Navigation:** The U.S. Air Force and SandboxAQ are testing quantum navigation systems that work in GPS-denied environments by sensing magnetic anomalies in the Earth's crust[span_44](end_span).</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="ai-flywheel">
-            <h2>The Quantum & AI Flywheel</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <h3>How AI Enhances Quantum (Today)</h3>
-                    [span_45](start_span)<p>AI is a critical enabling technology that is already accelerating quantum development[span_45](end_span).</p>
+                 <div class="card">
+                    <h3>Technology Timelines</h3>
+                    <p>The path to maturity varies significantly for each quantum domain:</p>
                     <ul>
-                        [span_46](start_span)<li>**Smarter Code:** Microsoft's Copilot in Azure Quantum is an AI trained on scientific papers to help researchers write quantum code more efficiently[span_46](end_span).</li>
-                        [span_47](start_span)<li>**Error Reduction:** IBM's Qiskit Transpiler Service uses AI to optimize quantum circuits, reducing the number of gates needed for computations, which leads to fewer errors[span_47](end_span).</li>
-                        [span_48](start_span)[span_49](start_span)<li>**Cleaner Data:** AI is used to refine and de-noise the data collected from highly sensitive quantum sensors, turning raw measurements into actionable intelligence[span_48](end_span)[span_49](end_span).</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>How Quantum Will Supercharge AI (Tomorrow)</h3>
-                    [span_50](start_span)<p>Quantum computing promises to overcome the computational limitations of classical systems for AI[span_50](end_span).</p>
-                    <ul>
-                        [span_51](start_span)<li>**Faster Training:** Quantum techniques may significantly speed up the training process for deep learning models[span_51](end_span).</li>
-                        [span_52](start_span)<li>**New Algorithms:** Quantum mechanics inspires new types of machine learning, such as quantum reservoir computing, which can perform computations infeasible for classical computers[span_52](end_span).</li>
-                        [span_53](start_span)[span_54](start_span)<li>**Bridge Technology (LQMs):** Large Quantitative Models (LQMs) running on classical computers can simulate quantum behaviors now, delivering value years before mainstream quantum computers arrive, a strategy emphasized by SandboxAQ's CEO Jack Hidary[span_53](end_span)[span_54](end_span).</li>
+                        <li><strong>Computing:</strong> Algorithms & Apps (1-2 yrs), Error Correction (3-5 yrs), Reliable Devices (6-10 yrs).</li>
+                        <li><strong>Sensing:</strong> Deployment in Niche Apps (1-2 yrs), Broader Integration (3-5 yrs).</li>
+                        <li><strong>Communications:</strong> QKD/PQC Pilots (1-2 yrs), Network Expansion (3-5 yrs).</li>
                     </ul>
                 </div>
             </div>
@@ -287,33 +335,85 @@
             <div class="grid-container">
                 <div class="card">
                     <h3>1. Explorative Initiatives</h3>
-                    <p>This is the first step. [span_55](start_span)The goal is to learn and experiment without making substantial commitments[span_55](end_span).</p>
+                    <p>This is the first step. The goal is to learn and experiment without making substantial commitments.</p>
+                    <h4>Examples in Action:</h4>
                     <ul>
-                        [span_56](start_span)[span_57](start_span)<li>Form partnerships with universities and research hubs to access cutting-edge research[span_56](end_span)[span_57](end_span).</li>
-                        [span_58](start_span)[span_59](start_span)<li>Undertake small-scale pilot projects to gain hands-on experience and assess feasibility[span_58](end_span)[span_59](end_span).</li>
+                        <li>Engage in R&D collaborations, like the partnership between Moderna and IBM to predict mRNA structures.</li>
+                        <li>Pilot a project with a quantum vendor, such as Volkswagen using D-Wave's technology to optimize traffic flow.</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3>2. Build a Dedicated Team</h3>
-                    [span_60](start_span)[span_61](start_span)<p>To own the innovation process, invest in internal capabilities to build proprietary solutions tailored to your business needs[span_60](end_span)[span_61](end_span).</p>
+                    <p>To own the innovation process, invest in internal capabilities and proprietary solutions.</p>
+                    <h4>Examples in Action:</h4>
                      <ul>
-                        [span_62](start_span)<li>Recruit for new, specialized roles like 'Quantum algorithms developer' or 'Secure transaction specialist'[span_62](end_span).</li>
-                        [span_63](start_span)<li>Invest in continuous education, certifications, and collaborative projects with research institutions to keep the team's skills sharp[span_63](end_span).</li>
+                        <li>Establish an in-house team like JPMorgan Chase and AXA have done.</li>
+                        <li>Recruit for new roles, such as 'Drug discovery scientists' in Pharma or 'Compliance officers' in Finance to manage quantum security.</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3>3. Strategic Investments</h3>
-                    [span_64](start_span)<p>Directly fund or acquire quantum innovations to accelerate development and secure a competitive advantage[span_64](end_span).</p>
+                    <p>Directly fund or acquire quantum innovations to accelerate development and secure a competitive advantage.</p>
                     <h4>Examples in Action:</h4>
                      <ul>
-                        [span_65](start_span)<li><strong>Venture Capital:</strong> JPMorgan Chase, Mitsui, and Amgen have all invested in the quantum computing company Quantinuum[span_65](end_span).</li>
-                        [span_66](start_span)<li><strong>Acquisitions:</strong> Keysight Technologies acquired Quantum Benchmark to quickly integrate its error-correction technology[span_66](end_span).</li>
-                        [span_67](start_span)[span_68](start_span)<li><strong>Internal Funding:</strong> HSBC, Volkswagen, and Toyota are all allocating internal R&D budgets to create their own quantum practices and projects[span_67](end_span)[span_68](end_span).</li>
+                        <li><strong>Venture Capital:</strong> JPMorgan Chase and Mitsui invested in quantum computing company Quantinuum.</li>
+                        <li><strong>Acquisitions:</strong> Keysight Technologies acquired Quantum Benchmark to integrate its technology.</li>
+                        <li><strong>Internal Funding:</strong> HSBC created its own quantum computing practice to develop proprietary solutions.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <section id="incubator">
+            <h2>💡 The Quantum Incubator: Your Next Unicorn Idea</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Quantum Talent-as-a-Service</h3>
+                    <p><strong>Problem:</strong> There's a critical shortage of a quantum-skilled workforce. Companies need expertise but can't hire full-time teams.</p>
+                    <p><strong>Solution:</strong> An EdTech platform offering certified, industry-specific quantum upskilling modules and a marketplace for freelance quantum consultants.</p>
+                </div>
+                <div class="card">
+                    <h3>Hybrid Systems Integrator</h3>
+                    <p><strong>Problem:</strong> Integrating fragile quantum computers with existing classical IT infrastructure is a major technical challenge.</p>
+                    <p><strong>Solution:</strong> A middleware software company that builds the "operating system" for the hybrid quantum-classical era, making it seamless for businesses to leverage both.</p>
+                </div>
+                <div class="card">
+                    <h3>AI-Powered Quantum Sensor Suite</h3>
+                    <p><strong>Problem:</strong> Quantum sensors offer insane precision but are affected by real-world "noise." Raw data is hard to interpret.</p>
+                    <p><strong>Solution:</strong> A startup that packages quantum sensors with sophisticated AI/ML algorithms that de-noise and translate raw data into actionable business intelligence.</p>
+                </div>
+                 <div class="card">
+                    <h3>Crypto-Agility Platform</h3>
+                    <p><strong>Problem:</strong> Companies are "woefully unprepared" for quantum cybersecurity threats and need to upgrade their entire security posture.</p>
+                    <p><strong>Solution:</strong> A SaaS platform that audits cryptographic vulnerabilities and manages the transition to Post-Quantum Cryptography (PQC).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="workforce">
+            <h2>💼 The Future of Work: New Gigs & Niche Skills</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>New Roles Emerging</h3>
+                    <p>The report outlines many new specialized roles across industries. Key examples include:</p>
+                    <ul>
+                        <li><strong>Financial Services:</strong> Quantum Quantitative Analyst, Quantum Risk Manager, Secure Transaction Specialist.</li>
+                        <li><strong>Healthcare:</strong> Quantum Drug Discovery Scientist, Quantum Medical Device Engineer, Patient Data Security Officer.</li>
+                        <li><strong>Energy & Utilities:</strong> Quantum Grid Efficiency Expert, Renewable Energy Optimizer, Infrastructure Security Analyst.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Niche Skills to Master Now</h3>
+                    <p>Beyond specific job titles, these are the high-value, cross-industry skills that will define the next generation of tech talent:</p>
+                    <ul>
+                        <li><strong>Quantum Algorithm Development:</strong> Translating business problems into quantum-ready algorithms.</li>
+                        <li><strong>Quantum-Classical System Architecture:</strong> Designing hybrid systems that leverage both worlds.</li>
+                        <li><strong>Quantum Sensor Data Interpretation:</strong> Using AI/ML to clean and analyze unique data from quantum sensors.</li>
+                        <li><strong>Quantum Ethics & Governance:</strong> Navigating the implications of quantum tech, including the "quantum divide."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
