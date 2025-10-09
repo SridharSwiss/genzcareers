@@ -15,7 +15,7 @@
             --border-color: #333333;
             --accent-color: #00AFFF;
             --accent-glow: rgba(0, 175, 255, 0.3);
-            --success-color: #4CAF50;
+            --header-bg: rgba(18, 18, 18, 0.85);
         }
 
         * {
@@ -23,14 +23,18 @@
             margin: 0;
             padding: 0;
         }
+        
+        html {
+            scroll-behavior: smooth;
+            /* Space for the sticky header */
+            scroll-padding-top: 80px; 
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--primary-text);
             line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -39,25 +43,73 @@
             padding: 20px;
         }
 
-        /* --- Header & Hero --- */
-        .toolbar {
-            padding: 15px 20px;
-            text-align: center;
+        /* --- Persistent Header Navigation --- */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .toolbar .logo {
+        .header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header .logo {
             font-weight: 700;
-            font-size: 1.8em;
+            font-size: 1.5em;
             color: var(--accent-color);
         }
 
+        .header .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .header .nav-links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-text);
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Hero Section --- */
         .hero {
             text-align: center;
-            padding: 60px 20px 60px;
+            padding: 80px 20px 60px;
         }
 
         .hero h1 {
-            font-size: 3.2em;
+            font-size: 3.5em;
             margin-bottom: 20px;
             background: linear-gradient(45deg, var(--accent-color), #ffffff);
             -webkit-background-clip: text;
@@ -65,7 +117,7 @@
         }
 
         .hero p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: var(--secondary-text);
             max-width: 800px;
             margin: 0 auto;
@@ -77,63 +129,23 @@
             font-style: italic;
             color: #888;
         }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
         
-        /* --- Accordion Menu Styling --- */
-        .accordion-menu {
-            max-width: 900px;
-            margin: 20px auto;
-        }
-
-        .accordion {
-            background-color: var(--card-bg);
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
             color: var(--primary-text);
-            cursor: pointer;
-            padding: 18px 25px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 1.3em;
-            font-weight: 600;
-            transition: background-color 0.4s ease;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border-color);
         }
-
-        .accordion:hover, .accordion.active {
-            background-color: #2a2a2a;
-        }
-
-        .accordion:after {
-            content: '+';
-            font-size: 1.5em;
-            color: var(--accent-color);
-            transition: transform 0.3s ease;
-        }
-
-        .accordion.active:after {
-            content: '−';
-            transform: rotate(180deg);
-        }
-
-        .panel {
-            padding: 0 18px;
-            background-color: transparent;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            margin-bottom: 10px;
-        }
-
-        .panel-content {
-            padding: 30px 10px;
-        }
-
-        /* --- General Card & Content Styling --- */
+        
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -145,14 +157,8 @@
             border-radius: 12px;
             padding: 25px;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
+        
         .card h3 {
             font-size: 1.4em;
             color: var(--accent-color);
@@ -171,46 +177,13 @@
             font-size: 0.95em;
         }
         
-        .card ul {
-            padding-left: 20px;
-        }
-        
-        .card li {
-            margin-bottom: 10px;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 30px 20px;
-        }
-        .stat-value {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--accent-color);
-            line-height: 1.2;
-        }
-        .stat-label {
-            font-size: 1em;
-            color: var(--secondary-text);
-        }
+        .card ul { padding-left: 20px; }
+        .card li { margin-bottom: 10px; }
 
-        .pitch-card .problem { color: #FF6B6B; font-weight: 600; }
-        .pitch-card .solution { color: var(--success-color); font-weight: 600; }
-        .pitch-card .why-now { color: #FFA500; font-weight: 600; }
+        .stat-card { text-align: center; padding: 30px 20px; }
+        .stat-value { font-size: 2.5em; font-weight: 700; color: var(--accent-color); line-height: 1.2; }
+        .stat-label { font-size: 1em; color: var(--secondary-text); }
         
-        .insight-card {
-            background-color: var(--card-bg);
-            border-left: 5px solid var(--accent-color);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .insight-card h3 {
-            color: var(--primary-text);
-            font-size: 1.5em;
-        }
-
         /* --- Footer --- */
         footer {
             text-align: center;
@@ -219,201 +192,207 @@
             color: var(--secondary-text);
             font-size: 0.9em;
         }
-        
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            .header .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--header-bg);
+                padding: 20px;
+            }
+            .header .nav-links.active {
+                display: flex;
+            }
+            .header .menu-toggle {
+                display: flex;
+            }
             .hero h1 { font-size: 2.5em; }
-            .accordion { font-size: 1.1em; }
+            h2 { font-size: 2em; }
         }
+
     </style>
 </head>
 <body>
 
-    <header class="toolbar">
-        <div class="logo">QuantumLeap</div>
+    <header class="header">
+        <nav class="container">
+            <div class="logo">QuantumLeap</div>
+            <ul class="nav-links">
+                <li><a href="#briefing">Briefing</a></li>
+                <li><a href="#numbers">Stats</a></li>
+                <li><a href="#playbook">Playbook</a></li>
+                <li><a href="#incubator">Ideas</a></li>
+                <li><a href="#workforce">Workforce</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
     </header>
 
     <main class="container">
-
         <section class="hero">
             <h1>Decoding the Quantum Leap</h1>
             <p>Your Strategic Playbook for the Next Economy. An interactive briefing based on the World Economic Forum's quantum report, designed for the founders, leaders, and pioneers of tomorrow.</p>
             <p class="source-note">Source: WEF Insight Report, "Embracing the Quantum Economy," Jan 2025</p>
         </section>
 
-        <div class="accordion-menu">
-
-            <button class="accordion">⚠️ The CEO's Briefing: What Demands Your Attention</button>
-            <div class="panel">
-                <div class="panel-content">
-                    <div class="grid-container">
-                        <div class="card">
-                            <h3>The Security Emergency 🚨</h3>
-                            [span_0](start_span)<p>Most organizations are "woefully unprepared" for the quantum security threat[span_0](end_span). [span_1](start_span)The gap between quantum potential and security is "dangerously wide"[span_1](end_span).</p>
-                            <h4>Key Action:</h4>
-                            <p>Implement a strategy for cryptographic agility now. Data stolen today can be decrypted by future quantum computers, making this an immediate board-level risk.</p>
-                        </div>
-                        <div class="card">
-                            <h3>The First-Mover Paradox 🤔</h3>
-                            [span_2](start_span)<p>Early adoption offers a huge competitive edge but is fraught with challenges including high R&D costs, technology unpredictability, and a severe skilled workforce shortage[span_2](end_span).</p>
-                            <h4>Key Action:</h4>
-                            [span_3](start_span)<p>Start with small-scale pilot programs to build internal knowledge and gain hands-on experience without committing massive resources upfront[span_3](end_span).</p>
-                        </div>
-                        <div class="card">
-                            <h3>Intellectual Property Minefield 📜</h3>
-                            [span_4](start_span)<p>The race to secure quantum patents is intense, but IP law is still evolving, making it hard to sustain advantages[span_4](end_span). Key risks include:</p>
-                            <ul>
-                                [span_5](start_span)<li>Protecting IP during international collaborations[span_5](end_span).</li>
-                                [span_6](start_span)<li>Balancing open scientific research with proprietary needs[span_6](end_span).</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                             <h3>Detailed Tech Challenges ⚙️</h3>
-                            [span_7](start_span)<p>The report highlights core hurdles for each technology type[span_7](end_span):</p>
-                            <ul>
-                                [span_8](start_span)<li><strong>Computing:</strong> High error rates, scalability, and integration with classical systems[span_8](end_span).</li>
-                                [span_9](start_span)<li><strong>Sensing:</strong> Maintaining sensitivity in real-world environments, miniaturization, and standardization[span_9](end_span).</li>
-                                [span_10](start_span)<li><strong>Communications:</strong> Signal loss over long distances and lack of infrastructure like quantum repeaters[span_10](end_span).</li>
-                            </ul>
-                        </div>
-                    </div>
+        <section id="briefing">
+            <h2>⚠️ The CEO's Briefing: What Demands Your Attention</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>The Security Emergency 🚨</h3>
+                    [span_0](start_span)<p>Most organizations are "woefully unprepared" for the quantum security threat.[span_0](end_span) [span_1](start_span)The gap between quantum potential and security is "dangerously wide".[span_1](end_span)</p>
+                    <h4>Key Action:</h4>
+                    <p>Implement a strategy for cryptographic agility now. Data stolen today can be decrypted by future quantum computers, making this an immediate board-level risk.</p>
+                </div>
+                <div class="card">
+                    <h3>The First-Mover Paradox 🤔</h3>
+                    [span_2](start_span)<p>Early adoption offers a huge competitive edge but is fraught with challenges including high R&D costs, technology unpredictability, and a severe skilled workforce shortage.[span_2](end_span)</p>
+                    <h4>Key Action:</h4>
+                    [span_3](start_span)<p>Start with small-scale pilot programs to build internal knowledge and gain hands-on experience without committing massive resources upfront.[span_3](end_span)</p>
+                </div>
+                <div class="card">
+                    <h3>Intellectual Property Minefield 📜</h3>
+                    [span_4](start_span)[span_5](start_span)<p>The race to secure quantum patents is intense, but IP law is still evolving, making it hard to sustain advantages.[span_4](end_span)[span_5](end_span) Key risks include:</p>
+                    <ul>
+                        [span_6](start_span)<li>Protecting IP during international collaborations.[span_6](end_span)</li>
+                        [span_7](start_span)<li>Balancing open scientific research with proprietary needs.[span_7](end_span)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                     <h3>Detailed Tech Challenges ⚙️</h3>
+                    [span_8](start_span)<p>The report highlights core hurdles for each technology type:[span_8](end_span)</p>
+                    <ul>
+                        [span_9](start_span)<li><strong>Computing:</strong> High error rates, scalability, and integration with classical systems.[span_9](end_span)</li>
+                        [span_10](start_span)<li><strong>Sensing:</strong> Maintaining sensitivity in real-world environments, miniaturization, and standardization.[span_10](end_span)</li>
+                        [span_11](start_span)<li><strong>Communications:</strong> Signal loss over long distances and lack of infrastructure like quantum repeaters.[span_11](end_span)</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
-            <button class="accordion">📊 The Quantum Economy by the Numbers</button>
-            <div class="panel">
-                <div class="panel-content">
-                     <div class="grid-container">
-                        <div class="card stat-card">
-                            <div class="stat-value">>$40B</div>
-                            [span_11](start_span)<div class="stat-label">In Public Sector Investment[span_11](end_span)</div>
-                        </div>
-                        <div class="card stat-card">
-                           <div class="stat-value">~600B - $1.15T</div>
-                            [span_12](start_span)<div class="stat-label">Annual Value by 2035[span_12](end_span)</div>
-                        </div>
-                         <div class="card">
-                            <h3>Technology Timelines</h3>
-                            [span_13](start_span)<p>The path to maturity varies significantly for each quantum domain[span_13](end_span):</p>
-                            <ul>
-                                [span_14](start_span)<li><strong>Computing:</strong> Algorithms & Apps (1-2 yrs), Error Correction (3-5 yrs), Reliable Devices (6-10 yrs)[span_14](end_span).</li>
-                                [span_15](start_span)<li><strong>Sensing:</strong> Deployment in Niche Apps (1-2 yrs), Broader Integration (3-5 yrs)[span_15](end_span).</li>
-                                [span_16](start_span)<li><strong>Communications:</strong> QKD/PQC Pilots (1-2 yrs), Network Expansion (3-5 yrs)[span_16](end_span).</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>Ecosystem Snapshot</h3>
-                            [span_17](start_span)<p>The quantum industry is heavily composed of small, agile startups, indicating an early-stage, high-growth environment[span_17](end_span).</p>
-                            <ul>
-                               [span_18](start_span)<li><strong>470</strong> companies have 1-10 employees[span_18](end_span).</li>
-                               [span_19](start_span)<li><strong>425</strong> companies have 11-50 employees[span_19](end_span).</li>
-                               [span_20](start_span)[span_21](start_span)<li>Funding is heavily concentrated in quantum computing, but investment in sensing and security is growing steadily[span_20](end_span)[span_21](end_span).</li>
-                            </ul>
-                        </div>
-                    </div>
+        <section id="numbers">
+            <h2>📊 The Quantum Economy by the Numbers</h2>
+             <div class="grid-container">
+                <div class="card stat-card">
+                    <div class="stat-value">>$40B</div>
+                    [span_12](start_span)<div class="stat-label">In Public Sector Investment[span_12](end_span)</div>
+                </div>
+                <div class="card stat-card">
+                   <div class="stat-value">$600B - $1.15T</div>
+                    [span_13](start_span)<div class="stat-label">Projected Annual Value by 2035[span_13](end_span)</div>
+                </div>
+                 <div class="card">
+                    [span_14](start_span)<h3>Technology Timelines[span_14](end_span)</h3>
+                    <p>The path to maturity varies significantly for each quantum domain:</p>
+                    <ul>
+                        <li><strong>Computing:</strong> Algorithms & Apps (1-2 yrs), Error Correction (3-5 yrs), Reliable Devices (6-10 yrs).</li>
+                        <li><strong>Sensing:</strong> Deployment in Niche Apps (1-2 yrs), Broader Integration (3-5 yrs).</li>
+                        <li><strong>Communications:</strong> QKD/PQC Pilots (1-2 yrs), Network Expansion (3-5 yrs).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    [span_15](start_span)<h3>Ecosystem Snapshot[span_15](end_span)</h3>
+                    <p>The quantum industry is heavily composed of small, agile startups, indicating an early-stage, high-growth environment.</p>
+                    <ul>
+                       [span_16](start_span)<li><strong>470</strong> companies have 1-10 employees.[span_16](end_span)</li>
+                       [span_17](start_span)<li><strong>425</strong> companies have 11-50 employees.[span_17](end_span)</li>
+                       [span_18](start_span)<li>Funding is heavily concentrated in quantum computing.[span_18](end_span)</li>
+                    </ul>
                 </div>
             </div>
-            
-            <button class="accordion">🚀 How to Get Started: The WEF Playbook</button>
-            <div class="panel">
-                <div class="panel-content">
-                    <div class="grid-container">
-                        <div class="card">
-                            <h3>1. Explorative Initiatives</h3>
-                            <p>This is the first step. [span_22](start_span)The goal is to learn and experiment without making substantial commitments[span_22](end_span).</p>
-                            <ul>
-                                [span_23](start_span)<li>Form partnerships with universities and research hubs[span_23](end_span).</li>
-                                [span_24](start_span)<li>Undertake small-scale pilot projects on specific use cases[span_24](end_span).</li>
-                                [span_25](start_span)<li>Engage with the quantum community via conferences and workshops[span_25](end_span).</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>2. Build a Dedicated Team</h3>
-                            <p>To own the innovation process, invest in internal capabilities. [span_26](start_span)[span_27](start_span)This allows you to build proprietary solutions tailored to your business needs[span_26](end_span)[span_27](end_span).</p>
-                             <ul>
-                                [span_28](start_span)<li>Recruit a diverse team of specialists (e.g., quantitative analysts, material scientists)[span_28](end_span).</li>
-                                [span_29](start_span)<li>Invest in continuous education and training to stay at the cutting edge[span_29](end_span).</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>3. Strategic Investments</h3>
-                            [span_30](start_span)<p>Directly fund or acquire quantum innovations to accelerate development and secure a competitive advantage[span_30](end_span).</p>
-                             <ul>
-                                [span_31](start_span)<li><strong>Venture Capital:</strong> Invest in promising quantum startups[span_31](end_span).</li>
-                                [span_32](start_span)<li><strong>Acquisitions:</strong> Quickly integrate new quantum capabilities into your company[span_32](end_span).</li>
-                                [span_33](start_span)<li><strong>Internal Funding:</strong> Allocate R&D budget to develop proprietary quantum solutions[span_33](end_span).</li>
-                            </ul>
-                        </div>
-                    </div>
+        </section>
+        
+        <section id="playbook">
+            <h2>🚀 How to Get Started: The WEF Playbook</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>1. [span_19](start_span)Explorative Initiatives[span_19](end_span)</h3>
+                    <p>This is the first step. The goal is to learn and experiment without making substantial commitments.</p>
+                    <ul>
+                        [span_20](start_span)<li>Form partnerships with universities and research hubs.[span_20](end_span)</li>
+                        [span_21](start_span)<li>Undertake small-scale pilot projects on specific use cases.[span_21](end_span)</li>
+                        [span_22](start_span)<li>Engage with the quantum community via conferences and workshops.[span_22](end_span)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>2. [span_23](start_span)Build a Dedicated Team[span_23](end_span)</h3>
+                    <p>To own the innovation process, invest in internal capabilities. [span_24](start_span)This allows you to build proprietary solutions tailored to your business needs.[span_24](end_span)</p>
+                     <ul>
+                        [span_25](start_span)[span_26](start_span)<li>Recruit a diverse team of specialists (e.g., quantitative analysts, material scientists).[span_25](end_span)[span_26](end_span)</li>
+                        [span_27](start_span)<li>Invest in continuous education and training to stay at the cutting edge.[span_27](end_span)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>3. [span_28](start_span)Strategic Investments[span_28](end_span)</h3>
+                    <p>Directly fund or acquire quantum innovations to accelerate development and secure a competitive advantage.</p>
+                     <ul>
+                        [span_29](start_span)<li><strong>Venture Capital:</strong> Invest in promising quantum startups.[span_29](end_span)</li>
+                        [span_30](start_span)<li><strong>Acquisitions:</strong> Quickly integrate new quantum capabilities into your company.[span_30](end_span)</li>
+                        [span_31](start_span)<li><strong>Internal Funding:</strong> Allocate R&D budget to develop proprietary quantum solutions.[span_31](end_span)</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
-            <button class="accordion">💡 The Quantum Incubator: Your Next Unicorn Idea</button>
-            <div class="panel">
-                 <div class="panel-content">
-                    <div class="grid-container">
-                        <div class="card pitch-card">
-                            <h3>Quantum Talent-as-a-Service</h3>
-                            [span_34](start_span)<p><span class="problem">Problem:</span> There's a critical shortage of a quantum-skilled workforce[span_34](end_span). Companies need expertise but can't hire full-time teams.</p>
-                            <p><span class="solution">Solution:</span> An EdTech platform offering certified, industry-specific quantum upskilling modules and a marketplace for freelance quantum consultants.</p>
-                            [span_35](start_span)<p><span class="why-now">Why Now?</span> The report emphasizes building dedicated teams[span_35](end_span), but the talent pool is tiny. A scalable training and staffing solution is a massive, untapped market.</p>
-                        </div>
-                        <div class="card pitch-card">
-                            <h3>Hybrid Systems Integrator</h3>
-                            [span_36](start_span)<p><span class="problem">Problem:</span> Integrating fragile quantum computers with existing classical IT infrastructure is a major technical challenge[span_36](end_span).</p>
-                            <p><span class="solution">Solution:</span> A middleware software company that builds the "operating system" for the hybrid quantum-classical era, making it seamless for businesses to leverage both.</p>
-                            [span_37](start_span)<p><span class="why-now">Why Now?</span> As more companies run pilot programs[span_37](end_span), the need for practical, easy-to-use integration tools will explode.</p>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-
-            <button class="accordion">💼 The Future of Work: New Gigs & Niche Skills</button>
-            <div class="panel">
-                <div class="panel-content">
-                    <div class="grid-container">
-                        <div class="card">
-                            <h3>New Roles Emerging</h3>
-                            [span_38](start_span)<p>The report outlines many new specialized roles across industries[span_38](end_span). Key examples include:</p>
-                            <ul>
-                                [span_39](start_span)<li><strong>Financial Services:</strong> Quantum Quantitative Analyst, Quantum Risk Manager, Secure Transaction Specialist[span_39](end_span).</li>
-                                [span_40](start_span)<li><strong>Healthcare:</strong> Quantum Drug Discovery Scientist, Quantum Medical Device Engineer, Patient Data Security Officer[span_40](end_span).</li>
-                                [span_41](start_span)<li><strong>Energy & Utilities:</strong> Quantum Grid Efficiency Expert, Renewable Energy Optimizer, Infrastructure Security Analyst[span_41](end_span).</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>Niche Skills to Master Now</h3>
-                            <p>Beyond specific job titles, these are the high-value, cross-industry skills that will define the next generation of tech talent:</p>
-                            <ul>
-                                <li><strong>Quantum Algorithm Development:</strong> Translating business problems into quantum-ready algorithms.</li>
-                                [span_42](start_span)<li><strong>Quantum-Classical System Architecture:</strong> Designing hybrid systems that leverage both worlds[span_42](end_span).</li>
-                                [span_43](start_span)<li><strong>Quantum Sensor Data Interpretation:</strong> Using AI/ML to clean and analyze unique data from quantum sensors[span_43](end_span).</li>
-                                [span_44](start_span)<li><strong>Quantum Ethics & Governance:</strong> Navigating the implications of quantum tech, including the "quantum divide"[span_44](end_span).</li>
-                            </ul>
-                        </div>
-                    </div>
+        <section id="incubator">
+            <h2>💡 The Quantum Incubator: Your Next Unicorn Idea</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Quantum Talent-as-a-Service</h3>
+                    [span_32](start_span)<p><strong>Problem:</strong> There's a critical shortage of a quantum-skilled workforce.[span_32](end_span) Companies need expertise but can't hire full-time teams.</p>
+                    <p><strong>Solution:</strong> An EdTech platform offering certified, industry-specific quantum upskilling modules and a marketplace for freelance quantum consultants.</p>
+                </div>
+                <div class="card">
+                    <h3>Hybrid Systems Integrator</h3>
+                    [span_33](start_span)<p><strong>Problem:</strong> Integrating fragile quantum computers with existing classical IT infrastructure is a major technical challenge.[span_33](end_span)</p>
+                    <p><strong>Solution:</strong> A middleware software company that builds the "operating system" for the hybrid quantum-classical era, making it seamless for businesses to leverage both.</p>
+                </div>
+                <div class="card">
+                    <h3>AI-Powered Quantum Sensor Suite</h3>
+                    [span_34](start_span)<p><strong>Problem:</strong> Quantum sensors offer insane precision but are affected by real-world "noise."[span_34](end_span) Raw data is hard to interpret.</p>
+                    <p><strong>Solution:</strong> A startup that packages quantum sensors with sophisticated AI/ML algorithms that de-noise and translate raw data into actionable business intelligence.</p>
+                </div>
+                 <div class="card">
+                    <h3>Crypto-Agility Platform</h3>
+                    [span_35](start_span)<p><strong>Problem:</strong> Companies are "woefully unprepared"[span_35](end_span) for quantum cybersecurity threats and need to upgrade their entire security posture.</p>
+                    <p><strong>Solution:</strong> A SaaS platform that audits cryptographic vulnerabilities and manages the transition to Post-Quantum Cryptography (PQC).</p>
                 </div>
             </div>
+        </section>
 
-            <button class="accordion">🔮 The Futurist's Corner: Key Insights to Know</button>
-            <div class="panel">
-                 <div class="panel-content">
-                    <div class="insight-card">
-                        <h3>Get Ready for a "Cambrian Explosion" of Tech</h3>
-                        [span_45](start_span)<p>The report uses this powerful analogy to describe the coming era[span_45](end_span). [span_46](start_span)Just as the Cambrian period saw a rapid diversification of life, the quantum revolution will trigger a surge of unpredictable and game-changing applications[span_46](end_span). The key takeaway: the most impactful uses of quantum probably haven't even been thought of yet.</p>
-                    </div>
-                    <div class="insight-card">
-                        <h3>The Bridge to Quantum: Large Quantitative Models (LQMs)</h3>
-                        <p>You don't have to wait for a fault-tolerant quantum computer. [span_47](start_span)The report highlights the immediate value of LQMs—advanced models running on *classical* computers that simulate quantum mechanical behaviors[span_47](end_span). This is your on-ramp to quantum thinking and can deliver value today.</p>
-                    </div>
-                    <div class="insight-card">
-                        <h3>The Future is a Hybrid Medley</h3>
-                        <p>The future isn't a single "quantum computer" solving everything. [span_48](start_span)It's a revolutionary toolkit combining AI, classical High-Performance Computing (HPC), and quantum computing[span_48](end_span). [span_49](start_span)The real breakthroughs will happen at the intersection of these fields[span_49](end_span).</p>
-                    </div>
-                 </div>
+        <section id="workforce">
+            <h2>💼 The Future of Work: New Gigs & Niche Skills</h2>
+            <div class="grid-container">
+                <div class="card">
+                    [span_36](start_span)[span_37](start_span)<h3>New Roles Emerging[span_36](end_span)[span_37](end_span)</h3>
+                    <p>The report outlines many new specialized roles across industries. Key examples include:</p>
+                    <ul>
+                        [span_38](start_span)<li><strong>Financial Services:</strong> Quantum Quantitative Analyst, Quantum Risk Manager, Secure Transaction Specialist.[span_38](end_span)</li>
+                        [span_39](start_span)<li><strong>Healthcare:</strong> Quantum Drug Discovery Scientist, Quantum Medical Device Engineer, Patient Data Security Officer.[span_39](end_span)</li>
+                        [span_40](start_span)<li><strong>Energy & Utilities:</strong> Quantum Grid Efficiency Expert, Renewable Energy Optimizer, Infrastructure Security Analyst.[span_40](end_span)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Niche Skills to Master Now</h3>
+                    <p>Beyond specific job titles, these are the high-value, cross-industry skills that will define the next generation of tech talent:</p>
+                    <ul>
+                        <li><strong>Quantum Algorithm Development:</strong> Translating business problems into quantum-ready algorithms.</li>
+                        [span_41](start_span)<li><strong>Quantum-Classical System Architecture:</strong> Designing hybrid systems that leverage both worlds.[span_41](end_span)</li>
+                        [span_42](start_span)<li><strong>Quantum Sensor Data Interpretation:</strong> Using AI/ML to clean and analyze unique data from quantum sensors.[span_42](end_span)</li>
+                        [span_43](start_span)<li><strong>Quantum Ethics & Governance:</strong> Navigating the implications of quantum tech, including the "quantum divide."[span_43](end_span)</li>
+                    </ul>
+                </div>
             </div>
-
-        </div>
-
+        </section>
     </main>
 
     <footer>
@@ -424,28 +403,12 @@
     </footer>
 
     <script>
-        const accordions = document.getElementsByClassName("accordion");
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-        for (let i = 0; i < accordions.length; i++) {
-            accordions[i].addEventListener("click", function() {
-                // Close all other accordions
-                for (let j = 0; j < accordions.length; j++) {
-                    if (this !== accordions[j]) {
-                        accordions[j].classList.remove("active");
-                        accordions[j].nextElementSibling.style.maxHeight = null;
-                    }
-                }
-
-                // Toggle the clicked one
-                this.classList.toggle("active");
-                const panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
     </script>
 
 </body>
