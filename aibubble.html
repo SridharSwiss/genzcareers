@@ -1,0 +1,343 @@
+import React, { useState, useEffect } from ‘react’;
+import { ChevronLeft, ChevronRight, Sparkles, TrendingUp, AlertTriangle } from ‘lucide-react’;
+
+const Presentation = () => {
+const [currentSlide, setCurrentSlide] = useState(0);
+const [direction, setDirection] = useState(‘next’);
+
+const slides = [
+{
+title: “The $3 Trillion Question”,
+subtitle: “no cap, this is wild”,
+content: “We’re living through something unprecedented. AI valuations are soaring, money is flowing faster than ever, and tech giants are spending like there’s no tomorrow. But here’s the question keeping economists awake at night: Are we building the future, or are we inflating history’s most expensive bubble?”,
+visual: “🎯”,
+color: “from-violet-500 via-purple-500 to-fuchsia-500”,
+tag: “intro”
+},
+{
+title: “The White-Hot AI Market”,
+subtitle: “it’s giving main character energy”,
+content: “Nvidia, Microsoft, OpenAI—these names dominate headlines daily. The AI market isn’t just hot; it’s reached escape velocity. Investment is pouring in at levels that make the dot-com era look modest. The narrative is simple and seductive: AI will change everything, and it will change it soon.”,
+visual: “🚀”,
+color: “from-cyan-500 via-blue-500 to-indigo-500”,
+tag: “hype”
+},
+{
+title: “A Staggering Concentration of Power”,
+subtitle: “when the group project is carried by 5 people”,
+content: “Here’s something that should make you pause: A handful of tech companies now control one-third of the entire S&P 500. That’s not just success—that’s unprecedented concentration. When so much value sits in so few baskets, the entire system becomes fragile.”,
+visual: “⚖️”,
+color: “from-orange-500 via-red-500 to-pink-500”,
+tag: “risk”
+},
+{
+title: “Global Watchdogs Sound the Alarm”,
+subtitle: “the adults are nervous”,
+content: “The International Monetary Fund isn’t known for hyperbole, but they’re using words like ‘striking similarities’ when comparing today’s market to the 2000 dot-com crash. The Bank of England is echoing these concerns. When the world’s financial guardians start flashing warning lights, it’s time to pay attention.”,
+visual: “🚨”,
+color: “from-red-500 via-orange-500 to-yellow-500”,
+tag: “warning”
+},
+{
+title: “The CAPE Ratio: A Historic Red Flag”,
+subtitle: “the numbers don’t lie bestie”,
+content: “The Shiller CAPE ratio—a trusted measure of whether stocks are overpriced—has crossed 40 for the first time since the dot-com bubble burst. Translation? Prices are extremely high compared to actual earnings. The market is betting on decades of perfect execution. History suggests this rarely ends well.”,
+visual: “📊”,
+color: “from-emerald-500 via-teal-500 to-cyan-500”,
+tag: “data”
+},
+{
+title: “Five Companies, 20% of Global Markets”,
+subtitle: “monopoly but make it tech”,
+content: “Nvidia, Microsoft, Apple, Alphabet, and Amazon together make up 20% of the MSCI World Index. The IMF warns this concentration is actually higher than during the dot-com peak. If just one or two of these giants stumble, it could trigger a domino effect across the entire global economy.”,
+visual: “🏢”,
+color: “from-purple-500 via-violet-500 to-purple-500”,
+tag: “power”
+},
+{
+title: “Circular Financing: The New Danger”,
+subtitle: “it’s giving pyramid scheme vibes”,
+content: “Here’s a troubling trend: companies investing billions in their own customers, who then use that money to buy the investor’s products. Nvidia invests $100 billion in OpenAI—OpenAI buys Nvidia chips. This creates ‘phantom demand’ that looks like organic growth but isn’t. It’s vendor financing 2.0, and it ended badly last time.”,
+visual: “🔄”,
+color: “from-pink-500 via-rose-500 to-red-500”,
+tag: “sus”
+},
+{
+title: “The Ghost of Dot-Com Past”,
+subtitle: “history is literally repeating itself”,
+content: “The parallels are eerie. A transformative technology narrative? Check. Growth prioritized over profits? Check. Venture capital flooding in? Check. The tagline has changed from ‘The internet will change everything’ to ‘AI will change everything,’ but the playbook looks remarkably similar.”,
+visual: “👻”,
+color: “from-indigo-500 via-blue-500 to-cyan-500”,
+tag: “throwback”
+},
+{
+title: “Follow the Money: 71% of VC Goes to AI”,
+subtitle: “everyone and their mom is investing”,
+content: “In just three years, AI’s share of U.S. venture capital exploded from 14% (2022) to 71% (Q1 2025). The first three quarters of 2025 alone saw over $192 billion invested in AI startups—more than any complete year in history. This isn’t gradual growth; this is a stampede.”,
+visual: “💰”,
+color: “from-yellow-500 via-amber-500 to-orange-500”,
+tag: “money”
+},
+{
+title: “The Cash Burn Reality”,
+subtitle: “spending money like it’s monopoly”,
+content: “OpenAI, the poster child of the AI revolution, reportedly burned through $2.5 billion in just six months of 2025. They’re not expected to be cash-flow positive for years. Sound familiar? It’s the dot-com ‘growth at any cost’ mentality all over again—except now with even bigger numbers.”,
+visual: “🔥”,
+color: “from-red-500 via-orange-500 to-yellow-500”,
+tag: “burn”
+},
+{
+title: “But Wait—This Time IS Different”,
+subtitle: “plot twist incoming”,
+content: “Here’s the crucial distinction: today’s market leaders aren’t speculative startups with no revenue. They’re highly profitable, cash-rich giants like Microsoft and Google. This boom happened despite high interest rates, not because of cheap money. The foundation is stronger than it was in 2000.”,
+visual: “💪”,
+color: “from-green-500 via-emerald-500 to-teal-500”,
+tag: “different”
+},
+{
+title: “The Hidden Dependency”,
+subtitle: “they’re all in their codependent era”,
+content: “But here’s the catch: those stable, profitable giants have now tied their futures to cash-burning AI startups. Microsoft’s value is now deeply linked to OpenAI’s success. The ‘safe’ stocks are dependent on the speculative ones. It’s a stronger foundation, but it’s still built on quicksand.”,
+visual: “🔗”,
+color: “from-violet-500 via-purple-500 to-fuchsia-500”,
+tag: “connected”
+},
+{
+title: “The Shocking 95% Failure Rate”,
+subtitle: “oof this is brutal”,
+content: “While Wall Street celebrates, MIT dropped a bombshell in 2025: despite $30-40 billion in corporate AI spending, 95% of organizations are seeing zero measurable return on investment. Zero. Let that sink in. The hype and the reality are living in different universes.”,
+visual: “📉”,
+color: “from-red-500 via-pink-500 to-rose-500”,
+tag: “reality check”
+},
+{
+title: “The Pilot-to-Production Cliff”,
+subtitle: “it works in the demo but…”,
+content: “Companies love AI pilot programs—they’re exciting and get media attention. But here’s the dirty secret: only 5% of these pilots generate meaningful business results. Only 5% of custom enterprise AI tools ever reach production. The gap between demo and deployment is a chasm.”,
+visual: “🎪”,
+color: “from-orange-500 via-amber-500 to-yellow-500”,
+tag: “fail”
+},
+{
+title: “The Learning Gap Problem”,
+subtitle: “smart but can’t follow instructions”,
+content: “The issue isn’t the AI technology itself—it’s brilliant. The problem is integration. Enterprise AI systems are failing because they’re brittle, they don’t learn from context, and they don’t fit into how people actually work. It’s like having a Ferrari that only drives in straight lines—impressive, but ultimately useless.”,
+visual: “🧩”,
+color: “from-blue-500 via-indigo-500 to-violet-500”,
+tag: “problem”
+},
+{
+title: “Shadow AI: The Underground Economy”,
+subtitle: “employees said ‘i’ll do it myself’”,
+content: “Here’s proof the demand is real: employees in over 90% of companies regularly use personal AI tools for work, even though only 40% of companies have official subscriptions. Workers want AI. They know it helps. But corporate solutions are failing them, so they’ve gone rogue.”,
+visual: “🕵️”,
+color: “from-slate-600 via-gray-600 to-zinc-600”,
+tag: “underground”
+},
+{
+title: “The GDP Reality Check”,
+subtitle: “expectations vs reality”,
+content: “Investment banks predict AI will boost global GDP by 7%. Sounds great, right? But MIT economist Daron Acemoglu—one of the most respected voices in economics—estimates the real impact will be closer to 1% over the next decade. That’s a 7x difference between hype and reality.”,
+visual: “🌍”,
+color: “from-cyan-500 via-teal-500 to-green-500”,
+tag: “facts”
+},
+{
+title: “Adjustment Costs Are Real”,
+subtitle: “change is hard and expensive”,
+content: “Why the lower estimate? Acemoglu points to ‘adjustment costs’—the painful, expensive, time-consuming work of actually integrating new technology into organizations. New processes, retraining workers, rebuilding workflows. Transformation doesn’t happen at the speed of a press release.”,
+visual: “⚙️”,
+color: “from-amber-500 via-orange-500 to-red-500”,
+tag: “slow”
+},
+{
+title: “A Hybrid Bubble”,
+subtitle: “it’s complicated (literally)”,
+content: “This isn’t a simple repeat of history. It’s more complex: a speculative bubble built around a genuinely strong, profitable core. A complete dot-com-style collapse seems unlikely. But neither is everything fine. We’re in uncharted territory—a dangerous middle ground.”,
+visual: “🎭”,
+color: “from-fuchsia-500 via-pink-500 to-rose-500”,
+tag: “nuanced”
+},
+{
+title: “The Correction is Probable”,
+subtitle: “not if, but when”,
+content: “The IMF and Bank of England aren’t predicting if there will be a correction—they’re warning when. The combination of extreme concentration, phantom demand from circular financing, and the gap between hype and reality makes a ‘sudden, sharp correction’ highly probable. Not certain, but probable.”,
+visual: “⚡”,
+color: “from-yellow-500 via-orange-500 to-red-500”,
+tag: “incoming”
+},
+{
+title: “The Timing Problem”,
+subtitle: “patience is not the market’s strong suit”,
+content: “AI will change the world. That’s not the question. The question is when. The market is pricing in revolutionary change happening in the next 2-3 years. The evidence suggests it will take 10-15 years. That gap—between expectation and reality—is where bubbles burst.”,
+visual: “⏰”,
+color: “from-purple-500 via-violet-500 to-indigo-500”,
+tag: “timing”
+},
+{
+title: “The Enterprise Adoption Journey”,
+subtitle: “it’s a marathon not a sprint”,
+content: “Real transformation is slow, messy, and expensive. It requires changing how people work, rebuilding systems, and learning through failure. The MIT report shows this journey is harder than anyone expected. And as evidence of this difficulty mounts, the market’s patience is wearing thin.”,
+visual: “🛤️”,
+color: “from-teal-500 via-cyan-500 to-blue-500”,
+tag: “journey”
+},
+{
+title: “The Trillion-Dollar Question”,
+subtitle: “can we be patient tho?”,
+content: “It’s not whether AI will deliver on its promise—it will. The question is whether the market can wait for that promise to materialize. Can investors remain patient through years of slow adoption, failed pilots, and modest returns? Or will the gap between hope and reality trigger the correction everyone fears?”,
+visual: “❓”,
+color: “from-pink-500 via-purple-500 to-indigo-500”,
+tag: “question”
+},
+{
+title: “The Verdict: Complex, Not Simple”,
+subtitle: “life’s not black and white”,
+content: “So, AI boom or dot-com echo? The answer is both and neither. It’s a new kind of market event—a speculative fever dream built on genuine technological revolution, but on a timeline disconnected from reality. The strongest foundations in history, supporting the most speculative bets ever made. Welcome to the $3 trillion paradox.”,
+visual: “🎬”,
+color: “from-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500”,
+tag: “conclusion”
+}
+];
+
+const nextSlide = () => {
+if (currentSlide < slides.length - 1) {
+setDirection(‘next’);
+setCurrentSlide(currentSlide + 1);
+}
+};
+
+const prevSlide = () => {
+if (currentSlide > 0) {
+setDirection(‘prev’);
+setCurrentSlide(currentSlide - 1);
+}
+};
+
+const goToSlide = (index) => {
+setDirection(index > currentSlide ? ‘next’ : ‘prev’);
+setCurrentSlide(index);
+};
+
+useEffect(() => {
+const handleKeyPress = (e) => {
+if (e.key === ‘ArrowRight’) nextSlide();
+if (e.key === ‘ArrowLeft’) prevSlide();
+if (e.key === ’ ’) {
+e.preventDefault();
+nextSlide();
+}
+};
+
+```
+window.addEventListener('keydown', handleKeyPress);
+return () => window.removeEventListener('keydown', handleKeyPress);
+```
+
+}, [currentSlide]);
+
+const slide = slides[currentSlide];
+
+return (
+<div className="w-full h-screen bg-black flex flex-col overflow-hidden">
+{/* Main Slide Area with animated gradient */}
+<div className={`flex-1 bg-gradient-to-br ${slide.color} relative overflow-hidden`}>
+{/* Animated background shapes */}
+<div className="absolute inset-0 opacity-20">
+<div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl animate-pulse"></div>
+<div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse delay-1000"></div>
+</div>
+
+```
+    {/* Content */}
+    <div className="relative h-full flex flex-col items-center justify-center p-6 md:p-12">
+      {/* Tag badge */}
+      <div className="mb-4 px-4 py-2 bg-black/30 backdrop-blur-md rounded-full border border-white/20">
+        <span className="text-white/90 text-sm font-medium tracking-wide">#{slide.tag}</span>
+      </div>
+
+      {/* Emoji with glassy effect */}
+      <div className="text-8xl md:text-9xl mb-6 drop-shadow-2xl">
+        {slide.visual}
+      </div>
+
+      {/* Title with modern styling */}
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-3 leading-tight text-center tracking-tight">
+        {slide.title}
+      </h1>
+
+      {/* Subtitle - Gen Z style */}
+      <p className="text-lg md:text-xl text-white/80 italic mb-8 font-light">
+        {slide.subtitle}
+      </p>
+
+      {/* Content card with glassmorphism */}
+      <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl">
+        <p className="text-base md:text-lg lg:text-xl text-white/95 leading-relaxed">
+          {slide.content}
+        </p>
+      </div>
+
+      {/* Progress indicator - modern style */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="flex items-center gap-2 px-4 py-2 bg-black/30 backdrop-blur-md rounded-full border border-white/20">
+          <span className="text-white/90 text-sm font-medium">
+            {currentSlide + 1} / {slides.length}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Bottom Navigation - sleek and modern */}
+  <div className="bg-black/95 backdrop-blur-lg border-t border-white/10">
+    <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      {/* Left - Previous */}
+      <button
+        onClick={prevSlide}
+        disabled={currentSlide === 0}
+        className="group flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 text-white rounded-2xl disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 border border-white/10 hover:scale-105"
+      >
+        <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+        <span className="hidden sm:inline font-medium">Back</span>
+      </button>
+
+      {/* Center - Dots navigation */}
+      <div className="flex gap-2 overflow-x-auto max-w-md px-2 scrollbar-hide">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`transition-all duration-300 rounded-full ${
+              index === currentSlide
+                ? 'bg-white w-10 h-3'
+                : 'bg-white/30 hover:bg-white/50 w-3 h-3'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Right - Next */}
+      <button
+        onClick={nextSlide}
+        disabled={currentSlide === slides.length - 1}
+        className="group flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 text-white rounded-2xl disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 border border-white/10 hover:scale-105"
+      >
+        <span className="hidden sm:inline font-medium">Next</span>
+        <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+      </button>
+    </div>
+
+    {/* Bottom hint */}
+    <div className="text-center pb-3 text-white/40 text-xs">
+      ← → or space to navigate • swipe on mobile
+    </div>
+  </div>
+</div>
+```
+
+);
+};
+
+export default Presentation;
