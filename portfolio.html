@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SridharSwiss | Ultra-Minimal Hub</title>
+    <title>SridharSwiss | Precision Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
@@ -12,8 +12,7 @@
         :root {
             --accent: #a855f7;
             --bg-deep: #020617;
-            --sidebar-hidden: 4px; /* Total minimization */
-            --sidebar-visible: 280px;
+            --sidebar-w: 280px;
         }
 
         body {
@@ -24,44 +23,69 @@
             display: flex;
         }
 
-        /* --- THE GHOST SIDEBAR --- */
+        /* --- THE DYNAMIC SIDEBAR --- */
         #sidebar {
-            width: var(--sidebar-hidden);
+            width: 0; /* Fully collapsed by default */
             height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
-            background: rgba(168, 85, 247, 0.1); /* Subtle hint line */
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            overflow-x: hidden;
-            border-right: 1px solid rgba(168, 85, 247, 0.2);
+            overflow: hidden;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        #sidebar:hover {
-            width: var(--sidebar-visible);
-            background: rgba(15, 23, 42, 0.98);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        #sidebar.expanded {
+            width: var(--sidebar-w);
         }
 
-        /* Content inside sidebar - hidden until hover */
-        .sidebar-content {
-            opacity: 0;
-            transition: opacity 0.2s ease;
-            width: var(--sidebar-visible);
-            padding: 2rem 1.5rem;
+        /* --- THE PRECISION TOGGLE BUTTON --- */
+        #menu-toggle {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1100;
+            transition: all 0.3s ease;
+            color: white;
         }
 
-        #sidebar:hover .sidebar-content {
-            opacity: 1;
+        #menu-toggle:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+            transform: scale(1.05);
         }
 
-        /* --- MAIN STAGE (FULL SCREEN) --- */
+        /* Toggle Icon Animation */
+        .hamburger-line {
+            width: 18px;
+            height: 2px;
+            background-color: white;
+            display: block;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .expanded #menu-toggle .line1 { transform: rotate(-45deg) translate(-4px, 4px); }
+        .expanded #menu-toggle .line2 { opacity: 0; }
+        .expanded #menu-toggle .line3 { transform: rotate(45deg) translate(-4px, -4px); }
+
+        /* --- CONTENT AREA --- */
         main {
             flex-grow: 1;
             height: 100vh;
-            margin-left: var(--sidebar-hidden);
             background: #000;
             position: relative;
         }
@@ -79,20 +103,19 @@
             opacity: 1;
         }
 
-        /* Navigation Styling */
-        .nav-group { margin-bottom: 2rem; }
-        .nav-label { font-size: 10px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; }
+        /* Nav Components */
+        .sidebar-inner { width: var(--sidebar-w); padding: 80px 24px 24px; }
+        .nav-label { font-size: 10px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin: 1.5rem 0 0.5rem; }
         .nav-item {
             display: block;
-            padding: 0.6rem 1rem;
+            padding: 0.75rem 1rem;
             color: #94a3b8;
-            text-decoration: none;
             font-size: 0.875rem;
-            border-radius: 8px;
-            transition: all 0.2s;
-            white-space: nowrap;
+            border-radius: 10px;
+            transition: 0.2s;
+            margin-bottom: 2px;
         }
-        .nav-item:hover { background: rgba(168, 85, 247, 0.1); color: white; transform: translateX(5px); }
+        .nav-item:hover { background: rgba(168, 85, 247, 0.1); color: white; }
 
         .gradient-text {
             background: linear-gradient(135deg, #c084fc 0%, #6366f1 100%);
@@ -103,62 +126,66 @@
 </head>
 <body>
 
+    <div id="menu-toggle" onclick="toggleSidebar()">
+        <div>
+            <span class="hamburger-line line1"></span>
+            <span class="hamburger-line line2"></span>
+            <span class="hamburger-line line3"></span>
+        </div>
+    </div>
+
     <aside id="sidebar">
-        <div class="sidebar-content">
-            <h1 class="text-white text-xl font-black mb-8 italic tracking-tighter">SRIDHAR<span class="text-purple-500">.</span></h1>
+        <div class="sidebar-inner">
+            <h1 class="text-white text-2xl font-black mb-8 italic tracking-tighter">SRIDHAR<span class="text-purple-500">.</span></h1>
             
             <nav>
-                <div class="nav-group">
-                    <span class="nav-label">GenZ Careers</span>
-                    <a href="https://sridharswiss.github.io/genzcareers/future.html" target="view" class="nav-item">Future Careers</a>
-                    <a href="https://sridharswiss.github.io/genzcareers/future2030.html" target="view" class="nav-item">Horizon 2030</a>
-                    <a href="https://sridharswiss.github.io/genzcareers/aibubble.html" target="view" class="nav-item">AI Bubble</a>
-                    <a href="https://sridharswiss.github.io/genzcareers/quantumtech.html" target="view" class="nav-item">Quantum Tech</a>
-                    <a href="https://sridharswiss.github.io/genzcareers/growth.html" target="view" class="nav-item">Growth Sectors</a>
-                </div>
-
-                <div class="nav-group">
-                    <span class="nav-label">Analytics</span>
-                    <a href="https://sridharswiss.github.io/genzcareers/TextAnalytics.html" target="view" class="nav-item">Text Analytics</a>
-                    <a href="https://sridharswiss.github.io/IPL/IPL_Analytics.html" target="view" class="nav-item">IPL Data</a>
-                </div>
-
-                <div class="nav-group">
-                    <span class="nav-label">Swiss Intelligence</span>
-                    <a href="https://sridharswiss.github.io/swiss-info/pension.html" target="view" class="nav-item">Pillar Pension</a>
-                    <a href="https://sridharswiss.github.io/swiss-info/swiss-edu.html" target="view" class="nav-item">Zurich Edu</a>
-                    <a href="https://sridharswiss.github.io/RI/EU_AI_ACT.html" target="view" class="nav-item">EU AI Act</a>
-                </div>
+                <span class="nav-label">GenZ Careers</span>
+                <a href="https://sridharswiss.github.io/genzcareers/future.html" target="view" class="nav-item" onclick="closeSidebar()">Future Careers</a>
+                <a href="https://sridharswiss.github.io/genzcareers/future2030.html" target="view" class="nav-item" onclick="closeSidebar()">Horizon 2030</a>
+                <a href="https://sridharswiss.github.io/genzcareers/aibubble.html" target="view" class="nav-item" onclick="closeSidebar()">AI Bubble</a>
+                <a href="https://sridharswiss.github.io/genzcareers/quantumtech.html" target="view" class="nav-item" onclick="closeSidebar()">Quantum Tech</a>
                 
-                <div class="nav-group">
-                    <span class="nav-label">Heritage</span>
-                    <a href="https://sridharswiss.github.io/IndianEpics/ramayan.html" target="view" class="nav-item">Ramayana</a>
-                </div>
+                <span class="nav-label">Analytics</span>
+                <a href="https://sridharswiss.github.io/genzcareers/TextAnalytics.html" target="view" class="nav-item" onclick="closeSidebar()">Text Analytics</a>
+                <a href="https://sridharswiss.github.io/IPL/IPL_Analytics.html" target="view" class="nav-item" onclick="closeSidebar()">IPL Data</a>
+
+                <span class="nav-label">Swiss Intelligence</span>
+                <a href="https://sridharswiss.github.io/swiss-info/pension.html" target="view" class="nav-item" onclick="closeSidebar()">Pillar Pension</a>
+                <a href="https://sridharswiss.github.io/swiss-info/swiss-edu.html" target="view" class="nav-item" onclick="closeSidebar()">Zurich Edu</a>
+                <a href="https://sridharswiss.github.io/RI/EU_AI_ACT.html" target="view" class="nav-item" onclick="closeSidebar()">EU AI Act</a>
+                
+                <span class="nav-label">Heritage</span>
+                <a href="https://sridharswiss.github.io/IndianEpics/ramayan.html" target="view" class="nav-item" onclick="closeSidebar()">Ramayana</a>
             </nav>
         </div>
     </aside>
 
     <main>
-        <div id="welcome" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 z-0">
-            <h2 class="text-5xl font-black text-white tracking-tighter italic mb-2">MATRIX <span class="gradient-text">HUB</span></h2>
-            <p class="text-slate-500 text-xs font-mono uppercase tracking-[0.3em]">Hover Left Edge to Navigate</p>
+        <div id="welcome" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 text-center">
+            <h2 class="text-6xl font-black text-white tracking-tighter mb-4 italic">EXECUTIVE <span class="gradient-text">HUB</span></h2>
+            <p class="text-slate-500 text-xs font-mono uppercase tracking-[0.4em]">Initialize Matrix via Sidebar</p>
         </div>
 
         <iframe name="view" id="content-frame"></iframe>
     </main>
 
     <script>
+        const sidebar = document.getElementById('sidebar');
         const frame = document.getElementById('content-frame');
         const welcome = document.getElementById('welcome');
-        const navItems = document.querySelectorAll('.nav-item');
 
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                welcome.style.opacity = '0';
-                setTimeout(() => welcome.style.display = 'none', 500);
-                frame.classList.remove('loaded');
-            });
-        });
+        function toggleSidebar() {
+            sidebar.classList.toggle('expanded');
+            document.body.classList.toggle('expanded'); // For icon animation
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('expanded');
+            document.body.classList.remove('expanded');
+            welcome.style.opacity = '0';
+            setTimeout(() => welcome.style.display = 'none', 500);
+            frame.classList.remove('loaded');
+        }
 
         frame.onload = () => {
             frame.classList.add('loaded');
