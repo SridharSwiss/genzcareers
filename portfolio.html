@@ -3,147 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sridhar's Portfolio</title>
+    <title>SridharSwiss | Global Intelligence Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        :root { --accent: #a855f7; --sidebar-w: 320px; }
+        body { font-family: 'Inter', sans-serif; background-color: #020617; scroll-behavior: smooth; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Sidebar Glassmorphism */
+        .sidebar { 
+            width: var(--sidebar-w); 
+            background: rgba(15, 23, 42, 0.95); 
+            backdrop-filter: blur(24px);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .gradient-text {
-            background: linear-gradient(to right, #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* Nav Transitions */
+        .nav-item {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 8px;
+            margin: 2px 0;
+        }
+        .nav-item:hover {
+            background: rgba(168, 85, 247, 0.1);
+            transform: translateX(4px);
+            color: #d8b4fe;
+        }
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.2) 0%, transparent 100%);
+            border-left: 4px solid var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* McKinsey-style Preview Window */
+        .preview-pane {
+            margin-left: var(--sidebar-w);
+            height: 100vh;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+            border-radius: 24px 0 0 0;
+            box-shadow: -20px 0 50px rgba(0,0,0,0.5);
+        }
+
+        .category-label {
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: #64748b;
+            padding: 1.5rem 1rem 0.5rem 1rem;
+            text-transform: uppercase;
+            font-weight: 800;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-300">
+<body class="text-slate-300 overflow-hidden">
 
-    <!-- Header Section -->
-    <header class="container mx-auto px-6 py-12 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-            Exploring Sridhar's <span class="gradient-text">Digital Collection</span>
-        </h1>
-        <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-            A curated collection of Sridhar's projects and analyses, spanning technology, culture, and finance. Dive into detailed explorations and data-driven insights.
-        </p>
-    </header>
+    <aside class="sidebar h-screen fixed left-0 top-0 z-50 flex flex-col">
+        <div class="p-8 border-b border-white/5">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-white">S</div>
+                <h1 class="text-white text-xl font-extrabold tracking-tighter uppercase">Sridhar Hub</h1>
+            </div>
+            <p class="text-[11px] text-slate-500 mono">VER: 2026.GLOBAL.PRO</p>
+        </div>
 
-    <!-- Main Content: Project Grid -->
-    <main class="container mx-auto px-6 pb-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-             <!-- Card 0: Swiss Edu -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">Swiss Edu CH - 2025</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        Top Graduate & PhD Programs in Switzerland | Your Guide to Swiss Higher Education. Your Swiss Education Journey Starts Here
-Discover world-class graduate programs at Switzerland's top universities
-                    </p>
-                </div>
-                 <div class="p-6 bg-gray-800/70">
-                    <a href="https://sridharswiss.github.io/genzcareers/swissedu.html" target="_blank" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
-                </div>
-            </div>
-             <!-- Card 1: Future Careers -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">Careers of the Future</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        A look into the evolving job market and the skills that will be essential for the next generation. This page explores future career paths shaped by technology and new economic trends.
-                    </p>
-                </div>
-                 <div class="p-6 bg-gray-800/70">
-                    <a href="https://sridharswiss.github.io/genzcareers/future.html" target="_blank" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
-                </div>
-            </div>
-            <!-- Card 2: Swiss Pension -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">The Swiss Pension System</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        An infographic guide to Switzerland's retirement framework. This page breaks down the three-pillar system, offering clear explanations and practical advice for effective retirement planning.
-                    </p>
-                </div>
-                <div class="p-6 bg-gray-800/70">
-                     <a href="https://sridharswiss.github.io/swiss-info/pension.html" target="_blank" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
-                </div>
-            </div>
+        <nav class="flex-grow overflow-y-auto px-4 py-4 custom-scrollbar">
+            
+            <div class="category-label">GenZ Careers & Trends</div>
+            <a href="https://sridharswiss.github.io/genzcareers/future.html" target="preview" class="nav-item block px-4 py-2 text-sm">Future Careers</a>
+            <a href="https://sridharswiss.github.io/genzcareers/future2030.html" target="preview" class="nav-item block px-4 py-2 text-sm">Horizon 2030</a>
+            <a href="https://sridharswiss.github.io/genzcareers/aibubble.html" target="preview" class="nav-item block px-4 py-2 text-sm">The AI Bubble</a>
+            <a href="https://sridharswiss.github.io/genzcareers/quantumtech.html" target="preview" class="nav-item block px-4 py-2 text-sm">Quantum Frontier</a>
+            <a href="https://sridharswiss.github.io/genzcareers/growth.html" target="preview" class="nav-item block px-4 py-2 text-sm">Growth Sectors</a>
+            <a href="https://sridharswiss.github.io/genzcareers/TextAnalytics.html" target="preview" class="nav-item block px-4 py-2 text-sm">Text Analytics</a>
+            <a href="https://sridharswiss.github.io/genzcareers/learn.html" target="view" class="nav-item block px-4 py-2 text-sm">Lifelong Learning</a>
+            <a href="https://sridharswiss.github.io/genzcareers/portfolio.html" target="view" class="nav-item block px-4 py-2 text-sm">Portfolio Logic</a>
+            <a href="https://sridharswiss.github.io/genzcareers/swissedu.html" target="view" class="nav-item block px-4 py-2 text-sm">Swiss Graduate Edu</a>
 
-            <!-- Card 3: Swiss Education -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">Navigating Swiss Education</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        Explore the intricate education system of Zurich, from kindergarten to Ph.D. This guide covers the dual-track structure, highlighting the various pathways available for academic and vocational success.
-                    </p>
-                </div>
-                <div class="p-6 bg-gray-800/70">
-                    <a href="https://sridharswiss.github.io/swiss-info/swiss-edu.html" target="_blank" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
-                </div>
-            </div>
+            <div class="category-label">Swiss Infrastructure</div>
+            <a href="https://sridharswiss.github.io/swiss-info/pension.html" target="preview" class="nav-item block px-4 py-2 text-sm">3-Pillar Pension System</a>
+            <a href="https://sridharswiss.github.io/swiss-info/swiss-edu.html" target="preview" class="nav-item block px-4 py-2 text-sm">Zurich Edu Pathway</a>
 
-            <!-- Card 4: IPL Analytics -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">IPL & Data Analytics</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        Discover how data analytics is revolutionizing the Indian Premier League. This analysis covers everything from player auctions and team strategy to fan engagement and the future of sports tech.
-                    </p>
-                </div>
-                <div class="p-6 bg-gray-800/70">
-                    <a href="https://sridharswiss.github.io/IPL/IPL_Analytics.html" target="_blank" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
-                </div>
-            </div>
+            <div class="category-label">AI Regulation & Work</div>
+            <a href="https://sridharswiss.github.io/RI/ai-at-work.html" target="preview" class="nav-item block px-4 py-2 text-sm">Workplace AI Integration</a>
+            <a href="https://sridharswiss.github.io/RI/EU_AI_ACT.html" target="preview" class="nav-item block px-4 py-2 text-sm">EU AI Act Deep-Dive</a>
 
-            <!-- Card 5: AI at Work -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">AI at Work</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        An exploration of how Artificial Intelligence is being integrated into various professional fields. This page examines the tools, impacts, and future trends of AI in the modern workplace.
-                    </p>
-                </div>
-                 <div class="p-6 bg-gray-800/70">
-                    <a href="https://sridharswiss.github.io/RI/ai-at-work.html" target="_blank" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
-                </div>
-            </div>
+            <div class="category-label">Sports Data</div>
+            <a href="https://sridharswiss.github.io/IPL/IPL_Analytics.html" target="preview" class="nav-item block px-4 py-2 text-sm">IPL Performance Analytics</a>
 
-            <!-- Card 6: EU AI Act -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">The EU AI Act</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        A comprehensive overview of the landmark EU AI Act. Understand the world's first major AI regulation, its risk-based approach, and what it means for tech developers and businesses.
-                    </p>
-                </div>
-                <div class="p-6 bg-gray-800/70">
-                   <a href="https://sridharswiss.github.io/RI/EU_AI_ACT.html" target="_blank" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
-                </div>
-            </div>
-            <!-- Card 7: Ramayana -->
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col">
-                <div class="p-6 flex-grow">
-                    <h2 class="text-xl font-bold text-white mb-2">The Ramayana: An Epic Guide</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        An introduction to the ancient Indian epic, the Ramayana in Telugu. This page delves into the story of Sri Ramachandra and the timeless values of Dharma, justice, and truth that it imparts.
-                    </p>
-                </div>
-                <div class="p-6 bg-gray-800/70">
-                    <a href="https://sridharswiss.github.io/IndianEpics/ramayan.html" target="_blank" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">Read More</a>
+            <div class="category-label">Cultural Heritage</div>
+            <a href="https://sridharswiss.github.io/IndianEpics/ramayan.html" target="preview" class="nav-item block px-4 py-2 text-sm">The Ramayana (Telugu)</a>
+
+        </nav>
+
+        <div class="p-6 border-t border-white/5 bg-slate-900/50">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-slate-800 border border-purple-500/30"></div>
+                <div>
+                    <p class="text-xs font-bold text-white uppercase">Sridhar</p>
+                    <p class="text-[10px] text-slate-500 underline">View GitHub Profile</p>
                 </div>
             </div>
         </div>
+    </aside>
+
+    <main class="preview-pane flex flex-col">
+        <header class="h-16 flex items-center justify-between px-10 bg-slate-950">
+            <div class="flex items-center gap-4 text-xs font-medium uppercase tracking-widest text-slate-500">
+                <span>Repository</span>
+                <span>/</span>
+                <span id="current-page-title" class="text-purple-400">Dashboard Home</span>
+            </div>
+            <div class="flex gap-2">
+                <div class="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]"></div>
+            </div>
+        </header>
+
+        <div class="flex-grow relative">
+            <div id="welcome-msg" class="absolute inset-0 flex flex-col items-center justify-center text-center p-20 z-0 bg-slate-900">
+                <h2 class="text-6xl font-extrabold text-white mb-6 tracking-tighter">Strategic <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Insights</span>.</h2>
+                <p class="text-slate-400 max-w-2xl text-lg leading-relaxed mb-10">
+                    Welcome to the centralized review portal. This interface presents cross-functional data across technology, finance, and culture. Select any module to initialize.
+                </p>
+                <div class="grid grid-cols-2 gap-6 w-full max-w-3xl">
+                    <div class="p-6 rounded-3xl bg-slate-800/40 border border-white/5 text-left hover:border-purple-500/50 transition-all">
+                        <p class="text-purple-400 font-bold text-sm mb-2 italic">McKinsey Method</p>
+                        <p class="text-slate-300 text-sm italic">Structured, data-driven, and clear presentation of complex topics.</p>
+                    </div>
+                    <div class="p-6 rounded-3xl bg-slate-800/40 border border-white/5 text-left hover:border-pink-500/50 transition-all">
+                        <p class="text-pink-400 font-bold text-sm mb-2 italic">Gen Z Aesthetics</p>
+                        <p class="text-slate-300 text-sm italic">High-performance dark UI with glassmorphism and neon focal points.</p>
+                    </div>
+                </div>
+            </div>
+            <iframe name="preview" id="preview-frame" class="hidden relative z-10"></iframe>
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="container mx-auto px-6 py-8 text-center text-gray-500">
-        <p>&copy; 2024 Sridhar's Portfolio of Pages. All Rights Reserved.</p>
-        <p>&copy; This site may contain content from third parties and links to other websites, which are not endorsed or controlled by us. We are not responsible for the accuracy or reliability of any third-party content or the privacy practices of other sites..</p>
-        <p class="mt-2 text-sm">Designed to showcase a collection of works.</p>
-    </footer>
+    <script>
+        const links = document.querySelectorAll('.nav-item');
+        const frame = document.getElementById('preview-frame');
+        const welcome = document.getElementById('welcome-msg');
+        const titleLabel = document.getElementById('current-page-title');
 
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                // UI Management
+                links.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Content Management
+                welcome.classList.add('hidden');
+                frame.classList.remove('hidden');
+                titleLabel.innerText = this.innerText;
+            });
+        });
+    </script>
 </body>
 </html>
