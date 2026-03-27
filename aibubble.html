@@ -1,1 +1,317 @@
-<!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <meta name="viewport" content="width=device-width, initial-scale=1.0">     <title>AI Boom vs. Dot-Com Echo: A Story</title>     <script src="https://cdn.tailwindcss.com"></script>     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">     <style>         body {             font-family: 'Inter', sans-serif;             background-color: #0a0a0a;             color: #f0f0f0;             overflow: hidden;         }         .slide {             min-height: 100vh;             width: 100vw;             display: flex;             flex-direction: column;             justify-content: center;             align-items: center;             text-align: center;             padding: 2rem;             position: absolute;             top: 0;             left: 0;             opacity: 0;             transform: scale(0.95);             transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;             visibility: hidden;         }         .slide.active {             opacity: 1;             transform: scale(1);             visibility: visible;         }         .highlight {             background: -webkit-linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);             -webkit-background-clip: text;             -webkit-text-fill-color: transparent;         }                  .nav-button {             position: fixed;             top: 50%;             transform: translateY(-50%);             background-color: rgba(255, 255, 255, 0.1);             color: white;             border: 1px solid rgba(255, 255, 255, 0.2);             border-radius: 9999px;             width: 3rem;             height: 3rem;             display: flex;             justify-content: center;             align-items: center;             cursor: pointer;             z-index: 10;             transition: background-color 0.3s, transform 0.3s;         }         .nav-button:hover {             background-color: rgba(255, 255, 255, 0.2);             transform: translateY(-50%) scale(1.1);         }         #prevBtn { left: 2rem; }         #nextBtn { right: 2rem; }          .dots-container {             position: fixed;             bottom: 2rem;             left: 50%;             transform: translateX(-50%);             display: flex;             gap: 0.75rem;             z-index: 10;         }         .dot {             width: 0.75rem;             height: 0.75rem;             background-color: rgba(255, 255, 255, 0.2);             border-radius: 50%;             cursor: pointer;             transition: background-color 0.3s, transform 0.3s;         }         .dot.active {             background-color: #3b82f6;             transform: scale(1.25);         }         .card {             background-color: rgba(31, 41, 55, 0.3);             border: 1px solid rgba(255, 255, 255, 0.1);             border-radius: 1.5rem;             padding: 2rem;             backdrop-filter: blur(10px);         }         .emoji {             font-size: 4rem;             margin-bottom: 1rem;         }     </style> </head> <body class="overflow-hidden">      <!-- Story Slides Container -->     <main id="story-canvas">          <!-- Slide 1: Title -->         <section class="slide active">             <h1 class="text-5xl md:text-7xl font-black mb-4">AI Boom or <br><span class="highlight">Dot-Com Echo?</span></h1>             <p class="text-xl md:text-2xl text-gray-400 max-w-3xl">Why this <span class="font-bold text-white">$3 Trillion</span> question is more complex than you think.</p>         </section>          <!-- Slide 2: The Frenzy -->         <section class="slide">             <div class="emoji">🚀</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">A Spending <span class="highlight">Frenzy</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Giants like Nvidia, Microsoft, and OpenAI are at the center of an unprecedented spending spree, fueling a narrative of world-altering transformation.</p>         </section>          <!-- Slide 3: The Big Question -->         <section class="slide">             <div class="emoji">🤔</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">New Paradigm or <br>Painful <span class="highlight">Correction?</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">As a few tech titans command 1/3 of the S&P 500, a critical question hangs in the air: Is this real, or a bubble waiting to pop?</p>         </section>          <!-- Slide 4: Global Red Flags -->         <section class="slide">             <div class="card max-w-4xl">                 <div class="emoji">🚨</div>                 <h2 class="text-3xl md:text-4xl font-bold mb-3">Global Authorities Raise <span class="highlight">Red Flags</span></h2>                 <p class="text-lg text-gray-300">The International Monetary Fund (IMF) has issued stark warnings, pointing to "stretched valuations" and behavior with "striking similarities" to the dot-com boom.</p>             </div>         </section>          <!-- Slide 5: Red Flag 1: Valuations -->         <section class="slide">             <div class="emoji">📈</div>             <h3 class="text-lg font-bold text-blue-400">RED FLAG #1</h3>             <h2 class="text-4xl md:text-5xl font-bold mb-4">Valuations in the <span class="highlight">Danger Zone</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">The Shiller P/E ratio, a reliable measure of market froth, has crossed 40 for the first time since the 2000 dot-com crash. Prices are exceptionally high.</p>         </section>          <!-- Slide 6: Red Flag 2: Concentration -->         <section class="slide">             <div class="emoji">🧱</div>             <h3 class="text-lg font-bold text-blue-400">RED FLAG #2</h3>             <h2 class="text-4xl md:text-5xl font-bold mb-4">Unprecedented Market <span class="highlight">Concentration</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Just 5 companies make up 20% of the MSCI World Index. This creates a systemic vulnerability greater than during the dot-com era.</p>         </section>          <!-- Slide 7: Red Flag 3: Circular Financing -->         <section class="slide">             <div class="emoji">🔄</div>             <h3 class="text-lg font-bold text-blue-400">RED FLAG #3</h3>             <h2 class="text-4xl md:text-5xl font-bold mb-4">The Specter of <br><span class="highlight">"Circular Financing"</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Companies fund their customers, who then buy the investor's products. This creates "phantom demand" and hides the true health of the AI market.</p>         </section>          <!-- Slide 8: History's Ghost -->         <section class="slide">             <div class="card max-w-4xl">                  <div class="emoji">👻</div>                 <h2 class="text-3xl md:text-4xl font-bold mb-3">History's <span class="highlight">Ghost</span></h2>                 <p class="text-lg text-gray-300">The parallels to the late 90s are impossible to ignore: a powerful narrative, "growth over profits" mentality, and an avalanche of venture capital.</p>             </div>         </section>                  <!-- Slide 9: Capital Flow -->         <section class="slide">             <div class="emoji">💸</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">The Narrative & The <span class="highlight">Capital</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">"The internet will change everything" is now "AI will change everything." AI's share of US venture capital has skyrocketed from 14% in 2022 to 71% in Q1 2025.</p>         </section>          <!-- Slide 10: Cash Burn -->         <section class="slide">             <div class="emoji">🔥</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">The <span class="highlight">Cash Burn</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Like their dot-com predecessors, AI innovators are burning cash for market dominance. OpenAI reportedly burned through $2.5 billion in the first half of 2025 alone.</p>         </section>          <!-- Slide 11: The Difference -->         <section class="slide">             <div class="card max-w-4xl">                 <div class="emoji">⚖️</div>                 <h2 class="text-3xl md:text-4xl font-bold mb-3">But... It's Different <span class="highlight">This Time?</span></h2>                 <p class="text-lg text-gray-300 mb-2">Today's leaders are profitable, cash-rich giants. This boom is funded by strong balance sheets, not cheap debt.</p>                 <p class="text-lg text-red-400 font-bold">The hidden risk: These "safe" giants are now deeply intertwined with the success of cash-burning, unprofitable AI innovators.</p>             </div>         </section>          <!-- Slide 12: Reality on the Ground -->         <section class="slide">             <div class="emoji">📉</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">Reality on the Ground: <br>A <span class="highlight">95% Failure Rate</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">A landmark MIT report reveals a shocking disconnect: Despite billions in spending, 95% of organizations see ZERO measurable return on their AI investment.</p>         </section>                  <!-- Slide 13: The Cliff -->         <section class="slide">             <div class="emoji">🧗</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">The Pilot-to-Production <span class="highlight">Cliff</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Only 5% of integrated AI pilot programs generate meaningful business outcomes. An even smaller 5% of custom enterprise AI tools ever reach production.</p>         </section>                  <!-- Slide 14: The Learning Gap -->         <section class="slide">              <div class="card max-w-4xl">                 <div class="emoji">🧠</div>                 <h2 class="text-3xl md:text-4xl font-bold mb-3">The Real Problem: <br>A <span class="highlight">"Learning Gap"</span></h2>                 <p class="text-lg text-gray-300">The AI models aren't the issue. Enterprise AI systems are failing because they don't adapt or improve over time within a specific business context.</p>             </div>         </section>          <!-- Slide 15: Shadow AI -->         <section class="slide">             <div class="emoji">👤</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">The Rise of <span class="highlight">"Shadow AI"</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">While corporate tools stall, employees in over 90% of companies use their *personal* AI tools for work. The demand is real, but official solutions are failing.</p>         </section>          <!-- Slide 16: Outlook -->         <section class="slide">             <div class="emoji">🔮</div>             <h2 class="text-4xl md:text-5xl font-bold mb-4">Outlook: A Bubble with a <span class="highlight">Stronger Core</span></h2>             <p class="text-lg md:text-xl text-gray-300 max-w-3xl">This isn't a simple repeat. It's a speculative bubble built around profitable giants. A complete collapse is unlikely, but a "sudden, sharp correction" is highly probable.</p>         </section>          <!-- Slide 17: The Final Question -->         <section class="slide">             <div class="card max-w-4xl">                 <div class="emoji">⏳</div>                 <h2 class="text-3xl md:text-4xl font-bold mb-3">The Trillion-Dollar Question</h2>                 <p class="text-lg text-gray-300">It isn't <span class="font-bold text-white">IF</span> AI will change the world, but <span class="font-bold highlight text-4xl">WHEN.</span></p>                 <p class="text-lg text-gray-400 mt-4">And as evidence of slow enterprise adoption mounts, the market's patience may be running out.</p>             </div>         </section>      </main>      <!-- Navigation Controls -->     <button id="prevBtn" class="nav-button"><</button>     <button id="nextBtn" class="nav-button">></button>     <div id="dots-container" class="dots-container"></div>      <script>         document.addEventListener('DOMContentLoaded', () => {             const slides = document.querySelectorAll('.slide');             const prevBtn = document.getElementById('prevBtn');             const nextBtn = document.getElementById('nextBtn');             const dotsContainer = document.getElementById('dots-container');             let currentSlide = 0;              function showSlide(index) {                 slides.forEach((slide, i) => {                     slide.classList.toggle('active', i === index);                 });                 updateDots(index);                 // Hide/show nav buttons at ends                 prevBtn.style.display = index === 0 ? 'none' : 'flex';                 nextBtn.style.display = index === slides.length - 1 ? 'none' : 'flex';             }              function updateDots(index) {                  const dots = document.querySelectorAll('.dot');                  dots.forEach((dot, i) => {                      dot.classList.toggle('active', i === index);                  });             }                          function createDots() {                 slides.forEach((_, i) => {                     const dot = document.createElement('div');                     dot.classList.add('dot');                     dot.addEventListener('click', () => {                         currentSlide = i;                         showSlide(currentSlide);                     });                     dotsContainer.appendChild(dot);                 });             }              function nextSlide() {                 if (currentSlide < slides.length - 1) {                     currentSlide++;                     showSlide(currentSlide);                 }             }              function prevSlide() {                 if (currentSlide > 0) {                     currentSlide--;                     showSlide(currentSlide);                 }             }                          // Event Listeners             nextBtn.addEventListener('click', nextSlide);             prevBtn.addEventListener('click', prevSlide);              // Keyboard navigation             document.addEventListener('keydown', (e) => {                 if (e.key === 'ArrowRight') {                     nextSlide();                 } else if (e.key === 'ArrowLeft') {                     prevSlide();                 }             });                          // Touch swipe navigation             let touchstartX = 0;             let touchendX = 0;              function handleGesture() {                 if (touchendX < touchstartX) nextSlide();                 if (touchendX > touchstartX) prevSlide();             }              document.body.addEventListener('touchstart', e => {                 touchstartX = e.changedTouches[0].screenX;             }, { passive: true });              document.body.addEventListener('touchend', e => {                 touchendX = e.changedTouches[0].screenX;                 handleGesture();             }, { passive: true });               // Initial setup             createDots();             showSlide(currentSlide);         });     </script> </body> </html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Boom vs. Dot-Com Echo: A Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            overflow: hidden; /* Prevent scrolling within slides */
+        }
+        .slide {
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: scale(0.95); /* Initial scale slightly smaller */
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            visibility: hidden; /* Hide non-active slides */
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1); /* Active slide full scale */
+            visibility: visible;
+        }
+        .highlight {
+            background: -webkit-linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 9999px; /* Make it circular */
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10; /* Ensure it stays on top */
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .nav-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+        }
+        #prevBtn { left: 2rem; }
+        #nextBtn { right: 2rem; }
+
+        .dots-container {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            z-index: 10;
+        }
+        .dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .dot.active {
+            background-color: #3b82f6;
+            transform: scale(1.25); /* Enlarge the active dot */
+        }
+        .card {
+            background-color: rgba(31, 41, 55, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+
+    <main id="story-canvas">
+
+        <section class="slide active">
+            <h1 class="text-5xl md:text-7xl font-black mb-4">AI Boom or <br><span class="highlight">Dot-Com Echo?</span></h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl">Why this <span class="font-bold text-white">$3 Trillion</span> question is more complex than you think.</p>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">🚀</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">A Spending <span class="highlight">Frenzy</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Giants like Nvidia, Microsoft, and OpenAI are at the center of an unprecedented spending spree, fueling a narrative of world-altering transformation.</p>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">🤔</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">New Paradigm or <br>Painful <span class="highlight">Correction?</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">As a few tech titans command 1/3 of the S&P 500, a critical question hangs in the air: Is this real, or a bubble waiting to pop?</p>
+        </section>
+
+        <section class="slide">
+            <div class="card max-w-4xl">
+                <div class="emoji">🚨</div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Global Authorities Raise <span class="highlight">Red Flags</span></h2>
+                <p class="text-lg text-gray-300">The International Monetary Fund (IMF) has issued stark warnings, pointing to "stretched valuations" and behavior with "striking similarities" to the dot-com boom.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">📈</div>
+            <h3 class="text-lg font-bold text-blue-400">RED FLAG #1</h3>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Valuations in the <span class="highlight">Danger Zone</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">The Shiller P/E ratio, a reliable measure of market froth, has crossed 40 for the first time since the 2000 dot-com crash. Prices are exceptionally high.</p>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">🧱</div>
+            <h3 class="text-lg font-bold text-blue-400">RED FLAG #2</h3>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Unprecedented Market <span class="highlight">Concentration</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Just 5 companies make up 20% of the MSCI World Index. This creates a systemic vulnerability greater than during the dot-com era.</p>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">🔄</div>
+            <h3 class="text-lg font-bold text-blue-400">RED FLAG #3</h3>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">The Specter of <br><span class="highlight">"Circular Financing"</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Companies fund their customers, who then buy the investor's products. This creates "phantom demand" and hides the true health of the AI market.</p>
+        </section>
+
+        <section class="slide">
+            <div class="card max-w-4xl">
+                 <div class="emoji">👻</div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">History's <span class="highlight">Ghost</span></h2>
+                <p class="text-lg text-gray-300">The parallels to the late 90s are impossible to ignore: a powerful narrative, "growth over profits" mentality, and an avalanche of venture capital.</p>
+            </div>
+        </section>
+        
+        <section class="slide">
+            <div class="emoji">💸</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">The Narrative & The <span class="highlight">Capital</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">"The internet will change everything" is now "AI will change everything." AI's share of US venture capital has skyrocketed from 14% in 2022 to 71% in Q1 2025.</p>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">🔥</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">The <span class="highlight">Cash Burn</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Like their dot-com predecessors, AI innovators are burning cash for market dominance. OpenAI reportedly burned through $2.5 billion in the first half of 2025 alone.</p>
+        </section>
+
+        <section class="slide">
+            <div class="card max-w-4xl">
+                <div class="emoji">⚖️</div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">But... It's Different <span class="highlight">This Time?</span></h2>
+                <p class="text-lg text-gray-300 mb-2">Today's leaders are profitable, cash-rich giants. This boom is funded by strong balance sheets, not cheap debt.</p>
+                <p class="text-lg text-red-400 font-bold">The hidden risk: These "safe" giants are now deeply intertwined with the success of cash-burning, unprofitable AI innovators.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">📉</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Reality on the Ground: <br>A <span class="highlight">95% Failure Rate</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">A landmark MIT report reveals a shocking disconnect: Despite billions in spending, 95% of organizations see ZERO measurable return on their AI investment.</p>
+        </section>
+        
+        <section class="slide">
+            <div class="emoji">🧗</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">The Pilot-to-Production <span class="highlight">Cliff</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Only 5% of integrated AI pilot programs generate meaningful business outcomes. An even smaller 5% of custom enterprise AI tools ever reach production.</p>
+        </section>
+        
+        <section class="slide">
+             <div class="card max-w-4xl">
+                <div class="emoji">🧠</div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">The Real Problem: <br>A <span class="highlight">"Learning Gap"</span></h2>
+                <p class="text-lg text-gray-300">The AI models aren't the issue. Enterprise AI systems are failing because they don't adapt or improve over time within a specific business context.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">👤</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">The Rise of <span class="highlight">"Shadow AI"</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">While corporate tools stall, employees in over 90% of companies use their *personal* AI tools for work. The demand is real, but official solutions are failing.</p>
+        </section>
+
+        <section class="slide">
+            <div class="emoji">🔮</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Outlook: A Bubble with a <span class="highlight">Stronger Core</span></h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl">This isn't a simple repeat. It's a speculative bubble built around profitable giants. A complete collapse is unlikely, but a "sudden, sharp correction" is highly probable.</p>
+        </section>
+
+        <section class="slide">
+            <div class="card max-w-4xl">
+                <div class="emoji">⏳</div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">The Trillion-Dollar Question</h2>
+                <p class="text-lg text-gray-300">It isn't <span class="font-bold text-white">IF</span> AI will change the world, but <span class="font-bold highlight text-4xl">WHEN.</span></p>
+                <p class="text-lg text-gray-400 mt-4">And as evidence of slow enterprise adoption mounts, the market's patience may be running out.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <button id="prevBtn" class="nav-button"><</button>
+    <button id="nextBtn" class="nav-button">></button>
+    <div id="dots-container" class="dots-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('dots-container');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                updateDots(index);
+                // Hide/show nav buttons at ends
+                prevBtn.style.display = index === 0 ? 'none' : 'flex';
+                nextBtn.style.display = index === slides.length - 1 ? 'none' : 'flex';
+            }
+
+            function updateDots(index) {
+                 const dots = document.querySelectorAll('.dot');
+                 dots.forEach((dot, i) => {
+                     dot.classList.toggle('active', i === index);
+                 });
+            }
+            
+            function createDots() {
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    dot.addEventListener('click', () => {
+                        currentSlide = i;
+                        showSlide(currentSlide);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            function nextSlide() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            }
+            
+            // Event Listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            
+            // Touch swipe navigation
+            let touchstartX = 0;
+            let touchendX = 0;
+
+            function handleGesture() {
+                if (touchendX < touchstartX) nextSlide();
+                if (touchendX > touchstartX) prevSlide();
+            }
+
+            document.body.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            document.body.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleGesture();
+            }, { passive: true });
+
+
+            // Initial setup
+            createDots();
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
