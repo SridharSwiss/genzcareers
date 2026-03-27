@@ -3,85 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SridharSwiss | Executive Matrix</title>
+    <title>SridharSwiss | Ultra-Minimal Hub</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --accent: #a855f7;
             --bg-deep: #020617;
-            --sidebar-collapsed: 64px;
-            --sidebar-expanded: 280px;
+            --sidebar-hidden: 4px; /* Total minimization */
+            --sidebar-visible: 280px;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-deep);
-            color: #94a3b8;
+            margin: 0;
             overflow: hidden;
             display: flex;
         }
 
-        /* --- COLLAPSIBLE SIDEBAR LOGIC --- */
+        /* --- THE GHOST SIDEBAR --- */
         #sidebar {
-            width: var(--sidebar-collapsed);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(15, 23, 42, 0.95);
+            width: var(--sidebar-hidden);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+            background: rgba(168, 85, 247, 0.1); /* Subtle hint line */
             backdrop-filter: blur(20px);
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-            z-index: 100;
+            z-index: 1000;
             overflow-x: hidden;
+            border-right: 1px solid rgba(168, 85, 247, 0.2);
         }
 
         #sidebar:hover {
-            width: var(--sidebar-expanded);
+            width: var(--sidebar-visible);
+            background: rgba(15, 23, 42, 0.98);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Hide text when collapsed */
-        .nav-text {
+        /* Content inside sidebar - hidden until hover */
+        .sidebar-content {
             opacity: 0;
-            white-space: nowrap;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+            transition: opacity 0.2s ease;
+            width: var(--sidebar-visible);
+            padding: 2rem 1.5rem;
         }
 
-        #sidebar:hover .nav-text {
+        #sidebar:hover .sidebar-content {
             opacity: 1;
-            pointer-events: auto;
         }
 
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem 1.25rem;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            margin: 0.25rem 0.5rem;
-        }
-
-        .nav-item:hover {
-            background: rgba(168, 85, 247, 0.1);
-            color: white;
-        }
-
-        .nav-icon {
-            flex-shrink: 0;
-            width: 20px;
-            text-align: center;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        /* --- MAIN VIEWPORT --- */
+        /* --- MAIN STAGE (FULL SCREEN) --- */
         main {
             flex-grow: 1;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
+            margin-left: var(--sidebar-hidden);
             background: #000;
+            position: relative;
         }
 
         iframe {
@@ -89,119 +71,96 @@
             height: 100%;
             border: none;
             background: white;
-            transition: opacity 0.4s ease, transform 0.4s ease;
             opacity: 0;
-            transform: scale(0.99);
+            transition: opacity 0.5s ease;
         }
 
         iframe.loaded {
             opacity: 1;
-            transform: scale(1);
         }
+
+        /* Navigation Styling */
+        .nav-group { margin-bottom: 2rem; }
+        .nav-label { font-size: 10px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; }
+        .nav-item {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.875rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .nav-item:hover { background: rgba(168, 85, 247, 0.1); color: white; transform: translateX(5px); }
 
         .gradient-text {
             background: linear-gradient(135deg, #c084fc 0%, #6366f1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            #sidebar { position: absolute; height: 100%; width: 60px; }
-            #sidebar:hover { width: 260px; }
-            main { margin-left: 60px; }
-        }
     </style>
 </head>
 <body>
 
-    <aside id="sidebar" class="flex flex-col">
-        <div class="h-20 flex items-center px-5 mb-4 border-b border-white/5">
-            <span class="text-xl font-black text-white">S<span class="nav-text">RIDHAR</span></span>
-        </div>
+    <aside id="sidebar">
+        <div class="sidebar-content">
+            <h1 class="text-white text-xl font-black mb-8 italic tracking-tighter">SRIDHAR<span class="text-purple-500">.</span></h1>
+            
+            <nav>
+                <div class="nav-group">
+                    <span class="nav-label">GenZ Careers</span>
+                    <a href="https://sridharswiss.github.io/genzcareers/future.html" target="view" class="nav-item">Future Careers</a>
+                    <a href="https://sridharswiss.github.io/genzcareers/future2030.html" target="view" class="nav-item">Horizon 2030</a>
+                    <a href="https://sridharswiss.github.io/genzcareers/aibubble.html" target="view" class="nav-item">AI Bubble</a>
+                    <a href="https://sridharswiss.github.io/genzcareers/quantumtech.html" target="view" class="nav-item">Quantum Tech</a>
+                    <a href="https://sridharswiss.github.io/genzcareers/growth.html" target="view" class="nav-item">Growth Sectors</a>
+                </div>
 
-        <nav class="flex-grow overflow-y-auto overflow-x-hidden">
-            <div class="px-2 mb-4">
-                <p class="nav-text text-[10px] font-black text-slate-600 uppercase tracking-widest px-4 mb-2">GenZ Careers</p>
-                <a href="https://sridharswiss.github.io/genzcareers/future.html" target="view" class="nav-item">
-                    <span class="nav-icon">F</span> <span class="nav-text text-sm">Future Careers</span>
-                </a>
-                <a href="https://sridharswiss.github.io/genzcareers/future2030.html" target="view" class="nav-item">
-                    <span class="nav-icon">H</span> <span class="nav-text text-sm">Horizon 2030</span>
-                </a>
-                <a href="https://sridharswiss.github.io/genzcareers/aibubble.html" target="view" class="nav-item">
-                    <span class="nav-icon">A</span> <span class="nav-text text-sm">AI Bubble</span>
-                </a>
-                <a href="https://sridharswiss.github.io/genzcareers/quantumtech.html" target="view" class="nav-item">
-                    <span class="nav-icon">Q</span> <span class="nav-text text-sm">Quantum Tech</span>
-                </a>
-            </div>
+                <div class="nav-group">
+                    <span class="nav-label">Analytics</span>
+                    <a href="https://sridharswiss.github.io/genzcareers/TextAnalytics.html" target="view" class="nav-item">Text Analytics</a>
+                    <a href="https://sridharswiss.github.io/IPL/IPL_Analytics.html" target="view" class="nav-item">IPL Data</a>
+                </div>
 
-            <div class="px-2 mb-4">
-                <p class="nav-text text-[10px] font-black text-slate-600 uppercase tracking-widest px-4 mb-2">Analytics</p>
-                <a href="https://sridharswiss.github.io/genzcareers/TextAnalytics.html" target="view" class="nav-item">
-                    <span class="nav-icon">T</span> <span class="nav-text text-sm">Text Analytics</span>
-                </a>
-                <a href="https://sridharswiss.github.io/IPL/IPL_Analytics.html" target="view" class="nav-item">
-                    <span class="nav-icon">S</span> <span class="nav-text text-sm">Sports Data</span>
-                </a>
-            </div>
-
-            <div class="px-2 mb-4">
-                <p class="nav-text text-[10px] font-black text-slate-600 uppercase tracking-widest px-4 mb-2">Swiss Hub</p>
-                <a href="https://sridharswiss.github.io/swiss-info/pension.html" target="view" class="nav-item">
-                    <span class="nav-icon">P</span> <span class="nav-text text-sm">Pillar Pension</span>
-                </a>
-                <a href="https://sridharswiss.github.io/swiss-info/swiss-edu.html" target="view" class="nav-item">
-                    <span class="nav-icon">E</span> <span class="nav-text text-sm">Zurich Edu</span>
-                </a>
-            </div>
-        </nav>
-
-        <div class="p-4 border-t border-white/5">
-            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-[10px] font-bold text-purple-500">
-                SS
-            </div>
+                <div class="nav-group">
+                    <span class="nav-label">Swiss Intelligence</span>
+                    <a href="https://sridharswiss.github.io/swiss-info/pension.html" target="view" class="nav-item">Pillar Pension</a>
+                    <a href="https://sridharswiss.github.io/swiss-info/swiss-edu.html" target="view" class="nav-item">Zurich Edu</a>
+                    <a href="https://sridharswiss.github.io/RI/EU_AI_ACT.html" target="view" class="nav-item">EU AI Act</a>
+                </div>
+                
+                <div class="nav-group">
+                    <span class="nav-label">Heritage</span>
+                    <a href="https://sridharswiss.github.io/IndianEpics/ramayan.html" target="view" class="nav-item">Ramayana</a>
+                </div>
+            </nav>
         </div>
     </aside>
 
     <main>
-        <header class="h-16 flex items-center justify-between px-8 bg-slate-950 border-b border-white/5">
-            <h2 id="page-title" class="text-white text-xs font-bold uppercase tracking-widest">Executive Dashboard</h2>
-            <div class="flex items-center gap-4">
-                <div id="loader" class="hidden w-4 h-4 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-                <span class="text-[10px] font-mono text-slate-600 tracking-tighter">Status: Active</span>
-            </div>
-        </header>
-
-        <div class="flex-grow relative bg-slate-900">
-            <div id="welcome" class="absolute inset-0 z-10 flex flex-col items-center justify-center p-12 text-center bg-slate-950">
-                <h1 class="text-5xl font-black text-white tracking-tighter mb-4 italic">SRIDHAR<span class="gradient-text">SWISS</span></h1>
-                <p class="text-slate-500 max-w-sm text-sm">Hover the left bar to navigate the matrix.</p>
-            </div>
-
-            <iframe name="view" id="content-frame"></iframe>
+        <div id="welcome" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 z-0">
+            <h2 class="text-5xl font-black text-white tracking-tighter italic mb-2">MATRIX <span class="gradient-text">HUB</span></h2>
+            <p class="text-slate-500 text-xs font-mono uppercase tracking-[0.3em]">Hover Left Edge to Navigate</p>
         </div>
+
+        <iframe name="view" id="content-frame"></iframe>
     </main>
 
     <script>
         const frame = document.getElementById('content-frame');
         const welcome = document.getElementById('welcome');
-        const loader = document.getElementById('loader');
-        const title = document.getElementById('page-title');
-        const navLinks = document.querySelectorAll('.nav-item');
+        const navItems = document.querySelectorAll('.nav-item');
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                welcome.style.display = 'none';
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                welcome.style.opacity = '0';
+                setTimeout(() => welcome.style.display = 'none', 500);
                 frame.classList.remove('loaded');
-                loader.classList.remove('hidden');
-                title.innerText = this.innerText;
             });
         });
 
         frame.onload = () => {
-            loader.classList.add('hidden');
             frame.classList.add('loaded');
         };
     </script>
