@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Mindset & Manifestation Library — 50 Books, One at a Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#070912; --void-2:#0c1022;
+    --gold:#e8c879; --gold-bright:#f6e3a8; --gold-deep:#b8902f;
+    --ember:#c25b3f; --cream:#efe7d4; --cream-dim:#bcb29a;
+    --line:rgba(232,200,121,0.20); --glow:rgba(232,200,121,0.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:var(--void); color:var(--cream);
+    font-family:'EB Garamond',serif; overflow:hidden; position:relative;
+  }
+  /* atmosphere */
+  .nebula{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 60% 50% at 18% 8%, rgba(60,40,120,0.20), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 88% 22%, rgba(184,144,47,0.10), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(120,40,40,0.12), transparent 60%);}
+  .stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  #app{position:relative;z-index:3;height:100vh;display:flex;flex-direction:column}
+
+  /* top bar */
+  .bar{display:flex;justify-content:space-between;align-items:center;
+    padding:1rem clamp(1.1rem,4vw,2.6rem);flex-shrink:0}
+  .lib-title{font-family:'Cinzel',serif;font-weight:600;letter-spacing:.18em;
+    font-size:clamp(.7rem,1.6vw,.92rem);color:var(--gold);text-transform:uppercase}
+  .lib-title span{color:var(--cream-dim);font-weight:400;letter-spacing:.1em}
+  .bar-right{display:flex;align-items:center;gap:1.2rem}
+  .counter{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.18em;color:var(--cream-dim)}
+  .counter b{color:var(--gold)}
+  .btn{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--cream);background:transparent;border:1px solid var(--line);
+    padding:.6rem 1.1rem;border-radius:3px;cursor:pointer;transition:all .3s}
+  .btn:hover{border-color:var(--gold);color:var(--gold-bright);box-shadow:0 0 18px -6px var(--glow)}
+
+  .progress{height:2px;background:rgba(232,200,121,0.10);flex-shrink:0;position:relative;overflow:hidden}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-bright));
+    width:2%;transition:width .6s cubic-bezier(.16,1,.3,1);box-shadow:0 0 12px var(--glow)}
+
+  /* stage */
+  main{flex:1;display:flex;align-items:center;justify-content:center;
+    padding:clamp(1rem,3vh,2rem) clamp(1.1rem,5vw,4rem);overflow-y:auto;min-height:0}
+  .book{display:grid;grid-template-columns:clamp(190px,26%,300px) 1fr;gap:clamp(1.5rem,5vw,4.5rem);
+    max-width:1100px;width:100%;align-items:center}
+  @media(max-width:780px){.book{grid-template-columns:1fr;gap:1.6rem}}
+
+  /* left column */
+  .book-left{display:flex;flex-direction:column;align-items:flex-start;gap:1.4rem}
+  .emblem{position:relative;width:clamp(150px,18vw,210px);height:clamp(150px,18vw,210px);
+    display:flex;align-items:center;justify-content:center}
+  @media(max-width:780px){.emblem{width:120px;height:120px}}
+  .emblem .ring{position:absolute;inset:0;border:1px solid var(--line);border-radius:50%}
+  .emblem .ring.r2{inset:14px;border-color:rgba(232,200,121,0.12)}
+  .emblem .ring.spin{border-top-color:var(--gold);border-right-color:transparent;
+    border-bottom-color:transparent;border-left-color:transparent;animation:spin 14s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .bignum{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:700;
+    font-size:clamp(2.8rem,7vw,4.6rem);color:var(--gold);line-height:1;
+    text-shadow:0 0 30px var(--glow);animation:pop .7s cubic-bezier(.16,1,.3,1) both}
+  .cat{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--cream-dim);border:1px solid var(--line);padding:.45rem .9rem;border-radius:40px;
+    animation:rise .7s ease .1s both}
+
+  /* main column */
+  .b-title{font-family:'Cinzel',serif;font-weight:600;line-height:1.08;
+    font-size:clamp(1.7rem,4.2vw,3rem);color:var(--cream);margin-bottom:.5rem;
+    animation:rise .7s cubic-bezier(.16,1,.3,1) both}
+  .b-meta{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold-deep);margin-bottom:1.6rem;animation:rise .7s ease .08s both}
+  .b-meta b{color:var(--gold)}
+  .lbl{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem}
+  .lbl::before{content:"";width:24px;height:1px;background:var(--gold)}
+  .core{margin-bottom:1.7rem;animation:rise .7s ease .16s both}
+  .core p{font-size:clamp(1.1rem,2.2vw,1.45rem);font-style:italic;color:var(--cream);line-height:1.5;max-width:60ch}
+
+  .concepts{list-style:none;display:grid;gap:1.05rem;margin-bottom:1.7rem}
+  .concepts li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;
+    animation:rise .7s cubic-bezier(.16,1,.3,1) both}
+  .concepts .mk{color:var(--gold-deep);font-family:'Cinzel',serif;font-size:.95rem;padding-top:.15rem}
+  .concepts h4{font-family:'Cinzel',serif;font-weight:500;font-size:1.05rem;color:var(--cream);margin-bottom:.15rem;letter-spacing:.01em}
+  .concepts p{font-size:1.02rem;color:var(--cream-dim);line-height:1.55;max-width:62ch}
+
+  .signature{border-top:1px solid var(--line);padding-top:1.1rem;animation:rise .7s ease .5s both}
+  .signature p{font-family:'Cinzel',serif;font-style:normal;font-size:clamp(1rem,2vw,1.25rem);
+    color:var(--gold-bright);line-height:1.4;letter-spacing:.01em}
+
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+
+  /* controls */
+  .controls{display:flex;justify-content:space-between;align-items:center;
+    padding:1rem clamp(1.1rem,4vw,2.6rem) 1.4rem;flex-shrink:0;gap:1rem}
+  .nav-btn{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--cream);background:transparent;border:1px solid var(--line);
+    padding:.8rem 1.5rem;border-radius:4px;cursor:pointer;transition:all .3s;white-space:nowrap}
+  .nav-btn:hover:not(:disabled){border-color:var(--gold);color:var(--gold-bright);box-shadow:0 0 22px -8px var(--glow);transform:translateY(-2px)}
+  .nav-btn:disabled{opacity:.3;cursor:not-allowed}
+  .hint{font-size:.82rem;color:rgba(188,178,154,.55);font-style:italic;text-align:center}
+  @media(max-width:560px){.hint{display:none}}
+
+  /* contents overlay */
+  .overlay{position:fixed;inset:0;z-index:100;background:rgba(5,7,15,0.96);backdrop-filter:blur(10px);
+    display:none;flex-direction:column;padding:clamp(1.2rem,4vw,2.6rem)}
+  .overlay.open{display:flex;animation:fade .4s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .ov-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;flex-shrink:0}
+  .ov-head h2{font-family:'Cinzel',serif;font-weight:600;letter-spacing:.1em;color:var(--gold);
+    font-size:clamp(1rem,3vw,1.5rem);text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:.7rem;
+    overflow-y:auto;padding-right:.4rem;align-content:start}
+  .gcard{text-align:left;background:rgba(232,200,121,0.03);border:1px solid var(--line);
+    border-radius:4px;padding:.85rem 1rem;cursor:pointer;transition:all .25s;display:flex;gap:.8rem;align-items:baseline}
+  .gcard:hover{border-color:var(--gold);background:rgba(232,200,121,0.08);transform:translateY(-2px)}
+  .gcard.active{border-color:var(--gold);background:rgba(232,200,121,0.10)}
+  .gcard .gn{font-family:'Cinzel',serif;color:var(--gold-deep);font-size:.8rem;flex-shrink:0;min-width:1.8em}
+  .gcard .gt{font-family:'EB Garamond',serif;color:var(--cream);font-size:1rem;line-height:1.25}
+  .gcard .ga{display:block;font-size:.78rem;color:var(--cream-dim);font-style:italic;margin-top:.1rem}
+  /* scrollbars */
+  .grid::-webkit-scrollbar,main::-webkit-scrollbar{width:7px}
+  .grid::-webkit-scrollbar-thumb,main::-webkit-scrollbar-thumb{background:var(--gold-deep);border-radius:10px}
+  .grid::-webkit-scrollbar-track,main::-webkit-scrollbar-track{background:transparent}
+</style>
+</head>
+<body>
+<div class="nebula"></div>
+<div class="stars"></div>
+<div class="grain"></div>
+
+<div id="app">
+  <div class="bar">
+    <div class="lib-title">The Mindset &amp; Manifestation Library <span>&nbsp;· 50 books</span></div>
+    <div class="bar-right">
+      <span class="counter" id="counter"><b>01</b> / 50</span>
+      <button class="btn" id="contentsBtn">Contents</button>
+    </div>
+  </div>
+  <div class="progress"><div class="progress-fill" id="pfill"></div></div>
+  <main><div id="stage"></div></main>
+  <div class="controls">
+    <button class="nav-btn" id="prev">‹ &nbsp;Previous</button>
+    <div class="hint">Use ← → arrow keys to turn the pages</div>
+    <button class="nav-btn" id="next">Next&nbsp; ›</button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="ov-head">
+    <h2>All 50 Books</h2>
+    <button class="btn" id="closeOv">Close ✕</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+const BOOKS = [
+{n:1,title:"The Science of Getting Rich",author:"Wallace D. Wattles",year:"1910",cat:"New Thought",
+core:"Wealth is created by thinking and acting in a 'Certain Way' — not by competing for a fixed pie.",
+concepts:[
+{h:"The Thinking Stuff",p:"All things come from a formless substance; impressing a clear thought upon it sets the wanted thing in motion toward you."},
+{h:"Creation, Not Competition",p:"Don't fight others for scarce resources — create new value, so that everyone you touch rises with you."},
+{h:"Gratitude, Vision, Action",p:"Hold a clear mental image, give thanks for it, and act efficiently right where you stand, today."}],
+sig:"Do, each day, all that can be done that day — in a spirit of advancement."},
+
+{n:2,title:"Think and Grow Rich",author:"Napoleon Hill",year:"1937",cat:"Success Classic",
+core:"Riches begin with a single burning desire, fused with faith and relentless, organized action.",
+concepts:[
+{h:"Definiteness of Purpose",p:"A precise goal — written, dated, with a plan — focuses every faculty toward one outcome."},
+{h:"Desire, Faith, Autosuggestion",p:"Feed your subconscious the goal repeatedly until belief becomes automatic and self-fulfilling."},
+{h:"The Master Mind",p:"Surround yourself with a coordinated alliance of capable, harmonious minds working toward your aim."}],
+sig:"Whatever the mind can conceive and believe, it can achieve."},
+
+{n:3,title:"As a Man Thinketh",author:"James Allen",year:"1903",cat:"New Thought",
+core:"Your outer circumstances are the harvest of the thoughts you most consistently hold within.",
+concepts:[
+{h:"The Mind as a Garden",p:"Cultivate it deliberately with useful thoughts, or weeds of doubt and fear will grow on their own."},
+{h:"Circumstance Mirrors Character",p:"The conditions you draw to yourself reflect, with quiet precision, your inner thought-life."},
+{h:"Self-Mastery",p:"Calm, achievement, and serenity all flow from the disciplined governance of one's own thoughts."}],
+sig:"They themselves are makers of themselves."},
+
+{n:4,title:"The Power of Your Subconscious Mind",author:"Joseph Murphy",year:"1963",cat:"Mind Power",
+core:"The subconscious accepts whatever you repeatedly impress upon it and works tirelessly to make it real.",
+concepts:[
+{h:"Two Levels of Mind",p:"The conscious mind chooses and plants; the subconscious obeys without arguing or judging."},
+{h:"Belief as Command",p:"Whatever you assume as true and feel deeply, the subconscious sets about producing in your life."},
+{h:"Programming Before Sleep",p:"Quiet, positive suggestions — especially as you drift to sleep — reshape habits, confidence, and healing."}],
+sig:"As you sow in your subconscious mind, so shall you reap."},
+
+{n:5,title:"The Master Key System",author:"Charles F. Haanel",year:"1912",cat:"New Thought",
+core:"A 24-week mental discipline for harnessing thought, attention, and creative visualization.",
+concepts:[
+{h:"Concentration",p:"Sustained, focused attention is the true engine of creation; a scattered mind creates scattered results."},
+{h:"Inner Harmony",p:"Align your thinking with universal abundance — thoughts of lack short-circuit the supply."},
+{h:"Progressive Visualization",p:"Build the mental image week by week, with ever-greater clarity, detail, and feeling."}],
+sig:"The world without is a reflection of the world within."},
+
+{n:6,title:"The Power of Positive Thinking",author:"Norman Vincent Peale",year:"1952",cat:"Mind Power",
+core:"Faith, optimism, and prayer can convert chronic self-doubt into confident, capable living.",
+concepts:[
+{h:"Faith Over Fear",p:"Replace anxious, defeating self-talk with affirmations and trust in a higher power."},
+{h:"Picture Success",p:"Hold a steady, vivid mental image of the outcome you intend to achieve."},
+{h:"Daily Renewal",p:"Habitual prayer, gratitude, and positive speech gradually remake the mind."}],
+sig:"Believe in yourself — and in something greater than yourself."},
+
+{n:7,title:"The Magic of Believing",author:"Claude M. Bristol",year:"1948",cat:"Mind Power",
+core:"Belief itself is a force that mobilizes the subconscious to move you toward your aims.",
+concepts:[
+{h:"Suggestion & Repetition",p:"Auto-suggestion, written cards, and the mirror technique impress the goal deep into the mind."},
+{h:"The Screen of the Mind",p:"Project the desired outcome vividly, as though watching it already accomplished."},
+{h:"Belief Is Contagious",p:"Genuine conviction radiates, drawing people and circumstances into agreement with it."}],
+sig:"As ye believe, so shall it be done unto you."},
+
+{n:8,title:"Creative Visualization",author:"Shakti Gawain",year:"1978",cat:"Manifestation",
+core:"Imagining what you want, in a relaxed state and with positive feeling, helps bring it into being.",
+concepts:[
+{h:"Relax, Picture, Energize",p:"Calm the body and mind, form a clear image, then infuse it with warm, positive energy."},
+{h:"Affirmations",p:"Present-tense statements align thought and emotion with the reality you're choosing."},
+{h:"Flow & Non-Attachment",p:"Hold goals lightly and trust the process; clinging tightly creates resistance."}],
+sig:"Imagination is the power to create what we wish to experience."},
+
+{n:9,title:"Ask and It Is Given",author:"Esther & Jerry Hicks",year:"2004",cat:"Law of Attraction",
+core:"Your emotions are a guidance system; reaching for better-feeling thoughts attracts what you want.",
+concepts:[
+{h:"The Emotional Guidance Scale",p:"Climb step by step toward relief and joy by choosing slightly better-feeling thoughts."},
+{h:"Vibrational Match",p:"You receive not what you say, but what you are an emotional and energetic match to."},
+{h:"The 22 Processes",p:"Practical tools — the Focus Wheel, segment intending, and more — to deliberately shift how you feel."}],
+sig:"How you feel is your point of attraction."},
+
+{n:10,title:"The Law of Attraction",author:"Esther & Jerry Hicks",year:"2006",cat:"Law of Attraction",
+core:"The foundational text of the modern movement: like attracts like, in thought as in everything.",
+concepts:[
+{h:"Three Universal Laws",p:"Attraction, Deliberate Creation, and Allowing form the framework of conscious creating."},
+{h:"Deliberate Creation",p:"Choose your thoughts on purpose rather than reacting by default to what's around you."},
+{h:"The Art of Allowing",p:"Release resistance and doubt so that what you've asked for can actually flow in."}],
+sig:"That which is like unto itself is drawn."},
+
+{n:11,title:"The Power",author:"Rhonda Byrne",year:"2010",cat:"Law of Attraction",
+core:"Love is the single force that magnetizes the law of attraction in your favor.",
+concepts:[
+{h:"Love as the Master Force",p:"Positive feeling — love in its broadest sense — is the highest creative power you wield."},
+{h:"Give to Receive",p:"Appreciate, praise, and bless what you encounter, and that goodness multiplies back to you."},
+{h:"Feelings Set the Frequency",p:"Whatever you feel most consistently is precisely what you summon into your experience."}],
+sig:"Whatever you give out, you receive back."},
+
+{n:12,title:"The Magic",author:"Rhonda Byrne",year:"2012",cat:"Gratitude",
+core:"A 28-day gratitude program that turns appreciation into a daily transformative practice.",
+concepts:[
+{h:"A Practice a Day",p:"Each of 28 days carries a specific, simple gratitude exercise to build the habit."},
+{h:"Tangible Rituals",p:"Tools like the 'magic rock' and counting blessings keep appreciation concrete and constant."},
+{h:"Gratitude Multiplies",p:"Thankfulness for what you already have is what draws more of the same toward you."}],
+sig:"Gratitude is the great multiplier of your life."},
+
+{n:13,title:"Hero",author:"Rhonda Byrne",year:"2013",cat:"Purpose",
+core:"Discover and follow your calling, using the lessons of the world's most successful people.",
+concepts:[
+{h:"The Hero's Journey",p:"Each life contains a unique purpose waiting to be recognized and courageously pursued."},
+{h:"Patterns of Mentors",p:"Achievers across fields share traits: clear vision, persistence, and unwavering faith."},
+{h:"Inner Power",p:"The dream placed in your heart arrives together with the power needed to fulfill it."}],
+sig:"You were born with everything you need to live your dream."},
+
+{n:14,title:"The Greatest Secret",author:"Rhonda Byrne",year:"2020",cat:"Awareness",
+core:"Beyond manifesting lies a deeper freedom: realizing the awareness you truly are.",
+concepts:[
+{h:"You Are Awareness",p:"You are the still awareness behind your thoughts — not the passing thoughts themselves."},
+{h:"The End of Suffering",p:"Suffering loosens its grip when you stop identifying with the restless mind."},
+{h:"Presence",p:"Lasting peace and joy are found in being, not in endlessly acquiring or becoming."}],
+sig:"Happiness is your true nature — it was never somewhere else."},
+
+{n:15,title:"You Are a Badass",author:"Jen Sincero",year:"2013",cat:"Self-Empowerment",
+core:"A blunt, funny push to stop self-sabotaging and start building a life you genuinely love.",
+concepts:[
+{h:"Rewrite Limiting Beliefs",p:"Spot the subconscious stories running your life and consciously replace them."},
+{h:"Tap Source Energy",p:"Connect with a universal intelligence and raise your 'frequency' through self-love."},
+{h:"Decide and Act",p:"Make the decision, then take big, faith-driven action instead of waiting to feel ready."}],
+sig:"You are already a badass — stop doubting it and go."},
+
+{n:16,title:"The Universe Has Your Back",author:"Gabrielle Bernstein",year:"2016",cat:"Spiritual",
+core:"Choosing faith over fear lets you flow with a universe that is fundamentally supportive.",
+concepts:[
+{h:"Fear or Love",p:"In every moment you choose one; love opens the channel to guidance and ease."},
+{h:"Surrender & Signs",p:"Release your grip on control and notice the synchronicities pointing the way."},
+{h:"Spiritual Practice",p:"Meditation, forgiveness, and gratitude steadily rebuild your trust in life."}],
+sig:"When you trust, obstacles become opportunities."},
+
+{n:17,title:"Super Attractor",author:"Gabrielle Bernstein",year:"2019",cat:"Manifestation",
+core:"Co-create with the universe by feeling good and trusting the guidance you receive.",
+concepts:[
+{h:"Feel Good First",p:"Your only job is to align with positive emotion; the 'how' is the universe's department."},
+{h:"Alignment Over Hustle",p:"Inspired, joyful action accomplishes more than forced, anxious effort."},
+{h:"Daily Presence",p:"Meditation and presence keep you tuned as a steady 'super attractor'."}],
+sig:"When you feel good, you align with the energy that creates worlds."},
+
+{n:18,title:"E-Squared",author:"Pam Grout",year:"2013",cat:"Manifestation",
+core:"Nine playful 'experiments' designed to prove the law of attraction to yourself.",
+concepts:[
+{h:"The Field of Potentiality",p:"An energetic field responds to your expectations and attention."},
+{h:"Run the Experiments",p:"Test manifestation directly in short, 48-hour windows and watch what shows up."},
+{h:"Expectation Creates",p:"What you genuinely look for is what you begin to find."}],
+sig:"Your thoughts and consciousness shape the physical world."},
+
+{n:19,title:"Manifest",author:"Roxie Nafousi",year:"2022",cat:"Manifestation",
+core:"A clear seven-step method for turning your desires into lived reality.",
+concepts:[
+{h:"Be Clear in Your Vision",p:"Define precisely what you want — and, just as importantly, why you want it."},
+{h:"Clear the Blocks",p:"Heal the fears and limiting beliefs sitting quietly beneath the surface."},
+{h:"Align, Thank, Trust",p:"Behave as your future self, practice gratitude, then release attachment to the outcome."}],
+sig:"Manifesting is self-development with intention."},
+
+{n:20,title:"The Magic of Thinking Big",author:"David J. Schwartz",year:"1959",cat:"Success Mindset",
+core:"The size of your success is determined directly by the size of your thinking.",
+concepts:[
+{h:"Believe Big",p:"Your self-image sets your ceiling; expecting more is the first move toward more."},
+{h:"Cure 'Excusitis'",p:"Stop defending failure with reasons about health, luck, age, or intelligence."},
+{h:"Action Builds Confidence",p:"Confidence follows action — you act your way into feeling, not the reverse."}],
+sig:"Think big and you will live big."},
+
+{n:21,title:"Rich Dad Poor Dad",author:"Robert T. Kiyosaki",year:"1997",cat:"Wealth",
+core:"The wealthy acquire assets that generate income; others acquire liabilities they mistake for assets.",
+concepts:[
+{h:"Assets vs Liabilities",p:"An asset puts money in your pocket; a liability takes it out. Financial literacy is the dividing line."},
+{h:"Don't Work for Money",p:"Learn instead how money works, and put it to work earning more for you."},
+{h:"Build Cash Flow",p:"Create income streams that quietly outgrow your expenses over time."}],
+sig:"It's not how much you make — it's how much you keep."},
+
+{n:22,title:"The Richest Man in Babylon",author:"George S. Clason",year:"1926",cat:"Wealth",
+core:"Timeless parables of money: pay yourself first, and let your savings multiply.",
+concepts:[
+{h:"Pay Yourself First",p:"Set aside at least a tenth of everything you earn before anything else."},
+{h:"Make Your Gold Work",p:"Invest your savings wisely and reinvest the earnings to compound them."},
+{h:"Guard Against Loss",p:"Seek counsel from the genuinely competent and avoid get-rich-quick schemes."}],
+sig:"A part of all you earn is yours to keep."},
+
+{n:23,title:"Secrets of the Millionaire Mind",author:"T. Harv Eker",year:"2005",cat:"Wealth Mindset",
+core:"A subconscious 'money blueprint' — set early in life — quietly governs your financial outcomes.",
+concepts:[
+{h:"Your Money Blueprint",p:"Childhood programming creates a financial 'set point'; you can identify and rewrite it."},
+{h:"The Wealth Files",p:"Seventeen contrasts between how rich and poor people habitually think and act."},
+{h:"The Inner Game",p:"Manage your money, welcome growth, and choose abundance over scarcity thinking."}],
+sig:"Master the inner game and the outer game follows."},
+
+{n:24,title:"The Millionaire Next Door",author:"Stanley & Danko",year:"1996",cat:"Wealth",
+core:"Most real millionaires live modestly — wealth is built by habits, not by high income.",
+concepts:[
+{h:"Live Below Your Means",p:"Net worth is built through disciplined saving far more than through earning."},
+{h:"Accumulators vs Spenders",p:"The data separates 'prodigious' from 'under' accumulators of wealth."},
+{h:"Independence Over Status",p:"True wealth resists the pull of lifestyle inflation and visible status."}],
+sig:"Wealth is what you accumulate, not what you display."},
+
+{n:25,title:"Awaken the Giant Within",author:"Tony Robbins",year:"1991",cat:"Peak Performance",
+core:"Take command of your emotions, body, finances, and relationships through the power of decision.",
+concepts:[
+{h:"The Power of Decision",p:"Real change happens in a single moment of genuine, committed decision."},
+{h:"Pain & Pleasure",p:"We're driven by what we link to each; reshape those links to reshape behavior."},
+{h:"Beliefs, Focus, Language",p:"Direct your mental and emotional state by managing what you focus on and how you frame it."}],
+sig:"It is in your moments of decision that your destiny is shaped."},
+
+{n:26,title:"Unlimited Power",author:"Tony Robbins",year:"1986",cat:"Peak Performance",
+core:"Model the strategies of those who succeed, and you can reproduce their results.",
+concepts:[
+{h:"Modeling",p:"Replicate the beliefs, mental sequences, and physiology of high achievers."},
+{h:"State Management",p:"Your posture, breathing, and focus directly control how you feel and perform."},
+{h:"Outcomes & Rapport",p:"Set precise outcomes and build rapport to communicate and influence effectively."}],
+sig:"Success leaves clues — find them and follow them."},
+
+{n:27,title:"The Greatest Salesman in the World",author:"Og Mandino",year:"1968",cat:"Success Parable",
+core:"A parable in which success is won through ten ancient scrolls of habit-forming wisdom.",
+concepts:[
+{h:"Habits Through Repetition",p:"Each scroll is read aloud, the same way, for thirty days, until it becomes second nature."},
+{h:"Love, Persistence, Mastery",p:"Greeting each day with love, persisting until success, and governing the emotions."},
+{h:"Identity of Persistence",p:"'I will persist until I succeed' becomes not a slogan but a way of being."}],
+sig:"Good habits are the key to all success."},
+
+{n:28,title:"How to Win Friends and Influence People",author:"Dale Carnegie",year:"1936",cat:"Influence",
+core:"Genuine, sincere interest in other people is the foundation of all real influence.",
+concepts:[
+{h:"Appreciate, Don't Criticize",p:"People hunger for honest appreciation far more than for criticism."},
+{h:"See It Their Way",p:"Arouse in the other person an eager want by speaking to their interests."},
+{h:"Be a Real Listener",p:"Make others feel genuinely important — and mean it."}],
+sig:"You make more friends by being interested than by being interesting."},
+
+{n:29,title:"The 7 Habits of Highly Effective People",author:"Stephen R. Covey",year:"1989",cat:"Effectiveness",
+core:"Lasting effectiveness grows from principle-centered character, not personality tricks.",
+concepts:[
+{h:"Private Victory",p:"Be proactive, begin with the end in mind, and put first things first."},
+{h:"Public Victory",p:"Think win-win, seek first to understand then to be understood, and synergize."},
+{h:"Sharpen the Saw",p:"Renew yourself continually in body, mind, heart, and spirit."}],
+sig:"Sow a habit, reap a character; sow a character, reap a destiny."},
+
+{n:30,title:"The Subtle Art of Not Giving a F*ck",author:"Mark Manson",year:"2016",cat:"Modern Self-Help",
+core:"A better life comes not from caring about more, but from caring about less — and better.",
+concepts:[
+{h:"Choose Your Values",p:"Your capacity to care is finite; spend it only on what genuinely matters."},
+{h:"Problems Are the Point",p:"Happiness comes from solving good problems, not from a life without them."},
+{h:"Responsibility vs Fault",p:"You may not be at fault for what happens, but you're always responsible for your response."}],
+sig:"You can't be important and special all the time — and that's freeing."},
+
+{n:31,title:"The Four Agreements",author:"Don Miguel Ruiz",year:"1997",cat:"Spiritual Wisdom",
+core:"Four Toltec agreements free you from the self-limiting beliefs you were taught to accept.",
+concepts:[
+{h:"Word & Self",p:"Be impeccable with your word, and don't take anything personally."},
+{h:"Assumptions & Effort",p:"Don't make assumptions, and always do your best — no more, no less."},
+{h:"Breaking Domestication",p:"We're conditioned by inherited beliefs; new agreements dissolve the old spell."}],
+sig:"Adopt new agreements and reclaim your personal freedom."},
+
+{n:32,title:"The Monk Who Sold His Ferrari",author:"Robin Sharma",year:"1997",cat:"Purpose",
+core:"A fable about a burned-out lawyer who trades success for meaning, discipline, and joy.",
+concepts:[
+{h:"Master Your Mind",p:"Tend your mind like a garden; guard the thoughts you let take root."},
+{h:"Ritual & Kaizen",p:"Small daily disciplines — early rising, journaling, reflection — compound into mastery."},
+{h:"Live with Purpose",p:"Serve others, and treat time as the most precious resource you have."}],
+sig:"The purpose of life is a life of purpose."},
+
+{n:33,title:"The 5 AM Club",author:"Robin Sharma",year:"2018",cat:"Productivity",
+core:"Owning the first hour of the day quietly transforms the whole of your life.",
+concepts:[
+{h:"The 20/20/20 Formula",p:"Spend the first hour moving, reflecting, and growing — twenty minutes each."},
+{h:"Installing the Habit",p:"Expect roughly sixty-six days of effort before a new routine locks in."},
+{h:"Protect Peak Focus",p:"Solitude and discipline early in the day fuel deep, world-class work."}],
+sig:"Win the morning, and you win the day."},
+
+{n:34,title:"The 5 Second Rule",author:"Mel Robbins",year:"2017",cat:"Action",
+core:"Counting backward 5-4-3-2-1 interrupts hesitation and launches you into action.",
+concepts:[
+{h:"The Push Moment",p:"The countdown beats the brain's instinct to stall, and propels you to move."},
+{h:"Activation Energy",p:"Act in the narrow window before excuses and rationalizations arrive."},
+{h:"Courage Is a Tool",p:"You don't need to feel ready or motivated — you just need to move."}],
+sig:"5-4-3-2-1 — go."},
+
+{n:35,title:"Atomic Habits",author:"James Clear",year:"2018",cat:"Habits",
+core:"Tiny one-percent improvements, repeated, compound into remarkable long-term results.",
+concepts:[
+{h:"The Four Laws",p:"Make it obvious, make it attractive, make it easy, and make it satisfying."},
+{h:"Identity-Based Habits",p:"Focus on becoming the kind of person who does it, not just on the outcome."},
+{h:"Systems Over Goals",p:"You don't rise to your goals; you fall to the level of your systems."}],
+sig:"Habits are the compound interest of self-improvement."},
+
+{n:36,title:"The Power of Habit",author:"Charles Duhigg",year:"2012",cat:"Habits",
+core:"Habits run on a cue–routine–reward loop you can diagnose and deliberately rewire.",
+concepts:[
+{h:"The Habit Loop",p:"Identify the cue and the reward, then deliberately swap out the routine between them."},
+{h:"Keystone Habits",p:"Certain single changes ripple outward and reshape many other behaviors."},
+{h:"Belief Sustains Change",p:"Belief — often built in community — keeps new habits intact under stress."}],
+sig:"Change the routine; keep the cue and the reward."},
+
+{n:37,title:"Mindset",author:"Carol S. Dweck",year:"2006",cat:"Psychology",
+core:"A 'growth' mindset — that abilities can be developed — outperforms a 'fixed' one.",
+concepts:[
+{h:"Fixed vs Growth",p:"Seeing talent as static limits you; seeing it as trainable unlocks development."},
+{h:"Embrace Challenge",p:"Failure becomes information and feedback, rather than a verdict on your worth."},
+{h:"The Power of 'Yet'",p:"You haven't failed — you simply haven't mastered it yet."}],
+sig:"Believe your abilities can grow, and they will."},
+
+{n:38,title:"Grit",author:"Angela Duckworth",year:"2016",cat:"Psychology",
+core:"Passion combined with perseverance predicts achievement more reliably than raw talent.",
+concepts:[
+{h:"Effort Counts Twice",p:"Talent × effort builds skill; skill × effort produces achievement."},
+{h:"Enduring Passion",p:"Grit is sustained, long-term commitment to a single meaningful top-level goal."},
+{h:"Cultivating Grit",p:"It grows through interest, deliberate practice, purpose, and hope."}],
+sig:"Stamina toward what matters beats raw talent."},
+
+{n:39,title:"The Compound Effect",author:"Darren Hardy",year:"2010",cat:"Discipline",
+core:"Small, consistent choices, repeated over time, compound into massive outcomes.",
+concepts:[
+{h:"Small Choices Add Up",p:"Tiny daily actions, multiplied across months and years, create dramatic results."},
+{h:"Track and Stay Consistent",p:"Measuring your behavior and keeping the streak unbroken is what drives the curve."},
+{h:"Momentum",p:"Compounding rewards patience; the big returns arrive late but decisively."}],
+sig:"Success is the sum of small efforts, repeated daily."},
+
+{n:40,title:"The Slight Edge",author:"Jeff Olson",year:"2005",cat:"Discipline",
+core:"Easy daily disciplines — or the equally easy neglect of them — quietly decide your future.",
+concepts:[
+{h:"Easy to Do, Easy Not to Do",p:"The very actions that would transform your life are just as simple to skip."},
+{h:"Time & Consistency",p:"The 'slight edge' compounds steadily, working either for you or against you."},
+{h:"Philosophy to Results",p:"Your mindset drives your actions, which over time bend the whole trajectory."}],
+sig:"Simple daily disciplines compound; simple errors do too."},
+
+{n:41,title:"The Power of Now",author:"Eckhart Tolle",year:"1997",cat:"Consciousness",
+core:"Liberation comes from living fully and consciously in the present moment.",
+concepts:[
+{h:"Ego & Pain-Body",p:"Identifying with the mind and the painful past is the root of needless suffering."},
+{h:"Presence",p:"Conscious awareness of the Now dissolves anxiety, resistance, and inner conflict."},
+{h:"Become the Watcher",p:"Observe your thoughts instead of being swept along by them."}],
+sig:"Realize deeply that the present moment is all you ever have."},
+
+{n:42,title:"A New Earth",author:"Eckhart Tolle",year:"2005",cat:"Consciousness",
+core:"Awakening beyond the ego brings inner peace and the seed of a new collective consciousness.",
+concepts:[
+{h:"The Ego Unmasked",p:"Recognize the ego's hidden patterns, roles, and constant need to be right."},
+{h:"Awareness as Space",p:"Step back into the spacious awareness behind compulsive thinking."},
+{h:"Inner Purpose First",p:"Aligning with presence (inner purpose) lets outer purpose unfold naturally."}],
+sig:"Your life has an inner purpose and an outer one — inner comes first."},
+
+{n:43,title:"You Can Heal Your Life",author:"Louise Hay",year:"1984",cat:"Healing",
+core:"Self-love and changed thoughts can transform your health, relationships, and life.",
+concepts:[
+{h:"Thoughts and the Body",p:"Long-held beliefs and resentments can, in this view, surface as physical conditions."},
+{h:"Affirmations & Mirror Work",p:"Reprogram critical self-talk by speaking love to yourself, daily, in the mirror."},
+{h:"Forgiveness",p:"Releasing the past — including yourself — frees energy for the present."}],
+sig:"The point of power is always in the present moment."},
+
+{n:44,title:"The Untethered Soul",author:"Michael A. Singer",year:"2007",cat:"Consciousness",
+core:"Freedom comes from releasing your identification with the inner voice and passing emotions.",
+concepts:[
+{h:"The Inner Roommate",p:"You are the witness behind the endless mental chatter, not the chatter itself."},
+{h:"Keep the Heart Open",p:"Rather than closing around pain, let the energy move through and pass."},
+{h:"Surrender to Life",p:"Stop resisting the flow of reality; relax, release, and let life unfold."}],
+sig:"You are the awareness behind the noise."},
+
+{n:45,title:"The Seven Spiritual Laws of Success",author:"Deepak Chopra",year:"1994",cat:"Spiritual",
+core:"Aligning with seven natural spiritual laws brings success with ease rather than struggle.",
+concepts:[
+{h:"Potentiality & Giving",p:"Tap the field of pure potential, and keep energy circulating through generosity."},
+{h:"Karma, Least Effort, Intention",p:"Make conscious choices, act in harmony with nature, and focus desire with detachment."},
+{h:"Detachment & Dharma",p:"Release attachment to outcomes while living your unique purpose."}],
+sig:"Success flows from alignment, not from force."},
+
+{n:46,title:"The Celestine Prophecy",author:"James Redfield",year:"1993",cat:"Spiritual Fiction",
+core:"An adventure novel built around nine 'insights' into spiritual awakening and synchronicity.",
+concepts:[
+{h:"Synchronicity",p:"Meaningful coincidences are signposts guiding you along your path."},
+{h:"Energy Dynamics",p:"People unconsciously compete for energy; the work is to connect to a higher source instead."},
+{h:"Evolving Consciousness",p:"Each successive insight raises awareness toward a more spiritual way of living."}],
+sig:"Pay attention to the coincidences — they are guidance."},
+
+{n:47,title:"The Road Less Traveled",author:"M. Scott Peck",year:"1978",cat:"Growth",
+core:"Discipline and love are the demanding but reliable path to genuine growth.",
+concepts:[
+{h:"Life Is Difficult",p:"Accepting this truth fully is, paradoxically, the first step beyond it."},
+{h:"Discipline",p:"Delay gratification, accept responsibility, dedicate yourself to truth, and balance."},
+{h:"Love as Action",p:"Real love is the will to extend oneself for another's growth — not merely a feeling."}],
+sig:"Growth requires facing problems, not avoiding them."},
+
+{n:48,title:"Man's Search for Meaning",author:"Viktor E. Frankl",year:"1946",cat:"Meaning",
+core:"We can endure almost any 'how' if we have a 'why' — meaning is our deepest drive.",
+concepts:[
+{h:"Logotherapy",p:"Meaning — not pleasure or power — is the central motivating force of human life."},
+{h:"The Last Freedom",p:"Even when all else is stripped away, we choose our attitude toward our suffering."},
+{h:"Three Paths to Meaning",p:"Meaningful work, love, and courage in the face of unavoidable suffering."}],
+sig:"Those who have a why to live can bear almost any how."},
+
+{n:49,title:"The Alchemist",author:"Paulo Coelho",year:"1988",cat:"Fable",
+core:"A shepherd's fable: pursue your 'Personal Legend' and the universe conspires to help you.",
+concepts:[
+{h:"Your Personal Legend",p:"Each person has a true dream and destiny they are meant to follow."},
+{h:"The Soul of the World",p:"All things are connected; learn to read the omens that guide your way."},
+{h:"Fear and the Journey",p:"The real treasure is discovered through the courage of pursuing the dream itself."}],
+sig:"When you want something, all the universe conspires to help you achieve it."},
+
+{n:50,title:"Ikigai",author:"García & Miralles",year:"2016",cat:"Purpose",
+core:"A clear 'reason for being' supports a long, healthy, and deeply contented life.",
+concepts:[
+{h:"The Ikigai Overlap",p:"It lives where what you love, what you're good at, what the world needs, and what pays meet."},
+{h:"Lessons of Longevity",p:"Okinawan elders thrive through light diet, strong community ('moai'), and constant activity."},
+{h:"Flow & Never Retiring",p:"Staying engaged in absorbing, purposeful work keeps both body and spirit alive."}],
+sig:"A clear purpose adds years to life — and life to years."}
+];
+
+const stage = document.getElementById('stage');
+const counter = document.getElementById('counter');
+const pfill = document.getElementById('pfill');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let idx = 0;
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function render(){
+  const b = BOOKS[idx];
+  const num = String(b.n).padStart(2,'0');
+  const conceptsHTML = b.concepts.map((c,i)=>`
+    <li style="animation-delay:${0.22 + i*0.1}s">
+      <span class="mk">◆</span>
+      <div><h4>${esc(c.h)}</h4><p>${esc(c.p)}</p></div>
+    </li>`).join('');
+  stage.innerHTML = `
+    <div class="book">
+      <aside class="book-left">
+        <div class="emblem">
+          <div class="ring"></div>
+          <div class="ring spin"></div>
+          <div class="ring r2"></div>
+          <div class="bignum">${num}</div>
+        </div>
+        <div class="cat">${esc(b.cat)}</div>
+      </aside>
+      <div class="book-main">
+        <h1 class="b-title">${esc(b.title)}</h1>
+        <div class="b-meta"><b>${esc(b.author)}</b> &nbsp;·&nbsp; ${b.year}</div>
+        <div class="core"><span class="lbl">The Core Idea</span><p>${esc(b.core)}</p></div>
+        <ul class="concepts">${conceptsHTML}</ul>
+        <div class="signature"><span class="lbl">Signature Principle</span><p>“${esc(b.sig)}”</p></div>
+      </div>
+    </div>`;
+  counter.innerHTML = `<b>${num}</b> / 50`;
+  pfill.style.width = ((b.n)/50*100)+'%';
+  prevBtn.disabled = idx===0;
+  nextBtn.disabled = idx===BOOKS.length-1;
+  document.querySelector('main').scrollTop = 0;
+  updateGridActive();
+}
+function go(d){ const t=idx+d; if(t>=0&&t<BOOKS.length){idx=t;render();} }
+function jump(i){ idx=i; render(); closeOverlay(); }
+
+prevBtn.onclick=()=>go(-1);
+nextBtn.onclick=()=>go(1);
+addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight') go(1);
+  else if(e.key==='ArrowLeft') go(-1);
+  else if(e.key==='Escape') closeOverlay();
+});
+// swipe
+let tx=0;
+addEventListener('touchstart',e=>tx=e.changedTouches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>60) go(dx<0?1:-1);},{passive:true});
+
+// contents overlay
+const overlay=document.getElementById('overlay');
+const grid=document.getElementById('grid');
+grid.innerHTML = BOOKS.map((b,i)=>`
+  <button class="gcard" data-i="${i}">
+    <span class="gn">${String(b.n).padStart(2,'0')}</span>
+    <span class="gt">${esc(b.title)}<span class="ga">${esc(b.author)} · ${b.year}</span></span>
+  </button>`).join('');
+grid.querySelectorAll('.gcard').forEach(c=>c.onclick=()=>jump(+c.dataset.i));
+function updateGridActive(){grid.querySelectorAll('.gcard').forEach((c,i)=>c.classList.toggle('active',i===idx));}
+document.getElementById('contentsBtn').onclick=()=>{overlay.classList.add('open');updateGridActive();};
+document.getElementById('closeOv').onclick=closeOverlay;
+function closeOverlay(){overlay.classList.remove('open');}
+
+// starfield
+(function(){
+  const el=document.querySelector('.stars');let sh=[];
+  for(let i=0;i<150;i++){sh.push(`${Math.floor(Math.random()*2000)}px ${Math.floor(Math.random()*2000)}px rgba(255,250,235,${0.3+Math.random()*0.7})`);}
+  const s=document.createElement('div');
+  s.style.cssText=`position:absolute;width:1.5px;height:1.5px;border-radius:50%;box-shadow:${sh.join(',')};animation:fl 90s linear infinite`;
+  const s2=s.cloneNode();s2.style.top='2000px';
+  const st=document.createElement('style');st.textContent='@keyframes fl{from{transform:translateY(0)}to{transform:translateY(-2000px)}}';document.head.appendChild(st);
+  el.appendChild(s);el.appendChild(s2);
+})();
+
+render();
+</script>
+</body>
+</html>
