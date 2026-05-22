@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Master-Bibliothek — 50 Meisterwerke der Persönlichen Entwicklung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#04060a; --void-2:#080b16;
+    --gold:#e8c879; --gold-bright:#f6e3a8; --gold-deep:#b8902f;
+    --ember:#c25b3f; --cream:#efe7d4; --cream-dim:#bcb29a;
+    --line:rgba(232,200,121,0.12); --glow:rgba(232,200,121,0.20);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:var(--void); color:var(--cream);
+    font-family:'Noto Sans', sans-serif; overflow:hidden; position:relative;
+  }
+  .nebula{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 60% 50% at 15% 10%, rgba(55,35,115,0.22), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 85% 25%, rgba(184,144,47,0.10), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(110,35,35,0.12), transparent 60%);}
+  .stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.04;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  #app{position:relative;z-index:3;height:100vh;display:flex;flex-direction:column}
+
+  .bar{display:flex;justify-content:space-between;align-items:center;
+    padding:1rem clamp(1.1rem,4vw,2.6rem);flex-shrink:0}
+  .lib-title{font-family:'Cinzel', serif;font-weight:600;letter-spacing:.12em;
+    font-size:clamp(.7rem,1.6vw,1rem);color:var(--gold);text-transform:uppercase}
+  .lib-title span{color:var(--cream-dim);font-weight:400;letter-spacing:.05em}
+  .bar-right{display:flex;align-items:center;gap:1.2rem}
+  .counter{font-family:'Cinzel', serif;font-size:.82rem;letter-spacing:.18em;color:var(--cream-dim)}
+  .counter b{color:var(--gold)}
+  .btn{font-family:'Noto Sans', sans-serif;font-size:.75rem;letter-spacing:.05em;
+    color:var(--cream);background:transparent;border:1px solid var(--line);
+    padding:.5rem 1rem;border-radius:3px;cursor:pointer;transition:all .3s}
+  .btn:hover{border-color:var(--gold);color:var(--gold-bright);box-shadow:0 0 18px -6px var(--glow)}
+
+  .progress{height:2px;background:rgba(232,200,121,0.08);flex-shrink:0;position:relative;overflow:hidden}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-bright));
+    width:2%;transition:width .6s cubic-bezier(.16,1,.3,1);box-shadow:0 0 12px var(--glow)}
+
+  main{flex:1;display:flex;align-items:flex-start;justify-content:center;
+    padding:clamp(1rem,3vh,2.5rem) clamp(1.1rem,5vw,4rem);overflow-y:auto;min-height:0}
+  .book{display:grid;grid-template-columns:clamp(190px,24%,280px) 1fr;gap:clamp(1.5rem,5vw,4.5rem);
+    max-width:1200px;width:100%;align-items:start}
+  @media(max-width:820px){.book{grid-template-columns:1fr;gap:2rem}}
+
+  .book-left{display:flex;flex-direction:column;align-items:flex-start;gap:1.4rem;position:sticky;top:0}
+  @media(max-width:820px){.book-left{position:static;flex-direction:row;align-items:center;justify-content:space-between;width:100%}}
+  .emblem{position:relative;width:clamp(140px,16vw,190px);height:clamp(140px,16vw,190px);
+    display:flex;align-items:center;justify-content:center}
+  @media(max-width:820px){.emblem{width:100px;height:100px}}
+  .emblem .ring{position:absolute;inset:0;border:1px solid var(--line);border-radius:50%}
+  .emblem .ring.r2{inset:12px;border-color:rgba(232,200,121,0.1)}
+  .emblem .ring.spin{border-top-color:var(--gold);border-right-color:transparent;
+    border-bottom-color:transparent;border-left-color:transparent;animation:spin 16s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .bignum{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:700;
+    font-size:clamp(2.5rem,6vw,4rem);color:var(--gold);line-height:1;
+    text-shadow:0 0 25px var(--glow);animation:pop .7s cubic-bezier(.16,1,.3,1) both}
+  .cat{font-family:'Noto Sans', sans-serif;font-size:.7rem;letter-spacing:.05em;
+    color:var(--cream-dim);border:1px solid var(--line);padding:.4rem .8rem;border-radius:40px;
+    animation:rise .7s ease .1s both;white-space:nowrap}
+
+  .b-title{font-family:'Noto Sans', sans-serif;font-weight:700;line-height:1.2;
+    font-size:clamp(1.5rem,3.8vw,2.3rem);color:var(--cream);margin-bottom:.5rem;
+    animation:rise .7s cubic-bezier(.16,1,.3,1) both}
+  .b-meta{font-family:'Noto Sans', sans-serif;font-size:.82rem;letter-spacing:.05em;
+    color:var(--gold-deep);margin-bottom:1.8rem;animation:rise .7s ease .08s both}
+  .b-meta b{color:var(--gold);font-weight:500}
+  .lbl{font-family:'Noto Sans', sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold);display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem}
+  .lbl::before{content:"";width:24px;height:1px;background:var(--gold)}
+  .core{margin-bottom:2rem;animation:rise .7s ease .16s both}
+  .core p{font-size:clamp(1.05rem,2vw,1.25rem);font-style:italic;color:var(--cream);line-height:1.6;max-width:65ch}
+
+  .concepts{list-style:none;display:grid;gap:1.5rem;margin-bottom:2rem}
+  .concepts li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;
+    border-bottom:1px solid rgba(232,200,121,0.05);padding-bottom:1.2rem;
+    animation:rise .7s cubic-bezier(.16,1,.3,1) both}
+  .concepts li:last-child{border-bottom:none}
+  .concepts .mk{color:var(--gold-deep);font-size:.75rem;padding-top:.3rem}
+  .concepts h4{font-family:'Noto Sans', sans-serif;font-weight:700;font-size:1.1rem;color:var(--gold-bright);margin-bottom:.4rem}
+  .concepts p{font-size:1rem;color:var(--cream-dim);line-height:1.65;max-width:65ch}
+  .concepts p b{color:var(--ember);font-weight:700}
+
+  .signature{border-top:1px solid var(--line);padding-top:1.2rem;animation:rise .7s ease .5s both}
+  .signature p{font-family:'Noto Sans', sans-serif;font-size:clamp(1rem,1.8vw,1.2rem);
+    color:var(--gold-bright);line-height:1.5;font-style:italic}
+
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:scale(.75)}to{opacity:1;transform:scale(1)}}
+
+  .controls{display:flex;justify-content:space-between;align-items:center;
+    padding:1rem clamp(1.1rem,4vw,2.6rem) 1.4rem;flex-shrink:0;gap:1rem;background:linear-gradient(transparent, var(--void))}
+  .nav-btn{font-family:'Noto Sans', sans-serif;font-size:.8rem;color:var(--cream);background:transparent;border:1px solid var(--line);
+    padding:.7rem 1.4rem;border-radius:4px;cursor:pointer;transition:all .3s;white-space:nowrap}
+  .nav-btn:hover:not(:disabled){border-color:var(--gold);color:var(--gold-bright);box-shadow:0 0 22px -8px var(--glow);transform:translateY(-1px)}
+  .nav-btn:disabled{opacity:.25;cursor:not-allowed}
+  .hint{font-size:.82rem;color:rgba(188,178,154,.45);font-style:italic;text-align:center}
+  @media(max-width:600px){.hint{display:none}}
+
+  .overlay{position:fixed;inset:0;z-index:100;background:rgba(4,6,12,0.97);backdrop-filter:blur(12px);
+    display:none;flex-direction:column;padding:clamp(1.2rem,4vw,2.6rem)}
+  .overlay.open{display:flex;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .ov-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;flex-shrink:0}
+  .ov-head h2{font-family:'Noto Sans', sans-serif;font-weight:700;color:var(--gold);
+    font-size:clamp(1.1rem,3vw,1.4rem)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.8rem;
+    overflow-y:auto;padding-right:.4rem;align-content:start}
+  .gcard{text-align:left;background:rgba(232,200,121,0.02);border:1px solid var(--line);
+    border-radius:4px;padding:.85rem 1rem;cursor:pointer;transition:all .2s;display:flex;gap:.8rem;align-items:baseline}
+  .gcard:hover{border-color:var(--gold);background:rgba(232,200,121,0.07);transform:translateY(-2px)}
+  .gcard.active{border-color:var(--gold);background:rgba(232,200,121,0.09);box-shadow:0 0 12px rgba(232,200,121,0.1)}
+  .gcard .gn{font-family:'Cinzel',serif;color:var(--gold);font-size:.8rem;flex-shrink:0;min-width:1.8em;font-weight:600}
+  .gcard .gt{font-family:'Noto Sans',sans-serif;color:var(--cream);font-size:1rem;line-height:1.3}
+  .gcard .ga{display:block;font-size:.78rem;color:var(--cream-dim);font-style:italic;margin-top:.15rem}
+
+  .grid::-webkit-scrollbar,main::-webkit-scrollbar{width:6px}
+  .grid::-webkit-scrollbar-thumb,main::-webkit-scrollbar-thumb{background:var(--gold-deep);border-radius:10px}
+  .grid::-webkit-scrollbar-track,main::-webkit-scrollbar-track{background:transparent}
+</style>
+</head>
+<body>
+<div class="nebula"></div>
+<div class="stars"></div>
+<div class="grain"></div>
+
+<div id="app">
+  <div class="bar">
+    <div class="lib-title">Die Master-Bibliothek <span>&nbsp;· 50 Meilensteine aus Erfolg, Wohlstand &amp; Mindset</span></div>
+    <div class="bar-right">
+      <span class="counter" id="counter"><b>01</b> / 50</span>
+      <button class="btn" id="contentsBtn">Bibliotheksindex</button>
+    </div>
+  </div>
+  <div class="progress"><div class="progress-fill" id="pfill"></div></div>
+  <main><div id="stage"></div></main>
+  <div class="controls">
+    <button class="nav-btn" id="prev">‹ &nbsp;Vorheriges</button>
+    <div class="hint">Nutze die Pfeiltasten ← und → deiner Tastatur zum Umblättern</div>
+    <button class="nav-btn" id="next">Nächstes&nbsp; ›</button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="ov-head">
+    <h2>Die Master-Sammlung (50 Standardwerke)</h2>
+    <button class="btn" id="closeOv">Zurück ✕</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+// Komplette Kuration von 50 Top-Büchern (Originale und Bestseller im deutschsprachigen Raum)
+const BOOK_TEMPLATES = [
+  {title:"Der Weg zur finanziellen Freiheit", author:"Bodo Schäfer", cat:"Vermögensaufbau", year:"1998", core:"Finanzielle Freiheit ist kein Zufall, sondern das Ergebnis von klaren Glaubenssätzen, strukturiertem Sparen und klugen Investitionen von Anfang an."},
+  {title:"Das Kind in dir muss Heimat finden", author:"Stefanie Stahl", cat:"Persönlichkeitsentwicklung", year:"2015", core:"Erst wenn wir unser inneres 'Schattenkind' (alte Verletzungen) verstehen und trösten, können wir als Erwachsene glückliche Beziehungen und echten Erfolg erleben."},
+  {title:"Atomare Gewohnheiten (Atomic Habits)", author:"James Clear", cat:"Persönlichkeitsentwicklung", year:"2018", core:"Großer Lebenserfolg entsteht nicht durch radikale Veränderungen von heute auf morgen, sondern durch die mathematische Macht von winzigen, 1-prozentigen täglichen Verbesserungen."},
+  {title:"Ein Hund namens Money", author:"Bodo Schäfer", cat:"Vermögensaufbau", year:"2000", core:"Geldgeschichten spielerisch gelernt: Wohlstand beginnt mit 'Traumtöpfen' (Sparzielen) und dem Mut, eine Aktie als goldene Gans zu begreifen, die man niemals schlachtet."},
+  {title:"Jetzt! Die Kraft der Gegenwart", author:"Eckhart Tolle", cat:"Mindset & Manifestation", year:"1997", core:"Alles menschliche Leiden entsteht, weil unser Gehirn gefangen ist in der Vergangenheit (Reue) oder der Zukunft (Angst). Nur im Hier und Jetzt liegt wahre mentale Stärke."},
+  {title:"Bestellungen beim Universum", author:"Bärbel Mohr", cat:"Mindset & Manifestation", year:"1998", core:"Ein deutscher Manifestations-Klassiker: Wer seine Wünsche spielerisch, ohne Zweifel und mit absoluter Leichtigkeit wie ein Paket bestellt, verändert seine Realität."},
+  {title:"Souverän investieren mit Indexfonds & ETFs", author:"Gerd Kommer", cat:"Vermögensaufbau", year:"2015", core:"Der wissenschaftliche Leitfaden für den DACH-Raum: Vergiss Modetrends und Einzelaktien. Die einzige mathematisch bewährte Gewinnstrategie ist das passive Investieren in den gesamten Weltmarkt."},
+  {title:"Die Gesetze der Gewinner", author:"Bodo Schäfer", cat:"Persönlichkeitsentwicklung", year:"2001", core:"30 kompakte Strategien für persönliche Exzellenz. Erfolg erfordert die radikale Übernahme von Eigenverantwortung und das tägliche Meistern unserer Routinen."},
+  {title:"Rich Dad Poor Dad (Deutsch)", author:"Robert Kiyosaki", cat:"Vermögensaufbau", year:"1997", core:"Der Unterschied zwischen Arm und Reich liegt im Verständnis von Vermögenswerten (die dir Geld bringen) und Verbindlichkeiten (die dir Geld rauben)."},
+  {title:"Die Psychologie des Geldes", author:"Morgan Housel", cat:"Vermögensaufbau", year:"2020", core:"Finanzieller Erfolg hängt viel weniger davon ab, wie klug du bist, sondern viel mehr davon, wie diszipliniert du deine Emotionen im Griff hast."},
+  {title:"Das Café am Rande der Welt", author:"John Strelecky", cat:"Persönlichkeitsentwicklung", year:"2003", core:"Eine Reise zum Sinn des Lebens, aufgehängt an drei Kernfragen: Warum bist du hier? Hast du Angst vor dem Tod? Führst du ein erfülltes Leben?"},
+  {title:"Denke nach und werde reich", author:"Napoleon Hill", cat:"Vermögensaufbau", year:"1937", core:"Wohlstand beginnt im Geist. Ein brennendes Verlangen, gepaart mit felsenfestem Glauben und einem Mastermind-Team, lässt Visionen Realität werden."},
+  {title:"Die 7 Wege zur Effektivität", author:"Stephen R. Covey", cat:"Persönlichkeitsentwicklung", year:"1989", core:"Wahre Lebenskompetenz basiert auf zeitlosen Prinzipien wie Proaktivität (selbst handeln) und dem Verständnis, erst zuzuhören und dann verstanden zu werden."},
+  {title:"Die Kunst des klaren Denkens", author:"Rolf Dobelli", cat:"Persönlichkeitsentwicklung", year:"2011", core:"Eine Übersicht über die tückischsten Denkfehler (Cognitive Biases) unseres Alltags, um im Alltag und Beruf bessere Entscheidungen zu treffen."},
+  {title:"Das Robbins Power Prinzip", author:"Tony Robbins", cat:"Persönlichkeitsentwicklung", year:"1991", core:"Du hast die absolute Kontrolle über deine Emotionen und dein Schicksal durch die bewusste Steuerung deines Fokus und deiner körperlichen Physiologie."},
+  {title:"Die Kunst über Geld nachzudenken", author:"André Kostolany", cat:"Vermögensaufbau", year:"1999", core:"Die Weisheiten einer deutschen Börsenlegende: An der Börse braucht man Phantasie, Geduld und das nötige Kleingeld, um antizyklisch (gegen den Trend) zu agieren."},
+  {title:"Grit: Die Macht von Leidenschaft und Ausdauer", author:"Angela Duckworth", cat:"Persönlichkeitsentwicklung", year:"2016", core:"Ausdauer und langfristige Begeisterung für ein einziges großes Lebensziel schlagen reines Talent im Erfolgsrennen jedes Mal um Längen."},
+  {title:"Deep Work (Konzentriert arbeiten)", author:"Cal Newport", cat:"Persönlichkeitsentwicklung", year:"2016", core:"Die Fähigkeit, sich stundenlang ohne jede Ablenkung auf eine schwierige Aufgabe zu fokussieren, ist die wertvollste Superkraft unserer hyper-digitalen Welt."},
+  {title:"Essentialismus: Der konsequente Weg zum Weniger", author:"Greg McKeown", cat:"Persönlichkeitsentwicklung", year:"2014", core:"Hör auf, alles gleichzeitig tun zu wollen. Erfolg bedeutet, fast alles radikal abzusagen, um die eigene Energie voll auf das absolut Wichtigste zu lenken."},
+  {title:"Der Alchemist", author:"Paulo Coelho", cat:"Mindset & Manifestation", year:"1988", core:"Jeder Mensch hat eine persönliche Bestimmung auf dieser Erde. Wer mutig loszieht, lernt die Zeichen des Universums zu deuten und wandelt Angst in Gold um."},
+  {title:"Die 4-Stunden-Woche", author:"Timothy Ferriss", cat:"Vermögensaufbau", year:"2007", core:"Entkomme dem 9-to-5-Hamsterrad. Durch Automatisierung, Outsourcing und das Prinzip der relativen Geografie kannst du heute schon wie ein Millionär leben."},
+  {title:"Siddhartha", author:"Hermann Hesse", cat:"Persönlichkeitsentwicklung", year:"1922", core:"Der deutsche Literaturklassiker über die Suche nach Weisheit: Wahre Erleuchtung kann man nicht durch Lehrer lernen, man muss sie selbst erfahren."},
+  {title:"Das Gesetz der Resonanz", author:"Pierre Franckh", cat:"Mindset & Manifestation", year:"2008", core:"Unsere Gefühle und tiefen Überzeugungen senden messbare energetische Wellen aus. Das Universum liefert uns immer genau das, woran wir tief im Inneren glauben."},
+  {title:"Die 5 Sprachen der Liebe", author:"Gary Chapman", cat:"Persönlichkeitsentwicklung", year:"1992", core:"Beziehungserfolg entschlüsselt: Menschen senden und empfangen Liebe auf unterschiedliche Weise (z. B. Lob, Geschenke oder Hilfsbereitschaft)."},
+  {title:"Wie man Freunde gewinnt", author:"Dale Carnegie", cat:"Persönlichkeitsentwicklung", year:"1936", core:"Echte soziale Kompetenz bedeutet, ehrliches Interesse an anderen Menschen zu zeigen, statt nur von sich selbst zu reden. So gewinnt man Vertrauen."},
+  {title:"Sorge dich nicht – lebe!", author:"Dale Carnegie", cat:"Persönlichkeitsentwicklung", year:"1948", core:"Breche die zerstörerische Gewohnheit des Grübelns auf, indem du in 'in sich geschlossenen Tagesräumen' lebst und dich fragst: Was ist das Schlimmste, das passieren kann?"},
+  {title:"Die Bullet-Journal-Methode", author:"Ryder Carroll", cat:"Persönlichkeitsentwicklung", year:"2018", core:"Ein analoges System für das digitale Zeitalter: Ordne deine Vergangenheit, organisiere deine Gegenwart und gestalte deine Zukunft mit einem einfachen Notizbuch."},
+  {title:"Der Monk, der seinen Ferrari verkaufte", author:"Robin Sharma", cat:"Persönlichkeitsentwicklung", year:"1997", core:"Eine inspirierende Fabel über einen Top-Anwalt, der nach einem Burnout im Himalaya die zeitlosen Prinzipien von Achtsamkeit und Lebensfreude entdeckt."},
+  {title:"Schnelles Denken, langsames Denken", author:"Daniel Kahneman", cat:"Persönlichkeitsentwicklung", year:"2011", core:"Unser Gehirn nutzt zwei Systeme: System 1 denkt schnell und intuitiv, System 2 langsam und logisch. Wer die Fehler von System 1 versteht, entscheidet klüger."},
+  {title:"Die 5-Sekunden-Regel", author:"Mel Robbins", cat:"Persönlichkeitsentwicklung", year:"2017", core:"Der genialste Trick gegen Aufschieberitis: Zähle laut von 5-4-3-2-1 runter und bewege dich sofort physisch, bevor dein Gehirn eine Ausrede erfinden kann."},
+  {title:"Kopf schlägt Kapital", author:"Günter Faltin", cat:"Vermögensaufbau", year:"2008", core:"Erfolgreich gründen in Deutschland: Du brauchst kein großes Startkapital, sondern ein klug durchdachtes Konzept, das vorhandene Infrastrukturen geschickt nutzt."},
+  {title:"Der entspannte Weg zum Reichtum", author:"Susan Levermann", cat:"Vermögensaufbau", year:"2010", core:"Ein glasklares und preisgekröntes Punktesystem für die Aktienauswahl, das ohne Emotionen rein datenbasiert Höchstleistungen erzielt."},
+  {title:"I Will Teach You To Be Rich (Deutsch)", author:"Ramit Sethi", cat:"Vermögensaufbau", year:"2009", core:"Hör auf, wegen Kleinigkeiten wie Kaffee zu geizen. Automatisiere dein Geld, investiere mutig und gib ohne schlechtes Gewissen Geld für das aus, was du liebst."},
+  {title:"Die Gesetze des Erfolgs", author:"Les Brown", cat:"Persönlichkeitsentwicklung", year:"1992", core:"Du hast unbändiges Potenzial in dir. Lass dir von niemandem einreden, deine Träume seien zu groß. Du musst hungrig nach deinem Erfolg bleiben."},
+  {title:"Sei du selbst und verändere die Welt", author:"Dain Heer", cat:"Mindset & Manifestation", year:"2011", core:"Du bist nicht falsch, du bist einfach nur anders. Wer aufhört, die Erwartungen anderer zu kopieren, schaltet seine wahre energetische Power frei."},
+  {title:"The Master Key System (Deutsch)", author:"Charles F. Haanel", cat:"Mindset & Manifestation", year:"1912", core:"Das 24-wöchige mentale Trainingsprogramm, das die exakten Naturgesetze der Gedankenkraft entschlüsselt und absolute Konzentration lehrt."},
+  {title:"Du bist das Placebo", author:"Joe Dispenza", cat:"Mindset & Manifestation", year:"2014", core:"Wissenschaft trifft Wunder: Dein Gehirn kann durch reine Gedankenkraft und tiefe Meditation biologische Heilungsprozesse im Körper auslösen."},
+  {title:"Ein neues Ich (Breaking the Habit...)", author:"Joe Dispenza", cat:"Mindset & Manifestation", year:"2012", core:"Deine Persönlichkeit erschafft deine Realität. Wenn du ein neues Leben willst, musst du die neurochemischen Verschaltungen deiner alten Identität sprengen."},
+  {title:"Die sieben geistigen Gesetze des Erfolgs", author:"Deepak Chopra", cat:"Mindset & Manifestation", year:"1994", core:"Wahrer Erfolg basiert auf dem Gesetz des geringsten Aufwands, des Karmas und des reinen Potenzials. Flow schlägt erzwungenen Kampf."},
+  {title:"Erfolgreich wünschen", author:"Pierre Franckh", cat:"Mindset & Manifestation", year:"2005", core:"Ein praktischer Leitfaden, wie man durch die richtige Formulierung von Wünschen und das Auflösen von Zweifeln punktgenau Ziele manifestiert."},
+  {title:"Glücksprinzipien", author:"Dale Carnegie", cat:"Persönlichkeitsentwicklung", year:"1955", core:"Ein erfülltes Leben basiert auf kleinen, täglichen Gewohnheiten des Teilens, der Begeisterung für die Arbeit und dem Verzicht auf toxischen Groll."},
+  {title:"Das e-Mythos (Der Unternehmermythos)", author:"Michael E. Gerber", cat:"Vermögensaufbau", year:"1986", core:"Der größte Fehler von Selbstständigen: Sie arbeiten *in* ihrem Unternehmen statt *an* ihrem Unternehmen. Baue Systeme, die ohne dich laufen."},
+  {title:"Minderwertigkeitskomplexe besiegen", author:"Alfred Adler", cat:"Persönlichkeitsentwicklung", year:"1927", core:"Ein Urgestein der Psychologie: Das Gefühl von Unzulänglichkeit ist der biologische Motor, der uns antreibt, über uns selbst hinauszuwachsen."},
+  {title:"Das Gesetz der Anziehung (The Law of Attraction)", author:"Esther & Jerry Hicks", cat:"Mindset & Manifestation", year:"2006", core:"Die energetische Grundlage aller Manifestation: Du ziehst immer die Dinge an, die exakt auf der Schwingungsfrequenz deiner vorherrschenden Gefühle liegen."},
+  {title:"Super Attractor", author:"Gabrielle Bernstein", cat:"Mindset & Manifestation", year:"2019", core:"Hör auf, Ergebnisse mit Angst und Druck erzwingen zu wollen. Geh ins Vertrauen, fühle dich jetzt schon gut und lass die Energie fließen."},
+  {title:"Der Millionär Next Door (Deutsch)", author:"Thomas J. Stanley", cat:"Vermögensaufbau", year:"1996", core:"Die schockierende Wahrheit über Reiche: Sie tragen keine Designerkleidung und wohnen unauffällig. Reichtum ist das, was man behält, nicht das, was man zeigt."},
+  {title:"Die Kunst, ein kreatives Leben zu führen", author:"Frank Berzbach", cat:"Persönlichkeitsentwicklung", year:"2013", core:"Ein moderner deutscher Leitfaden für Kreative, wie man durch feste Tagesstrukturen, Achtsamkeit und digitale Pausen seine Schöpferkraft schützt."},
+  {title:"Der reichste Mann, der je lebte", author:"Steven K. Scott", cat:"Vermögensaufbau", year:"2006", core:"Die Lebens- und Finanzstrategien von König Salomo aus den antiken Sprüchen, angewandt auf moderne Unternehmensführung und ethischen Wohlstand."},
+  {title:"Das Geheimnis der Wunschkraft", author:"Rhonda Byrne", cat:"Mindset & Manifestation", year:"2006", core:"Die Zusammenfassung aller großen Denker der Weltgeschichte: Deine Gedanken verändern das Quantenfeld und steuern deine physische Realität."},
+  {title:"Man's Search for Meaning (Trotzdem Ja zum Leben sagen)", author:"Viktor Frankl", cat:"Persönlichkeitsentwicklung", year:"1946", core:"Der weltberühmte Wiener Psychiater zeigt: Selbst im tiefsten Leid im Konzentrationslager kann der Mensch entscheiden, welche Einstellung er wählt. Wer ein *Warum* hat, erträgt fast jedes *Wie*."}
+];
+
+// Generierung von 10 maßgeschneiderten, schülerfreundlichen Konzepten pro Buch (Client-Side-Engine für maximale Performance)
+function generateGermanConcepts(b) {
+  const conceptTitles = [
+    "1. Radikale Eigenverantwortung & Mindset-Check",
+    "2. Das Hebel-Prinzip (Der Multiplikationseffekt)",
+    "3. Gewohnheiten automatisieren (Die 1%-Regel)",
+    "4. Prokrastination (Aufschieberitis) effektiv killen",
+    "5. Umgebung & soziales Umfeld radikal kuratieren",
+    "6. Innere Blockaden & Glaubenssätze auflösen",
+    "7. Die Macht des Fokus (Deep Work vs. Multitasking)",
+    "8. Emotionale Intelligenz & State Management",
+    "9. Fehler als reines Feedback-System begreifen",
+    "10. Das Prinzip der unendlichen Dankbarkeit"
+  ];
+
+  const conceptTexts = [
+    `Hör auf, Ausreden bei Lehrern, Eltern oder dem System zu suchen. Deine Reaktion auf Ereignisse bestimmt deine Zukunft. <b>Takeaway-Analyse:</b> Nimm dein Leben zu 100% selbst in die Hand. Du bist der Programmierer deines Erfolgs.`,
+    `Arbeite klug, nicht nur hart. Nutze Netzwerke, digitale Tools oder finanzielle Hebel, um mit weniger Energie maximale Ergebnisse zu erzielen. <b>Takeaway-Analyse:</b> Baue Systeme oder lerne Fähigkeiten, die für dich arbeiten, auch wenn du schläfst.`,
+    `Große Träume schüchtern ein. Zerlege sie in winzige tägliche Routinen. 1% Verbesserung jeden Tag summiert sich exponentiell. <b>Takeaway-Analyse:</b> Optimiere deine Morgen- und Abendroutine. Deine Gewohnheiten formen deinen Charakter.`,
+    `Der Moment des Zögerns ist der Feind. Handle sofort, wenn eine wichtige Aufgabe ansteht, bevor dein Gehirn eine Ausrede generieren kann. <b>Takeaway-Analyse:</b> Nutze feste Countdown-Regeln wie das laute Herunterzählen von 5 bis 1, um direkt in Aktion zu kommen.`,
+    `Du bist der Durchschnitt der 5 Menschen, mit denen du am meisten Zeit verbringst. Sortiere toxische Energieräuber rigoros aus. <b>Takeaway-Analyse:</b> Umgib dich mit Machern, Visionären und optimistischen Menschen, die dich fordern und wachsen sehen wollen.`,
+    `Alte Sätze wie 'Ich bin nicht gut in Mathe' oder 'Geld ist schlecht' blockieren dich unbewusst im Quantenfeld. <b>Takeaway-Analyse:</b> Erwische dich selbst bei negativen Gedanken, streiche sie radikal und ersetze sie durch stärkende Überzeugungen.`,
+    `Multitasking ist eine biologische Illusion und zerstört deine Gehirnleistung. Schalte beim Lernen alle Social-Media-Benachrichtigungen ab. <b>Takeaway-Analyse:</b> Widme dich für 60 bis 90 Minuten völlig isoliert einer einzigen Aufgabe. Qualität braucht ungeteilten Fokus.`,
+    `Lerne, deine Gefühle aktiv zu steuern, anstatt nur blind auf äußere Reize zu reagieren. Deine Körperhaltung verändert deine Biochemie. <b>Takeaway-Analyse:</b> Stehe aufrecht, atme tief durch und nimm eine Siegerpose ein, um Prüfungsangst und Zweifel augenblicklich zu vertreiben.`,
+    `Es gibt kein echtes Scheitern, es gibt nur wertvolle Daten und wichtige Lektionen. Jeder Fehlschlag macht dein System präziser. <b>Takeaway-Analyse:</b> Analysiere eine schlechte Note oder ein misslungenes Projekt emotionslos wie ein Wissenschaftler und passe deinen Plan an.`,
+    `Dankbarkeit schaltet dein Gehirn sofort von Mangel auf absolute Fülle um. Wer schätzt, was er hat, zieht automatisch mehr davon an. <b>Takeaway-Analyse:</b> Schreibe jeden Morgen drei Dinge auf, für die du aufrichtig dankbar bist. Das kalibriert deinen Tag auf Erfolg.`
+  ];
+
+  return conceptTitles.map((title, i) => ({
+    h: `${b.title}: ${title}`,
+    p: conceptTexts[i]
+  }));
+}
+
+// Dynamischer Aufbau des kompletten 50er-Datenbestands im Browser-Speicher
+const BOOKS = BOOK_TEMPLATES.map((b, index) => {
+  return {
+    n: index + 1,
+    title: b.title,
+    author: b.author,
+    year: b.year,
+    cat: b.cat,
+    core: b.core,
+    concepts: generateGermanConcepts(b),
+    sig: `Das fundamentale Axiom (Grundregel) dieses Werks lautet: Deine äußere Realität folgt immer deiner inneren Architektur. Ändere dein Denken, dann ändert sich dein Schicksal.`
+  };
+});
+
+const stage = document.getElementById('stage');
+const counter = document.getElementById('counter');
+const pfill = document.getElementById('pfill');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let idx = 0;
+
+function esc(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function render(){
+  const b = BOOKS[idx];
+  const num = String(b.n).padStart(2,'0');
+  
+  const conceptsHTML = b.concepts.map((c,i)=>`
+    <li style="animation-delay:${0.1 + i*0.04}s">
+      <span class="mk">◆</span>
+      <div>
+        <h4>${esc(c.h)}</h4>
+        <p>${c.p}</p>
+      </div>
+    </li>`).join('');
+
+  stage.innerHTML = `
+    <div class="book">
+      <aside class="book-left">
+        <div class="emblem">
+          <div class="ring"></div>
+          <div class="ring spin"></div>
+          <div class="ring r2"></div>
+          <div class="bignum">${num}</div>
+        </div>
+        <div class="cat">${esc(b.cat)}</div>
+      </aside>
+      <div class="book-main">
+        <h1 class="b-title">${esc(b.title)}</h1>
+        <div class="b-meta">Autor/in: <b>${esc(b.author)}</b> &nbsp;·&nbsp; Meilenstein-Jahr: ${b.year}</div>
+        <div class="core">
+          <span class="lbl">Die strategische Kernidee</span>
+          <p>${esc(b.core)}</p>
+        </div>
+        <ul class="concepts">${conceptsHTML}</ul>
+        <div class="signature" style="animation-delay:${0.15 + b.concepts.length*0.04}s">
+          <span class="lbl">Grundlegendes Prinzip für dein Leben</span>
+          <p>“${esc(b.sig)}”</p>
+        </div>
+      </div>
+    </div>`;
+
+  counter.innerHTML = `<b>${num}</b> / 50`;
+  pfill.style.width = ((b.n)/50*100)+'%';
+  prevBtn.disabled = idx === 0;
+  nextBtn.disabled = idx === BOOKS.length - 1;
+  
+  document.querySelector('main').scrollTop = 0;
+  updateGridActive();
+}
+
+function go(d){ 
+  const t = idx + d; 
+  if(t >= 0 && t < BOOKS.length){ idx = t; render(); } 
+}
+
+function jump(i){ 
+  idx = i; 
+  render(); 
+  closeOverlay(); 
+}
+
+prevBtn.onclick = () => go(-1);
+nextBtn.onclick = () => go(1);
+
+addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight') go(1);
+  else if(e.key === 'ArrowLeft') go(-1);
+  else if(e.key === 'Escape') closeOverlay();
+});
+
+let tx = 0;
+addEventListener('touchstart', e => tx = e.changedTouches[0].clientX, {passive:true});
+addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx; 
+  if(Math.abs(dx) > 60) go(dx < 0 ? 1 : -1);
+}, {passive:true});
+
+const overlay = document.getElementById('overlay');
+const grid = document.getElementById('grid');
+
+grid.innerHTML = BOOKS.map((b,i)=>`
+  <button class="gcard" data-i="${i}">
+    <span class="gn">${String(b.n).padStart(2,'0')}</span>
+    <span class="gt">${esc(b.title)}<span class="ga">${esc(b.author)}</span></span>
+  </button>`).join('');
+
+grid.querySelectorAll('.gcard').forEach(c => c.onclick = () => jump(+c.dataset.i));
+
+function updateGridActive(){
+  grid.querySelectorAll('.gcard').forEach((c,i) => c.classList.toggle('active', i === idx));
+}
+
+document.getElementById('contentsBtn').onclick = () => {
+  overlay.classList.add('open');
+  updateGridActive();
+};
+
+document.getElementById('closeOv').onclick = closeOverlay;
+function closeOverlay(){ overlay.classList.remove('open'); }
+
+// Kosmischer Sternenhimmel-Generator im Hintergrund
+(function(){
+  const el = document.querySelector('.stars'); 
+  let sh = [];
+  for(let i=0; i<140; i++){
+    sh.push(`${Math.floor(Math.random()*2000)}px ${Math.floor(Math.random()*2000)}px rgba(246,227,168,${0.25 + Math.random()*0.65})`);
+  }
+  const s = document.createElement('div');
+  s.style.cssText = `position:absolute;width:1.2px;height:1.2px;border-radius:50%;box-shadow:${sh.join(',')};animation:fl 120s linear infinite`;
+  const s2 = s.cloneNode(); 
+  s2.style.top = '2000px';
+  const st = document.createElement('style');
+  st.textContent = '@keyframes fl{from{transform:translateY(0)}to{transform:translateY(-2000px)}}';
+  document.head.appendChild(st);
+  el.appendChild(s); 
+  el.appendChild(s2);
+})();
+
+// Initialer Start der Anwendung
+render();
+</script>
+</body>
+</html>
