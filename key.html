@@ -35,61 +35,50 @@
     display:flex;flex-direction:column;
   }
 
-  /* Redesigned Multi-Row Bulletproof Mobile Header Architecture */
+  /* Optimized Mobile-First Top Header Navigation Grid */
   .bar{
     display:flex;flex-direction:column;align-items:center;
-    padding:0.75rem 0.85rem;flex-shrink:0;gap:0.75rem;
+    padding:0.85rem 1rem;flex-shrink:0;gap:0.85rem;
     border-bottom:1px solid rgba(232,200,121,0.04);
-    background:rgba(3,5,9,0.3);
-    width:100%;
+    background:rgba(3,5,9,0.2);
   }
   @media(min-width:850px){
     .bar{flex-direction:row;justify-content:space-between;padding:1rem clamp(1.1rem,4vw,2.6rem);gap:1.5rem}
   }
   
   .lib-title{
-    font-family:'Cinzel', serif;font-weight:600;letter-spacing:.08em;
-    font-size:clamp(0.8rem,3.5vw,0.95rem);color:var(--gold);text-transform:uppercase;
+    font-family:'Cinzel', serif;font-weight:600;letter-spacing:.1em;
+    font-size:clamp(.8rem,1.6vw,1rem);color:var(--gold);text-transform:uppercase;
     text-align:center;width:100%;
   }
-  @media(min-width:850px){.lib-title{width:auto;text-align:left;letter-spacing:.12em;font-size:1rem}}
+  @media(min-width:850px){.lib-title{width:auto;text-align:left;letter-spacing:.12em}}
   .lib-title span{color:var(--cream-dim);font-weight:400;letter-spacing:.05em}
   
-  /* Symmetrical Clean Language Capsule Grid Row */
-  .lang-selector{
-    display:flex;gap:0.4rem;align-items:center;width:100%;
-    justify-content:center;flex-wrap:nowrap;
-  }
-  @media(min-width:850px){.lang-selector{width:auto;gap:0.5rem}}
+  /* Language Floating Capsules Strip Container */
+  .lang-selector{display:flex;gap:0.5rem;align-items:center;width:100%;justify-content:center}
+  @media(min-width:850px){.lang-selector{width:auto;gap:0.75rem}}
   
   .lang-btn{
-    flex:1 1 0%; text-align:center;
+    flex:1; max-width:120px; text-align:center;
     background:rgba(232,200,121,0.02); border:1px solid var(--line); color:var(--cream-dim);
-    font-size:0.72rem;padding:0.45rem 0.2rem;cursor:pointer;border-radius:4px;font-weight:700;
+    font-size:0.75rem;padding:0.45rem 0.5rem;cursor:pointer;border-radius:4px;font-weight:500;
     transition:all 0.2s ease;font-family:inherit;white-space:nowrap;
   }
-  @media(min-width:850px){.lang-btn{flex:none;width:auto;padding:0.4rem 1.1rem;font-size:0.75rem}}
+  @media(min-width:850px){.lang-btn{flex:none;max-width:none;padding:0.45rem 1.1rem}}
   .lang-btn:hover{border-color:var(--gold);color:var(--cream);background:rgba(232,200,121,0.06)}
   .lang-btn.active{
     background:var(--gold-deep) !important; color:var(--void) !important;
     border-color:var(--gold-bright) !important; font-weight:700; box-shadow:0 0 14px -2px var(--glow);
   }
 
-  /* Decoupled Third Layout Row - Flush Split Edge Framework */
-  .bar-right{
-    display:flex;align-items:center;justify-content:space-between;
-    width:100%;gap:1rem;flex-wrap:nowrap;
-  }
-  @media(min-width:850px){.bar-right{width:auto;justify-content:flex-end;gap:1.5rem}}
+  /* Action Triggers Controls Column Right Row Wrapper */
+  .bar-right{display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem}
+  @media(min-width:850px){.bar-right{width:auto;justify-content:flex-end;gap:1.2rem}}
   
-  .counter{font-family:'Cinzel', serif;font-size:.82rem;letter-spacing:.12em;color:var(--cream-dim);white-space:nowrap}
+  .counter{font-family:'Cinzel', serif;font-size:.82rem;letter-spacing:.14em;color:var(--cream-dim)}
   .counter b{color:var(--gold)}
-  
-  .action-group{display:flex;gap:0.45rem;align-items:center;flex-wrap:nowrap}
-  
-  .btn{font-family:sans-serif;font-size:.72rem;color:var(--cream);background:transparent;border:1px solid var(--line);
-    padding:.45rem 0.75rem;border-radius:4px;cursor:pointer;transition:all .3s;white-space:nowrap}
-  @media(min-width:850px){.btn{padding:.45rem 1.1rem;font-size:.75rem}}
+  .btn{font-family:sans-serif;font-size:.75rem;color:var(--cream);background:transparent;border:1px solid var(--line);
+    padding:.45rem 1rem;border-radius:3px;cursor:pointer;transition:all .3s;white-space:nowrap}
   .btn:hover{border-color:var(--gold);color:var(--gold-bright);box-shadow:0 0 18px -6px var(--glow)}
   
   #speakBtn.reading-active {
@@ -107,12 +96,12 @@
 
   main{
     flex:1;display:flex;align-items:flex-start;justify-content:center;
-    padding:clamp(1rem,3vh,2.5rem) clamp(0.85rem,5vw,4rem);
+    padding:clamp(1.2rem,3vh,2.5rem) clamp(1rem,5vw,4rem);
     overflow-y:auto;min-height:0;-webkit-overflow-scrolling:touch;
   }
   .book{display:grid;grid-template-columns:clamp(190px,24%,280px) 1fr;gap:clamp(1.5rem,5vw,4.5rem);
     max-width:1200px;width:100%;align-items:start}
-  @media(max-width:820px){.book{grid-template-columns:1fr;gap:1.5rem}}
+  @media(max-width:820px){.book{grid-template-columns:1fr;gap:1.8rem}}
 
   .book-left{display:flex;flex-direction:column;align-items:flex-start;gap:1.4rem;position:sticky;top:0}
   @media(max-width:820px){
@@ -120,15 +109,15 @@
   }
   .emblem{position:relative;width:clamp(120px,16vw,190px);height:clamp(120px,16vw,190px);
     display:flex;align-items:center;justify-content:center}
-  @media(max-width:820px){.emblem{width:60px;height:60px}}
+  @media(max-width:820px){.emblem{width:70px;height:70px}}
   .emblem .ring{position:absolute;inset:0;border:1px solid var(--line);border-radius:50%}
-  .emblem .ring.r2{inset:8px;border-color:rgba(232,200,121,0.06)}
+  .emblem .ring.r2{inset:10px;border-color:rgba(232,200,121,0.08)}
   .emblem .ring.spin{border-top-color:var(--gold);border-right-color:transparent;
     border-bottom-color:transparent;border-left-color:transparent;animation:spin 16s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
   .bignum{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:700;
-    font-size:clamp(1.8rem,5vw,3.5rem);color:var(--gold);line-height:1;text-shadow:0 0 25px var(--glow)}
-  .cat{font-family:sans-serif;font-size:.65rem;letter-spacing:.05em;
+    font-size:clamp(2.2rem,5vw,4rem);color:var(--gold);line-height:1;text-shadow:0 0 25px var(--glow)}
+  .cat{font-family:sans-serif;font-size:.68rem;letter-spacing:.05em;
     color:var(--cream-dim);border:1px solid var(--line);padding:.35rem .75rem;border-radius:40px;white-space:nowrap}
 
   .b-title{font-weight:700;line-height:1.25;font-size:clamp(1.35rem,3.5vw,2.2rem);color:var(--cream);margin-bottom:.5rem}
@@ -204,14 +193,19 @@
     <div class="lib-title" id="libTitle">Master Library <span>&nbsp;· 50 Language-Specific Masterworks</span></div>
     
     <div class="lang-selector">
-      <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">EN</button>
-      <button class="lang-btn" id="btn-lang-te" onclick="setLanguage('te')">TE</button>
-      <button class="lang-btn" id="btn-lang-de" onclick="setLanguage('de')">DE</button>
-      <span class="counter" id="counter"><b>01</b> / 50</span>
-      <button class="btn" id="speakBtn" onclick="toggleSpeech()">🔊 Listen</button>
-      <button class="btn" id="contentsBtn">Index</button>      
+      <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">English</button>
+      <button class="lang-btn" id="btn-lang-te" onclick="setLanguage('te')">తెలుగు</button>
+      <button class="lang-btn" id="btn-lang-de" onclick="setLanguage('de')">Deutsch</button>
     </div>
 
+    <div class="bar-right">
+      <span class="counter" id="counter"><b>01</b> / 50</span>
+      <div style="display:flex; gap:0.5rem;">
+        <button class="btn" id="speakBtn" onclick="toggleSpeech()">🔊 Listen</button>
+        <button class="btn" id="contentsBtn">Index</button>
+      </div>
+    </div>
+  </div>
   
   <div class="progress"><div class="progress-fill" id="pfill"></div></div>
   
@@ -276,7 +270,6 @@ const CONFIG = {
   },
   de: {
     appTitle: "Master-Bibliothek <span>&nbsp;· 50 Meilensteine aus Erfolg &amp; Mindset</span>", indexBtn: "Bibliotheksindex", indexHead: "Die Master-Sammlung (50 Standardwerke)", closeBtn: "Zurück ✕", prevBtn: "‹ &nbsp;Vorheriges", nextBtn: "Nächstes&nbsp; ›", hint: "Nutze die Pfeiltasten ← und → deiner Tastatur zum Umblättern", coreLbl: "Die strategische Kernidee", principleLbl: "Grundlegendes Prinzip", authorLbl: "Autor/in", yearLbl: "Jahr", sigSuffix: "Deine äußere Realität folgt immer deiner inneren Architektur. Ändere dein Denken, dann ändert sich dein Schicksal.",
-    speakStart: "🔊 Vorlesen", speakStop: "⏹️ Stopp", speechLang: "de-DE",
     cats: ["Persönlichkeitsentwicklung", "Vermögensaufbau", "Mindset & Manifestation"],
     concepts: ["1. Radikale Eigenverantwortung & Mindset-Check", "2. Das Hebel-Prinzip (Der Multiplikationseffekt)", "3. Gewohnheiten automatisieren (Die 1%-Regel)", "4. Prokrastination (Aufschieberitis) effektiv killen", "5. Umgebung & soziales Umfeld radikal kuratieren", "6. Innere Blockaden & Glaubenssätze auflösen", "7. Die Macht des Fokus (Deep Work vs. Multitasking)", "8. Emotionale Intelligenz & State Management", "9. Fehler als reines Feedback-System begreifen", "10. Das Prinzip der unendlichen Dankbarkeit"],
     texts: [
@@ -353,12 +346,12 @@ const BOOK_DATASETS = {
     {n:3, title:"రిచ్ డాడ్ పూర్ డాడ్ (తెలుగు)", author:"రాబర్ట్ కియోసాకి", year:"1997", core:"ఆర్థిక స్వాతంత్ర్యం కావాలంటే కేవలం ఉద్యోగం చేయడం సరిపోదు; డబ్బు మీ కోసం పనిచేసేలా ఆస్తులను సృష్టించాలి."},
     {n:4, title:"ఆలోచించండి - ఐశ్వర్యవంతులు అవ్వండి", author:"నెపోలియన్ హిల్", year:"1937", core:"ఐశ్వర్యం మరియు విజయం అనేవి ఒక బలమైన మానసిక సంకల్పం, తీవ్రమైన కోరిక మరియు నిరంతర ప్రణాళికల ద్వారానే సాధ్యమవుతాయి."},
     {n:5, title:"రహస్యం (The Secret)", author:"రోండా బైర్న్", year:"2006", core:"ఆకర్షణ సిద్ధాంతం (Law of Attraction) ద్వారా విశ్వంలోని శక్తులను మన ఆలోచనలతో ప్రభావితం చేసి అనుకున్నది సాధించవచ్చు."},
-    {n:6, title:"అటామిక్ హ్యాబిట్స్", author:"జేమ్స్ క్లియర్", year:"2018", core:"చిన్న అలవాట్లు 1% చొప్పున ప్రతిроజూ మారితే, కాలక్రమేణా అవి అద్భుతమైన మార్పులను తీసుకువస్తాయి."},
+    {n:6, title:"అటామిక్ హ్యాబిట్స్", author:"జేమ్స్ క్లియర్", year:"2018", core:"చిన్న అలవాట్లు 1% చొప్పున ప్రతిరోజూ మారితే, కాలక్రమేణా అవి అద్భుతమైన మార్పులను తీసుకువస్తాయి."},
     {n:7, title:"మనీ పర్స్ (Money Purse)", author:"యండగండి సత్యనారాయణ", year:"2012", core:"భారతీయ కుటుంబాల ఆర్థిక నిర్వహణకు, పొదుపు మరియు పెట్టుబడి సూత్రాలను వివరించే అద్భుత గ్రంథం."},
     {n:8, title:"అతి ప్రభావశీల వ్యక్తుల 7 అలవాట్లు", author:"స్టీఫెన్ కోవే", year:"1989", core:"విజయవంతమైన జీవితం కోసం అంతర్గత క్యారెక్టర్‌ను మార్చే ఏడు ముఖ్యమైన అలవాట్ల విశ్లేషణ."},
     {n:9, title:"మీ ఉపచేతన మనస్సు యొక్క శక్తి", author:"జోసెఫ్ మర్ఫీ", year:"1963", core:"ఉపచేతన మనస్సును సానుకూలంగా రీప్రోగ్రామ్ చేయడం ద్వారా ఆరోగ్యం, సంపద మరియు విజయం సాధించవచ్చు."},
     {n:10, title:"ప్రస్తుత క్షణపు శక్తి (The Power of Now)", author:"ఎకార్ట్ టోల్లే", year:"1997", core:"గతాన్ని, భవిష్యత్తును వీడి ప్రస్తుత క్షణంలో బతకడమే సర్వ దుఃఖాలకు నివారణ మరియు నిజమైన శాంతి."},
-    {n:11, title:"సన్యాసిగా మారిన కోటీశ్వరుడు", author:"రాబిన్ శర్మ", year:"1997", core:"భౌతిక సంపదతో పాటు అంతర్గత आध्यात्मिक ప్రశాంతతను ఎలా సాధించాలో తెలిపే కథా రూపక పుస్తకం."},
+    {n:11, title:"సన్యాసిగా మారిన కోటీశ్వరుడు", author:"రాబిన్ శర్మ", year:"1997", core:"భౌతిక సంపదతో పాటు అంతర్గత ఆధ్యాత్మిక ప్రశాంతతను ఎలా సాధించాలో తెలిపే కథా రూపక పుస్తకం."},
     {n:12, title:"నువ్వు కూడా గెలవగలవు (You Can Win)", author:"శివ్ ఖేరా", year:"1998", core:"సానుకూల దృక్పథం, ఆత్మవిశ్వాసం మరియు సరైన లక్ష్యాల ద్వారా సామాన్యులు కూడా అసాధారణ విజయాలు సాధించగలరు."},
     {n:13, title:"ఇకిగాయ్ (Ikigai)", author:"హెక్టర్ గార్సియా", year:"2016", core:"జపాన్ దేశస్థుల సుదీర్ఘ, సంతోషకరమైన జీవిత రహస్యమైన 'జీవన పరమార్థం' గురించిన వివరణ."},
     {n:14, title:"సైకాలジー ఆఫ్ మニー", author:"మోర్గాన్ హౌసెల్", year:"2020", core:"డబ్బుతో మనం ఎలా ప్రవర్తిస్తామనేది మనకు ఎంత గణితం తెలుసనే దానికంటే చాలా ముఖ్యం."},
@@ -396,7 +389,7 @@ const BOOK_DATASETS = {
     {n:46, title:"ది మిలియనీర్ ఫాస్ట్‌లేన్", author:"ఎమ్‌జె డిమార్కో", year:"2011", core:"వయసు అయిపోయాక వచ్చే సంపద కంటే, యువకుడిగా ఉన్నప్పుడే వేగంగా సిస్టమ్స్ ద్వారా ధనవంతులు ఎలా అవ్వాలో తెలిపే గైడ్."},
     {n:47, title:"అంతఃప్రయాణం (Inner Engineering)", author:"సద్గురు", year:"2016", core:"ఆనందం అనేది ఎక్కడో బయట లేదు, అది మీ అంతర్గత కెమిస్ట్రీని సరిగ్గా నిర్వహించుకోవడం లోనే ఉంది."},
     {n:48, title:"ఫీలింగ్ ఈజ్ ది సీక్రెట్", author:"నెవిల్లే గొడ్డార్డ్", year:"1944", core:"ఉపచేతన మనస్సుకు కేవలం తర్కం తెలియదు, మీ భావోద్వేగాల తీవ్రత ఆధారంగానే అది సృష్టిని చేస్తుంది."},
-    {n:49, title:"ది మాస్టర్ కీ సిస్టమ్", author:"చార్లెస్ హానెల్", year:"1912", core:"మానసిక ఏకాగ్రత మరియు విశ్వశక్తిని అనుసంధానించే 24 వారాల మైండ్ ట్రైనింగ్ కోర్స్."},
+    {n:49, title:"ది మాస్టర్ కీ సిస్టమ్", author:"చార్లెస్ హానెల్", year:"1912", core:"మానసిక ఏకాగ్రత మరియు విశ్వశక్తిని అనుసంధానించే 24 వారాల క్రమశిక్షణతో కూడిన మైండ్ ట్రైనింగ్ కోర్స్."},
     {n:50, title:"ది గ్రేటెస్ట్ సీక్రెట్", author:"రోండా బైర్న్", year:"2020", core:"మనం కేవలం ఆలోచనలం కాదు, సాక్షాత్తూ అనంతమైన అవగాహన (Awareness) అని తెలుసుకోవడం."}
   ],
   de: [
