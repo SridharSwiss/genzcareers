@@ -35,45 +35,55 @@
     display:flex;flex-direction:column;
   }
 
+  /* Optimized Mobile-First Top Header Navigation Grid */
   .bar{
     display:flex;flex-direction:column;align-items:center;
-    padding:1rem clamp(1rem,3vw,2.6rem);flex-shrink:0;gap:1rem;
+    padding:0.85rem 1rem;flex-shrink:0;gap:0.85rem;
     border-bottom:1px solid rgba(232,200,121,0.04);
+    background:rgba(3,5,9,0.2);
   }
   @media(min-width:850px){
-    .bar{flex-direction:row;justify-content:space-between;gap:1.5rem}
+    .bar{flex-direction:row;justify-content:space-between;padding:1rem clamp(1.1rem,4vw,2.6rem);gap:1.5rem}
   }
-  .lib-title{font-family:'Cinzel', serif;font-weight:600;letter-spacing:.12em;
-    font-size:clamp(.8rem,1.6vw,1rem);color:var(--gold);text-transform:uppercase;text-align:center}
+  
+  .lib-title{
+    font-family:'Cinzel', serif;font-weight:600;letter-spacing:.1em;
+    font-size:clamp(.8rem,1.6vw,1rem);color:var(--gold);text-transform:uppercase;
+    text-align:center;width:100%;
+  }
+  @media(min-width:850px){.lib-title{width:auto;text-align:left;letter-spacing:.12em}}
   .lib-title span{color:var(--cream-dim);font-weight:400;letter-spacing:.05em}
   
-  .bar-right{display:flex;align-items:center;justify-content:space-between;width:100%;gap:1.2rem}
-  @media(min-width:850px){.bar-right{width:auto;justify-content:flex-end}}
+  /* Language Floating Capsules Strip Container */
+  .lang-selector{display:flex;gap:0.5rem;align-items:center;width:100%;justify-content:center}
+  @media(min-width:850px){.lang-selector{width:auto;gap:0.75rem}}
   
-  .lang-selector{display:flex;gap:0.5rem;align-items:center}
   .lang-btn{
-    background:rgba(232,200,121,0.03); border:1px solid var(--line); color:var(--cream-dim);
-    font-size:0.75rem;padding:0.4rem 0.85rem;cursor:pointer;border-radius:4px;font-weight:500;
+    flex:1; max-width:120px; text-align:center;
+    background:rgba(232,200,121,0.02); border:1px solid var(--line); color:var(--cream-dim);
+    font-size:0.75rem;padding:0.45rem 0.5rem;cursor:pointer;border-radius:4px;font-weight:500;
     transition:all 0.2s ease;font-family:inherit;white-space:nowrap;
   }
-  .lang-btn:hover{border-color:var(--gold);color:var(--cream);background:rgba(232,200,121,0.08)}
+  @media(min-width:850px){.lang-btn{flex:none;max-width:none;padding:0.45rem 1.1rem}}
+  .lang-btn:hover{border-color:var(--gold);color:var(--cream);background:rgba(232,200,121,0.06)}
   .lang-btn.active{
     background:var(--gold-deep) !important; color:var(--void) !important;
     border-color:var(--gold-bright) !important; font-weight:700; box-shadow:0 0 14px -2px var(--glow);
   }
 
+  /* Action Triggers Controls Column Right Row Wrapper */
+  .bar-right{display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem}
+  @media(min-width:850px){.bar-right{width:auto;justify-content:flex-end;gap:1.2rem}}
+  
   .counter{font-family:'Cinzel', serif;font-size:.82rem;letter-spacing:.14em;color:var(--cream-dim)}
   .counter b{color:var(--gold)}
   .btn{font-family:sans-serif;font-size:.75rem;color:var(--cream);background:transparent;border:1px solid var(--line);
-    padding:.45rem .9rem;border-radius:3px;cursor:pointer;transition:all .3s;white-space:nowrap}
+    padding:.45rem 1rem;border-radius:3px;cursor:pointer;transition:all .3s;white-space:nowrap}
   .btn:hover{border-color:var(--gold);color:var(--gold-bright);box-shadow:0 0 18px -6px var(--glow)}
   
-  /* Dynamic Audio Triggers Pulse FX Modifiers */
   #speakBtn.reading-active {
-    background: var(--ember) !important;
-    color: var(--cream) !important;
-    border-color: var(--cream) !important;
-    animation: pulseGlow 2s infinite ease-in-out;
+    background: var(--ember) !important; color: var(--cream) !important;
+    border-color: var(--cream) !important; animation: pulseGlow 2s infinite ease-in-out;
   }
   @keyframes pulseGlow {
     0%, 100% { box-shadow: 0 0 4px rgba(194,91,63,0.3); }
@@ -82,7 +92,7 @@
 
   .progress{height:2px;background:rgba(232,200,121,0.08);flex-shrink:0;position:relative}
   .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-bright));
-    width:2%;transition:width Nav .4s ease;box-shadow:0 0 12px var(--glow)}
+    width:2%;transition:width .4s ease;box-shadow:0 0 12px var(--glow)}
 
   main{
     flex:1;display:flex;align-items:flex-start;justify-content:center;
@@ -182,16 +192,18 @@
   <div class="bar">
     <div class="lib-title" id="libTitle">Master Library <span>&nbsp;· 50 Language-Specific Masterworks</span></div>
     
+    <div class="lang-selector">
+      <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">English</button>
+      <button class="lang-btn" id="btn-lang-te" onclick="setLanguage('te')">తెలుగు</button>
+      <button class="lang-btn" id="btn-lang-de" onclick="setLanguage('de')">Deutsch</button>
+    </div>
+
     <div class="bar-right">
-      <div class="lang-selector">
-        <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">English</button>
-        <button class="lang-btn" id="btn-lang-te" onclick="setLanguage('te')">తెలుగు</button>
-        <button class="lang-btn" id="btn-lang-de" onclick="setLanguage('de')">Deutsch</button>
-      </div>
       <span class="counter" id="counter"><b>01</b> / 50</span>
-      
-      <button class="btn" id="speakBtn" onclick="toggleSpeech()">🔊 Listen</button>
-      <button class="btn" id="contentsBtn">Index</button>
+      <div style="display:flex; gap:0.5rem;">
+        <button class="btn" id="speakBtn" onclick="toggleSpeech()">🔊 Listen</button>
+        <button class="btn" id="contentsBtn">Index</button>
+      </div>
     </div>
   </div>
   
@@ -258,7 +270,6 @@ const CONFIG = {
   },
   de: {
     appTitle: "Master-Bibliothek <span>&nbsp;· 50 Meilensteine aus Erfolg &amp; Mindset</span>", indexBtn: "Bibliotheksindex", indexHead: "Die Master-Sammlung (50 Standardwerke)", closeBtn: "Zurück ✕", prevBtn: "‹ &nbsp;Vorheriges", nextBtn: "Nächstes&nbsp; ›", hint: "Nutze die Pfeiltasten ← und → deiner Tastatur zum Umblättern", coreLbl: "Die strategische Kernidee", principleLbl: "Grundlegendes Prinzip", authorLbl: "Autor/in", yearLbl: "Jahr", sigSuffix: "Deine äußere Realität folgt immer deiner inneren Architektur. Ändere dein Denken, dann ändert sich dein Schicksal.",
-    speakStart: "🔊 Vorlesen", speakStop: "⏹️ Stopp", speechLang: "de-DE",
     cats: ["Persönlichkeitsentwicklung", "Vermögensaufbau", "Mindset & Manifestation"],
     concepts: ["1. Radikale Eigenverantwortung & Mindset-Check", "2. Das Hebel-Prinzip (Der Multiplikationseffekt)", "3. Gewohnheiten automatisieren (Die 1%-Regel)", "4. Prokrastination (Aufschieberitis) effektiv killen", "5. Umgebung & soziales Umfeld radikal kuratieren", "6. Innere Blockaden & Glaubenssätze auflösen", "7. Die Macht des Fokus (Deep Work vs. Multitasking)", "8. Emotionale Intelligenz & State Management", "9. Fehler als reines Feedback-System begreifen", "10. Das Prinzip der unendlichen Dankbarkeit"],
     texts: [
@@ -350,7 +361,7 @@ const BOOK_DATASETS = {
     {n:18, title:"ఆల్కెమిస్ట్ (The Alchemist)", author:"పాలో కోయెల్హో", year:"1988", core:"మన కలలను నిజం చేసుకునే ప్రయాణంలో ప్రకృతి సంకేతాలను ఎలా అర్థం చేసుకోవాలో తెలిపే అద్భుత నవల."},
     {n:19, title:"నాల్గు ఒప్పందాలు (The Four Agreements)", author:"డాన్ మిగుల్ రూయిజ్", year:"1997", core:"వ్యక్తిగత స్వేచ్ఛ మరియు ఆనందం కోసం ప్రాచీన టోల్టెక్ సంస్కృతి అందించిన నాలుగు సూత్రాలు."},
     {n:20, title:"కాలజ్ఞానం (Time Management)", author:"స్థానిక నిపుణులు", year:"2010", core:"సమయాన్ని వృథా చేయకుండా ఉత్పాదకతను ఎలా పెంచుకోవాలో తెలిపే కాల నిర్వహణ సూత్రాలు."},
-    {n:21, title:"ఆత్మ సాక్షాత్కారం", author:"параమహంస యోగానంద", year:"1946", core:"భారతీయ యోగ విజ్ఞానం, ఉపచేతన మనస్సును మించిన ఆత్మ శక్తి యొక్క ప్రాముఖ్యతను తెలిపే గ్రంథం."},
+    {n:21, title:"ఆత్మ సాక్షాత్కారం", author:"పరమహంస యోగానంద", year:"1946", core:"భారతీయ యోగ విజ్ఞానం, ఉపచేతన మనస్సును మించిన ఆత్మ శక్తి యొక్క ప్రాముఖ్యతను తెలిపే గ్రంథం."},
     {n:22, title:"కర్మ (Karma)", author:"సద్గురు జగీ వాసుదేవ్", year:"2021", core:"కర్మ అంటే కేవలం గతం కాదు, అది మీ జీవితాన్ని మీ చేతుల్లోకి తీసుకునే బాధ్యత అని వివరించే పుస్తకం."},
     {n:23, title:"5 AM క్లబ్", author:"రాబిన్ శర్మ", year:"2018", core:"ఉదయం 5 గంటలకే నిద్రలేచి మొదటి గంటను మీ ఆత్మవిమర్శకు, ఎదుగుదలకు కేటాయించడం ద్వారా అద్భుతాలు చేయవచ్చు."},
     {n:24, title:"మీ జీవితాన్ని మీరే సరిదిద్దుకోండి", author:"లూయిస్ హే", year:"1984", core:"సానుకూల ఆలోచనలు మరియు స్వీయ ప్రేమ ద్వారా శారీరక, మానసిక రుగ్మతలను నయం చేసుకోవచ్చు."},
@@ -395,7 +406,7 @@ const BOOK_DATASETS = {
     {n:11, title:"Das Café am Rande der Welt", author:"John Strelecky", year:"2003", core:"Eine Reise zum Sinn des Lebens entlang der Kernfrage nach dem eigenen Daseinszweck."},
     {n:12, title:"Denke nach und werde reich", author:"Napoleon Hill", year:"1937", core:"Wohlstand skaliert aus einem brennenden Verlangen, verknüpft mit felsenfesten mentalen Bildern."},
     {n:13, title:"Die 7 Wege zur Effektivität", author:"Stephen R. Covey", year:"1989", core:"Nachhaltige Lebenskompetenz basiert auf charakterlicher Integrität und proaktiven Gewohnheiten."},
-    {n:14, title:"Die Kunst des klaren Denkens", author:"Rolf Dobelli", year:"2011", core:" Eine Übersicht über kognitive Denkfehler, um im Alltag rationale Entscheidungen zu treffen."},
+    {n:14, title:"Die Kunst des klaren Denkens", author:"Rolf Dobelli", year:"2011", core:"Eine Übersicht über kognitive Denkfehler, um im Alltag rationale Entscheidungen zu treffen."},
     {n:15, title:"Das Robbins Power Prinzip", author:"Tony Robbins", year:"1991", core:"Du steuerst dein emotionales Schicksal über bewusste Fokusausrichtung und deine Physiologie."},
     {n:16, title:"Die Kunst über Geld nachzudenken", author:"André Kostolany", year:"1999", core:"Börsenweisheiten einer Legende über antizyklisches Handeln, Phantasie und unendliche Geduld."},
     {n:17, title:"Grit: Die Macht von Leidenschaft und Ausdauer", author:"Angela Duckworth", year:"2016", core:"Langfristige Zähigkeit und Faszination für ein Lebensziel schlagen reines Talent im Erfolgsrennen."},
@@ -576,7 +587,6 @@ function updateGridActiveStates(){
   grid.querySelectorAll('.gcard').forEach((c,i) => c.classList.toggle('active', i === idx));
 }
 
-// Native Web Speech Synthesis Pipeline Core Implementation
 function toggleSpeech() {
   if (window.speechSynthesis.speaking) {
     stopSpeechEngine();
@@ -586,18 +596,16 @@ function toggleSpeech() {
 }
 
 function startSpeechEngine() {
-  window.speechSynthesis.cancel(); // Flush lingering queues
+  window.speechSynthesis.cancel(); 
   const b = BOOKS[idx];
   const dict = CONFIG[currentLang];
   
-  // Clean raw character conversions compile stack sequence loop
   let textSegments = [
     b.title,
     `${dict.authorLbl}: ${b.author}`,
     b.core
   ];
   
-  // Map clean concept arrays strings (Strips out embedded styling tags)
   b.concepts.forEach(c => {
     let plainText = c.p.replace(/<\/?[^>]+(>|$)/g, "");
     textSegments.push(`${c.h}. ${plainText}`);
