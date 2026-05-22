@@ -32,17 +32,18 @@
   #app{position:relative;z-index:3;height:100vh;display:flex;flex-direction:column}
 
   .bar{display:flex;justify-content:space-between;align-items:center;
-    padding:1rem clamp(1.1rem,4vw,2.6rem);flex-shrink:0;gap:1rem;flex-wrap:wrap}
+    padding:1rem clamp(1.1rem,4vw,2.6rem);flex-shrink:0;gap:1.2rem;flex-wrap:wrap}
   .lib-title{font-family:'Cinzel', serif;font-weight:600;letter-spacing:.12em;
     font-size:clamp(.7rem,1.6vw,1rem);color:var(--gold);text-transform:uppercase}
   .lib-title span{color:var(--cream-dim);font-weight:400;letter-spacing:.05em}
   
   .bar-right{display:flex;align-items:center;gap:1.2rem}
   
-  .lang-selector{display:flex;background:rgba(232,200,121,0.04);border:1px solid var(--line);border-radius:4px;padding:2px}
-  .lang-btn{background:transparent;border:none;color:var(--cream-dim);font-size:.75rem;padding Kent:.4rem .8rem;cursor:pointer;border-radius:3px;font-weight:500;transition:all .2s}
-  .lang-btn:hover{color:var(--cream)}
-  .lang-btn.active{background:var(--gold-deep);color:var(--void);font-weight:700}
+  /* Language Selector Flex & Distinct Boundary Layout */
+  .lang-selector{display:flex;gap:0.75rem;flex-wrap:nowrap}
+  .lang-btn{background:transparent;border:1px solid var(--line);color:var(--cream-dim);font-size:.75rem;padding:.4rem 1rem;cursor:pointer;border-radius:4px;font-weight:500;transition:all .2s}
+  .lang-btn:hover{border-color:var(--gold);color:var(--cream);box-shadow:0 0 12px -4px var(--glow)}
+  .lang-btn.active{background:var(--gold-deep);color:var(--void);border-color:var(--gold-bright);font-weight:700;box-shadow:0 0 16px -2px var(--glow)}
 
   .counter{font-family:'Cinzel', serif;font-size:.82rem;letter-spacing:.18em;color:var(--cream-dim)}
   .counter b{color:var(--gold)}
@@ -139,9 +140,9 @@
     <div class="lib-title" id="libTitle">Master Library <span>&nbsp;· 50 Language-Specific Masterworks</span></div>
     
     <div class="lang-selector">
-      <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')"> English </button>
-      <button class="lang-btn" id="btn-lang-te" onclick="setLanguage('te')"> తెలుగు </button>
-      <button class="lang-btn" id="btn-lang-de" onclick="setLanguage('de')"> Deutsch </button>
+      <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">English</button>
+      <button class="lang-btn" id="btn-lang-te" onclick="setLanguage('te')">తెలుగు</button>
+      <button class="lang-btn" id="btn-lang-de" onclick="setLanguage('de')">Deutsch</button>
     </div>
 
     <div class="bar-right">
@@ -196,7 +197,7 @@ const CONFIG = {
       `పరిస్థితులు ఎలా ఉన్నా, వాటిని మనం ఎలా స్వీకరిస్తామనేదే మన భవిష్యత్తును నిర్ణయిస్తుంది. సమస్యల కంటే పరిష్కారాలపై దృష్టి పెట్టాలి. <b>ముఖ్య విశ్లేషణ:</b> మీ మైండ్ లోకి వచ్చే ప్రతికూల ఆలోచనలను వెంటనే సానుకూల ప్రత్యామ్నాయాలతో భర్తీ చేయడం ప్రాక్టీస్ చేయండి.`,
       `ఓటమి అనేది ప్రయాణానికి ముగింపు కాదు, అది కేవలం ఒక ముఖ్యమైన పాఠం మాత్రమే. విజయానికి అది ఒక అద్భుతమైన మెట్టు. <b>ముఖ్య విశ్లేషణ:</b> పరాజయం ఎదురైనప్పుడు నిరాశ పడకుండా, ఎక్కడ లోపం జరిగిందో గమనించి వ్యూహాన్ని మార్చాలి.`,
       `ఉపచేతన మనస్సును సానుకూలంగా ఉంచడం ద్వారా అద్భుతాలు చేయవచ్చు. రాత్రి పడుకునే ముందు మీ విజయాలను ఊహించుకోండి. <b>ముఖ్య విశ్లేషణ:</b> మీ అంతర్గత భయాలను తొలగించి, సమృద్ధి (Abundance) మైండ్‌సెట్ ని అలవాటు చేసుకోవడం విజయానికి తిరుగులేని మార్గం.`,
-      `సోషల్ మీడియా, అనవసరపు పరధ్యానాలను తగ్గించుకుని ఏకాగ్రతను పెంచుకోవాలి. దృష్టి కేంద్రీకరణే మీ ఆస్తి. <b>ముఖ్య విశ్లేషణ:</b> హై-వాల్యూ పనులు చేసేటప్పుడు నోటిఫിക്കేషన్లు ఆఫ్ చేయండి. మీ అటెన్షన్ ని ఇతరుల కోసం వృథా చేయకండి.`,
+      `సోషల్ మీడియా, అనవసరపు పరధ్యానాలను తగ్గించుకుని ఏకాగ్రతను పెంచుకోవాలి. దృష్టి కేంద్రీకరణే మీ ఆస్తి. <b>ముఖ్య విశ్లేషణ:</b> హై-వాల్యూ పనులు చేసేటప్పుడు నోటిఫికేషన్లు ఆఫ్ చేయండి. మీ అటెన్షన్ ని ఇతరుల కోసం వృథా చేయకండి.`,
       `నలుగురితో సత్సంబంధాలను ఏర్పరచుకోవడం, ఇతరులు చెప్పేది శ్రద్ధగా వినడం ద్వారా సమాజంలో మంచి నెట్‌వర్క్ ఏర్పడుతుంది. <b>ముఖ్య విశ్లేషణ:</b> కేవలం మీ స్వార్థం కోసం కాకుండా, ఇతరుల ఎదుగుదలకు కూడా సహాయపడేలా మీ సంబంధాలను బలోపేతం చేసుకోండి.`,
       `కేవలం కష్టపడి పనిచేయడం వల్ల ఫలితం ఉండదు. దానికి సరైన వ్యూహం, స్మార్ట్ వర్క్, లేదా సిస్టమ్స్ తోడవ్వాలి. <b>ముఖ్య విశ్లేషణ:</b> తక్కువ శ్రమతో ఎక్కువ ఫలితాన్ని ఇచ్చే 80/20 సూత్రాన్ని లేదా డిజిటల్ లెవరేజ్ ని మీ పనుల్లో ఉపయోగించండి.`,
       `ఎంత ఎదిగినా నైతిక విలువలు, మానవత్వం కోల్పోకూడదు. నిజమైన విజయం సమాజానికి ఉపయోగపడేలా ఉండాలి. <b>ముఖ్య విశ్లేషణ:</b> కేవలం భౌతిక సంపదతోనే ఆగకుండా, అంతర్గత ప్రశాంతతను మరియు సమాజంలో మంచి గుర్తింపును సాధించండి.`
@@ -278,20 +279,20 @@ const BOOK_DATASETS = {
     {n:1, title:"విజయానికి ఐదు మెట్లు", author:"యండమూరి వీరేంద్రనాథ్", year:"1990", core:"విజయం అనేది ఒక ప్రమాదం కాదు; అది క్రమశిక్షణ, వ్యూహాత్మక ఆలోచన మరియు నిరంతర ఆత్మపరిశీలన యొక్క సంచిత ఫలితం."},
     {n:2, title:"మీ మనసే మీ గెలుపు", author:"బి. వి. పట్టాభిరామ్", year:"2005", core:"మానసిక నియంత్రణ, ఆలోచనా విధానాల శుద్ధీకరణే మనిషి యొక్క అంతర్గత మరియు బాహ్య విజయాలను శాసిస్తాయి."},
     {n:3, title:"రిచ్ డాడ్ పూర్ డాడ్ (తెలుగు)", author:"రాబర్ట్ కియోసాకి", year:"1997", core:"ఆర్థిక స్వాతంత్ర్యం కావాలంటే కేవలం ఉద్యోగం చేయడం సరిపోదు; డబ్బు మీ కోసం పనిచేసేలా ఆస్తులను సృష్టించాలి."},
-    {n:4, title:"ఆలోచించండి - ఐశ్వర్యవంతులు అవ్వండి", author:"నెపోలియన్ హిల్", year:"1937", core:"ఆည့်శ్వర్యం మరియు విజయం అనేవి ఒక బలమైన మానసిక సంకల్పం, తీవ్రమైన కోరిక మరియు నిరంతర ప్రణాళికల ద్వారానే సాధ్యమవుతాయి."},
+    {n:4, title:"ఆలోచించండి - ఐశ్వర్యవంతులు అవ్వండి", author:"నెపోలియన్ హిల్", year:"1937", core:"ఐశ్వర్యం మరియు విజయం అనేవి ఒక బలమైన మానసిక సంకల్పం, తీవ్రమైన కోరిక మరియు నిరంతర ప్రణాళికల ద్వారానే సాధ్యమవుతాయి."},
     {n:5, title:"రహస్యం (The Secret)", author:"రోండా బైర్న్", year:"2006", core:"ఆకర్షణ సిద్ధాంతం (Law of Attraction) ద్వారా విశ్వంలోని శక్తులను మన ఆలోచనలతో ప్రభావితం చేసి అనుకున్నది సాధించవచ్చు."},
-    {n:6, title:"అటామిక్ హ్యాబిట్స్", author:"జేమ్స్ క్లియర్", year:"2018", core:"చిన్న అలవాట్లు 1% చొప్పున ప్రతిరోజూ మారితే, కాలక్రమేణా అవి అద్భుతమైన మార్పులను తీసుకువస్తాయి."},
+    {n:6, title:"అటామిక్ హ్యాబిట్స్", author:"జేమ్స్ క్లియర్", year:"2018", core:"చిన్న అలవాట్లు 1% చొప్పున ప్రతిроజూ మారితే, కాలక్రమేణా అవి అద్భుతమైన మార్పులను తీసుకువస్తాయి."},
     {n:7, title:"మనీ పర్స్ (Money Purse)", author:"యండగండి సత్యనారాయణ", year:"2012", core:"భారతీయ కుటుంబాల ఆర్థిక నిర్వహణకు, పొదుపు మరియు పెట్టుబడి సూత్రాలను వివరించే అద్భుత గ్రంథం."},
     {n:8, title:"అతి ప్రభావశీల వ్యక్తుల 7 అలవాట్లు", author:"స్టీఫెన్ కోవే", year:"1989", core:"విజయవంతమైన జీవితం కోసం అంతర్గత క్యారెక్టర్‌ను మార్చే ఏడు ముఖ్యమైన అలవాట్ల విశ్లేషణ."},
-    {n:9, title:"మీ ఉపచేతన మనస్సు యొక్క शक्ति", author:"జోసెఫ్ మర్ఫీ", year:"1963", core:"ఉపచేతన మనస్సును సానుకూలంగా రీప్రోగ్రామ్ చేయడం ద్వారా ఆరోగ్యం, సంపద మరియు విజయం సాధించవచ్చు."},
+    {n:9, title:"మీ ఉపచేతన మనస్సు యొక్క శక్తి", author:"జోసెఫ్ మర్ఫీ", year:"1963", core:"ఉపచేతన మనస్సును సానుకూలంగా రీప్రోగ్రామ్ చేయడం ద్వారా ఆరోగ్యం, సంపద మరియు విజయం సాధించవచ్చు."},
     {n:10, title:"ప్రస్తుత క్షణపు శక్తి (The Power of Now)", author:"ఎకార్ట్ టోల్లే", year:"1997", core:"గతాన్ని, భవిష్యత్తును వీడి ప్రస్తుత క్షణంలో బతకడమే సర్వ దుఃఖాలకు నివారణ మరియు నిజమైన శాంతి."},
     {n:11, title:"సన్యాసిగా మారిన కోటీశ్వరుడు", author:"రాబిన్ శర్మ", year:"1997", core:"భౌతిక సంపదతో పాటు అంతర్గత ఆధ్యాత్మిక ప్రశాంతతను ఎలా సాధించాలో తెలిపే కథా రూపక పుస్తకం."},
-    {n:12, title:"నువ్వు కూడా గెలవగలవు (You Can Win)", author:"శివ్ ఖేరా", year:"1998", core:"సానుకూల దృక్పథం, ఆత్మవిశ్వాసం మరియు సరైన లక్ష్యాల ద్వారా సామాన్యులు కూడా అసాధారణ విజయాలు సాధించగలరు."},
+    {n:12, title:"누వ్వు కూడా గెలవగలవు (You Can Win)", author:"శివ్ ఖేరా", year:"1998", core:"సానుకూల దృక్పథం, ఆత్మవిశ్వాసం మరియు సరైన లక్ష్యాల ద్వారా సామాన్యులు కూడా అసాధారణ విజయాలు సాధించగలరు."},
     {n:13, title:"ఇకిగాయ్ (Ikigai)", author:"హెక్టర్ గార్సియా", year:"2016", core:"జపాన్ దేశస్థుల సుదీర్ఘ, సంతోషకరమైన జీవిత రహస్యమైన 'జీవన పరమార్థం' గురించిన వివరణ."},
     {n:14, title:"సైకాలジー ఆఫ్ మニー", author:"మోర్గాన్ హౌసెల్", year:"2020", core:"డబ్బుతో మనం ఎలా ప్రవర్తిస్తామనేది మనకు ఎంత గణితం తెలుసనే దానికంటే చాలా ముఖ్యం."},
     {n:15, title:"గెలుపు పిలుపు", author:"బి. వి. పట్టాభిరామ్", year:"2008", core:"యువత తమ కెరీర్ లో ఎదురయ్యే సవాళ్లను దాటి విజయం వైపు ఎలా అడుగులు వేయాలో నేర్పే గైడ్."},
     {n:16, title:"విజయం వైపు పయనం", author:"యండమూరి వీరేంద్రనాథ్", year:"1995", core:"విద్యార్థులు, నిరుద్యోగులు తమ అంతర్గత శక్తులను గుర్తించి సమాజంలో ఎలా ఎదగాలి అనే అంశాల విశ్లేషణ."},
-    {n:17, title:"గ్రిట్ (Grit)", author:"ఆंజెలా డక్‌వర్త్", year:"2016", core:"విజయానికి కేవలం ప్రతిభే కాదు, పట్టుదల మరియు నిరంతర శ్రమ (Grit) అత్యంత అవసరమని నిరూపించే పుస్తకం."},
+    {n:17, title:"గ్రిట్ (Grit)", author:"ఆంజెలా డక్‌వర్త్", year:"2016", core:"విజయానికి కేవలం ప్రతిభే కాదు, పట్టుదల మరియు నిరంతర శ్రమ (Grit) అత్యంత అవసరమని నిరూపించే పుస్తకం."},
     {n:18, title:"ఆల్కెమిస్ట్ (The Alchemist)", author:"పాలో కోయెల్హో", year:"1988", core:"మన కలలను నిజం చేసుకునే ప్రయాణంలో ప్రకృతి సంకేతాలను ఎలా అర్థం చేసుకోవాలో తెలిపే అద్భుత నవల."},
     {n:19, title:"నాల్గు ఒప్పందాలు (The Four Agreements)", author:"డాన్ మిగుల్ రూయిజ్", year:"1997", core:"వ్యక్తిగత స్వేచ్ఛ మరియు ఆనందం కోసం ప్రాచీన టోల్టెక్ సంస్కృతి అందించిన నాలుగు సూత్రాలు."},
     {n:20, title:"కాలజ్ఞానం (Time Management)", author:"స్థానిక నిపుణులు", year:"2010", core:"సమయాన్ని వృథా చేయకుండా ఉత్పాదకతను ఎలా పెంచుకోవాలో తెలిపే కాల నిర్వహణ సూత్రాలు."},
@@ -299,7 +300,7 @@ const BOOK_DATASETS = {
     {n:22, title:"కర్మ (Karma)", author:"సద్గురు జగీ వాసుదేవ్", year:"2021", core:"కర్మ అంటే కేవలం గతం కాదు, అది మీ జీవితాన్ని మీ చేతుల్లోకి తీసుకునే బాధ్యత అని వివరించే పుస్తకం."},
     {n:23, title:"5 AM క్లబ్", author:"రాబిన్ శర్మ", year:"2018", core:"ఉదయం 5 గంటలకే నిద్రలేచి మొదటి గంటను మీ ఆత్మవిమర్శకు, ఎదుగుదలకు కేటాయించడం ద్వారా అద్భుతాలు చేయవచ్చు."},
     {n:24, title:"మీ జీవితాన్ని మీరే సరిదిద్దుకోండి", author:"లూయిస్ హే", year:"1984", core:"సానుకూల ఆలోచనలు మరియు స్వీయ ప్రేమ ద్వారా శారీరక, మానసిక రుగ్మతలను నయం చేసుకోవచ్చు."},
-    {n:25, title:"నెగటివ్ థింకింగ్ వదిలేయండి", author:"నిక్ ట్రెంటన్", year:"2021", core:"ఓవర్‌థింకింగ్ మరియు అనవసరపు ఆందోళనల నుండి మైండ్‌ను ఎలా విముక్తం చేయాలో తెలిపే పుస్తకం."},
+    {n:25, title:"నెగటివ్ థింకింగ్ వదిలేయండి", author:"నిక్ ట్రెంటన్", year:"2021", core:"ఓవర్‌థింకింగ్ మరియు అనவసరపు ఆందోళనల నుండి మైండ్‌ను ఎలా విముక్తం చేయాలో తెలిపే పుస్తకం."},
     {n:26, title:"సంపూర్ణ విజయం", author:"యండమూరి వీరేంద్రనాథ్", year:"2002", core:"వ్యక్తిగత వికాసంలోని అన్ని కోణాలను స్పృశిస్తూ సమగ్ర విజయ సాధనకు మార్గదర్శి."},
     {n:27, title:"కాలం మీ చేతుల్లో", author:"బి. వి. పట్టాభిరామ్", year:"2011", core:"సమయాన్ని మేనేజ్ చేయడం అంటే గడియారాన్ని చూడటం కాదు, మీ ప్రాధాన్యతలను నియంత్రించడం అని చెప్పే పుస్తకం."},
     {n:28, title:"అన్-టెథర్డ్ సోల్", author:"మైకేల్ సింగర్", year:"2007", core:"మీ లోపల వినిపించే నిరంతర భయాందోళనల వాయిస్ నుండి మిమ్మల్ని మీరు ఎలా వేరు చేసుకోవాలో తెలిపే గ్రంథం."},
@@ -307,27 +308,24 @@ const BOOK_DATASETS = {
     {n:30, title:"అపరిమిత శక్తులు", author:"టోనీ రాబిన్స్", year:"1986", core:"విజయవంతమైన వ్యక్తుల బాడీ లాంగ్వేజ్, ఆలోచనలను మోడలింగ్ చేయడం ద్వారా అదే ఫలితాలు సాధించవచ్చు."},
     {n:31, title:"స్నేహితులను సంపాదించడం ఎలా", author:"డేల్ కార్నెగీ", year:"1936", core:"నలుగురితో సత్సంబంధాలను ఏర్పరచుకోవడం, ఇతరులను ప్రభావితం చేయడం ఎలాగో నేర్పే సార్వజనీన గ్రంథం."},
     {n:32, title:"అపజయం నుండి విజయానికి", author:"వివిధ రచయితలు", year:"2009", core:"గొప్ప వ్యక్తుల జీవితాల్లో ఎదురైన పరాజయాలు, వాటి నుండి వారు నేర్చుకున్న పాఠాల సమాహారం."},
-    {n:33, title:"డిజిటల్ మినిమలిజం", author:"కాల్ న్యూపోర్ట్", year:"2019", core:"సోషల్ మీడియా, స్మార్ట్‌ఫోన్ ల యుగంలో మన దృష్టిని కాపాడుకుంటూ ప్రశాంతంగా ఎలా ఉండాలో తెలిపే గైడ్."},
-    {n:34, title:"డీప్ వర్క్ (Deep Work)", author:"కాల్ న్యూపోర్ట్", year:"2016", core:"పరధ్యానం లేని ఏకాగ్రతతో పనిచేయడం అనేది ఆధునిక కాలంలో ఒక సూపర్ పవర్ అని నిరూపించే పుస్తకం."},
+    {n:33, title:"డిజిటల్ మినిమలిజం", author:"కాల్ న్యూపోrt", year:"2019", core:"సోషల్ మీడియా, స్మార్ట్‌ఫోన్ ల యుగంలో మన దృష్టిని కాపాడుకుంటూ ప్రశాంతంగా ఎలా ఉండాలో తెలిపే గైడ్."},
+    {n:34, title:"డీప్ వర్క్ (Deep Work)", author:"కాల్ న్యూపోర్ట్", year:"2016", core:"పరధ్యానం లేని ఏకాగ్రతతో పనిచేయడం అనేది ఆధునిక కాలంలో ఒక... సూపర్ పవర్ అని నిరూపించే పుస్తకం."},
     {n:35, title:"ఎస్సెంషియలిజం (Essentialism)", author:"గ్రెగ్ మెక్‌కీన్", year:"2014", core:"అన్ని పనులూ చేయడం మాని, కేవలం అత్యంత ముఖ్యమైన కొన్ని పనులపైనే దృష్టి పెట్టడం అలవాటు చేసుకోవాలి."},
-    
-    // ADJUSTED PROPERTY (ITEM #36): replaced 'cat' with 'author' configuration directly
     {n:36, title:"కాంపౌండ్ ఎఫెక్ట్", author:"డారెన్ హార్డీ", year:"2010", core:"చిన్న చిన్న సానుకూల నిర్ణయాలు నిరంతరాయంగా తీసుకుంటే, కాలక్రమేణా అవి ఊహించని పెద్ద విజయాలను ఇస్తాయి."},
-    
     {n:37, title:"మ్యాజిక్ ఆఫ్ థింకింగ్ బిగ్", author:"డేవిడ్ స్క్వార్ట్జ్", year:"1959", core:"మీ ఆలోచనల పరిమాణమే మీ విజయ పరిమాణాన్ని నిర్ణయిస్తుంది. ఎప్పుడూ పెద్దగా ఆలోచించడం ప్రాక్టీస్ చేయండి."},
     {n:38, title:"మీరే ఒక అద్భుతం", author:"జెన్ సిన్సెరో", year:"2013", core:"మిమ్మల్ని మీరే తక్కువ అంచనా వేసుకోవడం ఆపి, మీలోని అపరిమిత శక్తులను ప్రపంచానికి పరిచయం చేయండి."},
-    {n:39, title:"ఆలోచనా సరళి (Mindset)", author:"కరోల్ డ్వек", year:"2006", core:"ఫిక్స్‌డ్ మైండ్‌సెట్ నుండి గ్రోత్ మైండ్‌సెట్ వైపు మారడం ద్వారానే మనిషి మేధస్సు అభివృద్ధి chewందుతుంది."},
+    {n:39, title:"ఆлоచనా సరళి (Mindset)", author:"కరోల్ డ్వెక్", year:"2006", core:"ఫిక్స్‌డ్ మైండ్‌సెట్ నుండి గ్రోత్ మైండ్‌సెట్ వైపు మారడం ద్వారానే మనిషి మేధస్సు అభివృద్ధి చెందుతుంది."},
     {n:40, title:"ది సింపుల్ పాత్ టు వెల్త్", author:"జెఎల్ కాలిన్స్", year:"2016", core:"డబ్బును ఇన్వెస్ట్ చేయడానికి క్లిష్టమైన సూత్రాలు అవసరం లేదు, ఇండెక్స్ ఫండ్స్ లో క్రమం తప్పకుండా పొదుపు చేస్తే చాలు."},
     {n:41, title:"ది మిలియనీర్ నెక్స్ట్ డోర్", author:"థామస్ స్టాన్లీ", year:"1996", core:"నిజమైన కోటీశ్వరులు ఆడంబరాలకు దూరంగా, చాలా సాధారణ జీవితాన్ని గడుపుతూ సంపదను పెంచుకుంటారు."},
     {n:42, title:"ది రిచెస్ట్ మాన్ ఇన్ బాబిలాన్", author:"జార్జ్ క్లాసన్", year:"1926", core:"పురాతన బాబిలాన్ కథల ద్వారా పొదుపు, పెట్టుబడి యొక్క ప్రాథమిక సూత్రాలను నేర్పే క్లాసిక్ పుస్తకం."},
     {n:43, title:"యువర్ మనీ ఆర్ యువర్ లైఫ్", author:"విక్కీ రాబిన్", year:"1992", core:"డబ్బు అనేది కేవలం కరెన్సీ కాదు, అది మీరు ఆ డబ్బు సంపాదించడానికి కేటాయించిన మీ జీవిత కాలం."},
-    {n:44, title:"ది టోటల్ మనీ మేకోవర్", author:"డేవ్ రామ్సే", year:"2003", core:"అప్పుల నుండి పూర్తిగా విముక్తి పొంది, ఆర్థిక స్థిరత్వాన్ని సాధించడానికి ఏడు సులువైన అడుగుల ప్రణాళిక."},
+    {n:44, title:"ది టోటల్ మニー మేకోవర్", author:"డేవ్ రామ్సే", year:"2003", core:"అప్పుల నుండి పూర్తిగా విముక్తి పొంది, ఆర్థిక స్థిరత్వాన్ని సాధించడానికి ఏడు సులువైన అడుగుల ప్రణాళిక."},
     {n:45, title:"నవల్ రవికాంత్ ఆల్మనాక్", author:"ఎరిక్ జోర్గెన్సన్", year:"2020", core:"ఆధునిక యుగంలో సంపద సృష్టి మరియు సంతోషకరమైన జీవితం కోసం అవసరమైన స్పష్టమైన ఆలోచనల సమాహారం."},
     {n:46, title:"ది మిలియనీర్ ఫాస్ట్‌లేన్", author:"ఎమ్‌జె డిమార్కో", year:"2011", core:"వయసు అయిపోయాక వచ్చే సంపద కంటే, యువకుడిగా ఉన్నప్పుడే వేగంగా సిస్టమ్స్ ద్వారా ధనవంతులు ఎలా అవ్వాలో తెలిపే గైడ్."},
     {n:47, title:"అంతఃప్రయాణం (Inner Engineering)", author:"సద్గురు", year:"2016", core:"ఆనందం అనేది ఎక్కడో బయట లేదు, అది మీ అంతర్గత కెమిస్ట్రీని సరిగ్గా నిర్వహించుకోవడం లోనే ఉంది."},
     {n:48, title:"ఫీలింగ్ ఈజ్ ది సీక్రెట్", author:"నెవిల్లే గొడ్డార్డ్", year:"1944", core:"ఉపచేతన మనస్సుకు కేవలం తర్కం తెలియదు, మీ భావోద్వేగాల తీవ్రత ఆధారంగానే అది సృష్టిని చేస్తుంది."},
-    {n:49, title:"ది మాస్టర్ కీ సిస్టమ్", author:"చార్లెస్ హానెల్", year:"1912", core:"మానసిక ఏకాగ్రత మరియు విశ్వశక్తిని అనుసంధానించే 24 వారాల క్రమశిక్షణతో కూడిన మైండ్ ట్రైనింగ్ కోర్స్."},
-    {n:50, title:"ది గ్రేటెస్ት సీక్రెట్", author:"రోండా బైర్న్", year:"2020", core:"మనం కేవలం ఆలోచనలం కాదు, సాక్షాత్తూ అనంతమైన అవగాహన (Awareness) అని తెలుసుకోవడం."}
+    {n:49, title:"ది మాస్టర్ కీ సిస్టమ్", author:"చార్లెస్ హానెల్", year:"1912", core:"మానసిక ఏకాగ్రత మరియు విశ్వశక్తిని అనుసంధానించే 24 వారాల మైండ్ ట్రైనింగ్ కోర్స్."},
+    {n:50, title:"ది గ్రేటెస్ట్ సీక్రెట్", author:"రోండా బైర్న్", year:"2020", core:"మనం కేవలం ఆలోచనలం కాదు, సాక్షాత్తూ అనంతమైన అవగాహన (Awareness) అని తెలుసుకోవడం."}
   ],
   de: [
     {n:1, title:"Der Weg zur finanziellen Freiheit", author:"Bodo Schäfer", year:"1998", core:"Finanzielle Freiheit erfordert das Umprogrammieren alter Glaubenssätze und strukturiertes Investieren."},
@@ -339,7 +337,7 @@ const BOOK_DATASETS = {
     {n:7, title:"Souverän investieren mit Indexfonds & ETFs", author:"Gerd Kommer", year:"2015", core:"Wissenschaftlich bewiesener Vermögensaufbau durch passives Investieren in den gesamten Weltmarkt."},
     {n:8, title:"Die Gesetze der Gewinner", author:"Bodo Schäfer", year:"2001", core:"30 kompakte Erfolgsregeln für absolute Eigenverantwortung und mentale Disziplin."},
     {n:9, title:"Rich Dad Poor Dad (Deutsch)", author:"Robert Kiyosaki", year:"1997", core:"Wohlstand erfordert den Kauf von Vermögenswerten, die dir automatisiert Cashflow einbringen."},
-    {n:10, title:"Die Psychologie des Geldes", author:"Morgan Housel", year:"2020", core:"Finanzielle Freiheit hängt viel mehr von deinem Verhalten ab als von deiner mathematischen Intelligenz."},
+    {n:10, title:"Die Psychologie des Geldes", author:"Morgan Housel", year:"2020", core:"Finanzielle Freiheit häng viel mehr von deinem Verhalten ab als von deiner mathematischen Intelligenz."},
     {n:11, title:"Das Café am Rande der Welt", author:"John Strelecky", year:"2003", core:"Eine Reise zum Sinn des Lebens entlang der Kernfrage nach dem eigenen Daseinszweck."},
     {n:12, title:"Denke nach und werde reich", author:"Napoleon Hill", year:"1937", core:"Wohlstand skaliert aus einem brennenden Verlangen, verknüpft mit felsenfesten mentalen Bildern."},
     {n:13, title:"Die 7 Wege zur Effektivität", author:"Stephen R. Covey", year:"1989", core:"Nachhaltige Lebenskompetenz basiert auf charakterlicher Integrität und proaktiven Gewohnheiten."},
@@ -372,14 +370,11 @@ const BOOK_DATASETS = {
     {n:40, title:"Erfolgreich wünschen", author:"Pierre Franckh", year:"2005", core:"Das Auflösen unbewusster Zweifel ist das Fundament präziser Manifestationsergebnisse."},
     {n:41, title:"Glücksprinzipien", author:"Dale Carnegie", year:"1955", core:"Kleine Gewohnheiten des Teilens und der Lebensfreude verjagen mentalen Groll."},
     {n:42, title:"Das e-Mythos", author:"Michael E. Gerber", year:"1986", core:"Arbeite als Architekt *an* deinem Unternehmen als System, nicht als Sklave *darin*."},
-    
-    // ADJUSTED PROPERTY (ITEM #43): replaced 'cat' with 'author' configuration directly
     {n:43, title:"Minderwertigkeitskomplexe besiegen", author:"Alfred Adler", year:"1927", core:"Das Gefühl von Unzulänglichkeit ist der Motor, um über sich selbst hinauszuwachsen."},
-    
     {n:44, title:"Das Gesetz der Anziehung", author:"Esther & Jerry Hicks", year:"2006", core:"Du ziehst Ereignisse an, die auf der Schwingungsfrequenz deiner dominanten Gefühle liegen."},
     {n:45, title:"Super Attractor", author:"Gabrielle Bernstein", year:"2019", core:"Ergebnisse fließen im Zustand energetischen Vertrauens, niemals durch verzweifelten Druck."},
     {n:46, title:"Der Millionär Next Door", author:"Thomas J. Stanley", year:"1996", core:"Wahrer Reichtum ist unauffällig. Wohlstand entsteht durch Behalten statt Zurschaustellen."},
-    {n:47, title:"Die Kunst, ein kreatives Leben zu führen", author:"Frank Berzbach", year:"2013", core:"Feste Tagesstrukturen, Achtsamkeit und digitale Pausen schützen deine Schöpferkraft."},
+    {n:47, title:"Die Kunst, ein kreatives Leben zu führen", author:"Frank Berzbach", year:"2013", core:"Feste Tagesstrukturen, Achtsamkeit und digitale Pausen schüzen deine Schöpferkraft."},
     {n:48, title:"Der reichste Mann, der je lebte", author:"Steven K. Scott", year:"2006", core:"Lebens- und Finanzstrategien von König Salomo angewandt auf modernes Business."},
     {n:49, title:"Das Geheimnis der Wunschkraft", author:"Rhonda Byrne", year:"2006", core:"Deine Gedanken verändern das Quantenfeld und steuern deine physische Realität."},
     {n:50, title:"Trotzdem Ja zum Leben sagen", author:"Viktor Frankl", year:"1946", core:"Sinnfindung trägt uns durch tiefste Krisen. Wer ein Warum hat, erträgt jedes Wie."}
@@ -444,7 +439,6 @@ const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const grid = document.getElementById('grid');
 
-// Null-Safe String Escaper to Prevent Script Failures
 function esc(s){
   if (!s) return '';
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
