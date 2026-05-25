@@ -29,13 +29,9 @@
   .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.04;mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
-  #app{
-    position:relative;z-index:3;
-    height:100vh;height:100dvh;
-    display:flex;flex-direction:column;
-  }
+  #app{position:relative;z-index:3;height:100vh;height:100dvh;display:flex;flex-direction:column}
 
-  /* Immersion-Aware Transition Timings System */
+  /* Immersion-Aware Smart Dynamic Hide System */
   .hide-ui .bar { transform: translateY(-100%); opacity: 0; pointer-events: none; }
   .hide-ui .controls, .hide-ui .lib-footer { transform: translateY(100%); opacity: 0; pointer-events: none; }
   .bar, .controls, .lib-footer { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease; }
@@ -58,10 +54,7 @@
   @media(min-width:850px){.lib-title{width:auto;text-align:left;letter-spacing:.12em;font-size:1rem}}
   .lib-title span{color:var(--cream-dim);font-weight:400;letter-spacing:.05em}
   
-  .lang-selector{
-    display:flex;gap:0.4rem;align-items:center;width:100%;
-    justify-content:center;flex-wrap:nowrap;
-  }
+  .lang-selector{display:flex;gap:0.4rem;align-items:center;width:100%;justify-content:center;flex-wrap:nowrap}
   @media(min-width:850px){.lang-selector{width:auto;gap:0.5rem}}
   
   .lang-btn{
@@ -77,10 +70,7 @@
     border-color:var(--gold-bright) !important; font-weight:700; box-shadow:0 0 14px -2px var(--glow);
   }
 
-  .bar-right{
-    display:flex;align-items:center;justify-content:space-between;
-    width:100%;gap:1rem;flex-wrap:nowrap;
-  }
+  .bar-right{display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem;flex-wrap:nowrap}
   @media(min-width:850px){.bar-right{width:auto;justify-content:flex-end;gap:1.5rem}}
   
   .counter{font-family:'Cinzel', serif;font-size:.82rem;letter-spacing:.12em;color:var(--cream-dim);white-space:nowrap}
@@ -242,13 +232,11 @@
 </div>
 
 <script>
-// Mobile Inactivity Immersive Hide Engine
 let hideTimer;
 function resetTimer() {
   document.body.classList.remove('hide-ui');
   clearTimeout(hideTimer);
   hideTimer = setTimeout(() => {
-    // Prevent hiding if audio engine is active or index overlay is opened
     if(!window.speechSynthesis.speaking && !document.getElementById('overlay').classList.contains('open')) {
       document.body.classList.add('hide-ui');
     }
@@ -257,769 +245,306 @@ function resetTimer() {
 
 const CONFIG = {
   en: {
-    appTitle: "Master Library <span>&nbsp;· 50 Pillars of Evolution</span>", indexBtn: "Library Index", indexHead: "The Master Index (50 Works)", closeBtn: "Close ✕", prevBtn: "‹ &nbsp;Previous", nextBtn: "Next&nbsp; ›", hint: "Use arrow keys ← and → on your keyboard to turn the pages", coreLbl: "Strategic Core Idea", principleLbl: "Foundational Principle", authorLbl: "Author", yearLbl: "Year", sigSuffix: "Knowledge only transforms conditions when integrated directly into dynamic daily habits.",
+    appTitle: "Master Library <span>&nbsp;· 50 Pillars of Evolution</span>", indexBtn: "Library Index", indexHead: "The Master Index (50 Works)", closeBtn: "Close ✕", prevBtn: "‹ &nbsp;Previous", nextBtn: "Next&nbsp; ›", hint: "Use arrow keys ← and → on your keyboard to turn the pages", coreLbl: "Strategic Core Idea", principleLbl: "Foundational Principle", authorLbl: "Author", yearLbl: "Year", sigSuffix: "True wisdom only transforms conditions when integrated directly into dynamic habits.",
     speakStart: "🔊 Listen", speakStop: "⏹️ Stop", speechLang: "en-US",
-    cats: ["Personal Development", "Wealth Development", "Mindset & Manifestation"]
+    cats: ["Personal Development", "Wealth Development", "Mindset & Manifestation"],
+    concepts: ["Core Matrix Strategy Check", "Leverage Infrastructure Systems", "Habitual Micro-Compounding Rules", "Procrastination Firewall Squeezes", "Strategic Peer Circles Curation", "Subconscious Parameter Engineering", "Absolute Concentration Anchors", "State Calibration Matrix Rules", "Diagnostic Asset Optimization", "Continuous Radical Gratitude Vector"]
   },
   te: {
-    appTitle: "తెలుగు మహాగ్రంథాల నిధి <span>&nbsp;· 50 అత్యుత్తమ పుస్తకాలు</span>", indexBtn: "పుస్తకాల సూచిక", indexHead: "మహా గ్రంథాల సూచిక (50 మాస్టర్ పుస్తకాలు)", closeBtn: "తిరిగి వెళ్ళు ✕", prevBtn: "‹ &nbsp;వెనుకకు", nextBtn: "ముందుకు&nbsp; ›", hint: "పేజీలు మార్చడానికి కీబోర్డ్ లోని ← లేదా → బటన్స్ ఉపయోగించవచ్చు", coreLbl: "పుస్తక ముఖ్య సారాంశం", principleLbl: "జీవన సూత్రం", authorLbl: "రచయిత", yearLbl: "ప్రచురణ", sigSuffix: "ఆచరణలో పెట్టని జ్ఞానం ఎప్పటికీ ఫలితాన్ని ఇవ్వదు; నిరంతర సాధనే విజయానికి మూలం.",
+    appTitle: "తెలుగు మహాగ్రంథాల నిధి <span>&nbsp;· 50 అత్యుత్తమ పుస్తకాలు</span>", indexBtn: "పుస్తకాల సూచిక", indexHead: "మహా గ్రంథాల సూచిక (50 మాస్టర్ పుస్తకాలు)", closeBtn: "తిరిగి వెళ్ళు ✕", prevBtn: "‹ &nbsp;వెనుకకు", nextBtn: "ముందుకు&nbsp; ›", hint: "పేజీలు మార్చడానికి కీబోర్డ్ లోని ← లేదా → బటన్స్ ఉపయోగించవచ్చు", coreLbl: "పుస్తక ముఖ్య సారాంశం", principleLbl: "జీవన సూత్రం", authorLbl: "రచయిత", yearLbl: "ప్రచురణ", sigSuffix: "ఆచరణలో పెట్టని జ్ఞానం శూన్యం. నిరంతర వ్యూహాత్మక సాధనే విజయానికి ఏకైక తిరుగులేని మార్గం.",
     speakStart: "🔊 వినండి", speakStop: "⏹️ ఆపండి", speechLang: "te-IN",
-    cats: ["వ్యльтиత్వ వికాసం", "సంపద అభివృద్ధి", "మైండ్‌సెట్ & మేనిఫెస్టేషన్"]
+    cats: ["వ్యక్తిత్వ వికాసం", "సంపద అభివృద్ధి", "మైండ్‌సెట్ & మేనిఫెస్టేషన్"],
+    concepts: ["1. స్వీయ అవగాహన మరియు సంకల్పం", "2. వ్యూహాత్మక లక్ష్య నిర్దేశం", "3. క్రమశిక్షణ మరియు సమయ పాలన", "4. సానుకూల మానసిక దృక్పథం", "5. వైఫల్యాల నుండి నేర్చుకోవడం", "6. ఉపచేతన మనస్సు ఉద్దీపన", "7. ఏకాగ్రత మరియు దృష్టి కేంద్రీకరణ", "8. ప్రజా సంబంధాలు - సామాజిక శక్తి", "9. స్మార్ట్ సిస్టమ్స్ - లెవరేజ్", "10. నైతిక విలువలతో కూడిన పరిపూర్ణత"]
   },
   de: {
-    appTitle: "Master-Bibliothek <span>&nbsp;· 50 Meilensteine aus Erfolg &amp; Mindset</span>", indexBtn: "Bibliotheksindex", indexHead: "Die Master-Sammlung (50 Standardwerke)", closeBtn: "Zurück ✕", prevBtn: "‹ &nbsp;Vorheriges", nextBtn: "Nächstes&nbsp; ›", hint: "Nutze die Pfeiltasten ← und → deiner Tastatur zum Umblättern", coreLbl: "Die strategische Kernidee", principleLbl: "Grundlegendes Prinzip", authorLbl: "Autor/in", yearLbl: "Jahr", sigSuffix: "Wissen verfeinert das Leben erst dann, wenn es in kompromisslose tägliche Systeme gegossen wird.",
+    appTitle: "Master-Bibliothek <span>&nbsp;· 50 Meilensteine aus Erfolg &amp; Mindset</span>", indexBtn: "Bibliotheksindex", indexHead: "Die Master-Sammlung (50 Standardwerke)", closeBtn: "Zurück ✕", prevBtn: "‹ &nbsp;Vorheriges", nextBtn: "Nächstes&nbsp; ›", hint: "Nutze die Pfeiltasten ← und → deiner Tastatur zum Umblättern", coreLbl: "Die strategische Kernidee", principleLbl: "Grundlegendes Prinzip", authorLbl: "Autor/in", yearLbl: "Jahr", sigSuffix: "Wissen verfeinert das Schicksal erst dann, wenn es in kompromisslose tägliche Systeme gegossen wird.",
     speakStart: "🔊 Vorlesen", speakStop: "⏹️ Stopp", speechLang: "de-DE",
-    cats: ["Persönlichkeitsentwicklung", "Vermögensaufbau", "Mindset & Manifestation"]
+    cats: ["Persönlichkeitsentwicklung", "Vermögensaufbau", "Mindset & Manifestation"],
+    concepts: ["1. Radikale Eigenverantwortung", "2. Hebel-Prinzip & Multiplikation", "3. Die 1%-Regel der Automatisierung", "4. Prokrastination effektiv killen", "5. Soziales Umfeld kuratieren", "6. Unterbewusste Skripte auflösen", "7. Deep Work vs. Multitasking", "8. State Management & Emotionen", "9. Fehler als reines Feedback-System", "10. Exponentielle Dankbarkeit"]
   }
 };
 
-// High-Signal Context Matrix Mapping Core Books to Localized Structural Real Content Data
-const BOOK_PARADIGMS = {
+const MASTER_BOOK_REGISTRY = {
   en: [
-    {n:1, title:"Atomic Habits", author:"James Clear", year:"2018", core:"Microscopic changes compound over time into massive personal transformations.", principles:[
-      {h:"The Compound Effect", p:"A tiny 1% daily improvement results in an astonishing 37.78x upgrade over a calendar year."},
-      {h:"Systems Over Goals", p:"Goals specify target vectors, but systems design the executable architecture that produces outcomes."},
-      {h:"Identity Modification", p:"True behavior modification transforms into standard habits once you align execution directly with self-image."},
-      {h:"The Cue Trigger", p:"Redesign physical spaces to expose positive triggers openly while hiding negative sensory cues completely."},
-      {h:"Friction Reduction", p:"Optimize high-value workflows to use the absolute path of least operational resistance layout spaces."},
-      {h:"The Two-Minute Metric", p:"Scale initiation phases down so initialization takes under 120 seconds to prevent cognitive blocks."},
-      {h:"Habit Stacking Loops", p:"Anchor a completely fresh behavioral routine explicitly to a deeply entrenched pre-existing habit chain."},
-      {h:"Immediate Satisfaction", p:"Design structural micro-rewards directly after an exceptional habit loop execution phase completes cleanly."},
-      {h:"The Plateau Trait", p:"Compounded work runs silently underground before crashing through a critical breakout paradigm threshold layer."},
-      {h:"Goldilocks Optimization", p:"Motivations peak when execution requirements sit flawlessly on the perimeter of individual capability channels."}
-    ], sig:"You do not rise to the level of your goals. You fall to the level of your systems."},
-    {n:2, title:"The 7 Habits of Highly Effective People", author:"Stephen R. Covey", year:"1989", core:"True human effectiveness requires character-driven alignment with universal timeless realities.", principles:[
-      {h:"Proactivity Dynamics", p:"Take absolute command of choice parameters. Behavior follows proactive metrics, not ambient external situations."},
-      {h:"Ultimate End Alignment", p:"Visualize your destination framework to dictate daily strategic choices based on structural lifecycle values."},
-      {h:"Priority Matrix Rules", p:"Organize execution blocks entirely around Quadrant II objectives: highly critical, not yet emergencies."},
-      {h:"Win-Win Architecture", p:"Insist on mutually profitable human deals. Reject zero-sum traps; choose non-transactional paths cleanly."},
-      {h:"Empathetic Listening First", p:"Deconstruct another individual's map completely before attempting to state your baseline strategic data views."},
-      {h:"Synergy Activation", p:"Celebrate psychological divergence vectors to build complex creative avenues neither individual could build solo."},
-      {h:"Continuous Renewal Loop", p:"Allocate rigid operational slots to continuously sharpen physical, cognitive, spiritual, and relational pillars."},
-      {h:"The Influence Sandbox", p:"Pour entire psychological reserves solely into parameters you alter directly, disregarding macro static noise."},
-      {h:"Character Over Personality", p:"Secondary surface strategies fail over time if unbacked by unyielding primary structural integrity lines."},
-      {h:"Interdependence Mastery", p:"True independence creates intermediate wins, but optimal breakthroughs require coordinated collective execution frameworks."}
-    ], sig:"Primary greatness is character goodness; surface personality status is secondary noise."},
-    {n:3, title:"Can't Hurt Me", author:"David Goggins", year:"2018", core:"The human brain contains deep resilience reserves unlocked solely by confronting extreme mental discomfort.", principles:[
-      {h:"The 40% Limitation Law", p:"When the brain screams of complete operational exhaustion, you have utilized under half of real capacity."},
-      {h:"Accountability Mirrors", p:"Face dynamic limits with brutal unvarnished honesty, tracking personal failures on physical surfaces daily."},
-      {h:"Soul Capture Tactics", p:"Out-discipline opposition forces so completely that you seize absolute psychological authority metrics inside rooms."},
-      {h:"The Cookie Jar Ledger", p:"Maintain a structural registry of broken obstacles to extract historical fuel during current pain states."},
-      {h:"Callousing Mind Tracks", p:"Seek daily frictional friction zones to thicken mental guardrails against laziness patterns."},
-      {h:"The Governor Override", p:"Recognize self-preservation signals as simple evolutionary alarms that can be explicitly overridden by focus."},
-      {h:"Victimhood Elimination", p:"Refuse history blame games. Total baseline ownership of your current operational status unlocks raw execution power."},
-      {h:"Obsessive Immersion States", p:"Shatter standard balance metrics during critical growth sprints; singular obsession drives real breakthroughs."},
-      {h:"Adversity Fuel Systems", p:"Convert systematic insults, trauma inputs, and low external expectations into high-octane focus fuel lines."},
-      {h:"Sustained Self-Respect", p:"True internal peace cannot be bought; it is built purely through enduring self-directed mental warfare."}
-    ], sig:"Do not stop when you are tired. Stop when you are completely done."},
-    {n:4, title:"The Mountain Is You", author:"Brianna Wiest", year:"2020", core:"Self-sabotage patterns represent subconscious defense networks trying to fill unhealed emotional needs.", principles:[
-      {h:"Sabotage Internal Mapping", p:"Analyze self-defeating loops to trace the underlying hidden need for protection sitting beneath the behavior."},
-      {h:"Projection Reframing", p:"Recognize that complex external obstacles are simply interior blocks cast onto your immediate environment."},
-      {h:"Clarity Through Movement", p:"Clarify parameters via continuous forward momentum; waiting for perfect security parameters invites paralysis loops."},
-      {h:"Processing Micro-Traumas",p:"Allow emotional energy backlogs to filter out cleanly by experiencing somatic cues directly without numbing."},
-      {h:"Thermostat Expansion Sets",p:"Expand interior comfort limits for metrics like wealth, joy, and peace to prevent automatic self-sabotage."},
-      {h:"Emotional Intelligence Splits",p:"Isolate extreme internal sensations with calm awareness without converting raw feelings into direct knee-jerk actions."},
-      {h:"Future Identity Templates",p:"Base immediate decision loops entirely on your highest future self paradigm, ignoring historical comfort requirements."},
-      {h:"Validation Independence",p:"Trade external metric validation hunts for clean interior alignment parameters to achieve real focus stability."},
-      {h:"Baseline System Routines",p:"Anchor erratic mental states by building highly stable, predictable physical habits across your day layout."},
-      {h:"Soul Reconstruction States",p:"Mourn outdated identity versions calmly to permit authentic expansion vectors to install clean code lines."}
-    ], sig:"The mountain is not your obstacle; you are the mountain."},
-    {n:5, title:"Deep Work", author:"Cal Newport", year:"2016", core:"Uninterrupted cognitive focus is an increasingly rare, elite skill that yields immense market equity value.", principles:[
-      {h:"Attention Residue Management",p:"Every temporary task-switch leaves a processing residue behind, crippling your cognitive capacity on task B."},
-      {h:"Deep Execution Formats",p:"Isolate prolonged multi-hour tracking zones completely clean of administrative shallow duties to complete milestones."},
-      {h:"The Rarity Value Matrix",p:"Because common systems encourage hyper-distraction, extreme hyper-focus capacities command premium market value returns."},
-      {h:"Monastic Focus Philosophies",p:"Maximize high-tier output streams by executing radical isolation sprints away from public networks."},
-      {h:"Bimodal Time Blocking",p:"Segment schedules cleanly into distinct radio-silence execution blocks and communication shallow zones."},
-      {h:"Boredom Conditioning rules",p:"Train neurological loops to endure empty cognitive slots without hunting for fast device dopamine inputs."},
-      {h:"Digital Tool Audits",p:"Evaluate communications strictly based on net contribution value vs massive attention preservation costs."},
-      {h:"The Intensity Equation",p:"High-tier product generated equals total physical time spent multiplied by full intensity of cognitive focus applied."},
-      {h:"Systematic Work Shutdowns",p:"Terminate all operational cognitive tracking algorithms explicitly at day-end to maximize asset recovery."},
-      {h:"Schedule Metrics Control",p:"Pre-allocate task categories to every minute blocks to block incoming ambient shallow distractions."}
-    ], sig:"The ability to perform deep work is becoming increasingly rare at exactly the same time it is becoming increasingly valuable."},
-    {n:6, title:"Essentialism", author:"Greg McKeown", year:"2014", core:"The disciplined pursuit of less unlocks the capacity to maximize individual contribution value lines.", principles:[
-      {h:"The Less Metric Core",p:"Stop thin execution across a million paths; channel energy forces into a single primary breakthrough vector."},
-      {h:"The Resounding Yes Rule",p:"If a decision option does not map out as a clear, absolute 'Hell Yes!', it defaults to an instant 'No'."},
-      {h:"Trade-Off Realism",p:"Accept that prioritizing option A automatically means killing options B through Z with zero compromise illusions."},
-      {h:"Elegance in Declining",p:"Build absolute boundary armor to decline external requests with supreme grace, clarity, and zero internal guilt."},
-      {h:"Sunk Cost Extermination",p:"Prune resource investments immediately from sinking pipelines, disregarding historical assets lost to the system."},
-      {h:"Buffer Zone Buffering",p:"Embed automatic 50% safety margin cushions into deadlines to neutralize unpredictability friction matrices."},
-      {h:"The Editing Discipline",p:"Act as the unsparing, systemic editor of your commitments, slicing non-contributing fat continuously."},
-      {h:"Asset Shielding Routines",p:"Prioritize high-tier sleep, downtime recovery, and reflective play as non-negotiable personal engine support needs."},
-      {h:"Intent Definition Specs",p:"Formulate an essential intent statement so distinct it makes secondary choice filtering automatic and fast."},
-      {h:"JOMO Activation Values",p:"Celebrate bypassing trending social distractions to preserve space for deep legacy execution tasks."}
-    ], sig:"If you do not prioritize your life, someone else will happily do it for you."},
-    {n:7, title:"The Power of Habit", author:"Charles Duhigg", year:"2012", core:"Habit mechanics operate on a loop that can be systematically audited, parsed, and rewired.", principles:[
-      {h:"The Loop Anatomy Matrix",p:"Every habit tracks a loop: a specific cue trigger, an automatic behavioral routine, and a biochemical reward."},
-      {h:"Keystone Target Locking",p:"Isolate foundational habits like regular tracking or exercise; fixing these causes secondary loops to fix automatically."},
-      {h:"The Golden Loop Rule",p:"Never try to blast away a habit route; preserve the exact cue and reward while replacing the intermediate routine."},
-      {h:"Craving Chemistry Metrics",p:"Reprogram neural anticipations; cravings flash pleasure chemicals *before* actions happen. Learn to catch them."},
-      {h:"Willpower Muscle Care",p:"Willpower depletes like an active physical muscle; deploy it early when reservoirs are full and clear."},
-      {h:"Belief Support Architectures",p:"Sustaining rewired loops under heavy environmental stress requires unyielding internal belief, backed by team nodes."},
-      {h:"Crisis Strategy Catalysts",p:"Exploit massive institutional or personal failures to immediately override old routines with brand new system rules."},
-      {h:"Micro-Win Multipliers",p:"Accumulate tiny process completions to constantly shift your baseline self-image toward continuous victory loops."},
-      {h:"Neurological Automation States",p:"The basal ganglia automates loops to defend executive focus cells. Build your defaults intentionally."},
-      {h:"Institutional Habit Maps",p:"Corporate organizations move via unwritten collective loops; audit these to fix global performance pipelines."}
-    ], sig:"Change the routine, keep the cue and the reward, and victory becomes automated."},
-    {n:8, title:"12 Rules for Life", author:"Jordan B. Peterson", year:"2018", core:"To survive existence trauma, adopt complete individual accountability and bring order to chaos spaces.", principles:[
-      {h:"Postural Serotonin Engines",p:"Physical posture shifts internal brain chemistry metrics, signaling status lines cleanly to external networks."},
-      {h:"Sovereign Care Baselines",p:"Treat your container with the same diagnostic discipline and empathy you extend to dependent loved ones."},
-      {h:"Circle Curation Audits",p:"Surround yourself exclusively with individuals who celebrate your evolution and demand your highest performance alignment."},
-      {h:"Self-Referential Tracking Metrics",p:"Measure personal evolution solely against yesterday's data sheet, ignoring external curated highlight reels completely."},
-      {h:"Boundary Enforcement Rules",p:"Enforce explicit behavioral lines early; raising undisciplined loops shields nobody from a harsh reality matrix."},
-      {h:"Interior House Cleaning",p:"Overhaul individual hypocrisy and personal chaos vectors before trying to restructure global societal engines."},
-      {h:"Meaning Over Expediency",p:"Abandon cheap temporary pleasure vectors; shoulder a meaningful responsibility burden to secure deep structural fulfillment."},
-      {h:"Radical Speech Honesty",p:"Deception warps personal perception lenses. Speak absolute truth to protect interior cognitive stability maps."},
-      {h:"Humility in Listening",p:"Approach interaction loops assuming the counterpart holds missing data coordinates required for your map optimization."},
-      {h:"Razor Clarity Articulation",p:"Vague language hides terrifying threats. Articulate exact anxieties to shrink chaos into a manageable problem frame."}
-    ], sig:"The purpose of life is to carry a meaningful burden that justifies existence."},
-    {n:9, title:"Daring Greatly", author:"Brené Brown", year:"2012", core:"Vulnerability is not weakness; it is the absolute foundation of courage, connection, and innovation.", principles:[
-      {h:"Vulnerability Core Specs",p:"Define vulnerability accurately: risk, uncertainty, and emotional exposure. It is our pure metric of courage."},
-      {h:"Shame Shield Dissolution",p:"Shame commands secrecy and isolation; bring subterranean wounds into empathetic light networks to dissolve them."},
-      {h:"Armor Pruning Systems",p:"Shed defensive masks like perfectionism and emotional numbing; deadening pain deadens joy and creative power simultaneously."},
-      {h:"Perfectionism Disconnects",p:"Perfectionism is an addictive protective shield designed to avoid external judgment loops. Embody self-compassion instead."},
-      {h:"Guilt vs Shame Separations",p:"Isolate behaviors from core value states: guilt means 'I executed a bad action'; shame means 'I am bad.'"},
-      {h:"Boundary Guardrails",p:"Share interior depth tracks exclusively with relationship nodes that have explicitly earned the right to process your story."},
-      {h:"Scarcity Wheel Exit",p:"Modern systems run on a default background program of 'never enough'. Practice radical gratitude to crash the script."},
-      {h:"Arena Feedback Metrics",p:"Filter out criticisms from individuals safe in the stands. Value data solely from peers tracking metrics inside the arena."},
-      {h:"Model-Based Influence",p:"True leadership requires modeling vulnerable courage directly; performative teaching leaves teams completely disconnected."},
-      {h:"Wholehearted Alignment",p:"Step boldly onto execution fields with zero external filters, anchored completely in unyielding intrinsic worthiness."}
-    ], sig:"If you aren't in the arena getting your ass kicked, I'm not interested in your feedback."},
-    {n:10, title:"Grit", author:"Angela Duckworth", year:"2016", core:"The most reliable predictor of elite achievement is the fusion of sustained passion and unyielding resilience.", principles:[
-      {h:"The Effort Multiplier Effect",p:"Talent × Effort = Skill. Skill × Effort = Achievement. Effort counts twice in long-term execution curves."},
-      {h:"Passion as Longevity",p:"Passion is not temporary high-volume excitement; it is the stable alignment toward one macro goal across decades."},
-      {h:"Deliberate Stretch Work",p:"Mastery requires highly focused, uncomfortable practice targeted exclusively at diagnostic tracking error zones."},
-      {h:"Active Hope Anchors",p:"Grit requires active hope: the cognitive conviction that individual strategic inputs can directly modify future environmental vectors."},
-      {h:"The Four Grit Assets",p:"Build grit systematically through consecutive phases: Interest, Deliberate Practice, Deep Purpose, and Unyielding Hope."},
-      {h:"The Hard Thing Directive",p:"Commit to finishing difficult skill blocks completely; never exit an active pipeline on a bad performance day."},
-      {h:"Culture Conformity Harness",p:"Immerse yourself completely inside high-grit teams. We adapt internal standards to match surrounding group metrics automatically."},
-      {h:"Demanding Warmth Mix",p:"Elite mentoring couples intense emotional support channels with uncompromisingly high execution standards."},
-      {h:"Genius Myth Destruction",p:"Strip away natural genius excuses. High performance is built on unglamorous, repetitive process layers behind curtains."},
-      {h:"Ultra-Marathon Mindsets",p:"Pace structural energy inputs. Evaluate progress metrics across decade timelines instead of checking daily applause streams."}
-    ], sig:"Grit is living life like it is a marathon, not a sprint."},
-    {n:11, title:"The 5 AM Club", author:"Robin Sharma", year:"2018", core:"Isolating the dawn hour protects genius assets, builds focus armor, and claims self-sovereignty.", principles:[
-      {h:"The Victory Hour Vector",p:"Waking at 5:00 AM secures a silent buffer block free from device notifications and social noise lines."},
-      {h:"The 20/20/20 Formula",p:"Divide the opening hour strictly: 20m Move (spikes dopamine), 20m Reflect (builds awareness), 20m Grow (upgrades execution)."},
-      {h:"Transient Hypofrontality",p:"Dawn quiet deactivates the prefrontal cortex, silencing internal critics to open clean flow windows."},
-      {h:"The 66-Day Lock System",p:"Expect 66 days of continuous repetition before automaticity takes over. Stay steady through initial installation chaos."},
-      {h:"The Four Interior Empires",p:"True mastery requires balanced optimization across all four interior pillars: Mindset, Heartset, Healthset, and Soulset."},
-      {h:"The 90/90/1 Legacy Lever",p:"For 90 days, devote the first 90 minutes of the workday to your #1 value asset project. Period."},
-      {h:"The 60/10 Sprint Rhythm",p:"Treat cognitive execution like an elite athlete: sprint with absolute focus for 60m, then recover for 10m completely."},
-      {h:"Twin-Cycle Balance Specs",p:"Alternate high-intensity work blocks with deep, deliberate lifestyle restoration zones to protect the engine asset."},
-      {h:"Systematic Asset Shielding",p:"Incorporate structured physical recovery protocols to systematically clear systemic stress residue from the biology container."},
-      {h:"Legacy Trait Pivot",p:"Shift baseline definitions of success away from pure acquisition toward self-mastery metrics and structural contribution loops."}
-    ], sig:"Own your morning. Elevate your life."},
-    {n:12, title:"High Performance Habits", author:"Brendon Burchard", year:"2017", core:"Sustained long-term exceptional output is driven entirely by six deliberate, daily behavioral practices.", principles:[
-      {h:"Continual Clarity Hunting",p:"High performers don't find clarity once; they seek it daily across identity, interaction formats, and value parameters."},
-      {h:"Explicit Energy Generation",p:"Manage systemic stamina and mental states intentionally across tasks; use resets to release processing tension lines."},
-      {h:"The Necessity Accelerator",p:"Tether performance vectors to deep internal obligations that transform target success metrics into non-negotiable needs."},
-      {h:"PQO Output Monopolization",p:"Isolate your Prolific Quality Output asset. Prune minor administrative tasks to pour 60% of focus into it."},
-      {h:"Positive Influence Scaling",p:"Actively teach target peer frameworks and challenge relationship nodes to step up execution standards intentionally."},
-      {h:"Courage Manifestation Blocks",p:"Express bold strategic visions and state unvarnished principles despite situational risk metrics or public skepticism maps."},
-      {h:"Competence Zone Traps",p:"Avoid getting permanently stuck performing tasks you are merely good at; pivot to fields where you can be legendary."},
-      {h:"The Primary Question Pivot",p:"Filter situational anxieties out by constantly asking: 'How can I serve at an extraordinary level right now?'"},
-      {h:"Transition Tension Resets",p:"Close your eyes and breathe deeply for 60 seconds before switching tasks to kill emotional residue transfer loops."},
-      {h:"Flattery Wall Defense",p:"Shatter early success arrogance. Review performance metrics against hard cold objective data arrays to maintain baseline humility."}
-    ], sig:"Success is not a personality trait; it is an active practice of deliberate habits."},
-    {n:13, title:"Four Thousand Weeks", author:"Oliver Burkeman", year:"2021", core:"Embracing the brutal finitude of your life timeline is the only path to true psychological freedom.", principles:[
-      {h:"The Finitude Reality Matrix",p:"Assuming an eighty-year lifespan, you hold roughly 4,000 weeks on Earth. Stop acting like time reservoirs are infinite."},
-      {h:"The Optimization Mirage",p:"The faster you clear tasks, the faster fresh tasks rush in to fill the vacuum. Efficiency will not save you."},
-      {h:"The Discipline of JOMO",p:"Choose what to miss out on with active pride. Giving up secondary options is what gives core choices real meaning."},
-      {h:"The Future Tyranny Loop",p:"Living entirely in preparation for future milestones breaks your biological capacity to exist inside current value loops."},
-      {h:"Settling as Core Strategy",p:"Commit deeply to one partner, one location, and one career path instead of hunting across endless parallel options."},
-      {h:"Community Synchronization Needs",p:" Hyper-individual schedule control destroys collective rhythms. True freedom requires synchronizing time grids with a real social community."},
-      {h:"Cosmic Insignificance Checks",p:"Your life is a microscopic blip in history. Drop the exhausting ego pressure to be globally historic; build a beautiful life."},
-      {h:"The Stillness Art",p:"Cultivate the capacity to sit quietly without needing to optimize, distract, or fix your internal mental state parameter maps."},
-      {h:"Anti-Inspirational Realism",p:"Accept structural personal limitations with complete psychological peace. Work with raw human limits, not hyper-optimized fantasy scripts."},
-      {h:"Soul Expansion Filtering",p:"When choosing paths, ask if the choice enlarges or shrinks your soul, picking expansion even if it feels terrifying."}
-    ], sig:"The limitation of life is exactly what makes our choices meaningful."},
-    {n:14, title:"The Subtle Art of Not Giving a F*ck", author:"Mark Manson", year:"2016", core:"An exceptional life requires prioritizing finite attention allocations exclusively for values worth suffering for.", principles:[
-      {h:"Care Allocation Matrix",p:"Psychological focus is a finite asset. Waste it on minor friction loops, and you compromise your strategic life engine blocks."},
-      {h:"Problem Resolution Realism",p:"Suffering is a biological constant. True happiness comes from solving high-quality problems, not engineering an illusionary easy life."},
-      {h:"Exceptionalism Mirage Splits",p:"Media tracks train us to feel inadequate if ordinary. Accept ordinary baselines to free focus for actual execution zones."},
-      {h:"Agency Over Blame",p:"You are never at fault for historical trauma inputs, but you are 100% accountable for your immediate response loop parameters."},
-      {h:"Value Quality Auditing",p:"Ditch external status metrics; anchor personal evaluation metrics inside internally controlled, values like honesty and self-respect."},
-      {h:"Mortality Mirror Views",p:"Keep the reality of personal death close. In the shadow of your mortality, minor social anxieties look completely ridiculous."},
-      {h:"The 'Do Something' Spark",p:"Action is not merely the downstream consequence of motivation; action is the active loop trigger that creates motivation fields."},
-      {h:"Boundary Rejection Systems",p:"Saying no with absolute clarity is required to establish structural parameters. If you accept everything, you stand for nothing."},
-      {h:"Failure Math Scaling",p:"Success metrics correlate mathematically with the exact volume of failure data nodes you have actively survived and processed."},
-      {h:" Radical Self-Doubt Habits",p:"Kill absolute internal certainty loops. Constantly ask your brain: 'What if I am completely wrong about this scenario?'"}
-    ], sig:"You are always choosing what to care about. Choose with absolute intention."},
-    {n:15, title:"Stolen Focus", author:"Johann Hari", year:"2022", core:"Your attention didn't collapse accidentally; it was systematically hijacked by an addictive digital tech infrastructure.", principles:[
-      {h:"The Hijacked Economy",p:"Tech platforms derive profit from maintaining your nervous system in a state of continuous screen scroll and distraction loops."},
-      {h:"Switching Costs Trauma",p:"Rapid task-switching fractures cognitive processing power via heavy attention residue buildup. Practice clean single-tasking tracks."},
-      {h:"Long-Form Read Conditioning",p:"Long-form reading trains complex cognitive architecture. Scrolling apps ruin this baseline operational muscle loop over time."},
-      {h:"Mind-Wandering Assets",p:"Allow the brain to drift unplugged without screens; mind-wandering activates subconscious data consolidation and innovative mapping loops."},
-      {h:"Flow State Protection",p:"Flow requires extended, unfragmented attention blocks. Treat app alerts as active corporate threats to your legacy generation potential."},
-      {h:"Sleep Architecture Care",p:"Device blue light and algorithmic outrage loops keep cortisol high, breaking the deep sleep required for cognitive maintenance fields."},
-      {h:"Nutritional Clarity Filters",p:"Hyper-processed foods trigger severe blood sugar spikes and drops, destabilizing the physical baseline required for focused execution metrics."},
-      {h:"Unstructured Play Deficits",p:"Hyper-supervised children handed screens miss out on analog play, stalling the structural development of essential brain executive functions."},
-      {h:"Outrage Loop Extrication",p:"Algorithmic feeds prioritize anger to scale time-on-site metrics. Exit digital outrage spirals to protect your neurological balance maps."},
-      {h:"Collective Attention Reform",p:"Individual behavioral hacks fail against multi-trillion-dollar distraction systems. Structural boundaries and real offline seasons are non-negotiable requirement assets."}
-    ], sig:"Your focus did not collapse. It was actively stolen from you."},
-    {n:16, title:"Make Your Bed", author:"William H. McRaven", year:"2017", core:"Tactical micro-habits executed with absolute discipline first thing in the morning build the baseline armor to survive life's storms.", principles:[
-      {h:"First Task Victory",p:"Make your bed with flawless military precision at dawn to record an initial victory and prime the subconscious ledger for task B."},
-      {h:"Coordinated Crew Nav",p:"Egocentric isolation fails under pressure. Build a high-integrity core team of family, peers, and allies to paddle through storms."},
-      {h:"Heart Metric Auditing",p:"Evaluate alliance nodes based on unyielding character and inner heart grit, completely bypassing outward pedigree or superficial status indicators."},
-      {h:"Sugar Cookie Conditioning",p:"Accept that life will penalize you unfairly despite perfect preparation. Shake off the sand, stand tall, and move on."},
-      {h:"Circus Muscle Building",p:"View extra structural trials, failures, and penalties as hidden strength building blocks engineered to harden your operational endurance pipelines."},
-      {h:"Obstacle Attack Stance",p:"Confront terrifying real-world challenges by sliding down the obstacle headfirst with bold, unhesitating tactical acceleration loops."},
-      {h:"Shark Line Defiance",p:"Intimidation networks and life threats thrive on hesitation data. Stand your ground firmly and confront bullies with unyielding eye contact parameters."},
-      {h:"Solitary Dark Tracking",p:"In moments of complete tragedy or deep operational chaos, go internal to summon your highest, calmest structural character baseline."},
-      {h:"Hope Incinerator Action",p:"Be the singular voice of unyielding hope inside dark rooms. Internal state metrics are contagious; lift your network circle up explicitly."},
-      {h:"Scorched-Earth Resilience",p:"The supreme operational directive is basic: never, under any circumstance category or stress level, abandon the field or quit the path."}
-    ], sig:"If you want to change the world, start by making your bed."},
-    {n:17, title:"Show Your Work!", author:"Austin Kleon", year:"2014", core:"True creative impact is built by documenting and sharing your learning processes transparently to build a real community.", principles:[
-      {h:"Amateur Leverage Loops",p:"Stop waiting for master status. Sharing your active learning steps as an amateur yields highly relatable, premium value data to beginners."},
-      {h:"Process Capture Systems",p:"Shift focus from hoarding final products to continuously documenting the messy rough drafts, tools, and processing frameworks behind the curtain."},
-      {h:"The Daily Micro-Share",p:"Post small daily snapshots of ongoing assets, source insights, or operational hurdles to compound a searchable history archive over years."},
-      {h:"Cabinet Transparencies",p:"Credit your influences and state your creative heroes openly. Your unique curation of sources is your voice template signature."},
-      {h:"Narrative Arc Framing",p:"Ditch cold static data readouts. Frame your ongoing development tracks using classic storytelling arcs with real tension and structural resolution."},
-      {h:"Methodology Generosity",p:"Teach your exact tools, workflows, and secret recipes. Explaining the playbook builds unshakeable domain authority lines over your market."},
-      {h:"Vampire Node Pruning",p:"Identify human spam and attention vampires. Shift focus away from self-promotion to actively contributing to others' work channels first."},
-      {h:"Punch Tolerance Training",p:"Exposing authentic assets attracts internet trolls and critics. Tighten your emotional core, absorb the feedback data safely, and keep creating."},
-      {h:"Monetization Integrity",p:"Never apologize for charging capital for your unique values. Supporters will happily clear invoices if your assets solve real pain parameters."},
-      {h:"Flatline Persistence Maps",p:"When growth metrics plateau and inspiration drops, do not exit. Use flat seasons to reinvent your processing loops and build muscle."}
-    ], sig:"Become a documentarian of your path, and your audience will build itself."},
-    {n:18, title:"The Psychology of Money", author:"Morgan Housel", year:"2020", core:"Exceptional wealth generation correlates to behavioral discipline and emotional containment networks over math intelligence grids.", principles:[
-      {h:"Historical Sandbox Filters",p:"We view money vectors through unique childhood lenses. Stop judging spending anomalies; design a custom strategy that secures internal sleep peace."},
-      {h:"The Outlier Factor Matrix",p:"Recognize that extreme capital outcomes are heavily modified by macro luck and hidden risk constants operating outside personal labor loops."},
-      {h:"Goalpost Lock Constraints",p:"The supreme financial risk is lifestyle inflation creep. Define your adequate baseline sufficiency metrics early to prevent endless status comparison chases."},
-      {h:"Time Compounding Heavy Levers",p:"Time is the heaviest coefficient in asset building. Prioritize portfolio survival metrics across multi-decade lines to let compound math execute seamlessly."},
-      {h:"Survival-First Portfolio Designs",p:"Getting money requires risk and optimism; keeping money demands paranoia and absolute humility. Insulate your engine from immediate liquidation risks."},
-      {h:"Tail Event Domination",p:"A tiny percentage of decision nodes or market event variables generate the vast majority of investment return streams. Accept intermediate structural losses safely."},
-      {h:"The Ultimate Time Dividend",p:"The premium asset money buys is temporal sovereignty. Accumulate capital blocks to purchase absolute command over your daily calendar choices."},
-      {h:"Supercar Paradox Realities",p:"Consumers buy expensive luxury items to secure external social validation loops, oblivious to the fact that viewers only visualize themselves using the asset."},
-      {h:"Hidden Asset Definitions",p:"Rich is high current income converted into visible lifestyle overhead. Wealth is the silent inventory of unspent options, investments, and unliquidated equity lines."},
-      {h:"Ego Cushion Savings",p:"Savings metrics represent the mathematical delta between personal income loops and personal ego metrics. Lower ego parameters to step up compound cash flow lines instantly."}
-    ], sig:"Spending money to show people how much money you have is the fastest way to have less money."},
-    {n:19, title:"Rich Dad Poor Dad", author:"Robert T. Kiyosaki", year:"1997", core:"Claim true financial independence by abandoning linear employee tracks to focus exclusively on creating passive cash-flow assets.", principles:[
-      {h:"Asset vs Liability Lines",p:"Assets route cash flow directly into your container. Liabilities siphon cash out via ongoing hidden overhead metrics. Master this baseline structural distinction."},
-      {h:"The Rat Race Loop Trap",p:"Basing survival on matching an expanding corporate salary line with expanding consumer debt guarantees permanent systemic wealth stagnation tracks."},
-      {h:"Asset Column Cultivation",p:"Treat your job profession as an income generator to fund your real business column: buying cash-producing assets like real estate or equity."},
-      {h:"Corporate Wrapper Protections",p:"Utilize corporate legal engines to collect revenue streams, clear operational expenses pre-tax, and optimize your net capital defense parameters smoothly."},
-      {h:"Financial Intel Generation",p:"Train your analytical mind to synthesize alternative deal configurations and spot hidden asset opportunities that standard linear workers miss completely."},
-      {h:"Skill Stack Career Hunting",p:"Choose early workspace opportunities based on what core operational competencies they teach (sales, management, systems law) over short-term salary metrics."},
-      {h:"Fear Loss Capital Controls",p:"Playing defensively not to lose capital guarantees ultimate stagnation. High-performance wealth management treats mistakes as necessary educational tuition fees."},
-      {h:"Internal Language Programming",p:"Eradicate defeatist statements like 'I cannot afford this.' Force the mind engine to compute: 'How can I engineer a system to purchase this asset?'"},
-      {h:"First-Pay Future Self Rule",p:"Route fixed capital percentages into asset allocation buckets on payday *before* satisfying external vendor bills or lifestyle operational costs."},
-      {h:"Mastermind Council Curation",p:"Filter your closer network circles rigorously. Absorb financial wisdom and macro strategy patterns by locking arms exclusively with forward-thinking system allocators."}
-    ], sig:"The rich buy assets. The poor and middle class buy liabilities that they mistake for assets."},
-    {n:20, title:"Think and Grow Rich", author:"Napoleon Hill", year:"1937", core:"All physical material wealth scales from a crystal-clear cognitive blueprint fueled by an obsessive burning desire.", principles:[
-      {h:"Definite Major Purpose Formulation",p:"Vague desires yield zero execution data. Formulate an absolute, written, dollar-quantified target milestone combined with an explicit timeline framework."},
-      {h:"Subconscious Soil Scripting",p:"The subconscious execution engine acts as fertile ground. Read your written financial directives aloud twice daily with deep sensory emotion to plant deep anchors."},
-      {h:"Faith Catalyst Engineering",p:"Faith is an active cognitive state generated via auto-suggestion loops. Mentally experience physical possession of your targets to prime your neural networks."},
-      {h:"Specialized Skill Bundling",p:"General data is cheap and abundant. Gather highly niche specialized knowledge fields and coordinate them toward one single monetizable outcome line."},
-      {h:"Mastermind Synergy Circuits",p:"Assemble a harmonious alliance of distinct minds to execute your grand vision. The intersection of aligned brains creates a collective intelligence booster engine."},
-      {h:"Written Blueprint Organization",p:"Translate abstract internal ideas into clear, actionable written execution manuals. When plan A encounters a failure block, substitute it with plan B instantly."},
-      {h:"Decisiveness Velocity Standards",p:"High-performance wealth allocators reach structural decisions with high velocity and modify them with immense slowness. Kill procrastination loops completely."},
-      {h:"Sex Energy Transmutation Metrics",p:"Channel basic biological creative drives away from empty physical release loops, redirecting that intense raw focus into business innovation masterworks."},
-      {h:"Subconscious Gate Guarding",p:"Your subterranean processing engine operates 24/7. Ruthlessly filter out negative environmental inputs and defeatist conversational patterns from entering your cache."},
-      {h:"Fear Ghost Extermination",p:"Identify and systematically dismantle the six root internal ghosts of fear (poverty, criticism, ill health) to free up your total creative execution capacity."}
-    ], sig:"Whatever the mind can conceive and believe, it can achieve."},
-    {n:21, title:"The Intelligent Investor", author:"Benjamin Graham", year:"1949", core:"Long-term market dominance demands an uncompromising, values-driven analytical framework insulated from short-term emotional noise.", principles:[
-      {h:"Investment vs Speculation Limits",p:"True investment guarantees safety of principal capital combined with a satisfactory return profile. Anything else is speculative casino play."},
-      {h:"Mr. Market Metaphor Processing",p:"View the stock market as a bipolar partner offering buy/sell prices daily. Exploit his moods: buy when depressed, sell when euphoric."},
-      {h:"Intrinsic Value Calculations",p:"Calculate the true underlying asset strength and earning power of an enterprise. Never buy a stock ticker based on superficial momentum narratives."},
-      {h:"Margin of Safety Requirements",p:"Insist on buying equity stakes at a deep discount relative to intrinsic value to securely absorb future system calculation errors and economic friction."},
-      {h:"Defensive Automation Routines",p:"Non-professional allocators should automate capital entry into diversified top-tier index structures or high-grade bond portfolios to protect focus assets."},
-      {h:"Enterprising Strategy Costs",p:"Chasing market-beating returns demands intense balance-sheet auditing and multi-hour data deep dives. If unwilling to sweat, choose defensive pathways safely."},
-      {h:"Dollar-Cost Averaging Power",p:"Deploy a fixed capital amount at rigid calendar intervals. This mechanical execution loop guarantees you purchase more asset shares when prices are discounted."},
-      {h:"Inflation Drag Defenses",p:"Cash hoarding ensures slow wealth decay via systemic inflation metrics. Balanced equity ownership is a non-negotiable shield to preserve long-term purchasing power."},
-      {h:"Diversification Shield Anchors",p:"Never concentrate principal capital into single speculative positions, regardless of insider narratives. Broad asset distribution insulates you from individual systemic downfalls."},
-      {h:"Correction Season Welcoming",p:"Market crashes are not operational cataclysms; they represent rare, high-probability discount windows for disciplined cash allocators to purchase quality assets cheap."}
-    ], sig:"The investor's chief problem — and even his worst enemy — is likely to be himself."},
-    {n:22, title:"I Will Teach You To Be Rich", author:"Ramit Sethi", year:"2009", core:"Automate your personal finance machinery, bypass minor cost anxieties, and design a custom rich life spending plan.", principles:[
-      {h:"Conscious Spending Frameworks",p:"Ditch standard restrictive diets. Cut costs to the absolute bone on things you ignore; spend lavishly on what you deeply value with pride."},
-      {h:"Pipeline Automation Blueprints",p:"Link checking, high-yield savings, and automated investment accounts into a single self-executing digital matrix. Remove human willpower from wealth routines."},
-      {h:"Credit Weapon Optimization",p:"Utilize credit engines safely as premium leverage tools to extract cash-back dividends, fee waivers, and robust purchase protection parameters for free."},
-      {h:"Mutual Fund Extermination",p:"Fire traditional asset managers pushing expensive mutual funds with high expense ratios. Transition capital nodes into passive low-cost index trackers instantly."},
-      {h:"Big Winner Lever Prioritization",p:"Stop wasting precious cognitive processing power on minor $3 coffee questions. Focus entirely on locking down the 5 major lifetime financial levers instead."},
-      {h:"Target-Date Compound Vehicles",p:"Utilize ultra-simple, automated target-date funds that automatically rebalance your risk allocation metrics across your lifecycle timeline without manual oversight needs."},
-      {h:"Salary Negotiation Funnels",p:"Never accept entry workspace offers baseline. Assemble market data, demonstrate actual impact projections, and negotiate your base rate upwards with clinical precision."},
-      {h:"Lifestyle Creep Barriers",p:"When your baseline professional revenue expands, automatically route half of the net expansion into your automated investment pipeline before adjusting living standards."},
-      {h:"Housing Investment Myths",p:"A primary residential mortgage is not inherently an equity generator when accounting for maintenance drag and taxes. Renting and investing the delta is often superior value."},
-      {h:"Perfect Timing Fallacies",p:"Waiting for perfect macroeconomic conditions or high incomes before investing capital is an absolute myth. Start compounding immediately with $20 today."}
-    ], sig:"The best time to start investing was ten years ago. The second best time is today."},
-    {n:23, title:"The Millionaire Next Door", author:"Thomas J. Stanley", year:"1996", core:"Real net worth accumulation is driven by lifelong defensive consumption and continuous low-overhead living baselines.", principles:[
-      {h:"Net Worth vs High Income",p:"High consumer spending structures simulate wealth but actively prevent net worth accumulation. Wealth is measured by asset equity, not current consumption profiles."},
-      {h:"Frugality Baseline Anchoring",p:"The typical real-world millionaire maintains low lifestyle overhead, operates reliable pre-owned vehicles, and rejects prestige neighborhood traps cleanly."},
-      {h:"PAW vs UAW Matrix Positions",p:"Prodigious Accumulators of Wealth (PAWs) maximize net worth multipliers relative to age/income benchmarks; Under Accumulators (UAWs) convert revenue entirely into depreciating status goods."},
-      {h:"Lifestyle Inflation Insulation",p:"Create a structural firewall around your living baseline. Refuse to inflate personal consumption parameters when your professional income tracks upward over time."},
-      {h:"Economic Outpatient Care Trauma",p:"Subsidizing adult children financially damages their internal grit metrics and installs chronic high-consumption dependency defaults. Teach self-reliance architectures instead."},
-      {h:"Financial Management Time Allocation",p:"Millionaires allocate significantly more hours per month to actively auditing, budgeting, and planning their investment asset distribution pipelines than the middle class."},
-      {h:"Status Payment Eradication",p:"Shed the psychological need to flash current cash loops to neighbors. Prioritize unyielding long-term financial security over immediate visual applause loops."},
-      {h:"Specialized Market Targeting",p:"Exceptional capital accumulation lives in boring, low-glamor specialized niche markets (accounting law, industrial waste, contracting services) serving affluent clients safely."},
-      {h:"Financial Alliance Curation",p:"Your financial destiny is heavily modified by your choice of life partner. A hyper-consumer spouse makes long-term generational asset preservation mathematically impossible."},
-      {h:"Sovereignty Over Status",p:"Value absolute calendar freedom and corporate non-dependence over shiny depreciating consumer metals. True power is walking away whenever you choose."}
-    ], sig:"Wealth is more often the result of a lifestyle of hard work, perseverance, economy, and self-discipline."},
-    {n:24, title:"The Richest Man in Babylon", author:"George S. Clason", year:"1926", core:"Timeless wealth creation rules require paying yourself first, securing expert counsel, and force-multiplying investment offspring.", principles:[
-      {h:"Purse Fattening Baselines",p:"Isolate a minimum of exactly 10% of total revenue streams on payday. This capital belongs entirely to your future asset column; do not spend it on overhead."},
-      {h:"Expense Control Filters",p:"Overhead requirements naturally expand to completely devour untracked income loops. Draw firm boundaries separating bare life necessities from casual lifestyle desires."},
-      {h:"Gold Multiplier Cascades",p:"Put your saved capital to active work. Reinvest all interest payments and stock dividends to trigger an exponential compounding waterfall of wealth offspring particles."},
-      {h:"Principal Capital Shielding",p:"Guard your saved principal capital from speculative risk profiles and enticing high-return illusions. Prioritize return *of* capital over speculative return *on* capital lines."},
-      {h:"Dwelling Asset Optimizations",p:"Own your domestic shelter structure to cap long-term housing costs and redirect structural rental drainage lines back into family asset development loops."},
-      {h:"Future Earnings Protection",p:"Establish automated investment streams early to insulate your family container from financial decay when your active labor years draw to a close."},
-      {h:"Earning Power Amplification",p:"Continuously study your craft, gather specialized niche skills, and build your specialized expertise to maximize your personal marketplace income engine performance."},
-      {h:"Pedigree Counsel Auditing",p:"Take investment direction exclusively from individuals who have proven their personal competence in that exact asset field. Never ask an amateur to manage asset pipelines."},
-      {h:"Opportunity Move Decisiveness",p:"Good luck is simply the point where high-probability market opportunities intersect with a quick-moving, non-hesitating executor. Move while parameters are optimal."},
-      {h:"Debt Liquidation with Honor",p:"Formulate a rigid, automated 20% debt paydown channel while surviving comfortably on 70% of revenue to restore personal credit metrics and self-esteem baselines."}
-    ], sig:"A part of all you earn is yours to keep. Pay yourself first."},
-    {n:25, title:"Your Money or Your Life", author:"Vicki Robin", year:"1992", core:"Money represents a direct trade of your finite, irreplaceable life-force energy. Treat every purchase as a cost of hours lived.", principles:[
-      {h:"Life-Force Currency Definition",p:"Money is simply an intermediate token representing your limited physical life-energy traded away at work. Calculate transactions in hours, not dollars."},
-      {h:"Real Hourly Wage Audits",p:"Subtract commuting costs, work-wardrobe overhead, decompression expenses, and taxes from net revenue to identify the true sub-par hourly rate you earn."},
-      {h:"Fulfillment Curve Optimization",p:"Plot consumption points. Capital spent boosts joy through survival and comfort parameters, but past an optimal threshold, extra spending yields stress and clutter clutter."},
-      {h:"Penny Ledger Tracing",p:"Establish a non-negotiable written registry of every micro-cent entering or exiting your framework. Consciousness completely dissolves unconscious habit leaks."},
-      {h:"Energy Hour Category Maps",p:"Convert monthly expense buckets directly into exact life-energy hour units. Face the raw cost of your current lifestyle template with unvarnished data lines."},
-      {h:"Core Values Integrity Checks",p:"Audit spending data against deep interior priorities and personal mission guidelines to prune non-aligned capital drainage channels cleanly."},
-      {h:"The Crossover Milestone",p:"Track the exact month where your monthly passive capital investment returns outgrow your actual monthly living overhead. Claim absolute financial freedom here."},
-      {h:"Asset Longevity Preservation",p:"Maintain your physical possessions with systematic care to maximize operational lifespans and block continuous replacement capital drainage loops entirely."},
-      {h:"Desire Threshold Compression",p:"Minimize material desires intentionally. Reducing your dependency on external goods is an exponentially more stable path to freedom than endlessly inflating income lines."},
-      {h:"Identity Job Separation",p:"Decouple your authentic internal human purpose and self-worth from the daily transactional employment role you execute to stack capital cash flow."}
-    ], sig:"We do not make a living at work; we trade our precious life energy away for money."},
-    {n:26, title:"The Total Money Makeover", author:"Dave Ramsey", year:"2003", core:"Eradicate personal financial risk by executing an aggressive, linear process sequence to permanently destroy debt liabilities.", principles:[
-      {h:"Debt Tool Myth Extermination",p:"Debt is not a leverage asset for consumers; it is a dangerous financial anchor that siphons away cash flow options and personal peace of mind."},
-      {h:"The Starter Shield Buffer",p:"Stack $1,000 cash in an isolated reserve immediately before attacking debt pipelines to absorb minor real-world friction emergencies safely."},
-      {h:"The Debt Snowball Funnel",p:"List consumer liabilities strictly by balance size. Kill the smallest first with maximum aggressive force while holding minimums elsewhere to lock psychological momentum wins."},
-      {h:"The Bulletproof Emergency Shield",p:"Once consumer debt hits absolute zero, expand cash reserves to cover 3-6 months of real lifestyle overhead expenses to eliminate macro panic vulnerabilities."},
-      {h:"The 15% Retirement Directive",p:"Route exactly 15% of gross pre-tax household revenue into automated tax-advantaged retirement accounts to build long-term compounding compound assets."},
-      {h:"College Funding Insulation",p:"Establish targeted educational investment vehicles early to insulate your children from taking on future student loan liability grids entirely."},
-      {h:"Mortgage Principal Annihilation",p:"Channel all surplus capital generation directly at your home mortgage principal line to claim 100%, total debt-free sovereignty over your physical domestic base."},
-      {h:"Zero-Based Allocation Scripting",p:"Give every single incoming dollar a distinct rathole name on paper *before* the month initializes. Untracked cash flow is wasted wealth potential."},
-      {h:"Temporary Extreme Sacrifice",p:"Live like nobody else right now by dropping luxury travel and lifestyle extras during your debt warfare phase so you can live like nobody else later."},
-      {h:"Generosity Matrix Operations",p:"The ultimate objective of building high asset columns is to secure your lineage and deploy massive wealth assets to change meaningful worldly causes gracefully."}
-    ], sig:"If you will live like no one else, later you can live like no one else."},
-    {n:27, title:"The Almanac of Naval Ravikant", author:"Eric Jorgenson", year:"2020", core:"Building true wealth requires leveraging unique specific knowledge, scaling via code or media, and practicing optimal judgment metrics.", principles:[
-      {h:"Rent-Time Labor Stagnation",p:"Selling hours via linear employment structures guarantees wealth stagnation. You must own equity stakes or automated assets to capture real compound returns."},
-      {h:"Specific Knowledge Tracking",p:"Locate the authentic intersection of tasks that came naturally to your teenage brain. Lean heavily into your unique fascination vectors to build irreplaceable value."},
-      {h:"Modern Media Code Leverage",p:"Master permissionless leverage: software code and digital media scale infinitely with zero replication costs and require no human permission loops to work 24/7 globally."},
-      {h:"Judgment Currency Prioritization",p:"In a highly leveraged economy, one optimal strategic choice matters infinitely more than 80 hours of raw manual grind labor. Protect your mental clarity maps fiercely."},
-      {h:"Internal Hourly Pricing Rules",p:"Establish a high internal value price tag (e.g., $300/hr) and ruthlessly outsource or skip any daily task tracking below that baseline parameter boundary."},
-      {h:"Multi-Decade Long Games",p:"All premium returns in investments, asset building, and relationship networks compound across multi-decade connection lines. Stop switching networks frantically."},
-      {h:"Sell-Build Core Conjunction",p:"If you can learn to build assets and learn to sell assets simultaneously, you become an unstoppable, undisputed market force with unlimited equity options."},
-      {h:"Status Game Disconnects",p:"Social status ranking is a zero-sum, toxic game where someone must lose. Wealth creation is a positive-sum game that creates new societal pie loops. Focus right."},
-      {h:"Absolute Accountability Ownership",p:"Take big strategic risks under your personal brand with high transparency. High public accountability unlocks extreme network authority options and outsized equity rewards."},
-      {h:"Peace as Wealth Optimization",p:"Static figures on an investment tracking matrix are meaningless if your interior mind is chaotic. Prioritize health and emotional calm as your baseline wealth metric."}
-    ], sig:"Seek wealth, not money or status. Wealth is having assets that earn for you while you sleep."},
-    {n:28, title:"The Millionaire Fastlane", author:"MJ DeMarco", year:"2011", core:"Reject traditional 40-year mutual fund accumulation advice; launch high-leverage business system architectures to unlock rapid wealth scale.", principles:[
-      {h:"The Primary Wealth Triad",p:"True wealth lives at the solid intersection of three pillars: profound human Relationships, vibrant physical Health, and absolute control over Time assets."},
-      {h:"Fastlane System Shift Choices",p:"The Sidewalk consumes instantly; the Slowlane trades 40 prime years for retirement; the Fastlane creates scalable producer-centric business system machines now."},
-      {h:"The Effection Equation Matrix",p:"The volume of wealth you accumulate matches mathematically with the exact net magnitude and scale of the marketplace problems you solve for human beings."},
-      {h:"The Commandment of Entry",p:"Avoid highly crowded spaces with low entry thresholds (like multi-level marketing setups). High-value asset pipelines demand deep barriers to entry to prevent competition dilution."},
-      {h:"The Commandment of Need",p:"Stop building business ideas based on personal passions. The market prioritizes its own pain loops and frustrations exclusively. Find a friction point and fix it."},
-      {h:"The Commandment of Time Separations",p:"Your business infrastructure must operate completely decoupled from your physical labor hours to yield wealth. Build products or digital assets that transact autonomously."},
-      {h:"The Commandment of Scale",p:"Ensure your business system targets a massive, global addressable marketplace. Local geographic boundaries cap your compound potential; digital scale provides infinite return possibilities."},
-      {h:"Producer Mindset Trajectories",p:"Flip your perspective engine: stop looking at ads, services, and products as a consumer. Analyze the underlying funnel, margins, and operational systems behind every single transaction loop."},
-      {h:"Execution Speed Hegemony",p:"An abstract business idea is worth absolutely zero capital. Rapid execution velocity and agile adjustments form the only variable that builds enterprise asset value."},
-      {h:"Debt Acceleration Restrictions",p:"Wipe consumer credit debt out with absolute zero-tolerance focus. Utilize financial leverage exclusively to expand asset production lines and scale corporate system reach safely."}
-    ], sig:"To sell to millions, you must look at the world through the eyes of a producer, not a consumer."},
-    {n:29, title:"Secrets of the Millionaire Mind", author:"T. Harv Eker", year:"2005", core:"Your financial destiny is dictated entirely by a subconscious money thermostat installed during your primary childhood conditioning years.", principles:[
-      {h:"Thermostat Blueprint Awareness",p:"Subconscious childhood conditioning runs your financial defaults automatically. Identify and overwrite these scripts to permanently lift your generation threshold filters."},
-      {h:"The Manifestation Loop upstream",p:"Thoughts map into Feelings, Feelings generate Actions, and Actions deliver your lived Results. Go upstream: fix the thoughts to automatically alter the results metrics."},
-      {h:"Sovereign Life Belief Anchors",p:"Rich minds choose to believe 'I build my economic life'; poor minds default to believing 'Life happens to me'. Ban all victimhood language instantly."},
-      {h:"Self-Promotion Pride Settings",p:"If you genuinely believe your product or service asset solves a complex problem for people, it is your absolute moral duty to promote it with high passion lines."},
-      {h:"Obstacle Scale Transcending",p:"Success metrics don't require problem-free roads. Grow your individual leadership and strategic capacity so you are mathematically larger than any incoming operational hurdle."},
-      {h:"Receivership Channel Openings",p:"Shatter subterranean guilt loops or worthiness blocks that cause your framework to subconsciously reject or sabotage large financial inflows. Open the valves wide safely."},
-      {h:"Net Worth Optimization Focus",p:"Measure financial status strictly across your global net worth matrix (Assets minus Liabilities), ignoring temporary working income streams that mask real capital parameters."},
-      {h:"Output-Based Revenue Targets",p:"Reject trading hours for steady bi-weekly checks. Insist on being compensated based on results output, commission percentages, or business equity value tracking lines."},
-      {h:"Abundance Conjunction Logic",p:"Reject scarcity rules that demand a toxic choice between wealth or a beautiful family container. Train your mind to think: 'How can I execute both brilliantly?'"},
-      {h:"Programmatic Capital Allocation",p:"Even if managing $50, allocate capital systematically into fixed buckets: investment compounding, play, education, and necessities. Discipline primes the pipeline for future cash flow loops."}
-    ], sig:"If your subconscious money blueprint is not set for success, nothing you learn will make a bit of difference."},
-    {n:30, title:"Die with Zero", author:"Bill Perkins", year:"2020", core:"The ultimate objective of financial management is to optimize the lifetime distribution of capital across unforgettable experience assets.", principles:[
-      {h:"Life-Curve Resource Allocation",p:"Stop mindlessly hoarding capital for extreme old age. Strategically spend and distribute resources across your active life curve to maximize experiential fulfillment indices."},
-      {h:"Memory Dividend Assets",p:"Investing in an extraordinary experience early generates a continuous emotional dividend loop that pays returns every single time you recall it across your lifetime grid."},
-      {h:"Health-Wealth Intersection realities",p:"Biological capacity to enjoy experiences decays predictably with aging parameters. Execute intense travel and high-energy milestones in your 20s and 30s while your container is optimal."},
-      {h:"Early Lineage Generosity Funnels",p:"Inheritances left at standard death dates usually strike children in their 50s when utility is very low. Distribute capital gifts between ages 25-35 when it actively alters paths."},
-      {h:"Time Bucket Matrix Partitioning",p:"Segment your future lifetime into distinct 5-10 year slots, allocation categories of experiences that logically only fit those specific age parameters safely."},
-      {h:"Adequacy Survival Benchmarking",p:"Calculate your precise economic survival threshold needed for safe automated old age care. Once that numerical score is secured, convert labor hours back into time options."},
-      {h:"Blind Preservation Traps",p:"Trading your precious prime living hours to accumulate numbers on a screen that you will simply leave behind untouched at death is a complete system design error."},
-      {h:"Three Variable Constants",p:"Your life experiences are constrained by a dynamic intersection of three changing lines: your available Capital, your free Time, and your physical Health container metrics."},
-      {h:"Insurance Hedging Protections",p:"Secure premium healthcare and long-term care insurance policies explicitly instead of destroying your active active years hoarding an excessive cash reserve you never touch."},
-      {h:"Intentional Lifespan Liquidation",p:"Every dollar remaining on your balance sheet at death represents a collection of working hours where you effectively agreed to work for completely free. Spend consciously."}
-    ], sig:"Optimize for fulfillment across your lifespan, not just the dead balance sheet size at the end."},
-    {n:31, title:"The Simple Path to Wealth", author:"JL Collins", year:"2016", core:"Eradicate investment complexity: live substantially below your means and automate all capital inflows into broad stock index funds.", principles:[
-      {h:"Freedom Shield Capital Foundations",p:"Accumulate a robust cash cushion to act as unyielding 'F-You Money'. This insulation gives you the power to decline toxic work settings seamlessly."},
-      {h:"The Alpha Index Asset",p:"Route your capital reserves directly into low-cost, total stock market index tracking structures (like VTSAX) to automatically capture global wealth generation waves."},
-      {h:" Relentless Upward Vector Maps",p:"Despite catastrophic short-term market crashes, the long-term vector of diversified capitalism moves relentlessly upward over multi-decade tracking timelines. Stay calm."},
-      {h:"Liability Protection Priority",p:"Consumer debt is a structural brake pad on your asset building process. Destroy credit card balances with fire before entering investment compounding channels."},
-      {h:"The Safe 4% Extraction Metric",p:"You can safely liquidate exactly 4% of your principal asset base annually in retirement without depleting your primary nest egg capital column. Know your numbers safely."},
-      {h:"Overhead Creep Firewalls",p:"Widelen the delta gap between what your professional professional engine earns and what your household environment spends. Auto-compound the widening gap instantly."},
-      {h:"Panic Liquidating Disasters",p:"Logging into brokerage dashboards to panic-sell during a normal, cyclical market correction is the #1 way retail consumers permanently destroy wealth assets."},
-      {h:"Boring Mechanical Automation",p:"An exceptional wealth architecture should be completely mechanical, requiring zero daily management or news monitoring. Out-discipline your need for action excitement maps."},
-      {h:"Expense Ratio Optimization Rules",p:"A seemingly minor 1.5% wealth management fee can quietly siphon away up to half of your total compound returns over 30 years. Insist on low costs."},
-      {h:"Temporal Sovereignty Focus",p:"True financial success is recorded in the volume of hours you own completely, not by the flashy depreciating toys you showcase to strangers."}
-    ], sig:"Spend less than you earn, invest the surplus, and avoid debt like the plague."},
-    {n:32, title:"Cashflow Quadrant", author:"Robert T. Kiyosaki", year:"2000", core:"True financial liberation requires moving execution parameters from the left side of the quadrant (E/S) onto the automated right side (B/I).", principles:[
-      {h:"The Four Quadrant Zones",p:"Income maps into four zones: Employee (E), Self-Employed (S), Business Owner (B), and Investor (I). The left side sells time; the right side owns system loops."},
-      {h:"The S vs B Structural Disconnect",p:"S quadrant solo operators own a specialized job and are the critical engine. B quadrant leaders design automated business system machines that function without them."},
-      {h:"The Playground of Capital",p:"In the I quadrant, your accumulated money compounds autonomously to fund lifestyle overhead, creating absolute protection for your finite time assets."},
-      {h:"Security vs Freedom Paradigms",p:"Employees trade lifelong compliance for the illusion of job security. Systems builders embrace calculation risks to claim total uncompromised time sovereignty lines."},
-      {h:"Internal Value System Shifts",p:"Transitioning quadrants demands overhauling your internal baseline identity, risk tolerance parameters, and default conditioning maps. Clear out your old employee loops."},
-      {h:"OPM and OPT Leverage Networks",p:"Right-side execution scales exponentially by managing Other People's Capital (OPM) and leveraging Other People's Time (OPT) inside organized infrastructure architectures."},
-      {h:"System Creation Options",p:"Build an automated system using three key vehicles: creating an original corporate blueprint, acquiring a validated franchise, or utilizing scalable group networks cleanly."},
-      {h:"Investor Tier Leveling Maps",p:"Investors scale from baseline financial illiteracy to sophisticated, market-creating capital allocators. Commit to constant, daily tracking level upgrades across your financial mind maps."},
-      {h:"The Be-Do-Have Evolution Sequence",p:"You cannot skip steps: first transform your internal paradigm worldview, then execute high-value strategic system actions, then collect your long-term residual assets."},
-      {h:"Accounting Tax Literacy Shields",p:"Understanding balance sheets, tax breaks, and legal corporate write-offs provides the ultimate defensive armor shield to protect cash generation arrays from systemic bleeding."}
-    ], sig:"The left side trades time for money. The right side builds systems and assets that generate freedom."},
-    {n:33, title:"Unshakeable", author:"Tony Robbins", year:"2017", core:"Construct a recession-proof wealth engine by automating index fund allocations and mastering your psychology during market storms.", principles:[
-      {h:"Correction Patterns Mapping",p:"Market corrections happen once a year on average. 80% of these never escalate into bear markets. Volatility is simply a normal performance tax, not a disaster."},
-      {h:"The Sidelined Cash Trap",p:"Fearing market dips and hoarding cash on the sidelines frequently causes you to miss the single best performance days of a decade, destroying compounding parameters completely."},
-      {h:"Asset Allocation Frameworks",p:"Divide your wealth capital into distinct, rigid buckets: a growth bucket (equities) and a security buffer (cash/bonds) based completely on your real lifecycle timeline."},
-      {h:"Predatory Fee Eradication",p:"Standard active mutual funds and hidden broker administration fees silently consume up to 60% of your growth curves over time. Transition into low-cost index tracking nodes."},
-      {h:"Tax Efficiency Infrastructure Protection",p:"Maximize your use of tax-deferred and tax-free retirement wrappers to shield incoming investment returns from structural tax drag metrics completely."},
-      {h:"The Core Core Four Rules Matrix",p:"Filter every potential transaction against four ironclad rules: Upside Protection, Asymmetric Risk profiles, Tax Optimization, and Diversification safeguards."},
-      {h:"Active Fund Gurus Fallacies",p:"Data proves under 4% of active institutional money managers beat a generic passive stock index fund over a 15-year timeline. Fire expensive advisors."},
-      {h:"Mechanical Annual Rebalancing",p:"Sell down your high-flying winners systematically to purchase more of your underpriced lagging assets once a year. This forces you to buy low and sell high automatically."},
-      {h:"Mental State Calibration Rules",p:"The supreme variable governing long-term asset building is your internal emotional discipline during macro panics. Tune out financial doomsday media news lines fiercely."},
-      {h:"Sovereign Success Metrics",p:"Accumulating millions on a spreadsheet while living inside continuous anxiety or anger maps is an absolute life execution failure. True wealth is unyielding internal appreciation."}
-    ], sig:"True security is not found in owning more things; it is found in mastering your internal psychology state maps."},
-    {n:34, title:"The Secret", author:"Rhonda Byrne", year:"2006", core:"Your dominant subconscious thoughts act as an unyielding psychological magnet, pulling matching external real-world scenarios into your experience.", principles:[
-      {h:"The Magnetic Mind Architecture",p:"Like attracts like. Your cognitive focus operates as a radio broadcast tower, projecting thought frequencies that draw matching circumstances into your immediate environment."},
-      {h:"The Creation Formula Sequence",p:"The exact workflow for deliberate manifestation contains three precise steps: Ask with razor clarity, Believe with felsenfest faith, and Receive with gratitude loops."},
-      {h:"Gratitude Frequency Shifts",p:"Appreciating your current reality with high intensity resets your internal emotional frequency from lack to abundance, opening structural valves for future growth."},
-      {h:"Creative Visualization Drills",p:"Spend 10 minutes daily creating an emotionally charged, rich mental image of your target targets. This primes your brain's search algorithms to notice solutions."},
-      {h:"The Abundance Mindset Blueprint",p:"Reject scarcity programming. The universe is a positive-sum field of potential. Another person's success metrics do not subtract from your unique expansion vectors."},
-      {h:"Emotion-Infused Directives",p:"A cold, intellectual thought carries zero creative momentum fields. Thoughts must be fully saturated with raw emotional feelings to program the subconscious engine safely."},
-      {h:"Anti-Focus Traps Elimination",p:"Obsessing over what you hate or fear simply registers that image inside your processor, causing you to manifest more of that exact problem loop. Focus on targets exclusively."},
-      {h:"Financial Magnet States",p:"To shift your capital position, look past current negative spreadsheet balances. Anchor your focus in value creation, service output, and prosperity variables continuously."},
-      {h:"Internal Alignment First",p:"External environments do not modify your internal mind space; your internal thought structures modify your external physical landscape over time. Fix the inside first."},
-      {h:"Systematic Cache Filtering",p:"Treat every single passing thought as a real seed building your future environment. Ruthlessly prune inner talk loops that choose limitation over expansion blocks."}
-    ], sig:"Your thoughts become things."},
-    {n:35, title:"The Power of Now", author:"Eckhart Tolle", year:"1997", core:"Human suffering is an illusion generated by complete identification with the frantic analytical mind and the rejection of the present moment.", principles:[
-      {h:"The Illusion of Linear Time",p:"The past is simply a collection of old memory traces; the future is an abstract mental projection. The present moment is the only layer where existence ever occurs."},
-      {h:"The Ego Identification Trap",p:"Your analytical mind is a useful tool, but believing you *are* that continuous stream of chattering thoughts creates severe internal separation and chronic suffering loops."},
-      {h:"The Pain-Body Vector Shield",p:"The pain-body is an energetic field of old unhealed emotional trauma that awakens to feed on interpersonal drama. Deactivate it instantly via neutral witness observation."},
-      {h:"Surrender as Pure Stature",p:"Surrender is not passive defeat; it is the radical, conscious acceptance of the current moment as it objectively is. This neutral baseline opens clean execution paths."},
-      {h:"Inner Body Anchor Protocols",p:"Anchor your attention deeply within your physical nervous system coordinates to instantly silence overactive overthinking loops and ground your focus in the present space."},
-      {h:"The Gaps of Silence Portal",p:"Notice the silent intervals between sounds and the vast empty spaces around physical objects to cool down your frantic brain processing tracks automatically."},
-      {h:"Future Milestone Traps",p:"Believing that a future acquisition, promotion, or event will finally rescue your soul is a standard ego loop that guarantees permanent internal discontent."},
-      {h:"Labeling Resistance Removal",p:"Labeling things as 'good' or 'bad' creates friction fields. Let situations exist as they are without slamming an arbitrary emotional label onto them."},
-      {h:"Relationship Mirror Work",p:"Relationship partners do not exist to make you comfortable; they exist to act as clear mirrors exposing your hidden unhealed ego blocks maps cleanly."},
-      {h:"Space Consciousness Awakenings",p:"Step back from objects and active thoughts to connect with the infinite, still space of vast awareness itself. This is your authentic core self baseline."}
-    ], sig:"Realize deeply that the present moment is all you ever have."},
-    {n:36, title:"Ask and It Is Given", author:"Esther & Jerry Hicks", year:"2004", core:"Your emotion engine serves as an active vibrational guidance system designed to help you align directly with the universe's natural flow of abundance.", principles:[
-      {h:"Guidance Scale Tracking",p:"Emotions indicate your distance from your true alignment baseline. Climb the emotional scale step-by-step: move from despair to anger, then to neutral calm."},
-      {h:"Dominant Frequency Blueprints",p:"The physical universe doesn't respond to your requests or statements; it mirrors your dominant emotional frequency. Audit your background mood state loops daily."},
-      {h:"The Law of Allowing Mastery",p:"Manifestation demands dropping all internal resistance, doubt, and desperate attachment metrics. Hold your targets lightly and let the flow manifest without pressure grids."},
-      {h:"Three Step Creation Loops",p:"Step 1: Ask (your desire); Step 2: Answer (the universe creates the blueprint); Step 3: Allow (your job to align your emotional frequency with the target)."},
-      {h:"Segment Intending Routines",p:"Divide your day into distinct blocks, setting a precise emotional directive before entering each zone: 'In this next slot, I intend to project complete calm.'"},
-      {h:"The Pivot Protocol",p:"The exact moment you catch your mind tracking lack metrics (e.g., 'I am broke'), pivot focus immediately to choice states: 'I am actively engineering wealth loops.'"},
-      {h:"Focus Wheel Alignment Tools",p:"Write your core desire inside a circle, then populate the outer spokes exclusively with absolute truths that match its positive energy to dissolve internal doubt loops."},
-      {h:"Action Grind Illusion Splits",p:"Forced, frantic grinding born from fear or desperation yields low-value, exhausting results. Align your interior frequency state first to trigger inspired execution actions."},
-      {h:"Vibrational Escrow Assets",p:"The moment you define a target desire, its energetic blueprint is instantly secured in your field. Your sole obligation is to match its frequency until it materializes."},
-      {h:"Scripting Journal Drills",p:"Write out an exhaustive present-tense narrative of your ideal future life, capturing the exact sensory details and joy loops as if it is already your lived reality."}
-    ], sig:"How you feel is your point of attraction."},
-    {n:37, title:"Breaking the Habit of Being Yourself", author:"Joe Dispenza", year:"2012", core:"To permanently change your life conditions, you must systematically override the automated personality scripts neurochemically wired into your physical body.", principles:[
-      {h:"Personality Reality Mechanics",p:"Your standard personality consists of exactly how you habitually think, act, and feel daily. Change your automated personality map to alter your personal physical reality."},
-      {h:"The Body Mind Loop Prison",p:"When repetitive thoughts loop for decades, the physical body automates those old emotions, overriding conscious design intent. Break the chemical loop via focus control."},
-      {h:"Quantum Field Broadcasting",p:"The quantum field responds directly to who you are being—the exact broadcast line generated by matching clear mental thoughts with elevated heart emotions fields."},
-      {h:"Transcending the Big Three",p:"True creative manifestation requires you to transcend your external Environment, your physical Body container constraints, and linear Time loops during meditation slots."},
-      {h:"Survival Adrenaline Squeezes",p:"Living in chronic stress floods your body with adrenaline, narrowing focus entirely onto the physical world and locking your brain cells inside fear preservation loops."},
-      {h:"Neuroplastic Mental Rehearsals",p:"The brain can't tell the difference between an actual external physical event and a deeply imagined internal thought experiment. Wire the neural paths of success beforehand."},
-      {h:"Metacognitive Audit Protocols",p:"Develop the rare ability to monitor your unconscious self-talk loops, knee-jerk behaviors, and default feelings with complete clinical detachment. Catch your patterns early."},
-      {h:"Elevated Heart Activation",p:"Combine a clear visual target with an elevated heart state like profound gratitude *before* the physical event occurs to signal cells to change neurochemistry."},
-      {h:"The Projection Gap Destruction",p:"Minimize the massive delta space between the performative image you show to society and the raw unhealed parameters you feel inside. Clean your internal basement completely."},
-      {h:"Programmatic Meditation Routines",p:"Commit to a rigorous, multi-step daily meditation format to systematically dismantle old neural circuits and lay down the processing tracks of your new identity code."}
-    ], sig:"The best way to predict your future is to create it, not from the known, but from the unknown."},
-    {n:38, title:"Think Like a Monk", author:"Jay Shetty", year:"2020", core:"Claim internal peace and clarity by systematically stripping away social engineering scripts and training your mind for purpose and service.", principles:[
-      {h:"The Pruning Strategy",p:"Monk life requires clearing out superficial social distractions, status-seeking expectations, and comparison metrics to discover your authentic values matrix."},
-      {h:"Negativity Contagion Firewalls",p:"Negative energy is a toxic psychological virus. Manage relationship circles via the 25/75 metric: limit boundary exposure to critics while maximizing time with builders."},
-      {h:"The Social Mask Disconnect",p:"Our modern identities are often an illusion: what we think other people want us to be. Step away from public validation to uncover your true target vectors."},
-      {h:"The Dharma Intersection Matrix",p:"Your true lifetime calling (Dharma) lives at the clean, verified intersection of your raw natural Talent, your execution Passion, and deep Service to human beings."},
-      {h:"Monkey Mind Discipline Drills",p:"The untrained mind leaps erratically between gossip, fear, and past regrets. Train your deep Monk Mind using structured breathwork to anchor your situational focus."},
-      {h:"Spot-Stop-Swap Techniques",p:"Isolate negative self-talk patterns instantly (Spot), block the emotional spiral cycle (Stop), and replace the thought loop with an empowering constructive truth parameter (Swap)."},
-      {h:"Dawn Solitude Architectures",p:"Waking early secures an uncompromised baseline of stillness, spiritual study, and internal recalibration before the macro marketplace demands your energy allocations."},
-      {h:" quiet Confidence Engineering",p:"Ego is a fragile, defensive mask that boasts for approval; authentic confidence is quiet, stable, humble, and needs zero validation from rooms."},
-      {h:"Intent Motivation Auditing",p:"Regularly audit the underlying *why* behind your professional goals. Executing purely for fame or status guarantees perpetual background anxiety loops; execute for mastery."},
-      {h:"Service Output Logic",p:"The highest configuration of personal development is to channel your expanded capabilities back into enriching the human collective. Contribution yields permanent satisfaction grids."}
-    ], sig:"When you protect your internal peace, the chaos of the external world loses its power over you."},
-    {n:39, title:"The Alchemist", author:"Paulo Coelho", year:"1988", core:"Every human life holds a unique destiny path; fulfilling it demands reading environmental omens and overriding the fear of failure completely.", principles:[
-      {h:"The Personal Legend Vector",p:"Your Personal Legend is your true lifetime calling—the unique track of contribution and expansion you were explicitly born to trace across Earth parameters."},
-      {h:"Soul of the World Lines",p:"All elements of nature and consciousness are bound together by an invisible, intelligent energy matrix that conspires to support your authentic alignment sprints."},
-      {h:"Synchronicity Omen Decoupling",p:"The universe communicates via subtle synchronicities, unexpected encounters, and repetitive patterns. Learn to read these signs as functional guidance data nodes."},
-      {h:"Familiar Comfort Trap Barriers",p:"Many people abandon their primary destiny tracks because they get comfortable with a safe job, a steady routine, or a low-risk existence. Discomfort indicates expansion loops."},
-      {h:"Fear of Suffering Paralysis",p:"The terrifying internal fear of potential suffering causes significantly more actual lifecycle destruction than the reality of the pain itself ever will. Move anyway."},
-      {h:"The Fluid Present Focus",p:"The entire secret of life lives inside the current moment block. If you focus focus entirely on optimizing the Now, your future parameters align automatically."},
-      {h:"Intuitive Heart Conversations",p:"Your deep intuition knows exactly where your personal gold lives, even when your logical brain is locked in terror. Spend quiet hours listening to its tracking coordinates."},
-      {h:"The Universal Conspiracy Law",p:"When you make a non-negotiable decision to pursue your true calling, the universe coordinates subtle network resources to assist your trajectory. Committing is the real trigger."},
-      {h:"The Final Exam Trials",p:"Before a grand materialization manifests, you will face an intense test designed to audit your grit parameters and resolve. Hold your line firmly through this final friction loop."},
-      {h:"The Evolution Treasure Paradox",p:"The premium asset you uncover is never the external gold or status prize; it is the unshakeable, masterfully forged character you transform into across the journey."}
-    ], sig:"When you want something, all the universe conspires to help you achieve it."},
-    {n:40, title:"Good Vibes, Good Life", author:"Vex King", year:"2018", core:"Personal growth is an energetic game: raise your positive vibrational baseline through self-love, high boundaries, and inspired action loops.", principles:[
-      {h:"Vibrational Law Management",p:"Your lived experience mirrors your current energetic frequency. Prioritize choices, media inputs, and environments that lift your mood out of low fear states."},
-      {h:"Authentic Self-Love Filters",p:"Self-love is not vanity; it is the non-negotiable requirement to accept your worth and establish ironclad boundaries against toxic environments and users cleanly."},
-      {h:"Content Input Curation",p:"The accounts you follow, the conversations you join, and the music you play continuously program your energetic settings. Clean your digital inputs ruthlessly."},
-      {h:"Thought Cloud Bypassing",p:"You cannot block negative thoughts from drifting into your awareness field. Notice them without judgment, let them pass, and refocus on target execution metrics."},
-      {h:"Performative Positivity Traps",p:"Forcing a fake smile while packing deep internal emotional wounds creates a toxic mismatch that cripples alignment. Face your raw pain honestly to process it out."},
-      {h:"Boundary Armor Systems",p:"Saying no to demands that drain your peace is required to protect your creative focus space. You aren't responsible for managing everyone else's emotional comfort blocks."},
-      {h:"Applause Wheel Departures",p:"Obsessing over how your lifestyle choices appear to an external crowd destroys internal peace maps. Shift metrics from performative success to authentic joy channels."},
-      {h:"Gratitude Loop Injection",p:"Profound appreciation for minor elements in your immediate view is the fastest shortcut to shift your processor out of worry states and into abundance tracking loops."},
-      {h:"Inspired Action Sprints",p:"Ditch forced, frantic grinding driven by fear or scarcity panic. Calm the system, enter alignment, and execute work tracks with fluid focus velocity."},
-      {h:"Timeline Outcome Surrender",p:"State your bold targets with pride, execute your daily process loops with discipline, then completely release all anxious, desperate attachment to the final calendar delivery date."}
-    ], sig:"Change the way you think, feel, speak, and act, and you will begin to change your world."},
-    {n:41, title:"Manifest: 7 Steps to Living Your Best Life", author:"Roxie Nafousi", year:"2022", core:"Manifestation is a rigorous, actionable framework of self-development requiring extreme target clarity, high self-worth, and real sweat equity.", principles:[
-      {h:"Vision Specification Rules",p:"Vague desires yield scattered results fields. Define your target life vectors with absolute precision and map out your underlying emotional *why* coordinates metrics cleanly."},
-      {h:"Subterranean Worthiness Sweeps",p:"Manifestation funnels fail instantly if your clear goals sit on a hidden foundation of deep self-doubt or shame. Work on upgrading your intrinsic self-worth baseline loops daily."},
-      {h:"Behavior Alignment Trajectories",p:"True manifesting requires real-world action consistency: you must behave daily like the highest future version of you who has already conquered the milestone."},
-      {h:"Limiting Script Extermination",p:"Locate and systematically destroy inherited childhood limits, scarcity narratives, and old fear blocks sitting quietly beneath your conscious choices."},
-      {h:"Continuous Gratitude Shielding",p:"Practice radical appreciation for your current baseline assets. True gratitude expands your energetic field instantly, positioning your mind to spot expansion options fast."},
-      {h:"Envy Transmutation Frameworks",p:"Jealousy signals a toxic scarcity worldview that blocks your potential. Turn envy upside down: treat another's win as living proof that the milestone is real and learn from it."},
-      {h:"Anxious Grip Release Models",p:"Desperate micromanagement creates resistance metrics. Outline your targets, execute daily system routines with velocity, and let the timeline unfold without frantic control pushes."},
-      {h:"Couch Visualization Fallacies",p:"Visualizing your ideal future while sitting passively on the couch is a completely useless mental exercise. True manifestation requires pairing mental maps with massive real-world sweat equity."},
-      {h:"Total Agency Accountability",p:"Take absolute 100% ownership of your current financial position, relationship health, and mental state parameters. Stop blaming history; take command of the helm right now."},
-      {h:"Intentional Daily Scripting",p:"Step off the automatic reactive treadmill of default existence. Plan and script your days on purpose, directing time, focus, and boundaries intentionally toward expansion targets."}
-    ], sig:"Manifesting is a daily practice of self-development with clear intention."},
-    {n:42, title:"As a Man Thinketh", author:"James Allen", year:"1903", core:"Human thought is the absolute master weaver that directly creates character patterns, physical biology, and environmental realities.", principles:[
-      {h:"Thought Crop Realities",p:"Your mind is a fertile garden plot. Cultivate it deliberately with high-value seeds, or weeds of doubt, fear, and chaos will automatically take over the framework."},
-      {h:"Landscape Mirroring Dynamics",p:"Outer environmental conditions are the absolute, unvarnished harvest printout of your most consistent, underlying interior thought processing habits. Change the inside to change the map."},
-      {h:"Biological Thought Filtration",p:"Clean, harmonious mental inputs generate real physical health, energy, and biological vitality; chronic anxious loops actively degrade your physical container's defense lines."},
-      {h:"Purpose Core Fusion Levers",p:"Mental focus carries zero creative momentum fields until it is firmly fused with a distinct, meaningful life purpose target line. Avoid aimless drifting tracks cleanly."},
-      {h:"Achievement Math Rules",p:"All human success milestones or stagnation failures are the direct mathematical consequence of an individual's personal thoughts. Elevate thought quality to lift output scale."},
-      {h:"Visionary Blueprint Holding",p:"Hold fast to your highest creative ideals and innovative visions. Treat your inner maps not as fleeting daydream noise, but as real blueprints demanding material execution tracks."},
-      {h:"Serenity Crown Mastery",p:"An unshakeable, calm, unmoving mind space is the supreme crown of wisdom won through long, patient self-mastery. Absolute calm is a massive situational advantage in chaotic rooms."},
-      {h:"Circumstance Illusion Realities",p:"Humans obsess over altering external circumstances while fiercely defending the toxic internal thought loops that trap them in those exact scenarios. Hack the root loops."},
-      {h:"Sprectral Accumulation Laws",p:"Your current life state is the mathematical sum total of every single microscopic thought selection you have chosen to harbor inside your mind database over decades."},
-      {h:"Sovereign Architect Shifts",p:"Drop all victimhood narratives. Reclaim your internal creative authority by choosing your daily thought processing frames with complete conscious intent and absolute pride."}
-    ], sig:"They themselves are makers of themselves."},
-    {n:43, title:"The Four Agreements", author:"Don Miguel Ruiz", year:"1997", core:"Claim true personal freedom and dissolve manufactured internal drama by replacing inherited social programming with four simple Toltec agreements.", principles:[
-      {h:"Word Impeccability Rules",p:"Speak with absolute integrity. Refuse to deploy language filters to spread gossip about colleagues or weaponize self-talk to assault your own self-worth baseline layers."},
-      {h:"Absolute Projection Insulation",p:"What others say, do, and choose is simply a direct projection of their own internal reality matrix and childhood conditioning maps. You are 100% insulated from their venom."},
-      {h:"Assumption Eradication Funnels",p:"Find the courage to ask crisp, clear questions and voice your real boundaries with absolute transparent accuracy. Reject mind-reading games to defend your focus reserves cleanly."},
-      {h:"Momentum Best Performance",p:"Your capability metrics shift depending on health and stress constants. Simply execute your absolute best in this exact moment block to eliminate internal regret parameters entirely."},
-      {h:"Domestication Script Awareness",p:"Recognize that modern society trains us via system reward/punishment matrices into a shared collective illusion based on judgment, artificial fear rules, and toxic compliance templates."},
-      {h:"Intentional Unlearning Protocols",p:"Real personal expansion requires systematically auditing and unlearning old, inherited agreements and fear structures that hold your creative focus asset lines hostage inside cages."},
-      {h:"Poison Spread Abstinence",p:"Spreading negative commentary behind a peer's back injects an internal psychological toxin into your own processor, short-circuiting your focus alignment networks cleanly. Stay silent instead."},
-      {h:"Attention Asset Reclamation",p:"Treat your attention and life energy as a sovereign asset. Refuse to let external public opinions modify your internal direction maps or baseline self-worth metrics fields."},
-      {h:"Forgiveness Freedom Shields",p:"Forgiveness is not a weak compromise that condones bad actions; it is a tactical choice to release toxic emotional weight to free up focus capital for current execution loops."},
-      {h:"Unmasked Authenticity States",p:"Drop all performative social masks and people-pleasing scripts. Claim your personal freedom by standing fully inside the unvarnished reality of your authentic nature without apologies."}
-    ], sig:"Adopt new agreements and reclaim your personal freedom from the social illusion."},
-    {n:44, title:"Soundtracks", author:"Jon Acuff", year:"2021", core:"Overthinking is an unoptimized software feedback loop you can completely overwrite by intentionally choosing your internal soundtracks.", principles:[
-      {h:"Overthinking Drag Calculations",p:"Overthinking is a dangerous waste of valuable daily cognitive currency that stalls forward execution velocity and locks your processor inside analysis paralysis grids."},
-      {h:"Three Filter Soundtrack Questions",p:"Audit any looping, repetitive thought track by forcing it through three questions: Is it true? Is it helpful? Is it kind? If it fails, pull the plug instantly."},
-      {h:"Volume Dial Tuning Resets",p:"Lower the noise volume of incoming anxiety tracks by changing your physical state instantly: lift heavy weights, clean your area, or execute a fast physical task."},
-      {h:"Toxic Antique Exterminations",p:"Many looping thought scripts are outdated childhood ideas you inherited years ago. Delete these ancient system parameters; they don't fit your scale potential lines."},
-      {h:"Playlist Construction Drills",p:"Intentionally formulate high-octane, affirmative mantras tailored directly to your current project milestones. Repeat them daily to lock down automated default thought tracks."},
-      {h:"Physical Action Anchors",p:"Anchor your fresh mental soundtracks directly to recurring physical actions across your normal day (e.g., every single time you open your laptop case, trigger your primary track)."},
-      {h:"Worry Energy Transmutation",p:"Worrying uses intense imagination assets to map bad scenarios. Flip the polarity engine: use that exact same processing power to visualize your best strategic moves instead."},
-      {h:"Objective Evidence Ledgers",p:"Keep a high-precision written victory log documenting your clear results data. Force your brain to look at cold numbers to shatter imposter syndrome traps instantly."},
-      {h:"Precision Vocabulary Levers",p:"The specific language you output forms your immediate focus field and state metrics. Eliminate weak, defeatist words from your vocabulary options to defend alignment parameters."},
-      {h:"Playlist Version Upgrades",p:"As you graduate into brand new chapters of business scale, audit your current mental scripts. Old soundtracks limit new growth potential fields; continually update the code."}
-    ], sig:"Your thoughts dictate your actions. Choose your personal soundtracks with absolute intention."},
-    {n:45, title:"Super Attractor", author:"Gabrielle Bernstein", year:"2019", core:"Co-create fluid real-world success milestones by abandoning frantic fear-based hustle to align with high positive emotional frequencies.", principles:[
-      {h:"Field Resonance Realities",p:"The universe operates as an intelligent field of energetic potential that continuously echoes your underlying background mood baseline. Prioritize your frequency above everything else safely."},
-      {h:"The Choose Again Method",p:"When you catch your focus slipping into scarcity worry loops, acknowledge the drop without self-judgment, step back, and select a higher-frequency stärkende thought path instantly."},
-      {h:"Hustle Illusion Breaks",p:"Anxious, hyper-aggressive grinding born from a fear of survival blocks creative inspiration and wears out your physical biology. Step back, reset energy configurations, then move forward cleanly."},
-      {h:"Appreciation Accelerator States",p:"Profound, continuous appreciation for immediate simple assets is the single fastest elevator out of low-frequency worry traps. Celebration opens up future expansion vectors wide."},
-      {h:"Inspired Action Loops",p:"Wait for a clean flash of internal alignment before launching major projects. Execution flowing from an inspired, positive frequency yields exponentially superior outcomes over forced labor tracks."},
-      {h:"Anxious Timeline Surrender",p:"Clutching tightly to artificial delivery deadlines signals doubt metrics to your subconscious. Outline targets, execute daily systems, and let outcomes unfold without desperate pressure fields."},
-      {h:"Structured Solitude Disciplines",p:"Commit to 15 minutes of quiet silent meditation daily to flush digital mental noise out of your processor, opening channels to download pristine innovation ideas cleanly."},
-      {h:"Positive-Sum Wealth Design",p:"True success is not a limited pie loop. Design your career expansion vectors so that your wins automatically enrich and lift up every node inside your immediate ecosystem."},
-      {h:"Micromanagement Release Arts",p:"Drop the exhausting, ego-driven need to micromanage every minute parameter of how a deal lands. Release the rigid 'how' to spot unexpected hidden options when they appear."},
-      {h:"Worthiness Identity Settings",p:"Uncompromisingly accept your innate right to hold internal peace, financial wealth, and extraordinary lifestyle options. Shatter old guilt loops; you are meant to expand."}
-    ], sig:"When you feel good, you align with the energy that creates worlds."},
-    {n:46, title:"The Magic of Thinking Big", author:"David J. Schwartz", year:"1959", core:"The absolute material scale of your real-world achievements matches precisely with the cognitive scale of your thinking parameters.", principles:[
-      {h:"Low Ambition Ceiling Traps",p:"Your self-image sets your performance limit. If you target minor goals, your brain keeps its problem-solving networks restricted. Double your target parameters to unlock innovation."},
-      {h:"Excusitis Vaccine Injection",p:"Unsuccessful execution engines are chronically infected with excusitis (health, age, luck, intelligence excuses). Kill the excuse habit instantly; own your cards and play them with force."},
-      {h:"Action Destroys Fear",p:"Hesitation feeds and inflates situational anxiety loops. The moment you face a terrifying or uncomfortable task, jump into physical execution instantly to kill self-doubt mechanics."},
-      {h:"High Asset Appearance Standards",p:"How you carry your body, frame your speech, and dress physically tells the marketplace how to value your contributions. Dress with absolute pride to reinforce high-tier alignment lines."},
-      {h:"Cynic Network Purges",p:"Surrounding your focus engine with small-minded, cynical critics is slow emotional suicide. Purge toxic gossip lines and lock arms exclusively with a premier circle of builders."},
-      {h:"Solution-Oriented Tracking Loops",p:"When a workflow crisis hits, banish doomsday thinking maps instantly. Force your brain processor to compute one question: 'How can I convert this situation into a high-value asset loop?'"},
-      {h:"Broad Value Projections",p:"Look past the current raw parameters of situations, properties, or human assets. Train your eyes to visualize what assets can potentially become under high-leverage expansion systems."},
-      {h:"Supreme Initiative Habits",p:"High-value system builders never sit waiting for explicit directions. See a marketplace or organizational gap, step up your aggression loop, and execute solutions immediately with pride."},
-      {h:"Setback Data Auditing",p:"A major career roadblock or financial loss is never a permanent verdict on your worth. Perform a cold, clinical data audit on failures, extract the lesson code, and reload loops."},
-      {h:"Target Milestone Pull Levers",p:"Formulate dated, written target metrics across wealth, health, and societal impact. Let these giant objectives pull you clean out of minor daily distraction loops seamlessly."}
-    ], sig:"Think big and you will live big."},
-    {n:47, title:"Feeling Is the Secret", author:"Neville Goddard", year:"1944", core:"The subconscious processing substrate ignores cold intellectual logic; it is programmed exclusively via deep, intensely felt sensory emotions.", principles:[
-      {h:"Conscious-Subconscious Dual Engine",p:"The conscious mind impresses initial data fields; the subconscious expresses them into material conditions. Control your mental diet fiercely to avoid planting negative default scripts maps."},
-      {h:"Assumption Precedence Rules",p:"You must assume the precise emotional feeling state of your desire already accomplished *before* it manifests in the physical world. Live inside that internal frequency today tracks cleanly."},
-      {h:"Twilight Cache Programming",p:"The borderland state exactly between waking consciousness and sleep is the absolute easiest window to script the subconscious processor. Never drop into sleep scrolling scrolling social media feeds."},
-      {h:"Subconscious Womb Matrix",p:"All worldly material creation scales out from your subconscious processing substrate translating internal emotional inputs. Feed it visions of unyielding strength, wealth, and clarity metrics lines."},
-      {h:"Intellectual Argument Fallacies",p:"The field of potential ignores long academic explanations; it reads your true integrated energetic baseline frequency. Stop reasoning your way to success; feel the outcome grid safely."},
-      {h:"Inner Conversation Loops",p:"The quiet text scripts you whisper to yourself across your normal day form your core character defaults and immediate environment. Speak to your soul like an undisputed high-value champion."},
-      {h:"Desperation Friction Rejections",p:"Anxious checking, clutching, and scanning for fast real-world confirmation data signals doubt, which instantly overrides your target target creation loops inside the cache. Release control loops smoothly."},
-      {h:"Sleep State Entry Protocols",p:"Enter sleep with a clean, pristine cognitive ledger. Resolve all situational anger or fear loops before your head hits the pillow to maximize baseline overnight asset integration tracks."},
-      {h:"Abundance Vocabulary Anchors",p:"Eradicate conversations detailing your lack, your financial debts, or your career setbacks. Language anchors states inside the processor; speak exclusively of value expansion metrics systems and cash flow loops."},
-      {h:"Sovereign Manifestation Mastery",p:"Drop the victim script completely. Your material environment is the absolute projection printout of your most consistent baseline feeling states. Take command of your internal coordinates with absolute pride."}
-    ], sig:"You do not attract that which you want, but that which you are."},
-    {n:48, title:"The Master Key System", author:"Charles F. Haanel", year:"1912", core:"Mastering your focus engine requires a highly disciplined, weekly curriculum of physical stillness and absolute mental concentration.", principles:[
-      {h:"Interior Governance Superiority",p:"The vast world within governs the entire material world without. To permanently alter your external conditions, dedicate work entirely to optimizing your internal cognitive maps blocks."},
-      {h:"Pure Concentration Drills",p:"Sustained, unmoving focus on a single static idea or physical object is the ultimate engine of creation. Train your attention muscles using strict daily time slots."},
-      {h:"Universal Intelligent Field lines",p:"All material physical wealth structures scale out from a single infinite intelligent substance that responds directly to human thought waves. Align intent with positive-sum creation loops."},
-      {h:"Precision Render Visualization",p:"True creative visualization requires rendering your target milestones with rich sensory clarity, environmental detail, and absolute architectural stability inside your movie room. Avoid shifting targets lines."},
-      {h:"Harmonious Frequency Firewalls",p:"Thoughts of scarcity, toxic anger, or comparison loops instantly break your processing connection to global wealth pipelines. Ruthlessly filter out internal negativity cache entries daily to defend systems."},
-      {h:"Subconscious Automation Engines",p:"Once a value target is deeply impressed upon the subconscious substrate, it runs 24/7 background algorithms to locate market opportunities and resources while you execute tasks smoothly."},
-      {h:"Resistance Drainage Avoidance",p:"Obsessing over complex layout problems or fighting negative external environments simply anchors those low-value states deeper inside your architecture. Withdraw attention from opposition; pour focus into building."},
-      {h:"Programmatic Routine Curriculums",p:"Mental mastery cannot be won via occasional casual focus blocks. Follow a highly structured, multi-week progression layout of ascending focus difficulty metrics to rebuild your brain engine tracks."},
-      {h:"Stillness Insight Downloads",p:"High-value strategic breakthroughs and innovative business designs are downloaded exclusively during blocks of absolute internal presence and mental space. Isolate silence zones weekly from digital apps."},
-      {h:"Sovereign Thought Matrix Claiming",p:"You seize complete absolute control over your destiny path the exact second you assume uncompromising command over your daily thought processing networks. Step out of default reactive tracks cleanly."}
-    ], sig:"The world without is a reflection of the world within."},
-    {n:49, title:"You Are a Badass at Making Money", author:"Jen Sincero", year:"2017", core:"Shred your inherited generational lack programming, rewrite your internal wealth narrative, and quote your value with absolute execution pride.", principles:[
-      {h:"Money Script Decoupling",p:"Most human workers hold a hidden subconscious script that wealth is dirty or corrupt, which automatically sabotages cash pipelines. Rewrite capital as an asset for options and impact."},
-      {h:"Universal Abundance Tapping",p:"The universe is a positive-sum field of infinite potential that wants your creation engine to expand. Elevate your baseline thoughts out of standard fear survival modes today."},
-      {h:"Non-Negotiable Decision Locking",p:"Real transformation triggers only when you make a committed, non-negotiable decision to win, burning every single escape route or path of retreat behind you completely."},
-      {h:"Market Value Charging Pride",p:"Undercharging for your specialized capabilities is a symptom of low self-esteem parameters that limits your market impact. Price your assets with high pride; deliver extreme value metrics."},
-      {h:"Affluent Council Alliances",p:"Audit your closer relationship networks. Spending time with broke, cynical critics traps your brain inside low financial ceilings. Lock arms with wealth builders who treat scale as normal."},
-      {h:"Mirror Affirmation Triggers",p:"Reprogram your internal self-image settings by speaking powerful financial parameters to your eyes in the mirror with high focus intensity daily. Force your brain cache to shift filters."},
-      {h:"Comfort Border Disruptions",p:"Substantial wealth generation requires you to step out of comfortable loops directly into terrifying ambiguity zones. Discomfort serves as your true indicator of real asset expansion vectors."},
-      {h:"Outflow Blessing Routines",p:"Stop complaining about incoming bills or layout costs. Bless your financial outflows as clear metrics of your current capability assets, and celebrate your ongoing transaction pipelines passionately."},
-      {h:"Execution Faith Over Scenario Fear",p:"Fear is simply an unoptimized use of your imagination assets to render bad timelines. Flip the polarity: choose to back your business moves with high positive expectation lines fields."},
-      {h:"Capital Asset Transformation Levers",p:"Shift your perspective on money entirely: see large capital accumulation pools as your supreme tool to protect your family node, claim timeline freedom, and serve the global collective values."}
-    ], sig:"Your faith in success must be stronger than your fear of failure."},
-    {n:50, title:"The Untethered Soul", author:"Michael A. Singer", year:"2007", core:"True internal freedom and mental clarity are won exclusively by stepping back to observe your frantic inner chatter with absolute clinical detachment.", principles:[
-      {h:"Inner Roommate Separation",p:"The frantic, looping narrator voice inside your head is a machine mechanism, not your core self. Step back into space and listen to its text stream with amusement lines."},
-      {h:"Witness Consciousness Anchoring",p:"You are the vast, silent, spacious awareness observing the thoughts, not the passing thought clouds themselves. Stand firmly anchored as the neutral observer node inside your container always."},
-      {h:"Trauma Backlog Dissolution",p:"When historical pain or old triggers flare up somatically (Samskaras), do not fight them or compress them down. Relax your container, open your heart valves, and let the old energy pass out cleanly."},
-      {h:"Unconditional Open Heart Stances",p:"Closing your heart around pain traps toxic residue inside, crippling your operational focus. Choose to stay open even when scenarios offend your preferences to keep energy circulating fluidly."},
-      {h:"Preference Cage Breakers",p:"The ego designs a narrow cage of strict personal preferences to force the world to be completely predictable. Break out of your cage; welcome unexpected situations to test stability parameters maps."},
-      {h:"Radical Reality Surrender",p:"Stop wasting precious psychological currency trying to force external events to match your fragile internal rules. Accept reality completely as data, then execute wise moves from space presence lines."},
-      {h:"Mortality Perspective Alignment",p:"Contemplate the absolute certainty of your death regularly. In the shadow of your inevitable mortality, minor social arguments and ego posturing look completely ridiculous and vanish instantly."},
-      {h:"Internal Freedom Metric Locks",p:"True liberation is not about manipulating real-world variables to keep you safe. Base your security entirely on your stable capacity to witness life calmly without cracking your internal core alignments."},
-      {h:"The Solar Spirit Metaphor",p:"Model your internal spirit execution after the sun: project creative value, love, and compassion onto all nodes in your ecosystem continuously without demanding transactional terms or holding bitter grudges grids."},
-      {h:"Unconditional Happiness Decrees",p:"Make a non-negotiable vow to your soul: no matter what occurs across your life landscape, you will refuse to close your heart. Treat external chaos as fleeting events outside your fortress."}
-    ], sig:"True freedom is won when you step completely past the voice of fear inside your head."}
+    {n:1, title:"Atomic Habits", author:"James Clear", year:"2018", core:"Massive life transformations emerge from the compound execution of tiny 1% daily routines."},
+    {n:2, title:"The 7 Habits of Highly Effective People", author:"Stephen R. Covey", year:"1989", core:"True human effectiveness requires character-driven alignment with universal, timeless principles."},
+    {n:3, title:"Can't Hurt Me", author:"David Goggins", year:"2018", core:"Shatter self-imposed limits by mining the unyielding mental resilience reserves of the human brain."},
+    {n:4, title:"The Mountain Is You", author:"Brianna Wiest", year:"2020", core:"Self-sabotage acts as a subconscious protective shield hiding unhealed emotional trauma slots."},
+    {n:5, title:"Deep Work", author:"Cal Newport", year:"2016", core:"Prolonged distraction-free concentration is an increasingly rare and highly compensated superpower."},
+    {n:6, title:"Essentialism", author:"Greg McKeown", year:"2014", core:"Execute the unsparing disciplined pursuit of less to channel maximum impact where it matters."},
+    {n:7, title:"The Power of Habit", author:"Charles Duhigg", year:"2012", core:"Neurological automation loops operate on a cycle of cue, routine, and reward that you can rewire."},
+    {n:8, title:"12 Rules for Life", author:"Jordan B. Peterson", year:"2018", core:"Adopt absolute individual accountability to convert ambient chaos into clean structural order."},
+    {n:9, title:"Daring Greatly", author:"Brené Brown", year:"2012", core:"Vulnerability is the absolute baseline engine of authentic courage, connection, and innovation."},
+    {n:10, title:"Grit", author:"Angela Duckworth", year:"2016", core:"Long-term persistence integrated with singular execution passion reliably outperforms raw natural talent."},
+    {n:11, title:"The 5 AM Club", author:"Robin Sharma", year:"2018", core:"Isolate dawn hours to systematically optimize your mind, heart, health, and spirit architecture."},
+    {n:12, title:"High Performance Habits", author:"Brendon Burchard", year:"2017", core:"Sustained career output scales directly through the continuous execution of six process vectors."},
+    {n:13, title:"Four Thousand Weeks", author:"Oliver Burkeman", year:"2021", core:"Accept extreme temporal finitude constraints to escape modern toxic efficiency and optimization traps."},
+    {n:14, title:"The Subtle Art of Not Giving a F*ck", author:"Mark Manson", year:"2016", core:"Maximize peace metrics by intentionally selecting values and problems worth struggling for explicitly."},
+    {n:15, title:"Stolen Focus", author:"Johann Hari", year:"2022", core:"Cognitive attention drop traces back directly to the predatory algorithms of the modern tech infrastructure."},
+    {n:16, title:"Make Your Bed", author:"William H. McRaven", year:"2017", core:"Lock down mini-victories at dawn to fortify baseline neurological resilience for life's larger trials."},
+    {n:17, title:"Show Your Work!", author:"Austin Kleon", year:"2014", core:"Expose execution workflows transparently daily to cultivate organic, value-driven community networks."},
+    {n:18, title:"The Psychology of Money", author:"Morgan Housel", year:"2020", core:"Long-term asset building correlates directly to emotional management and behavior over raw technical IQ."},
+    {n:19, title:"Rich Dad Poor Dad", author:"Robert T. Kiyosaki", year:"1997", core:"Diverge from linear asset tracks; build cash-flow generation structures over paper liability frameworks."},
+    {n:20, title:"Think and Grow Rich", author:"Napoleon Hill", year:"1937", core:"All material fortunes scale from a crystal-clear cognitive blueprint fueled by an emotionalized desire."},
+    {n:21, title:"The Intelligent Investor", author:"Benjamin Graham", year:"1949", core:"Insist on rigid analytical margins of safety to counter cyclical marketplace greed and panic fields."},
+    {n:22, title:"I Will Teach You To Be Rich", author:"Ramit Sethi", year:"2009", core:"Automate deployment channels; cut minor costs while spending heavily on your true core loves."},
+    {n:23, title:"The Millionaire Next Door", author:"Thomas J. Stanley", year:"1996", core:"True equity preservation values lifestyle frugality over performative high-status consumer posturing."},
+    {n:24, title:"The Richest Man in Babylon", author:"George S. Clason", year:"1926", core:"Preserve a non-negotiable 10% capital buffer layer out of every single incoming revenue stream."},
+    {n:25, title:"Your Money or Your Life", author:"Vicki Robin", year:"1992", core:"Re-evaluate every transaction in terms of life-force hours spent to secure the capital."},
+    {n:26, title:"The Total Money Makeover", author:"Dave Ramsey", year:"2003", core:"Clean out consumer liabilities via accelerated debt snowball metrics to maximize cash flow potential."},
+    {n:27, title:"The Almanac of Naval Ravikant", author:"Eric Jorgenson", year:"2020", core:"Wealth engineering hinges on unique asset ownership mixed with permissionless modern digital leverage."},
+    {n:28, title:"The Millionaire Fastlane", author:"MJ DeMarco", year:"2011", core:"Ditch traditional linear asset timelines; launch highly scalable producer business architectures now."},
+    {n:29, title:"Secrets of the Millionaire Mind", author:"T. Harv Eker", year:"2005", core:"Subconscious childhood money blueprints completely govern terminal financial results until aggressively rewritten."},
+    {n:30, title:"Die with Zero", author:"Bill Perkins", year:"2020", core:"Optimize the lifespan trajectory matrix by purchasing priceless experience memory dividends early."},
+    {n:31, title:"The Simple Path to Wealth", author:"JL Collins", year:"2016", core:"Eradicate investment complexity; deploy simple low-cost stock index fund compound avenues mechanics."},
+    {n:32, title:"Cashflow Quadrant", author:"Robert T. Kiyosaki", year:"2000", core:"Transition operations from time sales grids into automated right-side systemic business assets."},
+    {n:33, title:"Unshakeable", author:"Tony Robbins", year:"2017", core:"Insulate investment nodes from macro volatility parameters using core tactical protection asset frameworks."},
+    {n:34, title:"The Secret", author:"Rhonda Byrne", year:"2006", core:"Dominant internal visualization metrics broadcast outward to pull matching physical real-world scenarios."},
+    {n:35, title:"The Power of Now", author:"Eckhart Tolle", year:"1997", core:"All ego suffering dissolves cleanly when identifying with spacious awareness vs passing thought clouds."},
+    {n:36, title:"Ask and It Is Given", author:"Esther & Jerry Hicks", year:"2004", core:"Your emotion engine serves as a real-time tracking compass relative to universal source energy lines."},
+    {n:37, title:"Breaking the Habit of Being Yourself", author:"Joe Dispenza", year:"2012", core:"Decouple your cellular biochemical loops from legacy emotional system scripts via neuroplasticity drills."},
+    {n:38, title:"Think Like a Monk", author:"Jay Shetty", year:"2020", core:"Strip away social engineering scripts to uncover authentic alignment vectors and service tracks cleanly."},
+    {n:39, title:"The Alchemist", author:"Paulo Coelho", year:"1988", core:"Track structural environmental signs to fulfill your unique destiny parameters across life's trials."},
+    {n:40, title:"Good Vibes, Good Life", author:"Vex King", year:"2018", core:"Elevate structural frequency levels through boundary enforcement and strict emotional state maintenance."},
+    {n:41, title:"Manifest: 7 Steps to Living Your Best Life", author:"Roxie Nafousi", year:"2022", core:"Manifestation represents a rigorous discipline of structured, action-oriented personal development systems."},
+    {n:42, title:"As a Man Thinketh", author:"James Allen", year:"1903", core:"Mind stands as the undisputed sovereign weaver of inner character networks and outer environments."},
+    {n:43, title:"The Four Agreements", author:"Don Miguel Ruiz", year:"1997", core:"Dissolve conditioning cages by adopting four ancient Toltec structural personal agreements with yourself."},
+    {n:44, title:"Soundtracks", author:"Jon Acuff", year:"2021", core:"Overthinking is an unoptimized software feedback loop; overwrite it using custom affirmative tracks intentionally."},
+    {n:45, title:"Super Attractor", author:"Gabrielle Bernstein", year:"2019", core:"Prioritize internal alignment tracking parameters over frantic, fear-based marketplace action grind patterns."},
+    {n:46, title:"The Magic of Thinking Big", author:"David J. Schwartz", year:"1959", core:"The macro dimensions of long-term milestones map back strictly to initial thought scaling fields."},
+    {n:47, title:"Feeling Is the Secret", author:"Neville Goddard", year:"1944", core:"The subconscious substrate bypasses cold analytical argument; it integrates via intense sensory emotional states."},
+    {n:48, title:"The Master Key System", author:"Charles F. Haanel", year:"1912", core:"A weekly concentration framework designed to link your baseline focus engine with cosmic fields."},
+    {n:49, title:"You Are a Badass at Making Money", author:"Jen Sincero", year:"2017", core:"Smash ancestral lack programming; quote your real market value with absolute execution pride."},
+    {n:50, title:"The Untethered Soul", author:"Michael A. Singer", year:"2007", core:"Claim true operational freedom by detaching state parameters from your inner roommate's voice chatter loops."}
   ],
   te: [
-    {n:1, title:"విజయానికి ఐదు మెట్లు", author:"యండమూరి వీరేంద్రనాథ్", year:"1990", core:"విజయం అనేది ఆకస్మికంగా వచ్చేది కాదు; అది క్రమశిక్షణ, వ్యూహం మరియు నిరంతర ఆత్మపరిశీలన ఫలితం.", principles:[
-      {h:"1. ఆత్మవిశ్వాసం", p:"మిమ్మల్ని మీరు పూర్తిగా నమ్మడమే విజయానికి పునాది. మీ బలహీనతలను తెలుసుకుని బలాలను పెంచుకోవాలి."},
-      {h:"2. లక్ష్య నిర్దేశం", p:"స్పష్టమైన, కొలవదగిన లక్ష్యం లేని జీవితం చుక్కాని లేని నావ లాంటిది. లక్ష్యాలను రాతపూర్వకంగా రాసుకోవాలి."},
-      {h:"3. సమయ పాలన", p:"గడచిన కాలం తిరిగి రాదు. రోజువారీ పనులలో అత్యవసరమైన వాటికి, ముఖ్యమైన వాటికి మధ్య తేడా గుర్తించాలి."},
-      {h:"4. నిరంతర జ్ఞానార్జన", p:"డిగ్రీలతో చదువు ముగిసిపోదు. ప్రతిరోజూ కొత్త విషయాలు, నైపుణ్యాలు నేర్చుకుంటూ ఉండాలి."},
-      {h:"5. వైఫల్యాల నిర్వహణ", p:"ఓటమి ప్రయాణానికి ముగింపు కాదు, అది ఒక పాఠం. తప్పుల నుండి నేర్చుకుని వ్యూహాన్ని మార్చాలి."},
-      {h:"6. ఏకాగ్రత పెంపు", p:"మల్టీటాస్కింగ్ భ్రమలను వీడి, ఒక ముఖ్యమైన పని పూర్తయ్యే వరకు వేరే దేనికీ ప్రాధాన్యత ఇవ్వకూడదు."},
-      {h:"7. సానుకూల దృక్పథం", p:"పరిస్థితులు ఎలా ఉన్నా, ప్రతి సమస్యలో ఒక అవకాశాన్ని వెతకడం అలవాటు చేసుకోవాలి."},
-      {h:"8. ప్రజా సంబంధాలు", p:"మన ఆలోచనలను ఇతరులకు స్పష్టంగా చెప్పగలగడం మరియు ఇతరులు చెప్పేది శ్రద్ధగా వినడం నేర్చుకోవాలి."},
-      {h:"9. వ్యూహాత్మక శ్రమ", p:"కేవలం కష్టపడి పనిచేయడం వల్ల ఫలితం ఉండదు. శ్రమకు సరైన స్మార్ట్ వ్యూహం తోడవ్వాలి."},
-      {h:"10. నైతిక విలువలు", p:"ఎంత ఎదిగినా మానవత్వం, నైతికత కోల్పోకూడదు. నిజమైన విజయం క్యారెక్టర్ తోనే వస్తుంది."}
-    ], sig:"విజయం అనేది ఒక గమ్యం కాదు, అదొక నిరంతర ప్రయాణం మరియు జీవన విధానం."},
-    {n:2, title:"మీ మనసే మీ గెలుపు", author:"బి. వి. పట్టాభిరామ్", year:"2005", core:"మానసిక నియంత్రణ, ఆలోచనా విధానాల శుద్ధీకరణే మనిషి యొక్క అంతర్గత మరియు బాహ్య విజయాలను శాసిస్తాయి.", principles:[
-      {h:"1. మనస్సు యొక్క శక్తులు", p:"మానవ మనస్సు ఒక శక్తివంతమైన కంప్యూటర్ లాంటిది. దానికి మనం ఇచ్చే ఆలోచనలే ఫలితాలుగా వస్తాయి."},
-      {h:"2. ఒత్తిడి నివారణ", p:"శ్వాస ప్రక్రియలు, ధ్యానం ద్వారా మనస్సును ప్రశాంతంగా ఉంచుకోవడం అలవాటు చేసుకోవాలి."},
-      {h:"3. జ్ఞాపకశక్తి పెంపు", p:"విషయాలను చిత్రాల రూపంలో (Visual Association) గుర్తుంచుకోవడం ద్వారా మెదడు ఎక్కువ కాలం నిల్వ ఉంచుకుంటుంది."},
-      {h:"4. ఆత్మన్యూనత అధిగమించడం", p:"ఇతరులతో పోల్చుకోవడం వల్లే ఆత్మన్యూనత ఏర్పడుతుంది. మీ ప్రత్యేకతను మీరు గుర్తించాలి."},
-      {h:"5. అలవాట్ల మార్పు", p:"చెడు అలవాట్లను ఒక్కసారిగా మానేయడం కంటే, వాటి స్థానంలో కొత్త మంచి అలవాట్లను ప్రవేశపెట్టాలి."},
-      {h:"6. భావోద్వేగాల నియంత్రణ", p:"కోపం, అసూయ, భయం వంటి భావోద్వేగాలు మన వివేకాన్ని నశింపజేస్తాయి. వాటికి దూరంగా ఉండాలి."},
-      {h:"7. తక్షణ స్పందన వద్దు", p:"ఏదైనా సంఘటన జరిగినప్పుడు తక్షణమే స్పందించకుండా, ఒక నిమిషం ఆగి ఆలోచించి సమాధానం ఇవ్వాలి."},
-      {h:"8. నాయకత్వ లక్షణాలు", p:"నాయకుడనేవాడు ఆజ్ఞాపించేవాడు కాదు, అందరినీ కలుపుకుని బాధ్యతను స్వీకరించి నడిపించేవాడు."},
-      {h:"9. ప్రశ్నించే తత్వం", p:"'నేను దీన్ని చేయలేను' అనే ప్రతికూల ఆలోచనల స్థానంలో 'దీన్ని ఎలా చేయగలను?' అని ప్రశ్నించాలి."},
-      {h:"10. ఆశావహ దృక్పథం", p:"గతాన్ని మర్చిపోండి, భవిష్యత్తును నిర్మించుకోండి. ప్రతి రోజూ ఒక కొత్త అవకాశంగా భావించాలి."}
-    ], sig:"మీ ఆలోచనలను మార్చుకోండి, మీ జీవితం ఆటోమేటిక్‌గా మారుతుంది."},
-    {n:3, title:"రిచ్ డాడ్ పూర్ డాడ్ (తెలుగు)", author:"రాబర్ట్ కియోసాకి", year:"1997", core:"ఆర్థిక స్వాతంత్ర్యం కావాలంటే కేవలం ఉద్యోగం చేయడం సరిపోదు; డబ్బు మీ కోసం పనిచేసేలా ఆస్తులను సృష్టించాలి.", principles:[
-      {h:"1. డబ్బు కోసం పని చేయవద్దు", p:"పేదలు జీతం కోసం రాత్రింబవళ్లు కష్టపడతారు. ధనవంతులు తమ డబ్బు ద్వారా డబ్బును సంపాదిస్తారు."},
-      {h:"2. ఆర్థిక అక్షరాस्यత", p:"మీరు ఎంత డబ్బు సంపాదిస్తున్నారనేది కాదు, ఎంత డబ్బును దాచుకుంటున్నారు, ఎలా ఇన్వెస్ट చేస్తున్నారనేదే ముఖ్యం."},
-      {h:"3. ఆస్తులు వర్సెస్ అప్పులు", p:"ఆస్తి అంటే మీ జేబులోకి డబ్బును తెచ్చేది. అప్పు అంటే మీ జేబులో నుండి డబ్బును తీసేసేది."},
-      {h:"4. ఇల్లు ఆస్తి కాదు", p:"మీరు నివసించే ఇల్లు ఆస్తి కాదు—అది ఒక లయబిలిటీ (ఖర్చులు పెరుగుతాయి). రియల్ ఎస్టేట్, స్టాక్స్ అసలైన ఆస్తులు."},
-      {h:"5. సొంత వ్యాపారం", p:"ఉద్యోగం చేస్తూనే, ఖాళీ సమయంలో మీ సొంత అసెట్ బేస్‌ను నిర్మించడం ప్రారంభించండి."},
-      {h:"6. కార్పొరేషన్ల శక్తి", p:"ధనవంతులు కార్పొరేట్ సంస్థలను ఉపయోగించి పన్నులు ఆదా చేస్తారు, లీగల్‌గా తమ ఆదాయాన్ని కాపాడుకుంటారు."},
-      {h:"7. అవకాశాల గుర్తింపు", p:"మార్కెట్ లో అందరికీ కనిపించని ఆర్థిక అవకాశాలను గుర్తించి, వాటిని పెట్టుబడిగా మార్చడం నేర్చుకోండి."},
-      {h:"8. నైపుణ్యాల ప్రాధాన్యత", p:"కేవలం ఎక్కువ జీతం ఇచ్చే ఉద్యోగం కాకుండా, మీకు ఎక్కువ ఆర్థిక నైపుణ్యాలు నేర్పే పనిని ఎంచుకోండి."},
-      {h:"9. నష్ట భయాన్ని వీడండి", p:"చాలా మంది డబ్బు నష్టపోతామనే భయంతో రిస్క్ తీసుకోరు. కానీ రిస్క్ తీసుకోకపోవడమే అతిపెద్ద రిస్క్."},
-      {h:"10. మొదట మీకే చెల్లించుకోండి", p:"ఆదాయం రాగానే బిల్లులు కట్టే ముందు పెట్టుబడుల కోసం కనీసం 20% డబ్బును పక్కన పెట్టాలి."}
-    ], sig:"డబ్బు కోసం మీరు పని చేయడం కాదు, డబ్బే మీ కోసం పని చేసేలా చేయడం నైపుణ్యం."},
-    {n:4, title:"ఆలోచించండి - ఐశ్వర్యవంతులు అవ్వండి", author:"నెపోలియన్ హిల్", year:"1937", core:"ఐశ్వర్యం మరియు విజయం అనేవి ఒక బలమైన మానసిక సంకల్పం, తీవ్రమైన కోరిక మరియు నిరంతర ప్రణాళికల ద్వారానే సాధ్యమవుతాయి.", principles:[
-      {h:"1. తీవ్రమైన కోరిక", p:"కేవలం ఆశ పడటం వల్ల డబ్బు రాదు. సాధించాలనే ఒక బలమైన, వెనకడుగు వేయని తీవ్రమైన కోరిక ఉండాలి."},
-      {h:"2. అచంచలమైన నమ్మకం", p:"మీరు అనుకున్న లక్ష్యాన్ని సాధించగలరనే నమ్మకం మీ ఉపచేతన మనస్సును వేగంగా ఉద్దీపన చేస్తుంది."},
-      {h:"3. స్వీయ సూచన", p:"ఉదయం, రాత్రి మీ ఆర్థిక లక్ష్యాలను చదవడం ద్వారా మీ ఆలోచనలను సంపద వైపు మళ్లించవచ్చు."},
-      {h:"4. ప్రత్యేక జ్ఞానం", p:"సాధారణ జ్ఞానం వల్ల ఉపయోగం లేదు. ఒక నిర్దిష్ట రంగంలో లోతైన, ప్రత్యేకమైన నైపుణ్యం సంపాదించాలి."},
-      {h:"5. ఊహ శక్తి", p:"ఆలోచనలను ఆచరణాత్మక రూపంలోకి మార్చడానికి మరియు సమస్యలకు వినూత్న పరిష్కారాలు కనుగొనడానికి ఊహ ఉపయోగపడుతుంది."},
-      {h:"6. వ్యవస్థీకృత ప్రణాళిక", p:"ఒక ప్రణాళిక విఫలమైతే నిరాశ పడకుండా, వెంటనే మరో మెరుగైన ప్రణాళికను సిద్ధం చేసుకుని ముందుకు సాగాలి."},
-      {h:"7. త్వరిత నిర్ణయాలు", p:"విజేతలు నిర్ణయాలు చాలా వేగంగా తీసుకుంటారు, వాటిని చాలా నెम्मतదిగా మారుస్తారు. సాగతీత పనికిరాదు."},
-      {h:"8. పట్టుదల", p:"ఎన్ని అడ్డంకులు ఎదురైనా మీ ప్రయత్నాన్ని ఆపకపోవడమే పట్టుదల. ఓటమిని తాత్कालिक బ్రేక్ గా మాత్రమే భావించాలి."},
-      {h:"9. మాస్టర్ మైండ్ కూటమి", p:"సమాన ఆలోచనలు ఉన్న వ్యక్తులతో ఒక బృందాన్ని ఏర్పాటు చేసుకుని కలిసి పనిచేయడం వల్ల అద్భుతాలు సృష్టించవచ్చు."},
-      {h:"10. ఉపచేతన మనస్సు నియంత్రణ", p:"రూత్ లెస్ గా ప్రతికూల ఆలోచనలను తొలగించి, సమృద్ధి మరియు విజయ సంకేతాలను మనస్సులో నింపాలి."}
-    ], sig:"మనిషి మనస్సు దేన్నైతే ఊహించి, నమ్ముతుందో.. దాన్ని సాధించి తీరుతుంది."},
-    {n:5, title:"రహస్యం (The Secret)", author:"రోండా బైర్న్", year:"2006", core:"ఆకర్షణ సిద్ధాంతం (Law of Attraction) ద్వారా విశ్వంలోని శక్తులను మన ఆలోచనలతో ప్రభావితం చేసి అనుకున్నది సాధించవచ్చు.", principles:[
-      {h:"1. ఆకర్షణ సిద్ధాంతం", p:"సమానమైన శక్తులు ఆకర్షించుకుంటాయి. మీరు దేని గురించి ఎక్కువగా ఆలోచిస్తే, దాన్నే మీ జీవితంలోకి ఆహ్వానిస్తారు."},
-      {h:"2. ఆలోచనల తరంగాలు", p:"ప్రతి ఆలోచనకు ఒక నిర్దిష్ట ఫ్రీక్వెన్సీ ఉంటుంది. మీ ఆలోచనలు విశ్వంలోకి తరంగాల రూపంలో ప్రయాణిస్తాయి."},
-      {h:"3. సృష్టి క్రమం", p:"మొదటి మెట్టు - అడగడం (Ask), రెండవ మెట్టు - నమ్మడం (Believe), మూడవ మెట్టు - పొందడం (Receive)."},
-      {h:"4. కృతజ్ఞత శక్తి", p:"మీకు ప్రస్తుతం ఉన్న సదుపాయాలకు కృతజ్ఞత చూపడం వల్ల జీవితంలోకి మరిన్ని సానుకూల విషయాలు వస్తాయి."},
-      {h:"5. సృజనాత్మక ఊహ", p:"మీ లక్ష్యం ఇప్పటికే నెరవేరినట్లు, మీరు ఆ స్థితిలో జీవిస్తున్నట్లు కళ్లు మూసుకుని స్పष्टంగా ఊహించుకోవాలి."},
-      {h:"6. భావోద్వేగాల పాత్ర", p:"ఎల్లప్పుడూ సంతోషంగా, ఉత్సాహంగా ఉండటానికి ప్రయత్నించండి. మీ మూడ్ బాగుంటే మీ ఆకర్షణ శక్తి పెరుగుతుంది."},
-      {h:"7. లోటుపై దృష్టి వద్దు", p:"'నా దగ్గర డబ్బు లేదు' అని బాధపడటం వల్ల పేదరికాన్నే ఆకర్షిస్తారు. సమృద్ధి పైనే దృష్టి పెట్టాలి."},
-      {h:"8. అంతర్గత సంతోషం", p:"మొదట మిమ్మల్ని మీరు ప్రేమించుకోండి, సంతోషంగా ఉండండి. అప్పుడు మిమ్మల్ని వెతుక్కుంటూ అన్నీ వస్తాయి."},
-      {h:"9. మీ జీవితానికి మీరే శిల్పి", p:"మీ గత ఆలోచనల ఫలితమే మీ ప్రస్తుత జీవితం. మీ నేటి ఆలోచనలే మీ రేపటి భвиష్యత్తు."},
-      {h:"10. విశ్వంపై నమ్మకం", p:"'ఎలా సాధ్యం?' అనే ప్రశ్నలను పక్కన పెట్టి, మీ పనిని మీరు చేస్తూ విశ్వంపై నమ్మకంతో ప్రశాంతంగా ఉండండి."}
-    ], sig:"మీ ఆలోచనలే మీ సామ్రాజ్యాన్ని సృష్టిస్తాయి; మీరు విశ్వంలో అత్యంత శక్తివంతమైన అయస్కాంతం."},
-    // Dynamic Programmatic Expansion Loop for Nodes 6 to 50 to prevent clipping
-    ...Array.from({length: 45}, (_, i) => {
-      const id = i + 6;
-      let mockTitle = "అద్భుత గ్రంథం " + id;
-      let mockAuthor = "ప్రముఖ రచయిత";
-      let mockCore = "ఈ పుస్తకం మన జీవితంలో క్రమశిక్షణ, సంపద మరియు మైండ్‌సెట్ ప్రాధాన్యతను వివరిస్తుంది.";
-      
-      // Sync names with requested template list values
-      if(id === 6) { mockTitle = "అటామిక్ హ్యాబిట్స్"; mockAuthor = "జేమ్స్ క్లియర్"; mockCore = "చిన్న అలవాట్లు 1% చొప్పున ప్రతిరోజూ మారితే కాలక్రమేణా అద్భుతమైన మార్పులు వస్తాయి."; }
-      if(id === 7) { mockTitle = "మనీ పర్స్"; mockAuthor = "యండగండి సత్యనారాయణ"; mockCore = "భారతీయ కుటుంబాల ఆర్థిక నిర్వహణకు, పొదుపు మరియు పెట్టుబడి సూత్రాల మార్గదర్శి."; }
-      if(id === 14) { mockTitle = "సైకాలజీ ఆఫ్ మニー"; mockAuthor = "మోర్గాన్ హౌసెల్"; mockCore = "డబ్బుతో మనం ఎలా ప్రవర్తిస్తామనేది మనకు ఎంత గణితం తెలుసనే దానికంటే చాలా ముఖ్యం."; }
-      if(id === 34) { mockTitle = "డీప్ వర్క్"; mockAuthor = "కాల్ న్యూపోర్ట్"; mockCore = "పరధ్యానం లేని ఏకాగ్రతతో పనిచేయడం అనేది ఆధునిక కాలంలో ఒక సూపర్ పవర్."; }
-      if(id === 50) { mockTitle = "ది గ్రేటెస్ట్ సీక్రెట్"; mockAuthor = "రోండా బైర్న్"; mockCore = "మనం కేవలం ఆలోచనలం కాదు, సాక్షాత్తూ అనంతమైన అవగాహన అని తెలుసుకోవడం."; }
-
-      return {
-        n: id, title: mockTitle, author: mockAuthor, year: "2010+", core: mockCore,
-        principles: Array.from({length: 10}, (_, cIdx) => ({
-          h: `సూత్రం ${cIdx + 1} - ఆచరణాత్మక విధానం`,
-          p: `మీ జీవితంలో విజయం సాధించడానికి ఈ నియమాన్ని అన్వయించండి. <b>విశ్లేషణ:</b> ప్రతికూలతలను వీడి లక్ష్యం వైపు సాగండి.`
-        }))
-      };
-    })
+    {n:1, title:"విజయానికి ఐదు మెట్లు", author:"యండమూరి వీరేంద్రనాథ్", year:"1990", core:"విజయం అనేది ఆకస్మికంగా వచ్చేది కాదు; అది క్రమశిక్షణ, వ్యూహం మరియు నిరంతర ఆత్మపరిశీలన ఫలితం."},
+    {n:2, title:"మీ మనసే మీ గెలుపు", author:"బి. వి. పట్టాభిరామ్", year:"2005", core:"మానసిక నియంత్రణ, ఆలోచనా విధానాల శుద్ధీకరణే మనిషి యొక్క అంతర్గత మరియు బాహ్య విజయాలను శాసిస్తాయి."},
+    {n:3, title:"రిచ్ డాడ్ పూర్ డాడ్ (తెలుగు)", author:"రాబర్ట్ కియోసాకి", year:"1997", core:"ఆర్థిక స్వాతంత్ర్యం కావాలంటే కేవలం ఉద్యోగం చేయడం సరిపోదు; డబ్బు మీ కోసం పనిచేసేలా ఆస్తులను సృష్టించాలి."},
+    {n:4, title:"ఆలోచించండి - ఐశ్వర్యవంతులు అవ్వండి", author:"నెపోలియన్ హిల్", year:"1937", core:"ఐశ్వర్యం మరియు విజయం అనేవి ఒక బలమైన మానసిక సంకల్పం, తీవ్రమైన కోరిక మరియు నిరంతర ప్రణాళికల ద్వారానే సాధ్యమవుతాయి."},
+    {n:5, title:"రహస్యం (The Secret)", author:"రోండా బైర్న్", year:"2006", core:"ఆకర్షణ సిద్ధాంతం (Law of Attraction) ద్వారా విశ్వంలోని శక్తులను మన ఆలోచనలతో ప్రభావితం చేసి అనుకున్నది సాధించవచ్చు."},
+    {n:6, title:"అటామిక్ హ్యాబిట్స్", author:"జేమ్స్ క్లియర్", year:"2018", core:"చిన్న అలవాట్లు 1% చొప్పున ప్రతిరోజూ మారితే, కాలక్రమేణా అవి అద్భుతమైన మార్పులను తీసుకువస్తాయి."},
+    {n:7, title:"మనీ పర్స్ (Money Purse)", author:"యండగండి సత్యనారాయణ", year:"2012", core:"భారతీయ కుటుంబాల ఆర్థిక నిర్వహణకు, పొదుపు మరియు పెట్టుబడి సూత్రాలను వివరించే అద్భుత గ్రంథం."},
+    {n:8, title:"అతి ప్రభావశీల వ్యక్తుల 7 అలవాట్లు", author:"స్టీఫెన్ కోవే", year:"1989", core:"విజయవంతమైన జీవితం కోసం అంతర్గత క్యారెక్టర్‌ను మార్చే ఏడు ముఖ్యమైన అలవాట్ల విశ్లేషణ."},
+    {n:9, title:"మీ ఉపచేతన మనస్సు యొక్క శక్తి", author:"జోసెఫ్ మర్ఫీ", year:"1963", core:"ఉపచేతన మనస్సును సానుకూలంగా రీప్రోగ్రామ్ చేయడం ద్వారా ఆరోగ్యం, సంపద మరియు విజయం సాధించవచ్చు."},
+    {n:10, title:"ప్రస్తుత క్షణపు శక్తి (The Power of Now)", author:"ఎకార్ట్ టోల్లే", year:"1997", core:"గతాన్ని, భవిష్యత్తును వీడి ప్రస్తుత క్షణంలో బతకడమే సర్వ దుఃఖాలకు నివారణ మరియు నిజమైన శాంతి."},
+    {n:11, title:"సన్యాసిగా మారిన కోటీశ్వరుడు", author:"రాబిన్ శర్మ", year:"1997", core:"భౌతిక సంపదతో పాటు అంతర్గత ఆధ్యాత్మిక ప్రశాంతతను ఎలా సాధించాలో తెలిపే కథా రూపక పుస్తకం."},
+    {n:12, title:"నువ్వు కూడా గెలవగలవు (You Can Win)", author:"శివ్ ఖేరా", year:"1998", core:"సానుకూల దృక్పథం, ఆత్మవిశ్వాసం మరియు సరైన లక్ష్యాల ద్వారా సామాన్యులు కూడా అసాధారణ విజయాలు సాధించగలరు."},
+    {n:13, title:"ఇకిగాయ్ (Ikigai)", author:"హెక్టర్ గార్సియా", year:"2016", core:"జపాన్ దేశస్థుల సుదీర్ఘ, సంతోషకరమైన జీవిత రహస్యమైన 'జీవన పరమార్థం' గురించిన వివరణ."},
+    {n:14, title:"సైకాలジー ఆఫ్ మニー", author:"మోర్గాన్ హౌసెల్", year:"2020", core:"డబ్బుతో మనం ఎలా ప్రవర్తిస్తామనేది మనకు ఎంత గణితం తెలుసనే దానికంటే చాలా ముఖ్యం."},
+    {n:15, title:"గెలుపు పిలుపు", author:"బి. వి. పట్టాభిరామ్", year:"2008", core:"యువత తమ కెరీర్ లో ఎదురయ్యే సవాళ్లను దాటి విజయం వైపు ఎలా అడుగులు వేయాలో నేర్పే గైడ్."},
+    {n:16, title:"విజయం వైపు పయనం", author:"యండమూరి వీరేంద్రనాథ్", year:"1995", core:"విద్యార్థులు, నిరుద్యోగులు తమ అంతర్గత శక్తులను గుర్తించి సమాజంలో ఎలా ఎదగాలి అనే అంశాల విశ్లేషణ."},
+    {n:17, title:"గ్రిట్ (Grit)", author:"ఆంజెలా డక్‌వర్త్", year:"2016", core:"విజయానికి కేవలం ప్రతిభే కాదు, పట్టుదల మరియు నిరంతర శ్రమ (Grit) అత్యంత అవసరమని నిరూపించే పుస్తకం."},
+    {n:18, title:"ఆల్కెమిస్ట్ (The Alchemist)", author:"పాలో కోయెల్హో", year:"1988", core:"మన కలలను నిజం చేసుకునే ప్రయాణంలో ప్రకృతి సంకేతాలను ఎలా అర్థం చేసుకోవాలో తెలిపే అద్భుత నవల."},
+    {n:19, title:"నాల్గు ఒప్పందాలు (The Four Agreements)", author:"డాన్ మిగుల్ రూయిజ్", year:"1997", core:"వ్యక్తిగత స్వేచ్ఛ మరియు ఆనందం కోసం ప్రాచీన టోల్టెక్ సంస్కృతి అందించిన నాలుగు సూత్రాలు."},
+    {n:20, title:"కాలజ్ఞానం (Time Management)", author:"స్థానిక నిపుణులు", year:"2010", core:"సమయాన్ని వృథా చేయకుండా ఉత్పాదకతను ఎలా పెంచుకోవాలో తెలిపే కాల నిర్వహణ సూత్రాలు."},
+    {n:21, title:"ఆత్మ సాక్షాత్కారం", author:"పరమహంస యోగానంద", year:"1946", core:"భారతీయ యోగ విజ్ఞానం, ఉపచేతన మనస్సును మించిన ఆత్మ శక్తి యొక్క ప్రాముఖ్యతను తెలిపే గ్రంథం."},
+    {n:22, title:"కర్మ (Karma)", author:"సద్గురు జగీ వాసుదేవ్", year:"2021", core:"కర్మ అంటే కేవలం గతం కాదు, అది మీ జీవితాన్ని మీ చేతుల్లోకి తీసుకునే బాధ్యత అని వివరించే పుస్తకం."},
+    {n:23, title:"5 AM క్లబ్", author:"రాబిన్ శర్మ", year:"2018", core:"ఉదయం 5 గంటలకే నిద్రలేచి మొదటి గంటను మీ ఆత్మవిమర్శకు, ఎదుగుదలకు కేటాయించడం ద్వారా అద్భుతాలు చేయవచ్చు."},
+    {n:24, title:"మీ జీవితాన్ని మీరే సరిదిద్దుకోండి", author:"లూయిస్ హే", year:"1984", core:"సానుకూల ఆలోచనలు మరియు స్వీయ ప్రేమ ద్వారా శారీరక, మానసిక రుగ్మతలను నయం చేసుకోవచ్చు."},
+    {n:25, title:"నెగటివ్ థింకింగ్ వదిలేయండి", author:"నిక్ ట్రెంటన్", year:"2021", core:"ఓవర్‌థింకింగ్ మరియు అనవసరపు ఆందోళనల నుండి మైండ్‌ను ఎలా విముక్తం చేయాలో తెలిపే పుస్తకం."},
+    {n:26, title:"సంపూర్ణ విజయం", author:"యండమూరి వీరేంద్రనాథ్", year:"2002", core:"వ్యక్తిగత వికాసంలోని అన్ని కోణాలను స్పృశిస్తూ సమగ్ర విజయ సాధనకు మార్గదర్శి."},
+    {n:27, title:"కాలం మీ చేతుల్లో", author:"బి. వి. పట్టాభిరామ్", year:"2011", core:"సమయాన్ని మేనేజ్ చేయడం అంటే గడియారాన్ని చూడటం కాదు, మీ ప్రాధాన్యతలను నియంత్రించడం అని చెప్పే పుస్తకం."},
+    {n:28, title:"అన్-టెథర్డ్ సోల్", author:"మైకేల్ సింగర్", year:"2007", core:"మీ లోపల వినిపించే నిరంతర భయాందోళనల వాయిస్ నుండి మిమ్మల్ని మీరు ఎలా వేరు చేసుకోవాలో తెలిపే గ్రంథం."},
+    {n:29, title:"సంకల్ప శక్తి", author:"స్వదేశీ సంకలనం", year:"2014", core:"దృఢమైన సంకల్పం ఉంటే ఎంతటి కష్టమైన పనైనా సులభంగా ఎలా ప్రయాణించవచ్చో వివరించే పుస్తకం."},
+    {n:30, title:"అపరిమిత శక్తులు", author:"టోనీ రాబిన్స్", year:"1986", core:"విజయవంతమైన వ్యక్తుల బాడీ లాంగ్వేజ్, ఆలోచనలను మోడలింగ్ చేయడం ద్వారా అదే ఫలితాలు సాధించవచ్చు."},
+    {n:31, title:"స్నేహితులను సంపాదించడం ఎలా", author:"డేల్ కార్నెగీ", year:"1936", core:"నలుగురితో సత్సంబంధాలను ఏర్పరచుకోవడం, ఇతరులను ప్రభావితం చేయడం ఎలాగో నేర్పే సార్వజనీన గ్రంథం."},
+    {n:32, title:"అపజయం నుండి విజయానికి", author:"వివిధ రచయితలు", year:"2009", core:"గొప్ప వ్యక్తుల జీవితాల్లో ఎదురైన పరాజయాలు, వాటి నుండి వారు నేర్చుకున్న పాఠాల సమాహారం."},
+    {n:33, title:"డిజిటల్ మినిమలిజం", author:"కాల్ న్యూపోర్ట్", year:"2019", core:"సోషల్ మీడియా, స్మార్ట్‌ఫోన్ ల యుగంలో మన దృష్టిని కాపాడుకుంటూ ప్రశాంతంగా ఎలా ఉండాలో తెలిపే గైడ్."},
+    {n:34, title:"డీప్ వర్క్ (Deep Work)", author:"కాల్ న్యూపోర్ట్", year:"2016", core:"పరధ్యానం లేని ఏకాగ్రతతో పనిచేయడం అనేది ఆధునిక కాలంలో ఒక సూపర్ పవర్ అని నిరూపించే పుస్తకం."},
+    {n:35, title:"ఎస్సెంషియలిజం (Essentialism)", author:"గ్రెగ్ మెక్‌కీన్", year:"2014", core:"అన్ని పనులూ చేయడం మాని, కేవలం అత్యంత ముఖ్యమైన కొన్ని పనులపైనే దృష్టి పెట్టడం అలవాటు చేసుకోవాలి."},
+    {n:36, title:"కాంపౌండ్ ఎఫెక్ట్", author:"డారెన్ హార్డీ", year:"2010", core:"చిన్న చిన్న సానుకూల నిర్ణయాలు నిరంతరాయంగా తీసుకుంటే, కాలక్రమేణా అవి ఊహించని పెద్ద విజయాలను ఇస్తాయి."},
+    {n:37, title:"మ్యాజిక్ ఆఫ్ థింకింగ్ బిగ్", author:"డేవిడ్ స్క్వార్ట్జ్", year:"1959", core:"మీ ఆలోచనల పరిమాణమే మీ విజయ పరిమాణాన్ని నిర్ణయిస్తుంది. ఎప్పుడూ పెద్దగా ఆలోచించడం ప్రాక్టీస్ చేయండి."},
+    {n:38, title:"మీరే ఒక అద్భుతం", author:"జెన్ సిన్సెరో", year:"2013", core:"మిమ్మల్ని మీరే తక్కువ అంచనా వేసుకోవడం ఆపి, మీలోని అపరిమిత శక్తులను ప్రపంచానికి పరిచయం చేయండి."},
+    {n:39, title:"ఆలోచనా సరళి (Mindset)", author:"కరోల్ డ్వెక్", year:"2006", core:"ఫిక్స్‌డ్ మైండ్‌సెట్ నుండి గ్రోత్ మైండ్‌సెట్ వైపు మారడం ద్వారానే మనిషి మేధస్సు అభివృద్ధి చెందుతుంది."},
+    {n:40, title:"ది సింపుల్ పాత్ టు వెల్త్", author:"జెఎల్ కాలిన్స్", year:"2016", core:"డబ్బును ఇన్వెస్ట్ చేయడానికి క్లిష్టమైన సూత్రాలు అవసరం లేదు, ఇండెక్స్ ఫండ్స్ లో క్రమం తప్పకుండా పొదుపు చేస్తే చాలు."},
+    {n:41, title:"ది మిలియనీర్ నెక్స్ట్ డోర్", author:"థామస్ స్టాన్లీ", year:"1996", core:"నిజమైన కోటీశ్వరులు ఆడంబరాలకు దూరంగా, చాలా సాధారణ జీవితాన్ని గడుపుతూ సంపదను పెంచుకుంటారు."},
+    {n:42, title:"ది రిచెస్ట్ మాన్ ఇన్ బాబిలాన్", author:"జార్జ్ క్లాసన్", year:"1926", core:"పురాతన బాబిలాన్ కథల ద్వారా పొదుపు, పెట్టుబడి యొక్క ప్రాథమిక సూత్రాలను నేర్పే క్లాసిక్ పుస్తకం."},
+    {n:43, title:"యువర్ మనీ ఆర్ యువర్ లైఫ్", author:"విక్కీ రాబిన్", year:"1992", core:"డబ్బు అనేది కేవలం కరెన్సీ కాదు, అది మీరు ఆ డబ్బు సంపాదించడానికి కేటాయించిన మీ జీవిత కాలం."},
+    {n:44, title:"ది టోటల్ మニー మేకోవర్", author:"డేవ్ రామ్సే", year:"2003", core:"అప్పుల నుండి పూర్తిగా విముక్తి పొంది, ఆర్థిక స్థిరత్వాన్ని సాధించడానికి ఏడు సులువైన అడుగుల ప్రణాళిక."},
+    {n:45, title:"నవల్ రవికాంత్ ఆల్మనాక్", author:"ఎరిక్ జోర్గెన్సన్", year:"2020", core:"ఆధునిక యుగంలో సంపద సృష్టి మరియు సంతోషకరమైన జీవితం కోసం అవసరమైన స్పష్టమైన ఆలోచనల సమాహారం."},
+    {n:46, title:"ది మిలియనీర్ ఫాస్ట్‌లేన్", author:"ఎమ్‌జె డిమార్కో", year:"2011", core:"వయసు అయిపోయాక వచ్చే సంపద కంటే, యువకుడిగా ఉన్నప్పుడే వేగంగా సిస్టమ్స్ ద్వారా ధనవంతులు ఎలా అవ్వాలో తెలిపే గైడ్."},
+    {n:47, title:"అంతఃప్రయాణం (Inner Engineering)", author:"సద్గురు", year:"2016", core:"ఆనందం అనేది ఎక్కడో బయట లేదు, అది మీ అంతర్గత కెమిస్ట్రీని సరిగ్గా నిర్వహించుకోవడం లోనే ఉంది."},
+    {n:48, title:"ఫీలింగ్ ఈజ్ ది సీక్రెట్", author:"నెవిల్లే గొడ్డార్డ్", year:"1944", core:"ఉపచేతన మనస్సుకు కేవలం తర్కం తెలియదు, మీ భావోద్వేగాల తీవ్రత ఆధారంగానే అది సృష్టిని చేస్తుంది."},
+    {n:49, title:"ది మాస్టర్ కీ సిస్టమ్", author:"చార్లెస్ హానెల్", year:"1912", core:"మానసిక ఏకాగ్రత మరియు విశ్వశక్తిని అనుసంధానించే 24 వారాల క్రమశిక్షణతో కూడిన మైండ్ ట్రైనింగ్ కోర్స్."},
+    {n:50, title:"ది గ్రేటెస్ట్ సీక్రెట్", author:"రోండా బైర్న్", year:"2020", core:"మనం కేవలం ఆలోచనలం కాదు, సాక్షాత్తూ అనంతమైన అవగాహన (Awareness) అని తెలుసుకోవడం."}
   ],
   de: [
-    {n:1, title:"Der Weg zur finanziellen Freiheit", author:"Bodo Schäfer", year:"1998", core:"Finanzielle Freiheit ist das Ergebnis von klaren Glaubenssätzen, strukturiertem Sparen und klugen Investitionen.", principles:[
-      {h:"1. Radikale Eigenverantwortung", p:"Hör auf, Ausreden zu suchen. Deine Reaktion auf finanzielle Ereignisse bestimmt deine wirtschaftliche Zukunft."},
-      {h:"2. Die Macht des Sparens", p:"Sparen bedeutet nicht Verzicht, sondern Selbstachtung. Behalte mindestens 10 % deines Einkommens ein."},
-      {h:"3. Glaubenssätze transformieren", p:"Wenn du tief im Inneren denkst, dass Geld den Charakter verdirbt, wirst du unbewusst Sabotage-Loops aktivieren."},
-      {h:"4. Schuldenabbau mit System", p:"Konsumschulden sind Gift. Halte dich an die 50/50-Regel: Nutze maximal die Hälfte deines Überschusses zur Tilgung."},
-      {h:"5. Vermögenswerte aufbauen", p:"Investiere in Dinge, die Cashflow generieren (Aktien, Immobilien), anstatt in Verbindlichkeiten, die Geld fressen."},
-      {h:"6. Einkommen aktiv steigern", p:"Werde unersetzbar an deinem Arbeitsplatz oder baue ein Nebeneinkommen auf, um deinen Investitionshebel zu vergrößern."},
-      {h:"7. Die Magie des Zinseszinses", author:"Bodo Schäfer", p:"Zeit ist mächtiger als die reine Sparsumme. Lass deine Zinsen Kinder bekommen und diese wiederum Enkelkinder."},
-      {h:"8. Experten-Rat suchen", p:"Nimm Finanztipps nur von Menschen an, die selbst dort stehen, wo du hinwillst. Ignoriere Hobby-Berater."},
-      {h:"9. Die goldene Gans schützen", p:"Dein investiertes Kapital ist die Gans, die goldene Eier legt. Schlachte sie niemals für kurzfristigen Konsum."},
-      {h:"10. Das Gesetz des Gebens", p:"Wahrer Wohlstand zirkuliert. Wer gibt, signalisiert seinem Unterbewusstsein absolute Fülle und zieht Fülle an."}
-    ], sig:"Wohlstand beginnt mit einer klaren, schriftlichen Entscheidung für deine finanzielle Freiheit."},
-    {n:2, title:"Das Kind in dir muss Heimat finden", author:"Stefanie Stahl", year:"2015", core:"Erst wenn wir das verletzte innere 'Schattenkind' trösten, können wir als Erwachsene freie Entscheidungen treffen.", principles:[
-      {h:"1. Schattenkind vs. Sonnenkind", p:"Das Schattenkind speichert negative Kindheitsprägungen; das Sonnenkind steht für gesunde Lebensfreude."},
-      {h:"2. Glaubenssätze entlarven", p:"Unbewusste Kerngedanken wie 'Ich bin nicht genug' steuern deine tägliche Beziehungs- und Erfolgsdynamik."},
-      {h:"3. Somatische Achtsamkeit", p:"Nimm körperliche Stresssignale bewusst wahr, statt unbewusst in alte Abwehrmuster (Flucht, Angriff) zu verfallen."},
-      {h:"4. Das Schattenkind trösten", p:"Nimm die verletzten Anteile deines jüngeren Ichs imaginär in den Arm. Du bist jetzt der erwachsene Beschützer."},
-      {h:"5. Projektionen durchschauen", p:"Erkenne, dass Konflikte mit deinem Umfeld oft nur alte Filme deines Schattenkindes sind, die im Jetzt projiziert werden."},
-      {h:"6. Grenzen setzen lernen", p:"Ein klares 'Nein' zu den Anforderungen anderer ist ein non-negotiables 'Ja' zum Schutz deiner mentalen Gesundheit."},
-      {h:"7. Die Werte des Sonnenkinds", p:"Aktiviere bewusst deine Stärken, Talente und Ressourcen, um dein positives Selbstbild im Alltag zu verankern."},
-      {h:"8. Entkopplung vom Applaus", p:"Höre auf, deinen Selbstwert von der Validierung anderer abhängig zu machen. Stehe voll zu deiner Authentizität."},
-      {h:"9. Gefühle als reine Daten", p:"Betrachte Angst oder Wut als wertvolle Signale, die dir zeigen, wo alte Wunden berührt wurden. Reguliere sie ruhig."},
-      {h:"10. Ganzheitliche Heilung", p:"Integration bedeutet, sowohl Schatten als auch Licht anzunehmen. Erst das macht dich unerschütterlich frei."}
-    ], sig:"Du bist der Regisseur deiner Gegenwart, nicht das Opfer deiner Vergangenheit."},
-    ...Array.from({length: 48}, (_, i) => {
-      const id = i + 3;
-      let mockTitle = "Meisterwerk " + id;
-      let mockAuthor = "Top Autor";
-      let mockCore = "Dieses Buch zeigt, wie man durch Disziplin, Mindset und strategische Systeme echte Lebensqualität maximiert.";
-      
-      if(id === 3) { mockTitle = "Atomare Gewohnheiten"; mockAuthor = "James Clear"; mockCore = "Winzige, tägliche 1%-Optimierungen summieren sich über das Jahr zu einer gigantischen Transformation."; }
-      if(id === 7) { mockTitle = "Souverän investieren mit ETFs"; mockAuthor = "Gerd Kommer"; mockCore = "Wissenschaftlich fundierter Leitfaden für passiven Vermögensaufbau ohne spekulatives Rauschen."; }
-      if(id === 10) { mockTitle = "Die Psychologie des Geldes"; mockAuthor = "Morgan Housel"; core="Finanzieller Erfolg hängt primär von deinem Verhalten ab, nicht von reiner Intelligenz."; }
-
-      return {
-        n: id, title: mockTitle, author: mockAuthor, year: "2010+", core: mockCore,
-        principles: Array.from({length: 10}, (_, cIdx) => ({
-          h: `Prinzip ${cIdx + 1}: Fokusausrichtung`,
-          p: `Nutze dieses Gesetz, um deine persönliche Performance zu maximieren. <b>Takeaway-Analyse:</b> Eliminiere Ablenkungen und arbeite proaktiv.`
-        }))
-      };
-    })
+    {n:1, title:"Der Weg zur finanziellen Freiheit", author:"Bodo Schäfer", year:"1998", core:"Finanzielle Freiheit erfordert das Umprogrammieren alter Glaubenssätze und strukturiertes Investieren."},
+    {n:2, title:"Das Kind in dir muss Heimat finden", author:"Stefanie Stahl", year:"2015", core:"Alte emotionale Verletzungen des inneren Schattenkindes verstehen, um glücklich und erfolgreich zu handeln."},
+    {n:3, title:"Atomare Gewohnheiten", author:"James Clear", year:"2018", core:"Lebenserfolg skaliert durch winzige, 1-prozentige tägliche Prozessoptimierungen."},
+    {n:4, title:"Ein Hund namens Money", author:"Bodo Schäfer", year:"2000", core:"Finanzkompetenz spielerisch lernen: Baue Traumtöpfe und schütze deine investierte goldene Gans."},
+    {n:5, title:"Jetzt! Die Kraft der Gegenwart", author:"Eckhart Tolle", year:"1997", core:"Alles Leiden entsteht in Reue über Vergangenheit oder Zukunftsangst. Stärke lebt nur im Jetzt."},
+    {n:6, title:"Bestellungen beim Universum", author:"Bärbel Mohr", year:"1998", core:"Zweifelsfreie, spielerische Wünsche programmieren das Bewusstsein neu auf Empfang."},
+    {n:7, title:"Souverän investieren mit Indexfonds & ETFs", author:"Gerd Kommer", year:"2015", core:"Wissenschaftlich bewiesener Vermögensaufbau durch passives Investieren in den gesamten Weltmarkt."},
+    {n:8, title:"Die Gesetze der Gewinner", author:"Bodo Schäfer", year:"2001", core:"30 kompakte Erfolgsregeln für absolute Eigenverantwortung und mentale Disziplin."},
+    {n:9, title:"Rich Dad Poor Dad (Deutsch)", author:"Robert Kiyosaki", year:"1997", core:"Wohlstand erfordert den Kauf von Vermögenswerten, die dir automatisiert Cashflow einbringen."},
+    {n:10, title:"Die Psychologie des Geldes", author:"Morgan Housel", year:"2020", core:"Finanzielle Freiheit hängt viel mehr von deinem Verhalten ab als von deiner mathematischen Intelligenz."},
+    {n:11, title:"Das Café am Rande der Welt", author:"John Strelecky", year:"2003", core:"Eine Reise zum Sinn des Lebens entlang der Kernfrage nach dem eigenen Daseinszweck."},
+    {n:12, title:"Denke nach und werde reich", author:"Napoleon Hill", year:"1937", core:"Wohlstand skaliert aus einem brennenden Verlangen, verknüpft mit felsenfesten mentalen Bildern."},
+    {n:13, title:"Die 7 Wege zur Effektivität", author:"Stephen R. Covey", year:"1989", core:"Nachhaltige Lebenskompetenz basiert auf charakterlicher Integrität und proaktiven Gewohnheiten."},
+    {n:14, title:"Die Kunst des klaren Denkens", author:"Rolf Dobelli", year:"2011", core:"Eine Übersicht über kognitive Denkfehler, um im Alltag rationale Entscheidungen zu treffen."},
+    {n:15, title:"Das Robbins Power Prinzip", author:"Tony Robbins", year:"1991", core:"Du steuerst dein emotionales Schicksal über bewusste Fokusausrichtung und deine Physiologie."},
+    {n:16, title:"Die Kunst über Geld nachzudenken", author:"André Kostolany", year:"1999", core:"Börsenweisheiten einer Legende über antizyklisches Handeln, Phantasie und unendliche Geduld."},
+    {n:17, title:"Grit: Die Macht von Leidenschaft und Ausdauer", author:"Angela Duckworth", year:"2016", core:"Langfristige Zähigkeit und Faszination für ein Lebensziel schlagen reines Talent im Erfolgsrennen."},
+    {n:18, title:"Deep Work", author:"Cal Newport", year:"2016", core:"Ablenkungsfreie Konzentration ist die wertvollste Währung in einer hyper-digitalisierten Wirtschaft."},
+    {n:19, title:"Essentialismus", author:"Greg McKeown", year:"2014", core:"Der kompromisslose Verzicht auf das Unwichtige, um die Energie auf Meilensteine zu lenken."},
+    {n:20, title:"Der Alchemist", author:"Paulo Coelho", year:"1988", core:"Wer mutig seiner persönlichen Bestimmung folgt, lernt die Zeichen des Universums zu nutzen."},
+    {n:21, title:"Die 4-Stunden-Woche", author:"Timothy Ferriss", year:"2007", core:"Entkomme dem Hamsterrad durch Automatisierung, Outsourcing und relative Geografie."},
+    {n:22, title:"Siddhartha", author:"Hermann Hesse", year:"1922", core:"Wahre Lebensweisheit lässt sich nicht lehren, sondern muss selbst erfahren werden."},
+    {n:23, title:"Das Gesetz der Resonanz", author:"Pierre Franckh", year:"2008", core:"Überzeugungen senden Schwingungsmuster aus, die exakt gespiegelt im Leben materialisieren."},
+    {n:24, title:"Die 5 Sprachen der Liebe", author:"Gary Chapman", year:"1992", core:"Beziehungserfolg entschlüsselt: Menschen senden und empfangen Zuneigung über andere Kanäle."},
+    {n:25, title:"Wie man Freunde gewinnt", author:"Dale Carnegie", year:"1936", core:"Echte soziale Kompetenz bedeutet, ehrliches Interesse an Mitmenschen in den Mittelpunkt zu stellen."},
+    {n:26, title:"Sorge dich nicht – lebe!", author:"Dale Carnegie", year:"1948", core:"Breche chronische Grübelketten auf, indem du in abgeschlossenen Tagesräumen agierst."},
+    {n:27, title:"Die Bullet-Journal-Methode", author:"Ryder Carroll", year:"2018", core:"Ein analoges Notizbuch-System zur Strukturierung von Fokus, Zielen und Gedanken."},
+    {n:28, title:"Der Monk, der seinen Ferrari verkaufte", author:"Robin Sharma", year:"1997", core:"Eine Fabel über Achtsamkeit, mentale Meisterschaft und den Schutz der Lebensenergie."},
+    {n:29, title:"Schnelles Denken, langsames Denken", author:"Daniel Kahneman", year:"2011", core:"Verständnis der zwei Denksysteme unseres Gehirns, um Fehlschlüsse im Alltag zu minimieren."},
+    {n:30, title:"Die 5-Sekunden-Regel", author:"Mel Robbins", year:"2017", core:"Zähle laut von 5-4-3-2-1 runter, um das Gehirn vor Ausreden direkt in Aktion zu bringen."},
+    {n:31, title:"Kopf schlägt Kapital", author:"Günter Faltin", year:"2008", core:"Gründen mit Konzept: Nutze vorhandene ökonomische Infrastrukturen statt hohem Startkapital."},
+    {n:32, title:"Der entspannte Weg zum Reichtum", author:"Susan Levermann", year:"2010", core:"Ein rationales, datenbasiertes Punktesystem für rentable und gefühlsfreie Aktienauswahl."},
+    {n:33, title:"I Will Teach You To Be Rich", author:"Ramit Sethi", year:"2009", core:"Automatisiere deine Finanzen, investiere mutig und gib ohne Reue Geld für Kernwünsche aus."},
+    {n:34, title:"Die Gesetze des Erfolgs", author:"Les Brown", year:"1992", core:"Lass dir von niemandem deine Träume kleinreden. Du musst hungrig nach deiner Entfaltung bleiben."},
+    {n:35, title:"Sei du selbst und verändere die Welt", author:"Dain Heer", year:"2011", core:"Das Ablegen geliehener Masken schaltet deine wahre energetische Power frei."},
+    {n:36, title:"The Master Key System", author:"Charles F. Haanel", year:"1912", core:"Die Naturgesetze der Gedankenkraft, erschlossen über 24 Wochen strukturierte Konzentration."},
+    {n:37, title:"Du bist das Placebo", author:"Joe Dispenza", year:"2014", core:"Biologische Heilungsprozesse im Körper über bewusste Gehirnwellen-Steuerung aktivieren."},
+    {n:38, title:"Ein neues Ich", author:"Joe Dispenza", year:"2012", core:"Sprengung der alten Identität durch gezielte Unterbrechung emotionaler Körperschleifen."},
+    {n:39, title:"Die sieben geistigen Gesetze des Erfolgs", author:"Deepak Chopra", year:"1994", core:"Erfolg im Einklang mit dem Gesetz des geringsten Aufwands statt erzwungenem Kampf."},
+    {n:40, title:"Erfolgreich wünschen", author:"Pierre Franckh", year:"2005", core:"Das Auflösen unbewusster Zweifel ist das Fundament präziser Manifestationsergebnisse."},
+    {n:41, title:"Glücksprinzipien", author:"Dale Carnegie", year:"1955", core:"Kleine Gewohnheiten des Teilens und der Lebensfreude verjagen mentalen Groll."},
+    {n:42, title:"Das e-Mythos", author:"Michael E. Gerber", year:"1986", core:"Arbeite als Architekt *an* deinem Unternehmen als System, nicht als Sklave *darin*."},
+    {n:43, title:"Minderwertigkeitskomplexe besiegen", author:"Alfred Adler", year:"1927", core:"Das Gefühl von Unzulänglichkeit ist der Motor, um über sich selbst hinauszuwachsen."},
+    {n:44, title:"Das Gesetz der Anziehung", author:"Esther & Jerry Hicks", year:"2006", core:"Du ziehst Ereignisse an, die auf der Schwingungsfrequenz deiner dominanten Gefühle liegen."},
+    {n:45, title:"Super Attractor", author:"Gabrielle Bernstein", year:"2019", core:"Ergebnisse fließen im Zustand energetischen Vertrauens, niemals durch verzweifelten Druck."},
+    {n:46, title:"Der Millionär Next Door", author:"Thomas J. Stanley", year:"1996", core:"Wahrer Reichtum ist unauffällig. Wohlstand entsteht durch Behalten statt Zurschaustellen."},
+    {n:47, title:"Die Kunst, ein kreatives Leben zu führen", author:"Frank Berzbach", year:"2013", core:"Feste Tagesstrukturen, Achtsamkeit und digitale Pausen schützen deine Schöpferkraft."},
+    {n:48, title:"Der reichste Mann, der je lebte", author:"Steven K. Scott", year:"2006", core:"Lebens- und Finanzstrategien von König Salomo angewandt auf modernes Business."},
+    {n:49, title:"Das Geheimnis der Wunschkraft", author:"Rhonda Byrne", year:"2006", core:"Deine Gedanken verändern das Quantenfeld und steuern deine physische Realität."},
+    {n:50, title:"Trotzdem Ja zum Leben sagen", author:"Viktor Frankl", year:"1946", core:"Sinnfindung trägt uns durch tiefste Krisen. Wer ein Warum hat, erträgt jedes Wie."}
   ]
 };
 
-let currentLang = 'en';
-let idx = 0;
+// Advanced Context Synthesis Engine Map Matrix (Builds unique contextual content lines dynamically)
+const SYSTEM_DYNAMICS = {
+  en: {
+    1: { name: "The Compound Effect Matrix", description: "Micro-habits accumulate silently under execution pipelines before cracking open global breakouts." },
+    2: { name: "Principle Integration Architecture", description: "Aligning human systems cleanly with timeless reality structures vs temporary show tricks." },
+    3: { name: "Comfort Separation Testing", description: "Intentionally running operations inside physical tension parameters to calc internal stamina." },
+    4: { name: "Trauma Loop Interruption Protocols", description: "Isolating subterranean protection behaviors to flush unhealed cognitive loops safely." },
+    5: { name: "Attention Concentration Safeguards", description: "Eradicating micro communication context-switches to block systemic performance decay." },
+    6: { name: "Priority Monopolization Vectors", description: "Pruning secondary opportunities fiercely to focus energy on singular high-value assets." },
+    7: { name: "Loop Overhaul Re-Engineering Maps", description: "Preserving external cue variables while swapping intermediate behavioral execution scripts." },
+    8: { name: "Chaos Transmutation Directives", description: "Shouldering heavy voluntary accountability profiles to secure deep unshakeable existential fulfillment." },
+    9: { name: "Vulnerability Stature Upgrades", description: "Bypassing performative perfection armor setups to establish real human connection nodes safely." },
+    10: { name: "Passion Stamina Longevity Curves", description: "Sustaining long-term problem execution pathways, ignoring transient applause metrics completely." },
+    11: { name: "Dawn Solitude Shield Arrays", description: "Pre-allocating silent slots at 5 AM to install multi-empire system parameters safely." },
+    12: { name: "Competence Boundary Transcending", description: "Slicing administrative shallow duties to focus entirely on Prolific Quality Outputs creation." },
+    13: { name: "Finitude Paradox Acceptance", description: "Living securely inside your brief 4,000-week timeline without getting trapped in efficiency grids." },
+    14: { name: "Value Optimization Matrix Maps", description: "Anchoring your tracking systems inside internal coordinates you alter directly with pride." },
+    15: { name: "Outrage Spiral Extrication Models", description: "Disconnecting cognitive processing networks from hyper-addictive attention harvesting platforms safely." },
+    16: { name: "Tactical Dawn Victory Flags", description: "Executing mechanical processes cleanly at sunrise to lock down early subconscious ledger wins." },
+    17: { name: "Workflow Transparency Documentation", description: "Exposing rough processing maps to generate an organic, highly aligned user ecosystem." },
+    18: { name: "Behavioral Asset Containment Pipelines", description: "Recognizing that long-term compound trajectories rely entirely on emotional self-sovereignty baselines." },
+    19: { name: "Asset Column Domination Grids", description: "Routing incoming revenue streams into cash-producing nodes before paying liabilities overhead costs." },
+    20: { name: "Desire Blueprint Crystallization", description: "Translating burning target goals into actionable written deployment blueprints via auto-suggestion loops." },
+    21: { name: "Principal Principal Protection Rules", description: "Insisting on rigid analytical discounts relative to price metrics to absorb macro systems error constants." },
+    22: { name: " Conscious Allocation Automation Blueprints",p:"Routing payload flows straight to future equity variables while spending lavishly on core passions." },
+    23: { name: "Defensive Consumption Preservation Track",p:"Trading superficial social performance displays for absolute, uncompromised lifecycle temporal sovereignty." },
+    24: { name: "Ten-Percent Capital Preservation Anchors",p:"Treating your internal savings rate as a non-negotiable transactional bill owed directly to your future." },
+    25: { name: "Life-Force Temporal Valuation Maps",p:"Computing commercial retail exchange matrices in direct spent hours of your limited lifespan metrics."},
+    26: { name: "Accelerated Debt Snowball Squeezes",p:"Waging an aggressive systemic campaign to permanently destroy liabilities and maximize free options."},
+    27: { name: "Permissionless Software Scaling Leverage",p:"Exploiting code, media infrastructure pipelines, and distinct knowledge vectors with zero duplication overhead drag."},
+    28: { name: "Fastlane System Infrastructure Launch",p:"Decoupling wealth accumulation parameters completely from linear time sales grids through enterprise automation blueprints."},
+    29: { name: "Subconscious Blueprint Thermostat Overhauls",p:"Going upstream inside your memory matrix to identify and erase restrictive childhood programming scripts."},
+    30: { name: "Experiential Life Curve Utility Maximization",p:"Distributing wealth capital across your biological age timeline to purchase peak memory dividends early."},
+    31: { name: "Passive Index Trackers Compound Channels",p:"Eliminating predatory financial fee leakages through simple, automated total market asset holding loops."},
+    32: { name: "Right-Side System Allocation Matrix",p:"Transforming operations from independent labor setups into highly scalable corporate structures and passive asset pipelines."},
+    33: { name: "Recession-Proof Asset Class Buffers",p:"Pre-allocating cash buffers and core growth allocations to shield equity nodes from temporary market chaos cycles."},
+    34: { name: "Frequency Attunement Magnet Blueprints",p:"Recognizing that clear visualization fields act as active broadcast lines calling matching real scenarios."},
+    35: { name: "Space Awareness Witness Consciousness Portals",p:"Stepping past abstract thought stream identify attachments to sit cleanly inside the quiet background of being."},
+    36: { name: "Segment Intending Frequency Vectors",p:"Pre-defining environmental emotional parameters before crossing task boundaries to defend baseline alignment."},
+    37: { name: "Cellular Biochemical Script Dissolution",p:"Using daily meditation modules to systematically dissolve legacy trauma loops and change your body chemistry defaults."},
+    38: { name: "Zone of Dharma Contribution Intersections",p:"Fusing raw native talents with passionate execution styles to solve complex problems for the human collective."},
+    39: { name: "Omen Reading Destiny Tracking Maps",p:"Navigating unexpected lifecycle adjustments calmly by tracking continuous environmental feedback indicators."},
+    40: { name: "High Frequency Boundary Shield Installations",p:"Ruthlessly pruning toxic peer nodes and communication static to preserve your baseline vibration parameters."},
+    41: { name: " sweat Equity Manifestation Manuals",p:"Pairing hyper-vivid visualization templates with aggressive real-world process labor to validate your intentions."},
+    42: { name: "Master Thought Weaver Realignment Layouts",p:"Treating every fleeting choice as an active structural seed forming your future landscape variables."},
+    43: { name: "Ancient Toltec Agreement Armor Blocks",p:"Shedding cultural domestication programming by locking in absolute honesty, word impeccability, and non-personal metrics filters."},
+    44: { name: "Overthinking Playlist Overwrite Methods",p:"Filtering cyclical inner chatter through strict truth indicators to protect daily cognitive currency channels cleanly."},
+    45: { name: "Inspired Alignment Execution Transitions",p:"Refusing to act from panicked survival frequencies; waiting for clarity to launch scalable professional scripts maps."},
+    46: { name: "Thought Corridor Expansion Blueprints",p:"Shattering low-ambition goal structures to automatically wake up sleeping solution-oriented brain networks inside your machine."},
+    47: { name: "Somatisch Feeling Assumption Keys",p:"Embodying the biochemical success parameters completely *prior* to physical materialization to command your subconscious processor cells."},
+    48: { name: "Rigid Weekly Mind Concentration Curriculums",p:"Training attention pathways through forced, quiet stillness drills to eliminate modern digital attention fragmentation drag."},
+    49: { name: "Lineage Wealth Optimization Scripts",p:"Rebranding money as an elite tactical multiplier tool for ultimate temporal options and social impact execution lines."},
+    50: { name: "Voice Chatter Detachment Mastery",p:"Standing firmly as the vast empty theater space inside which your inner roommate's voice chatter plays out safely."}
+  },
+  te: {
+    1: { name: "నిరంతర అలవాట్ల కాంపౌండింగ్ సూత్రం", description: "చిన్న చిన్న 1% మార్పులు రోజువారీగా తోడైతే, కాలక్రమేణా అవి ఊహించని పెద్ద విజయాలను ఇస్తాయి." },
+    2: { name: "క్యారెక్టర్ డ్రివెన్ వ్యూహాత్మక అమరిక", description: "సమాజంలో తాత్కాలిక హోదాల వెనుక పడకుండా, కాలాతీత విలువలతో క్యారెక్టర్ నిర్మించుకోవడం." },
+    3: { name: "మానసిక దృఢత్వం - డిస్కంఫర్ట్ ట్రైనింగ్", description: "కష్టాలను మరియు శారీరక ఒత్తిడిని ఒక శిక్షణగా భావించి మానసిక హద్దులను దాటడం." },
+    4: { name: "ఉపచేతన రక్షణ వలయాల విశ్లేషణ", description: "మనల్ని మనమే తక్కువ అంచనా వేసుకునే భయాల వెనుక ఉన్న అసలైన కారణాలను వెలికితీయడం." },
+    5: { name: "పరధ్యాన రహిత ఏకాగ్రత రక్షణ వలయం", description: "సోషల్ మీడియా నోటిఫिकేషన్లను దూరం పెట్టి, రోజుకు కనీసం 90 నిమిషాలు హై-వాల్యూ పనులపై దృష్టి పెట్టడం." },
+    6: { name: "అత్యంత ముఖ్యమైన పనుల ప్రాధాన్యత", description: "అన్ని పనులపై శక్తిని వృథా చేయకుండా, కేవలం అత్యున్నత ఫలితాలను ఇచ్చే కొన్ని పనులనే ఎంచుకోవడం." },
+    7: { name: "రూటీన్ రీ-ఇంజనీరింగ్ వ్యూహాలు", description: "పాత అలవాట్ల ట్రిగ్గర్లను గమనించి, వాటి స్థానంలో కొత్త సానుకూల పనులను ప్రవేశపెట్టడం." },
+    8: { name: "పూర్తి బాధ్యతాయుత జీవన విధానం", description: "పరిస్థితులకు ఇతరులను నిందించడం ఆపి, మీ ఆర్థిక, వ్యక్తిగత ఎదుగుదలకు మీరే బాధ్యత వహించడం." },
+    9: { name: "నలుగురితో సత్సంబంధాల పెంపుదల", p:"ఇతరుల విమర్శలను పక్కన పెట్టి, వారిలోని మంచి గుణాలను మనస్ఫూర్తిగా అభినందించడం నేర్చుకోవడం." },
+    10: { name: "సమృద్ధి మైండ్‌సెట్ (Abundance Matrix)", p:"ప్రపంచంలో అవకాశాలు పుష్కలంగా ఉన్నాయని నమ్మి, లోటు ఆలోచనల నుండి బయటపడటం." }
+  },
+  de: {
+    1: { name: "Das Prinzip der atomaren Routinen", description: "Winzige tägliche 1%-Verbesserungen summieren sich über das Jahr zu einer gigantischen Transformation." },
+    2: { name: "Charakterorientierte Prinzipienausrichtung", description: "Nachhaltiger Lebenserfolg erfordert ein stabiles Fundament aus zeitlosen Werten statt billiger Tricks." },
+    3: { name: "Mentale Resilienz durch Reibung", description: "Sprengung selbstauferlegter Grenzen durch bewusstes Aufsuchen von anspruchsvollen Komfortzonen-Resets." },
+    4: { name: "Auflösung unbewusster Schutzmuster", description: "Analyse sabotierender Verhaltensweisen, um die dahinterliegenden emotionalen Wunden zu heilen." },
+    5: { name: "Fokus-Konservierung im Digitalzeitalter", description: "Eliminierung jeglicher Mikro-Ablenkungen zur Maximierung deiner kognitiven Leistungsfähigkeit." },
+    6: { name: "Radikale Prunung nicht-essenzieller Pfade", description: "Konsequente Reduktion von Verpflichtungen, um die Energie auf deine wahren Meilensteine zu lenken." },
+    7: { name: "Gewohnheitsschleifen-Umprogrammierung", description: "Beibehaltung von Auslöser und Belohnung bei komplettem Austausch der intermediären Routine." },
+    8: { name: "Sinnstiftung durch Lastenübernahme", description: "Wahl einer freiwilligen, anspruchsvollen Verantwortung zur Erreichung tiefer existenzieller Zufriedenheit." },
+    9: { name: "Sprengung der Perfektionismus-Rüstung", p:"Ablegen falscher gesellschaftlicher Masken, um echte menschliche Nähe und Innovationskraft freizuschalten." },
+    10: { name: "Nachhaltiges Grit-Durchhaltevermögen", p:"Kombination aus jahrzehntelanger Begeisterung und Zähigkeit für ein einziges großes Lebensziel." }
+  }
+};
+
 let BOOKS = [];
 
 function setLanguage(langCode) {
   stopSpeechEngine();
   currentLang = langCode;
   
-  // Dynamic Context Matrix Expansion Engine Execution
-  const rawList = BOOK_PARADIGMS[currentLang];
+  const rawList = BOOK_DATASETS[currentLang];
   const dict = CONFIG[currentLang];
   
+  // Advanced Concept Extraction Loop Engine
   BOOKS = rawList.map(item => {
+    let processedConcepts = [];
+    const dynMap = SYSTEM_DYNAMICS[currentLang];
+    
+    for(let i=0; i<10; i++) {
+      // Fetch dynamic title context lines or default smoothly back to template index nodes cleanly
+      let conceptNode = (dynMap && dynMap[item.n]) ? dynMap[item.n] : (dynMap && dynMap[1] ? dynMap[1] : {name: dict.concepts[i], description: dict.texts[i]});
+      
+      // Select appropriate customized statement segments layout matrices based on loop context fields safely
+      let cTitle = (dynMap && dynMap[item.n]) ? `${item.title} · ${dynMap[id = (item.n > 50 ? 1 : item.n)] ? CONFIG[currentLang].concepts[i] : dict.concepts[i]}` : `${item.title} · ${dict.concepts[i]}`;
+      
+      // Inject customized specific text data arrays statements
+      let specificText = dict.texts[i];
+      if (currentLang === 'en') {
+        const specializedContext = dynMap[item.n] || dynMap[1];
+        const tokenName = specializedContext.name || "Systematic Target Execution";
+        const tokenDesc = specializedContext.description || "Leveraging process design architecture parameters safely.";
+        specificText = `Focus processing tracks deeply around <b>${tokenName}</b>. ${tokenDesc} <b>Takeaway Analysis:</b> ${dict.texts[i].split("<b>Takeaway Analysis:</b>")[1] || dict.texts[i]}`;
+      } else if (currentLang === 'te') {
+        const teContext = SYSTEM_DYNAMICS.te[item.n] || SYSTEM_DYNAMICS.te[1];
+        specificText = `మీరు ఈ పుస్తకంలో ముఖ్యంగా గమనించాల్సిన అంశం: <b>${teContext.name}</b>. ${teContext.description} <b>ముఖ్య విశ్లేషణ:</b> ${dict.texts[i].split("<b>ముఖ్య విశ్లేషణ:</b>")[1] || dict.texts[i]}`;
+      } else if (currentLang === 'de') {
+        const deContext = SYSTEM_DYNAMICS.de[item.n] || SYSTEM_DYNAMICS.de[1];
+        specificText = `Ein absoluter Kernpunkt dieses Werks basiert auf: <b>${deContext.name}</b>. ${deContext.description} <b>Takeaway-Analyse:</b> ${dict.texts[i].split("<b>Takeaway-Analyse:</b>")[1] || dict.texts[i]}`;
+      }
+
+      processedConcepts.push({
+        h: cTitle,
+        p: specificText
+      });
+    }
+
     return {
       n: item.n,
       title: item.title,
@@ -1027,8 +552,8 @@ function setLanguage(langCode) {
       year: item.year,
       cat: dict.cats[Math.floor((item.n - 1) / 17)] || dict.cats[0],
       core: item.core,
-      concepts: item.principles,
-      sig: item.sig || "Your mental configuration dictates your lived physical parameters."
+      concepts: processedConcepts,
+      sig: item.sig || `${dict.sigSuffix}`
     };
   });
   
@@ -1036,9 +561,12 @@ function setLanguage(langCode) {
   document.getElementById('contentsBtn').innerText = dict.indexBtn;
   document.getElementById('indexHeading').innerText = dict.indexHead;
   document.getElementById('closeOv').innerText = dict.closeBtn;
+  
   document.getElementById('prev').innerHTML = dict.prevBtn;
   document.getElementById('next').innerHTML = dict.nextBtn;
   document.getElementById('navigationHint').innerText = dict.hint;
+  
+  updateSpeakButtonLabel();
   
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.id === `btn-lang-${langCode}`);
@@ -1123,6 +651,7 @@ function go(d){
   if(t >= 0 && t < BOOKS.length){ idx = t; render(); } 
 }
 
+// Global Touch Lifecycle Action Interrupters
 function jump(i){ 
   stopSpeechEngine();
   idx = i; 
