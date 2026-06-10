@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6366F1;
+  --accent:  #A78BFA;
+  --bg:      #080D1A;
+  --surface: #0F172A;
+  --card:    #1E293B;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg);
+    color: #E2E8F0;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-indigo-500 hover:-translate-y-px active:translate-y-0;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-2.5 text-sm font-semibold text-slate-400 transition-all hover:border-white/20 hover:text-white;
+  }
+  .card {
+    @apply rounded-2xl border border-white/[0.07] bg-card;
+  }
+  .section-tag {
+    @apply text-xs font-bold uppercase tracking-widest text-primary;
+  }
+  .grad-text {
+    @apply bg-gradient-to-r from-accent via-primary to-sky-400 bg-clip-text text-transparent;
+  }
+  .badge-free {
+    @apply rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-emerald-400;
+  }
+  .badge-paid {
+    @apply rounded-full border border-amber-500/25 bg-amber-500/10 px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-amber-400;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+
+/* Page fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.5s ease forwards; }
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.4); }
+}
+.pulse-dot { animation: pulse-dot 2s infinite; }
